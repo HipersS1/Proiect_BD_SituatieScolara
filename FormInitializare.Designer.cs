@@ -30,17 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInitializare));
             this.panelForm = new System.Windows.Forms.Panel();
-            this.panelTop = new System.Windows.Forms.Panel();
-            this.panelLeft = new System.Windows.Forms.Panel();
             this.panelCenter = new System.Windows.Forms.Panel();
-            this.btnMenuUniversity = new System.Windows.Forms.Button();
-            this.btnMenuStudents = new System.Windows.Forms.Button();
+            this.panelLeft = new System.Windows.Forms.Panel();
             this.pictureBoxUSVLogo = new System.Windows.Forms.PictureBox();
+            this.btnMenuStudents = new System.Windows.Forms.Button();
+            this.btnMenuUniversity = new System.Windows.Forms.Button();
+            this.panelTop = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelMenu = new System.Windows.Forms.Label();
             this.panelForm.SuspendLayout();
-            this.panelTop.SuspendLayout();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUSVLogo)).BeginInit();
+            this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,15 +56,14 @@
             this.panelForm.Size = new System.Drawing.Size(1222, 498);
             this.panelForm.TabIndex = 0;
             // 
-            // panelTop
+            // panelCenter
             // 
-            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
-            this.panelTop.Controls.Add(this.pictureBox1);
-            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1222, 81);
-            this.panelTop.TabIndex = 0;
+            this.panelCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
+            this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCenter.Location = new System.Drawing.Point(150, 81);
+            this.panelCenter.Name = "panelCenter";
+            this.panelCenter.Size = new System.Drawing.Size(1072, 417);
+            this.panelCenter.TabIndex = 2;
             // 
             // panelLeft
             // 
@@ -77,27 +77,17 @@
             this.panelLeft.Size = new System.Drawing.Size(150, 417);
             this.panelLeft.TabIndex = 1;
             // 
-            // panelCenter
+            // pictureBoxUSVLogo
             // 
-            this.panelCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
-            this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenter.Location = new System.Drawing.Point(150, 81);
-            this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(1072, 417);
-            this.panelCenter.TabIndex = 2;
-            // 
-            // btnMenuUniversity
-            // 
-            this.btnMenuUniversity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
-            this.btnMenuUniversity.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMenuUniversity.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMenuUniversity.Location = new System.Drawing.Point(0, 0);
-            this.btnMenuUniversity.Name = "btnMenuUniversity";
-            this.btnMenuUniversity.Size = new System.Drawing.Size(150, 68);
-            this.btnMenuUniversity.TabIndex = 0;
-            this.btnMenuUniversity.Text = "Meniu Facultate";
-            this.btnMenuUniversity.UseVisualStyleBackColor = false;
-            this.btnMenuUniversity.Click += new System.EventHandler(this.btnMenuUniversity_Click);
+            this.pictureBoxUSVLogo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pictureBoxUSVLogo.Image = global::Proiect_BD_SituatieScolara.Properties.Resources._640px_Ștefan_cel_Mare_University_of_Suceava_logo_svg;
+            this.pictureBoxUSVLogo.InitialImage = global::Proiect_BD_SituatieScolara.Properties.Resources.universitatea_suceava_usv_968x460;
+            this.pictureBoxUSVLogo.Location = new System.Drawing.Point(0, 361);
+            this.pictureBoxUSVLogo.Name = "pictureBoxUSVLogo";
+            this.pictureBoxUSVLogo.Size = new System.Drawing.Size(150, 56);
+            this.pictureBoxUSVLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxUSVLogo.TabIndex = 0;
+            this.pictureBoxUSVLogo.TabStop = false;
             // 
             // btnMenuStudents
             // 
@@ -112,17 +102,29 @@
             this.btnMenuStudents.UseVisualStyleBackColor = false;
             this.btnMenuStudents.Click += new System.EventHandler(this.btnMenuStudents_Click);
             // 
-            // pictureBoxUSVLogo
+            // btnMenuUniversity
             // 
-            this.pictureBoxUSVLogo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pictureBoxUSVLogo.Image = global::Proiect_BD_SituatieScolara.Properties.Resources._640px_Ștefan_cel_Mare_University_of_Suceava_logo_svg;
-            this.pictureBoxUSVLogo.InitialImage = global::Proiect_BD_SituatieScolara.Properties.Resources.universitatea_suceava_usv_968x460;
-            this.pictureBoxUSVLogo.Location = new System.Drawing.Point(0, 361);
-            this.pictureBoxUSVLogo.Name = "pictureBoxUSVLogo";
-            this.pictureBoxUSVLogo.Size = new System.Drawing.Size(150, 56);
-            this.pictureBoxUSVLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxUSVLogo.TabIndex = 0;
-            this.pictureBoxUSVLogo.TabStop = false;
+            this.btnMenuUniversity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
+            this.btnMenuUniversity.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuUniversity.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMenuUniversity.Location = new System.Drawing.Point(0, 0);
+            this.btnMenuUniversity.Name = "btnMenuUniversity";
+            this.btnMenuUniversity.Size = new System.Drawing.Size(150, 68);
+            this.btnMenuUniversity.TabIndex = 0;
+            this.btnMenuUniversity.Text = "Meniu Facultate";
+            this.btnMenuUniversity.UseVisualStyleBackColor = false;
+            this.btnMenuUniversity.Click += new System.EventHandler(this.btnMenuUniversity_Click);
+            // 
+            // panelTop
+            // 
+            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.panelTop.Controls.Add(this.labelMenu);
+            this.panelTop.Controls.Add(this.pictureBox1);
+            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(1222, 81);
+            this.panelTop.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -135,6 +137,17 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // labelMenu
+            // 
+            this.labelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMenu.Location = new System.Drawing.Point(150, 0);
+            this.labelMenu.Name = "labelMenu";
+            this.labelMenu.Size = new System.Drawing.Size(1072, 81);
+            this.labelMenu.TabIndex = 2;
+            this.labelMenu.Text = "Pagina principala";
+            this.labelMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FormInitializare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -143,11 +156,12 @@
             this.Controls.Add(this.panelForm);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormInitializare";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "University Manager";
             this.panelForm.ResumeLayout(false);
-            this.panelTop.ResumeLayout(false);
             this.panelLeft.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUSVLogo)).EndInit();
+            this.panelTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -163,6 +177,7 @@
         private System.Windows.Forms.Button btnMenuUniversity;
         private System.Windows.Forms.PictureBox pictureBoxUSVLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labelMenu;
     }
 }
 

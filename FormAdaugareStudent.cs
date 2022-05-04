@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Proiect_BD_SituatieScolara
 {
-    public partial class FormInitializare : Form
+    public partial class FormAdaugareStudent : Form
     {
-        public FormInitializare()
+        public FormAdaugareStudent()
         {
             InitializeComponent();
         }
@@ -30,6 +30,11 @@ namespace Proiect_BD_SituatieScolara
         private void btnMenuUniversity_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

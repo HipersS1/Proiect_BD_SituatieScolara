@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAdaugareStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdaugareStudent.Designer.cs">
+      <DependentUpon>FormAdaugareStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenuStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenuStudent.Designer.cs">
+      <DependentUpon>FormMenuStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormInitializare.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +66,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAdaugareStudent.resx">
+      <DependentUpon>FormAdaugareStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMenuStudent.resx">
+      <DependentUpon>FormMenuStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormInitializare.resx">
       <DependentUpon>FormInitializare.cs</DependentUpon>
     </EmbeddedResource>
