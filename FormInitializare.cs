@@ -16,5 +16,15 @@ namespace Proiect_BD_SituatieScolara
         {
             InitializeComponent();
         }
+
+        private void btnMenuStudents_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMenuUniversity_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
