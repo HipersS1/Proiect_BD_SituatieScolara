@@ -46,6 +46,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SubjectForms\FormAdaugareMaterie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubjectForms\FormAdaugareMaterie.Designer.cs">
+      <DependentUpon>FormAdaugareMaterie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FacultyForms\FormModificareFacultate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FacultyForms\FormModificareFacultate.Designer.cs">
+      <DependentUpon>FormModificareFacultate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentForms\FormAdaugaNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentForms\FormAdaugaNote.Designer.cs">
+      <DependentUpon>FormAdaugaNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FacultyForms\FormMenuFacultate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FacultyForms\FormMenuFacultate.Designer.cs">
+      <DependentUpon>FormMenuFacultate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FacultyForms\FormAdaugareFacultate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FacultyForms\FormAdaugareFacultate.Designer.cs">
+      <DependentUpon>FormAdaugareFacultate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubjectForms\FormMenuMaterii.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubjectForms\FormMenuMaterii.Designer.cs">
+      <DependentUpon>FormMenuMaterii.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentForms\FormModificareStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentForms\FormModificareStudent.Designer.cs">
+      <DependentUpon>FormModificareStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentForms\FormAdaugareStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentForms\FormAdaugareStudent.Designer.cs">
+      <DependentUpon>FormAdaugareStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentForms\FormMenuStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentForms\FormMenuStudent.Designer.cs">
+      <DependentUpon>FormMenuStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormInitializare.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +108,33 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="SubjectForms\FormAdaugareMaterie.resx">
+      <DependentUpon>FormAdaugareMaterie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FacultyForms\FormModificareFacultate.resx">
+      <DependentUpon>FormModificareFacultate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentForms\FormAdaugaNote.resx">
+      <DependentUpon>FormAdaugaNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FacultyForms\FormMenuFacultate.resx">
+      <DependentUpon>FormMenuFacultate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FacultyForms\FormAdaugareFacultate.resx">
+      <DependentUpon>FormAdaugareFacultate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubjectForms\FormMenuMaterii.resx">
+      <DependentUpon>FormMenuMaterii.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentForms\FormModificareStudent.resx">
+      <DependentUpon>FormModificareStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentForms\FormAdaugareStudent.resx">
+      <DependentUpon>FormAdaugareStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentForms\FormMenuStudent.resx">
+      <DependentUpon>FormMenuStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormInitializare.resx">
       <DependentUpon>FormInitializare.cs</DependentUpon>
     </EmbeddedResource>

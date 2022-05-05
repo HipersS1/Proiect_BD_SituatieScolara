@@ -10,34 +10,30 @@ using System.Windows.Forms;
 
 namespace Proiect_BD_SituatieScolara
 {
-    public partial class FormInitializare : Form
+    public partial class FormAdaugareStudent : Form
     {
-        public FormInitializare()
+        public FormAdaugareStudent()
         {
             InitializeComponent();
         }
 
         private void btnMenuStudents_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormMenuStudent form = new FormMenuStudent();
-            form.ShowDialog();
-            this.Close();
+            using(FormMenuStudent form = new FormMenuStudent())
+            {
+                this.Hide();
+                form.ShowDialog();
+                this.Show();
+            }
         }
 
         private void btnMenuUniversity_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormMenuFacultate form = new FormMenuFacultate();
-            form.ShowDialog();
-            this.Close();
+
         }
 
-        private void btnMenuMa_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormMenuMaterii form = new FormMenuMaterii();
-            form.ShowDialog();
             this.Close();
         }
     }
