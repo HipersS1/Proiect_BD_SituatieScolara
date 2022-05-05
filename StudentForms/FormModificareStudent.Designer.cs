@@ -1,6 +1,6 @@
 ﻿namespace Proiect_BD_SituatieScolara
 {
-    partial class FormAdaugareStudent
+    partial class FormModificareStudent
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdaugareStudent));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormModificareStudent));
             this.panelForm = new System.Windows.Forms.Panel();
             this.panelCenter = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -50,7 +50,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
-            this.labelFormularAdaugare = new System.Windows.Forms.Label();
+            this.labelFormularModificare = new System.Windows.Forms.Label();
             this.panelForm.SuspendLayout();
             this.panelCenter.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -65,7 +65,7 @@
             this.panelForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelForm.Location = new System.Drawing.Point(0, 0);
             this.panelForm.Name = "panelForm";
-            this.panelForm.Size = new System.Drawing.Size(539, 518);
+            this.panelForm.Size = new System.Drawing.Size(472, 400);
             this.panelForm.TabIndex = 0;
             // 
             // panelCenter
@@ -73,9 +73,9 @@
             this.panelCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
             this.panelCenter.Controls.Add(this.panel1);
             this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenter.Location = new System.Drawing.Point(0, 81);
+            this.panelCenter.Location = new System.Drawing.Point(0, 76);
             this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(539, 437);
+            this.panelCenter.Size = new System.Drawing.Size(472, 324);
             this.panelCenter.TabIndex = 2;
             // 
             // panel1
@@ -87,7 +87,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(539, 437);
+            this.panel1.Size = new System.Drawing.Size(472, 324);
             this.panel1.TabIndex = 1;
             // 
             // panel4
@@ -107,45 +107,45 @@
             this.panel4.Controls.Add(this.comboBoxFacultyStudent);
             this.panel4.Controls.Add(this.labelYearStudent);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(82, 0);
+            this.panel4.Location = new System.Drawing.Point(72, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(375, 437);
+            this.panel4.Size = new System.Drawing.Size(328, 324);
             this.panel4.TabIndex = 17;
             // 
             // labelFirstNameStudent
             // 
             this.labelFirstNameStudent.AutoSize = true;
-            this.labelFirstNameStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFirstNameStudent.Location = new System.Drawing.Point(6, 55);
+            this.labelFirstNameStudent.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFirstNameStudent.Location = new System.Drawing.Point(5, 21);
             this.labelFirstNameStudent.Name = "labelFirstNameStudent";
-            this.labelFirstNameStudent.Size = new System.Drawing.Size(111, 29);
+            this.labelFirstNameStudent.Size = new System.Drawing.Size(96, 28);
             this.labelFirstNameStudent.TabIndex = 2;
             this.labelFirstNameStudent.Text = "Prenume";
             // 
             // labelLastNameStudent
             // 
             this.labelLastNameStudent.AutoSize = true;
-            this.labelLastNameStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLastNameStudent.Location = new System.Drawing.Point(6, 95);
+            this.labelLastNameStudent.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLastNameStudent.Location = new System.Drawing.Point(5, 58);
             this.labelLastNameStudent.Name = "labelLastNameStudent";
-            this.labelLastNameStudent.Size = new System.Drawing.Size(78, 29);
+            this.labelLastNameStudent.Size = new System.Drawing.Size(68, 28);
             this.labelLastNameStudent.TabIndex = 1;
             this.labelLastNameStudent.Text = "Nume";
             // 
             // textBoxLastNameStudent
             // 
-            this.textBoxLastNameStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLastNameStudent.Location = new System.Drawing.Point(143, 90);
+            this.textBoxLastNameStudent.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxLastNameStudent.Location = new System.Drawing.Point(134, 53);
             this.textBoxLastNameStudent.Name = "textBoxLastNameStudent";
-            this.textBoxLastNameStudent.Size = new System.Drawing.Size(214, 34);
+            this.textBoxLastNameStudent.Size = new System.Drawing.Size(188, 36);
             this.textBoxLastNameStudent.TabIndex = 8;
             // 
             // btnCancel
             // 
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(205, 350);
+            this.btnCancel.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(181, 274);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(164, 41);
+            this.btnCancel.Size = new System.Drawing.Size(144, 38);
             this.btnCancel.TabIndex = 14;
             this.btnCancel.Text = "Anuleaza";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -153,102 +153,102 @@
             // 
             // textBoxEmailStudent
             // 
-            this.textBoxEmailStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmailStudent.Location = new System.Drawing.Point(143, 130);
+            this.textBoxEmailStudent.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxEmailStudent.Location = new System.Drawing.Point(134, 91);
             this.textBoxEmailStudent.Name = "textBoxEmailStudent";
-            this.textBoxEmailStudent.Size = new System.Drawing.Size(214, 34);
+            this.textBoxEmailStudent.Size = new System.Drawing.Size(188, 36);
             this.textBoxEmailStudent.TabIndex = 9;
             // 
             // labelEmailStudent
             // 
             this.labelEmailStudent.AutoSize = true;
-            this.labelEmailStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmailStudent.Location = new System.Drawing.Point(6, 135);
+            this.labelEmailStudent.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmailStudent.Location = new System.Drawing.Point(5, 96);
             this.labelEmailStudent.Name = "labelEmailStudent";
-            this.labelEmailStudent.Size = new System.Drawing.Size(82, 29);
+            this.labelEmailStudent.Size = new System.Drawing.Size(69, 28);
             this.labelEmailStudent.TabIndex = 3;
             this.labelEmailStudent.Text = "E-mail";
             // 
             // labelFacultyStudent
             // 
             this.labelFacultyStudent.AutoSize = true;
-            this.labelFacultyStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFacultyStudent.Location = new System.Drawing.Point(6, 218);
+            this.labelFacultyStudent.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFacultyStudent.Location = new System.Drawing.Point(5, 173);
             this.labelFacultyStudent.Name = "labelFacultyStudent";
-            this.labelFacultyStudent.Size = new System.Drawing.Size(111, 29);
+            this.labelFacultyStudent.Size = new System.Drawing.Size(98, 28);
             this.labelFacultyStudent.TabIndex = 7;
             this.labelFacultyStudent.Text = "Facultate";
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(6, 350);
+            this.btnSubmit.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.Location = new System.Drawing.Point(9, 274);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(164, 41);
+            this.btnSubmit.Size = new System.Drawing.Size(144, 38);
             this.btnSubmit.TabIndex = 13;
-            this.btnSubmit.Text = "Adauga";
+            this.btnSubmit.Text = "Actualizeaza";
             this.btnSubmit.UseVisualStyleBackColor = true;
             // 
             // textBoxPhoneStudent
             // 
-            this.textBoxPhoneStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPhoneStudent.Location = new System.Drawing.Point(143, 170);
+            this.textBoxPhoneStudent.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPhoneStudent.Location = new System.Drawing.Point(134, 128);
             this.textBoxPhoneStudent.Name = "textBoxPhoneStudent";
-            this.textBoxPhoneStudent.Size = new System.Drawing.Size(214, 34);
+            this.textBoxPhoneStudent.Size = new System.Drawing.Size(188, 36);
             this.textBoxPhoneStudent.TabIndex = 10;
             // 
             // labelPhoneStudent
             // 
             this.labelPhoneStudent.AutoSize = true;
-            this.labelPhoneStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPhoneStudent.Location = new System.Drawing.Point(6, 175);
+            this.labelPhoneStudent.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPhoneStudent.Location = new System.Drawing.Point(5, 133);
             this.labelPhoneStudent.Name = "labelPhoneStudent";
-            this.labelPhoneStudent.Size = new System.Drawing.Size(96, 29);
+            this.labelPhoneStudent.Size = new System.Drawing.Size(79, 28);
             this.labelPhoneStudent.TabIndex = 4;
             this.labelPhoneStudent.Text = "Telefon";
             // 
             // textBoxFirstNameStudent
             // 
-            this.textBoxFirstNameStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFirstNameStudent.Location = new System.Drawing.Point(143, 50);
+            this.textBoxFirstNameStudent.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxFirstNameStudent.Location = new System.Drawing.Point(134, 16);
             this.textBoxFirstNameStudent.Name = "textBoxFirstNameStudent";
-            this.textBoxFirstNameStudent.Size = new System.Drawing.Size(214, 34);
+            this.textBoxFirstNameStudent.Size = new System.Drawing.Size(188, 36);
             this.textBoxFirstNameStudent.TabIndex = 6;
             // 
             // comboBoxYearStudent
             // 
-            this.comboBoxYearStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxYearStudent.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxYearStudent.FormattingEnabled = true;
-            this.comboBoxYearStudent.Location = new System.Drawing.Point(143, 253);
+            this.comboBoxYearStudent.Location = new System.Drawing.Point(134, 206);
             this.comboBoxYearStudent.Name = "comboBoxYearStudent";
-            this.comboBoxYearStudent.Size = new System.Drawing.Size(214, 37);
+            this.comboBoxYearStudent.Size = new System.Drawing.Size(188, 36);
             this.comboBoxYearStudent.TabIndex = 12;
             // 
             // comboBoxFacultyStudent
             // 
-            this.comboBoxFacultyStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxFacultyStudent.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxFacultyStudent.FormattingEnabled = true;
-            this.comboBoxFacultyStudent.Location = new System.Drawing.Point(144, 210);
+            this.comboBoxFacultyStudent.Location = new System.Drawing.Point(135, 166);
             this.comboBoxFacultyStudent.Name = "comboBoxFacultyStudent";
-            this.comboBoxFacultyStudent.Size = new System.Drawing.Size(213, 37);
+            this.comboBoxFacultyStudent.Size = new System.Drawing.Size(187, 36);
             this.comboBoxFacultyStudent.TabIndex = 11;
             // 
             // labelYearStudent
             // 
             this.labelYearStudent.AutoSize = true;
-            this.labelYearStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelYearStudent.Location = new System.Drawing.Point(6, 261);
+            this.labelYearStudent.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelYearStudent.Location = new System.Drawing.Point(5, 214);
             this.labelYearStudent.Name = "labelYearStudent";
-            this.labelYearStudent.Size = new System.Drawing.Size(41, 29);
+            this.labelYearStudent.Size = new System.Drawing.Size(37, 28);
             this.labelYearStudent.TabIndex = 5;
             this.labelYearStudent.Text = "An";
             // 
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(457, 0);
+            this.panel3.Location = new System.Drawing.Point(400, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(82, 437);
+            this.panel3.Size = new System.Drawing.Size(72, 324);
             this.panel3.TabIndex = 16;
             // 
             // panel2
@@ -256,39 +256,41 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(82, 437);
+            this.panel2.Size = new System.Drawing.Size(72, 324);
             this.panel2.TabIndex = 15;
             // 
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
-            this.panelTop.Controls.Add(this.labelFormularAdaugare);
+            this.panelTop.Controls.Add(this.labelFormularModificare);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(539, 81);
+            this.panelTop.Size = new System.Drawing.Size(472, 76);
             this.panelTop.TabIndex = 0;
             // 
-            // labelFormularAdaugare
+            // labelFormularModificare
             // 
-            this.labelFormularAdaugare.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelFormularAdaugare.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFormularAdaugare.Location = new System.Drawing.Point(0, 0);
-            this.labelFormularAdaugare.Name = "labelFormularAdaugare";
-            this.labelFormularAdaugare.Size = new System.Drawing.Size(539, 81);
-            this.labelFormularAdaugare.TabIndex = 1;
-            this.labelFormularAdaugare.Text = "Formular Student";
-            this.labelFormularAdaugare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelFormularModificare.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelFormularModificare.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelFormularModificare.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFormularModificare.Location = new System.Drawing.Point(0, 0);
+            this.labelFormularModificare.Name = "labelFormularModificare";
+            this.labelFormularModificare.Size = new System.Drawing.Size(472, 76);
+            this.labelFormularModificare.TabIndex = 1;
+            this.labelFormularModificare.Text = "Modificare";
+            this.labelFormularModificare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FormAdaugareStudent
+            // FormModificareStudent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(539, 518);
+            this.ClientSize = new System.Drawing.Size(472, 400);
             this.Controls.Add(this.panelForm);
+            this.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormAdaugareStudent";
+            this.Name = "FormModificareStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "University Manager";
             this.panelForm.ResumeLayout(false);
@@ -306,7 +308,7 @@
         private System.Windows.Forms.Panel panelForm;
         private System.Windows.Forms.Panel panelCenter;
         private System.Windows.Forms.Panel panelTop;
-        private System.Windows.Forms.Label labelFormularAdaugare;
+        private System.Windows.Forms.Label labelFormularModificare;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.ComboBox comboBoxYearStudent;

@@ -32,12 +32,13 @@
             this.panelForm = new System.Windows.Forms.Panel();
             this.panelCenter = new System.Windows.Forms.Panel();
             this.panelLeft = new System.Windows.Forms.Panel();
+            this.btnMenuMa = new System.Windows.Forms.Button();
             this.pictureBoxUSVLogo = new System.Windows.Forms.PictureBox();
             this.btnMenuStudents = new System.Windows.Forms.Button();
             this.btnMenuUniversity = new System.Windows.Forms.Button();
             this.panelTop = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelMenu = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelForm.SuspendLayout();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUSVLogo)).BeginInit();
@@ -53,38 +54,55 @@
             this.panelForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelForm.Location = new System.Drawing.Point(0, 0);
             this.panelForm.Name = "panelForm";
-            this.panelForm.Size = new System.Drawing.Size(1222, 498);
+            this.panelForm.Size = new System.Drawing.Size(1100, 538);
             this.panelForm.TabIndex = 0;
             // 
             // panelCenter
             // 
             this.panelCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
             this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenter.Location = new System.Drawing.Point(150, 81);
+            this.panelCenter.Location = new System.Drawing.Point(131, 76);
             this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(1072, 417);
+            this.panelCenter.Size = new System.Drawing.Size(969, 462);
             this.panelCenter.TabIndex = 2;
             // 
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.panelLeft.Controls.Add(this.btnMenuMa);
             this.panelLeft.Controls.Add(this.pictureBoxUSVLogo);
             this.panelLeft.Controls.Add(this.btnMenuStudents);
             this.panelLeft.Controls.Add(this.btnMenuUniversity);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeft.Location = new System.Drawing.Point(0, 81);
+            this.panelLeft.Location = new System.Drawing.Point(0, 76);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(150, 417);
+            this.panelLeft.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.panelLeft.Size = new System.Drawing.Size(131, 462);
             this.panelLeft.TabIndex = 1;
+            // 
+            // btnMenuMa
+            // 
+            this.btnMenuMa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
+            this.btnMenuMa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuMa.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.btnMenuMa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuMa.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuMa.Location = new System.Drawing.Point(0, 165);
+            this.btnMenuMa.Name = "btnMenuMa";
+            this.btnMenuMa.Size = new System.Drawing.Size(131, 75);
+            this.btnMenuMa.TabIndex = 2;
+            this.btnMenuMa.Text = "Meniu Materii";
+            this.btnMenuMa.UseVisualStyleBackColor = false;
+            this.btnMenuMa.Click += new System.EventHandler(this.btnMenuMa_Click);
             // 
             // pictureBoxUSVLogo
             // 
             this.pictureBoxUSVLogo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pictureBoxUSVLogo.Image = global::Proiect_BD_SituatieScolara.Properties.Resources._640px_Ștefan_cel_Mare_University_of_Suceava_logo_svg;
             this.pictureBoxUSVLogo.InitialImage = global::Proiect_BD_SituatieScolara.Properties.Resources.universitatea_suceava_usv_968x460;
-            this.pictureBoxUSVLogo.Location = new System.Drawing.Point(0, 361);
+            this.pictureBoxUSVLogo.Location = new System.Drawing.Point(0, 410);
             this.pictureBoxUSVLogo.Name = "pictureBoxUSVLogo";
-            this.pictureBoxUSVLogo.Size = new System.Drawing.Size(150, 56);
+            this.pictureBoxUSVLogo.Size = new System.Drawing.Size(131, 52);
             this.pictureBoxUSVLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxUSVLogo.TabIndex = 0;
             this.pictureBoxUSVLogo.TabStop = false;
@@ -93,10 +111,12 @@
             // 
             this.btnMenuStudents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
             this.btnMenuStudents.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMenuStudents.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMenuStudents.Location = new System.Drawing.Point(0, 68);
+            this.btnMenuStudents.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.btnMenuStudents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuStudents.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuStudents.Location = new System.Drawing.Point(0, 90);
             this.btnMenuStudents.Name = "btnMenuStudents";
-            this.btnMenuStudents.Size = new System.Drawing.Size(150, 68);
+            this.btnMenuStudents.Size = new System.Drawing.Size(131, 75);
             this.btnMenuStudents.TabIndex = 1;
             this.btnMenuStudents.Text = "Meniu Studenti";
             this.btnMenuStudents.UseVisualStyleBackColor = false;
@@ -106,10 +126,12 @@
             // 
             this.btnMenuUniversity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
             this.btnMenuUniversity.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMenuUniversity.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMenuUniversity.Location = new System.Drawing.Point(0, 0);
+            this.btnMenuUniversity.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.btnMenuUniversity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuUniversity.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuUniversity.Location = new System.Drawing.Point(0, 15);
             this.btnMenuUniversity.Name = "btnMenuUniversity";
-            this.btnMenuUniversity.Size = new System.Drawing.Size(150, 68);
+            this.btnMenuUniversity.Size = new System.Drawing.Size(131, 75);
             this.btnMenuUniversity.TabIndex = 0;
             this.btnMenuUniversity.Text = "Meniu Facultate";
             this.btnMenuUniversity.UseVisualStyleBackColor = false;
@@ -123,8 +145,19 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1222, 81);
+            this.panelTop.Size = new System.Drawing.Size(1100, 76);
             this.panelTop.TabIndex = 0;
+            // 
+            // labelMenu
+            // 
+            this.labelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelMenu.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMenu.Location = new System.Drawing.Point(131, 0);
+            this.labelMenu.Name = "labelMenu";
+            this.labelMenu.Size = new System.Drawing.Size(969, 76);
+            this.labelMenu.TabIndex = 2;
+            this.labelMenu.Text = "Pagina principala";
+            this.labelMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
@@ -132,28 +165,18 @@
             this.pictureBox1.Image = global::Proiect_BD_SituatieScolara.Properties.Resources.University;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 81);
+            this.pictureBox1.Size = new System.Drawing.Size(131, 76);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // labelMenu
-            // 
-            this.labelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMenu.Location = new System.Drawing.Point(150, 0);
-            this.labelMenu.Name = "labelMenu";
-            this.labelMenu.Size = new System.Drawing.Size(1072, 81);
-            this.labelMenu.TabIndex = 2;
-            this.labelMenu.Text = "Pagina principala";
-            this.labelMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // FormInitializare
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1222, 498);
+            this.ClientSize = new System.Drawing.Size(1100, 538);
             this.Controls.Add(this.panelForm);
+            this.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormInitializare";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -178,6 +201,7 @@
         private System.Windows.Forms.PictureBox pictureBoxUSVLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelMenu;
+        private System.Windows.Forms.Button btnMenuMa;
     }
 }
 
