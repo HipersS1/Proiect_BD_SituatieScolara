@@ -1,6 +1,6 @@
 ﻿namespace Proiect_BD_SituatieScolara
 {
-    partial class FormMenuFacultate
+    partial class FormMenuMaterii
     {
         /// <summary>
         /// Required designer variable.
@@ -28,35 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenuFacultate));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenuMaterii));
             this.panelForm = new System.Windows.Forms.Panel();
             this.panelCenter = new System.Windows.Forms.Panel();
             this.panelDelimiterBottom = new System.Windows.Forms.Panel();
             this.panelDelimiterTop = new System.Windows.Forms.Panel();
             this.panelDelimiterCenter = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.labelFirstNameStudent = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.labelName = new System.Windows.Forms.Label();
+            this.textBoxSemestru = new System.Windows.Forms.TextBox();
+            this.labelSemestru = new System.Windows.Forms.Label();
+            this.textBoxAn = new System.Windows.Forms.TextBox();
+            this.labelAn = new System.Windows.Forms.Label();
+            this.textBoxDenumire = new System.Windows.Forms.TextBox();
+            this.labelDenumire = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panelDelimiterRight = new System.Windows.Forms.Panel();
             this.panelDelimiterLeft = new System.Windows.Forms.Panel();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.btnReturn = new System.Windows.Forms.Button();
-            this.btnDeleteFaculty = new System.Windows.Forms.Button();
-            this.btnModifyFaculty = new System.Windows.Forms.Button();
-            this.btnAddFaculty = new System.Windows.Forms.Button();
-            this.panelTop = new System.Windows.Forms.Panel();
-            this.labelMenuFaculty = new System.Windows.Forms.Label();
+            this.btnEliminaMaterie = new System.Windows.Forms.Button();
             this.pictureBoxUSVLogo = new System.Windows.Forms.PictureBox();
+            this.btnModificaMaterie = new System.Windows.Forms.Button();
+            this.btnAdaguaMaterie = new System.Windows.Forms.Button();
+            this.panelTop = new System.Windows.Forms.Panel();
+            this.labelMenuSubjects = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelForm.SuspendLayout();
             this.panelCenter.SuspendLayout();
             this.panelDelimiterCenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelLeft.SuspendLayout();
-            this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUSVLogo)).BeginInit();
+            this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,10 +106,12 @@
             // panelDelimiterCenter
             // 
             this.panelDelimiterCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
-            this.panelDelimiterCenter.Controls.Add(this.textBox2);
-            this.panelDelimiterCenter.Controls.Add(this.labelFirstNameStudent);
-            this.panelDelimiterCenter.Controls.Add(this.textBox1);
-            this.panelDelimiterCenter.Controls.Add(this.labelName);
+            this.panelDelimiterCenter.Controls.Add(this.textBoxSemestru);
+            this.panelDelimiterCenter.Controls.Add(this.labelSemestru);
+            this.panelDelimiterCenter.Controls.Add(this.textBoxAn);
+            this.panelDelimiterCenter.Controls.Add(this.labelAn);
+            this.panelDelimiterCenter.Controls.Add(this.textBoxDenumire);
+            this.panelDelimiterCenter.Controls.Add(this.labelDenumire);
             this.panelDelimiterCenter.Controls.Add(this.dataGridView1);
             this.panelDelimiterCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDelimiterCenter.Location = new System.Drawing.Point(44, 0);
@@ -116,45 +120,65 @@
             this.panelDelimiterCenter.Size = new System.Drawing.Size(881, 462);
             this.panelDelimiterCenter.TabIndex = 2;
             // 
-            // textBox2
+            // textBoxSemestru
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox2.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(405, 38);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(190, 36);
-            this.textBox2.TabIndex = 5;
+            this.textBoxSemestru.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxSemestru.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSemestru.Location = new System.Drawing.Point(640, 35);
+            this.textBoxSemestru.Name = "textBoxSemestru";
+            this.textBoxSemestru.Size = new System.Drawing.Size(190, 36);
+            this.textBoxSemestru.TabIndex = 6;
             // 
-            // labelFirstNameStudent
+            // labelSemestru
             // 
-            this.labelFirstNameStudent.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelFirstNameStudent.AutoSize = true;
-            this.labelFirstNameStudent.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFirstNameStudent.Location = new System.Drawing.Point(321, 31);
-            this.labelFirstNameStudent.Name = "labelFirstNameStudent";
-            this.labelFirstNameStudent.Size = new System.Drawing.Size(80, 48);
-            this.labelFirstNameStudent.TabIndex = 3;
-            this.labelFirstNameStudent.Text = "Program\r\nStudiu\r\n";
+            this.labelSemestru.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelSemestru.AutoSize = true;
+            this.labelSemestru.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSemestru.Location = new System.Drawing.Point(548, 47);
+            this.labelSemestru.Name = "labelSemestru";
+            this.labelSemestru.Size = new System.Drawing.Size(88, 24);
+            this.labelSemestru.TabIndex = 5;
+            this.labelSemestru.Text = "Semestru";
             // 
-            // textBox1
+            // textBoxAn
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(105, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 36);
-            this.textBox1.TabIndex = 4;
+            this.textBoxAn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxAn.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAn.Location = new System.Drawing.Point(343, 35);
+            this.textBoxAn.Name = "textBoxAn";
+            this.textBoxAn.Size = new System.Drawing.Size(190, 36);
+            this.textBoxAn.TabIndex = 5;
             // 
-            // labelName
+            // labelAn
             // 
-            this.labelName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelName.AutoSize = true;
-            this.labelName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelName.Location = new System.Drawing.Point(13, 50);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(92, 24);
-            this.labelName.TabIndex = 1;
-            this.labelName.Text = "Denumire";
+            this.labelAn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelAn.AutoSize = true;
+            this.labelAn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAn.Location = new System.Drawing.Point(304, 47);
+            this.labelAn.Name = "labelAn";
+            this.labelAn.Size = new System.Drawing.Size(33, 24);
+            this.labelAn.TabIndex = 3;
+            this.labelAn.Text = "An";
+            // 
+            // textBoxDenumire
+            // 
+            this.textBoxDenumire.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBoxDenumire.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDenumire.Location = new System.Drawing.Point(108, 35);
+            this.textBoxDenumire.Name = "textBoxDenumire";
+            this.textBoxDenumire.Size = new System.Drawing.Size(190, 36);
+            this.textBoxDenumire.TabIndex = 4;
+            // 
+            // labelDenumire
+            // 
+            this.labelDenumire.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelDenumire.AutoSize = true;
+            this.labelDenumire.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDenumire.Location = new System.Drawing.Point(10, 47);
+            this.labelDenumire.Name = "labelDenumire";
+            this.labelDenumire.Size = new System.Drawing.Size(92, 24);
+            this.labelDenumire.TabIndex = 1;
+            this.labelDenumire.Text = "Denumire";
             // 
             // dataGridView1
             // 
@@ -184,16 +208,15 @@
             this.panelDelimiterLeft.Name = "panelDelimiterLeft";
             this.panelDelimiterLeft.Size = new System.Drawing.Size(44, 462);
             this.panelDelimiterLeft.TabIndex = 0;
-            this.panelDelimiterLeft.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.panelLeft.Controls.Add(this.btnReturn);
-            this.panelLeft.Controls.Add(this.btnDeleteFaculty);
+            this.panelLeft.Controls.Add(this.btnEliminaMaterie);
             this.panelLeft.Controls.Add(this.pictureBoxUSVLogo);
-            this.panelLeft.Controls.Add(this.btnModifyFaculty);
-            this.panelLeft.Controls.Add(this.btnAddFaculty);
+            this.panelLeft.Controls.Add(this.btnModificaMaterie);
+            this.panelLeft.Controls.Add(this.btnAdaguaMaterie);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 76);
             this.panelLeft.Name = "panelLeft";
@@ -217,74 +240,20 @@
             this.btnReturn.UseVisualStyleBackColor = false;
             this.btnReturn.Click += new System.EventHandler(this.buttonReturn_Click);
             // 
-            // btnDeleteFaculty
+            // btnEliminaMaterie
             // 
-            this.btnDeleteFaculty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
-            this.btnDeleteFaculty.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeleteFaculty.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDeleteFaculty.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
-            this.btnDeleteFaculty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteFaculty.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteFaculty.Location = new System.Drawing.Point(0, 138);
-            this.btnDeleteFaculty.Name = "btnDeleteFaculty";
-            this.btnDeleteFaculty.Size = new System.Drawing.Size(131, 64);
-            this.btnDeleteFaculty.TabIndex = 2;
-            this.btnDeleteFaculty.Text = "Elimina";
-            this.btnDeleteFaculty.UseVisualStyleBackColor = false;
-            // 
-            // btnModifyFaculty
-            // 
-            this.btnModifyFaculty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
-            this.btnModifyFaculty.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModifyFaculty.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnModifyFaculty.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
-            this.btnModifyFaculty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModifyFaculty.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifyFaculty.Location = new System.Drawing.Point(0, 74);
-            this.btnModifyFaculty.Name = "btnModifyFaculty";
-            this.btnModifyFaculty.Size = new System.Drawing.Size(131, 64);
-            this.btnModifyFaculty.TabIndex = 1;
-            this.btnModifyFaculty.Text = "Modifica";
-            this.btnModifyFaculty.UseVisualStyleBackColor = false;
-            this.btnModifyFaculty.Click += new System.EventHandler(this.btnModifyFaculty_Click);
-            // 
-            // btnAddFaculty
-            // 
-            this.btnAddFaculty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
-            this.btnAddFaculty.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddFaculty.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAddFaculty.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
-            this.btnAddFaculty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddFaculty.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddFaculty.Location = new System.Drawing.Point(0, 10);
-            this.btnAddFaculty.Name = "btnAddFaculty";
-            this.btnAddFaculty.Size = new System.Drawing.Size(131, 64);
-            this.btnAddFaculty.TabIndex = 0;
-            this.btnAddFaculty.Text = "Adauga";
-            this.btnAddFaculty.UseVisualStyleBackColor = false;
-            this.btnAddFaculty.Click += new System.EventHandler(this.btnAddFaculty_Click);
-            // 
-            // panelTop
-            // 
-            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
-            this.panelTop.Controls.Add(this.labelMenuFaculty);
-            this.panelTop.Controls.Add(this.pictureBox1);
-            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1100, 76);
-            this.panelTop.TabIndex = 0;
-            // 
-            // labelMenuFaculty
-            // 
-            this.labelMenuFaculty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelMenuFaculty.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMenuFaculty.Location = new System.Drawing.Point(131, 0);
-            this.labelMenuFaculty.Name = "labelMenuFaculty";
-            this.labelMenuFaculty.Size = new System.Drawing.Size(969, 76);
-            this.labelMenuFaculty.TabIndex = 1;
-            this.labelMenuFaculty.Text = "Meniu Facultati";
-            this.labelMenuFaculty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnEliminaMaterie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
+            this.btnEliminaMaterie.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminaMaterie.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEliminaMaterie.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.btnEliminaMaterie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminaMaterie.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminaMaterie.Location = new System.Drawing.Point(0, 138);
+            this.btnEliminaMaterie.Name = "btnEliminaMaterie";
+            this.btnEliminaMaterie.Size = new System.Drawing.Size(131, 64);
+            this.btnEliminaMaterie.TabIndex = 2;
+            this.btnEliminaMaterie.Text = "Elimina";
+            this.btnEliminaMaterie.UseVisualStyleBackColor = false;
             // 
             // pictureBoxUSVLogo
             // 
@@ -298,6 +267,60 @@
             this.pictureBoxUSVLogo.TabIndex = 0;
             this.pictureBoxUSVLogo.TabStop = false;
             // 
+            // btnModificaMaterie
+            // 
+            this.btnModificaMaterie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
+            this.btnModificaMaterie.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificaMaterie.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnModificaMaterie.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.btnModificaMaterie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificaMaterie.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificaMaterie.Location = new System.Drawing.Point(0, 74);
+            this.btnModificaMaterie.Name = "btnModificaMaterie";
+            this.btnModificaMaterie.Size = new System.Drawing.Size(131, 64);
+            this.btnModificaMaterie.TabIndex = 1;
+            this.btnModificaMaterie.Text = "Modifica";
+            this.btnModificaMaterie.UseVisualStyleBackColor = false;
+            this.btnModificaMaterie.Click += new System.EventHandler(this.btnModificaMaterie_Click);
+            // 
+            // btnAdaguaMaterie
+            // 
+            this.btnAdaguaMaterie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
+            this.btnAdaguaMaterie.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdaguaMaterie.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAdaguaMaterie.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.btnAdaguaMaterie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdaguaMaterie.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdaguaMaterie.Location = new System.Drawing.Point(0, 10);
+            this.btnAdaguaMaterie.Name = "btnAdaguaMaterie";
+            this.btnAdaguaMaterie.Size = new System.Drawing.Size(131, 64);
+            this.btnAdaguaMaterie.TabIndex = 0;
+            this.btnAdaguaMaterie.Text = "Adauga";
+            this.btnAdaguaMaterie.UseVisualStyleBackColor = false;
+            this.btnAdaguaMaterie.Click += new System.EventHandler(this.btnAdaguaMaterie_Click);
+            // 
+            // panelTop
+            // 
+            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.panelTop.Controls.Add(this.labelMenuSubjects);
+            this.panelTop.Controls.Add(this.pictureBox1);
+            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(1100, 76);
+            this.panelTop.TabIndex = 0;
+            // 
+            // labelMenuSubjects
+            // 
+            this.labelMenuSubjects.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelMenuSubjects.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMenuSubjects.Location = new System.Drawing.Point(131, 0);
+            this.labelMenuSubjects.Name = "labelMenuSubjects";
+            this.labelMenuSubjects.Size = new System.Drawing.Size(969, 76);
+            this.labelMenuSubjects.TabIndex = 1;
+            this.labelMenuSubjects.Text = "Meniu Materii";
+            this.labelMenuSubjects.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -309,7 +332,7 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // FormMenuFacultate
+            // FormMenuMaterii
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -317,7 +340,7 @@
             this.Controls.Add(this.panelForm);
             this.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormMenuFacultate";
+            this.Name = "FormMenuMaterii";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "University Manager";
             this.panelForm.ResumeLayout(false);
@@ -326,8 +349,8 @@
             this.panelDelimiterCenter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelLeft.ResumeLayout(false);
-            this.panelTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUSVLogo)).EndInit();
+            this.panelTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -339,8 +362,8 @@
         private System.Windows.Forms.Panel panelCenter;
         private System.Windows.Forms.Panel panelLeft;
         private System.Windows.Forms.Panel panelTop;
-        private System.Windows.Forms.Button btnModifyFaculty;
-        private System.Windows.Forms.Button btnAddFaculty;
+        private System.Windows.Forms.Button btnModificaMaterie;
+        private System.Windows.Forms.Button btnAdaguaMaterie;
         private System.Windows.Forms.PictureBox pictureBoxUSVLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelDelimiterLeft;
@@ -349,12 +372,14 @@
         private System.Windows.Forms.Panel panelDelimiterBottom;
         private System.Windows.Forms.Panel panelDelimiterTop;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label labelFirstNameStudent;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.Button btnDeleteFaculty;
-        private System.Windows.Forms.Label labelMenuFaculty;
+        private System.Windows.Forms.TextBox textBoxAn;
+        private System.Windows.Forms.Label labelAn;
+        private System.Windows.Forms.TextBox textBoxDenumire;
+        private System.Windows.Forms.Label labelDenumire;
+        private System.Windows.Forms.Button btnEliminaMaterie;
+        private System.Windows.Forms.Label labelMenuSubjects;
+        private System.Windows.Forms.TextBox textBoxSemestru;
+        private System.Windows.Forms.Label labelSemestru;
         private System.Windows.Forms.Button btnReturn;
     }
 }

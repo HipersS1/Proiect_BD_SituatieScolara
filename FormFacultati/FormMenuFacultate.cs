@@ -17,26 +17,6 @@ namespace Proiect_BD_SituatieScolara
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btnAddStudent_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnModifyStudent_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAddGrade_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonReturn_Click(object sender, EventArgs e)
         {
             this.Hide();

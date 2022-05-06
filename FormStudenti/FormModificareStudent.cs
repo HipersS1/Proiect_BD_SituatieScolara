@@ -17,20 +17,6 @@ namespace Proiect_BD_SituatieScolara
             InitializeComponent();
         }
 
-        private void btnMenuStudents_Click(object sender, EventArgs e)
-        {
-            using(FormMenuStudent form = new FormMenuStudent())
-            {
-                this.Hide();
-                form.ShowDialog();
-                this.Show();
-            }
-        }
-
-        private void btnMenuUniversity_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {

@@ -46,58 +46,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SubjectForms\FormAdaugareMaterie.cs">
+    <Compile Include="FormMaterii\FormModificareMaterie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SubjectForms\FormAdaugareMaterie.Designer.cs">
+    <Compile Include="FormMaterii\FormModificareMaterie.Designer.cs">
+      <DependentUpon>FormModificareMaterie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMaterii\FormAdaugareMaterie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMaterii\FormAdaugareMaterie.Designer.cs">
       <DependentUpon>FormAdaugareMaterie.cs</DependentUpon>
     </Compile>
-    <Compile Include="FacultyForms\FormModificareFacultate.cs">
+    <Compile Include="FormFacultati\FormModificareFacultate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FacultyForms\FormModificareFacultate.Designer.cs">
+    <Compile Include="FormFacultati\FormModificareFacultate.Designer.cs">
       <DependentUpon>FormModificareFacultate.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentForms\FormAdaugaNote.cs">
+    <Compile Include="FormStudenti\FormAdaugaNote.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentForms\FormAdaugaNote.Designer.cs">
+    <Compile Include="FormStudenti\FormAdaugaNote.Designer.cs">
       <DependentUpon>FormAdaugaNote.cs</DependentUpon>
     </Compile>
-    <Compile Include="FacultyForms\FormMenuFacultate.cs">
+    <Compile Include="FormFacultati\FormMenuFacultate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FacultyForms\FormMenuFacultate.Designer.cs">
+    <Compile Include="FormFacultati\FormMenuFacultate.Designer.cs">
       <DependentUpon>FormMenuFacultate.cs</DependentUpon>
     </Compile>
-    <Compile Include="FacultyForms\FormAdaugareFacultate.cs">
+    <Compile Include="FormFacultati\FormAdaugareFacultate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FacultyForms\FormAdaugareFacultate.Designer.cs">
+    <Compile Include="FormFacultati\FormAdaugareFacultate.Designer.cs">
       <DependentUpon>FormAdaugareFacultate.cs</DependentUpon>
     </Compile>
-    <Compile Include="SubjectForms\FormMenuMaterii.cs">
+    <Compile Include="FormMaterii\FormMenuMaterii.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SubjectForms\FormMenuMaterii.Designer.cs">
+    <Compile Include="FormMaterii\FormMenuMaterii.Designer.cs">
       <DependentUpon>FormMenuMaterii.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentForms\FormModificareStudent.cs">
+    <Compile Include="FormStudenti\FormModificareStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentForms\FormModificareStudent.Designer.cs">
+    <Compile Include="FormStudenti\FormModificareStudent.Designer.cs">
       <DependentUpon>FormModificareStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentForms\FormAdaugareStudent.cs">
+    <Compile Include="FormStudenti\FormAdaugareStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentForms\FormAdaugareStudent.Designer.cs">
+    <Compile Include="FormStudenti\FormAdaugareStudent.Designer.cs">
       <DependentUpon>FormAdaugareStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentForms\FormMenuStudent.cs">
+    <Compile Include="FormStudenti\FormMenuStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentForms\FormMenuStudent.Designer.cs">
+    <Compile Include="FormStudenti\FormMenuStudent.Designer.cs">
       <DependentUpon>FormMenuStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="FormInitializare.cs">
@@ -108,31 +114,34 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="SubjectForms\FormAdaugareMaterie.resx">
+    <EmbeddedResource Include="FormMaterii\FormModificareMaterie.resx">
+      <DependentUpon>FormModificareMaterie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMaterii\FormAdaugareMaterie.resx">
       <DependentUpon>FormAdaugareMaterie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FacultyForms\FormModificareFacultate.resx">
+    <EmbeddedResource Include="FormFacultati\FormModificareFacultate.resx">
       <DependentUpon>FormModificareFacultate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentForms\FormAdaugaNote.resx">
+    <EmbeddedResource Include="FormStudenti\FormAdaugaNote.resx">
       <DependentUpon>FormAdaugaNote.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FacultyForms\FormMenuFacultate.resx">
+    <EmbeddedResource Include="FormFacultati\FormMenuFacultate.resx">
       <DependentUpon>FormMenuFacultate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FacultyForms\FormAdaugareFacultate.resx">
+    <EmbeddedResource Include="FormFacultati\FormAdaugareFacultate.resx">
       <DependentUpon>FormAdaugareFacultate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubjectForms\FormMenuMaterii.resx">
+    <EmbeddedResource Include="FormMaterii\FormMenuMaterii.resx">
       <DependentUpon>FormMenuMaterii.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentForms\FormModificareStudent.resx">
+    <EmbeddedResource Include="FormStudenti\FormModificareStudent.resx">
       <DependentUpon>FormModificareStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentForms\FormAdaugareStudent.resx">
+    <EmbeddedResource Include="FormStudenti\FormAdaugareStudent.resx">
       <DependentUpon>FormAdaugareStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentForms\FormMenuStudent.resx">
+    <EmbeddedResource Include="FormStudenti\FormMenuStudent.resx">
       <DependentUpon>FormMenuStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormInitializare.resx">

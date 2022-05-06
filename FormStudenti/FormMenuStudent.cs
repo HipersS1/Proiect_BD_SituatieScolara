@@ -17,12 +17,14 @@ namespace Proiect_BD_SituatieScolara
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void btnReturn_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            FormInitializare form = new FormInitializare();
+            form.ShowDialog();
         }
 
-        private void btnAddStudent_Click(object sender, EventArgs e)
+        private void btnAdaugaStudent_Click(object sender, EventArgs e)
         {
             using (FormAdaugareStudent form = new FormAdaugareStudent())
             {
@@ -30,7 +32,7 @@ namespace Proiect_BD_SituatieScolara
             }
         }
 
-        private void btnModifyStudent_Click(object sender, EventArgs e)
+        private void btnModificaStudent_Click(object sender, EventArgs e)
         {
             using (FormModificareStudent form = new FormModificareStudent())
             {
@@ -38,34 +40,12 @@ namespace Proiect_BD_SituatieScolara
             }
         }
 
-        private void btnDeleteStudent_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAddGrade_Click(object sender, EventArgs e)
+        private void btnAdaugaNote_Click(object sender, EventArgs e)
         {
             using (FormAdaugaNote form = new FormAdaugaNote())
             {
                 form.ShowDialog();
             }
-        }
-
-        private void buttonReturn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FormInitializare form = new FormInitializare();
-            form.ShowDialog();
-        }
-
-        private void FormMenuStudent_FormClosed(object sender, FormClosingEventArgs e)
-        {
-
-        }
-
-        private void FormMenuStudent_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
         }
     }
 }

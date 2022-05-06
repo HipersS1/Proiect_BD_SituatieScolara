@@ -10,26 +10,11 @@ using System.Windows.Forms;
 
 namespace Proiect_BD_SituatieScolara
 {
-    public partial class FormAdaugareMaterie : Form
+    public partial class FormModificareMaterie : Form
     {
-        public FormAdaugareMaterie()
+        public FormModificareMaterie()
         {
             InitializeComponent();
-        }
-
-        private void btnMenuStudents_Click(object sender, EventArgs e)
-        {
-            using(FormMenuStudent form = new FormMenuStudent())
-            {
-                this.Hide();
-                form.ShowDialog();
-                this.Show();
-            }
-        }
-
-        private void btnMenuUniversity_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -39,12 +24,12 @@ namespace Proiect_BD_SituatieScolara
 
         private void numericUpCourse_ValueChanged(object sender, EventArgs e)
         {
-            numericUpLaboratory.Value = 100 - numericUpCourse.Value ;
+            numericUpLaborator.Value = 100 - numericUpCurs.Value ;
         }
 
         private void numericUpLaboratory_ValueChanged(object sender, EventArgs e)
         {
-            numericUpCourse.Value = 100 - numericUpLaboratory.Value;
+            numericUpCurs.Value = 100 - numericUpLaborator.Value;
         }
     }
 }
