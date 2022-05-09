@@ -269,6 +269,7 @@
             this.btnTrimite.TabIndex = 6;
             this.btnTrimite.Text = "Adauga";
             this.btnTrimite.UseVisualStyleBackColor = true;
+            this.btnTrimite.Click += new System.EventHandler(this.btnTrimite_Click);
             // 
             // textDenumire
             // 

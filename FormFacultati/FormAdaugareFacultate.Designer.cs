@@ -35,7 +35,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.labelDenumire = new System.Windows.Forms.Label();
             this.labelProgramStudiu = new System.Windows.Forms.Label();
-            this.textBoxProgramStudiu = new System.Windows.Forms.TextBox();
             this.btnAnuleaza = new System.Windows.Forms.Button();
             this.textBoxSpecializare = new System.Windows.Forms.TextBox();
             this.labelSpecializare = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
             this.labelFormularAdaugare = new System.Windows.Forms.Label();
+            this.comboBoxProgramStudiu = new System.Windows.Forms.ComboBox();
             this.panelForm.SuspendLayout();
             this.panelCenter.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -88,9 +88,9 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.comboBoxProgramStudiu);
             this.panel4.Controls.Add(this.labelDenumire);
             this.panel4.Controls.Add(this.labelProgramStudiu);
-            this.panel4.Controls.Add(this.textBoxProgramStudiu);
             this.panel4.Controls.Add(this.btnAnuleaza);
             this.panel4.Controls.Add(this.textBoxSpecializare);
             this.panel4.Controls.Add(this.labelSpecializare);
@@ -123,14 +123,6 @@
             this.labelProgramStudiu.Size = new System.Drawing.Size(155, 28);
             this.labelProgramStudiu.TabIndex = 1;
             this.labelProgramStudiu.Text = "Program studiu";
-            // 
-            // textBoxProgramStudiu
-            // 
-            this.textBoxProgramStudiu.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProgramStudiu.Location = new System.Drawing.Point(161, 83);
-            this.textBoxProgramStudiu.Name = "textBoxProgramStudiu";
-            this.textBoxProgramStudiu.Size = new System.Drawing.Size(188, 36);
-            this.textBoxProgramStudiu.TabIndex = 8;
             // 
             // btnAnuleaza
             // 
@@ -170,6 +162,7 @@
             this.btnTrimite.TabIndex = 13;
             this.btnTrimite.Text = "Adauga";
             this.btnTrimite.UseVisualStyleBackColor = true;
+            this.btnTrimite.Click += new System.EventHandler(this.btnTrimite_Click);
             // 
             // textBoxDurata
             // 
@@ -235,6 +228,17 @@
             this.labelFormularAdaugare.Text = "Formular Adaugare Facultate";
             this.labelFormularAdaugare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // comboBoxProgramStudiu
+            // 
+            this.comboBoxProgramStudiu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxProgramStudiu.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxProgramStudiu.FormatString = "N0";
+            this.comboBoxProgramStudiu.FormattingEnabled = true;
+            this.comboBoxProgramStudiu.Location = new System.Drawing.Point(161, 87);
+            this.comboBoxProgramStudiu.Name = "comboBoxProgramStudiu";
+            this.comboBoxProgramStudiu.Size = new System.Drawing.Size(188, 32);
+            this.comboBoxProgramStudiu.TabIndex = 15;
+            // 
             // FormAdaugareFacultate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -267,7 +271,6 @@
         private System.Windows.Forms.Button btnTrimite;
         private System.Windows.Forms.TextBox textBoxDurata;
         private System.Windows.Forms.TextBox textBoxSpecializare;
-        private System.Windows.Forms.TextBox textBoxProgramStudiu;
         private System.Windows.Forms.TextBox textBoxDenumire;
         private System.Windows.Forms.Label labelDurata;
         private System.Windows.Forms.Label labelSpecializare;
@@ -277,6 +280,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox comboBoxProgramStudiu;
     }
 }
 

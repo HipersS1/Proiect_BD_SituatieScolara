@@ -4,7 +4,9 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibrarieModele;
 using NivelAccesDate;
+using NivelAccesDate.Administrare;
 
 namespace Proiect_BD_SituatieScolara
 {
@@ -20,15 +22,11 @@ namespace Proiect_BD_SituatieScolara
                     default:
                     case "BazaDateOracle":
 
-                        //if (tipEntitate == typeof(Companie))
-                        //{
-                        //    return new AdministrareCompanii();
-                        //}
-                        //if (tipEntitate == typeof(Masina))
-                        //{
-                        //    return new AdministrareMasini();
-                        //}
-                        //break;
+                        if (tipEntitate == typeof(Facultate))
+                        {
+                            return new AdministrareFacultati();
+                        }
+                        break;
 
                     case "BIN":
                         //instantiere clase care realizeaza salvarea in fisier binar

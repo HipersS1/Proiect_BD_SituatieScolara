@@ -319,6 +319,7 @@
             this.Name = "FormMenuFacultate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "University Manager";
+            this.Load += new System.EventHandler(this.FormMenuFacultate_Load);
             this.panelForm.ResumeLayout(false);
             this.panelCenter.ResumeLayout(false);
             this.panelDelimiterCenter.ResumeLayout(false);
