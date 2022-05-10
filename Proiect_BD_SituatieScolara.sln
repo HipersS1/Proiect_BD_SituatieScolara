@@ -5,6 +5,10 @@ VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proiect_BD_SituatieScolara", "Proiect_BD_SituatieScolara.csproj", "{3EB3D2F9-7E11-4B1E-ABC1-863DEA195BC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrarieModele", "..\LibrarieModele\LibrarieModele.csproj", "{5E469999-22F3-4775-9001-3BE18BF6B09F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NivelAccesDate", "..\NivelAccesDate\NivelAccesDate.csproj", "{2B855924-0883-4AD7-9827-757F870E2B13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{3EB3D2F9-7E11-4B1E-ABC1-863DEA195BC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EB3D2F9-7E11-4B1E-ABC1-863DEA195BC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EB3D2F9-7E11-4B1E-ABC1-863DEA195BC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E469999-22F3-4775-9001-3BE18BF6B09F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E469999-22F3-4775-9001-3BE18BF6B09F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E469999-22F3-4775-9001-3BE18BF6B09F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E469999-22F3-4775-9001-3BE18BF6B09F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B855924-0883-4AD7-9827-757F870E2B13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B855924-0883-4AD7-9827-757F870E2B13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B855924-0883-4AD7-9827-757F870E2B13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B855924-0883-4AD7-9827-757F870E2B13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

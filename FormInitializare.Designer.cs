@@ -31,7 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInitializare));
             this.panelForm = new System.Windows.Forms.Panel();
             this.panelCenter = new System.Windows.Forms.Panel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panelLeft = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnMenuMa = new System.Windows.Forms.Button();
             this.pictureBoxUSVLogo = new System.Windows.Forms.PictureBox();
             this.btnMenuStudents = new System.Windows.Forms.Button();
@@ -40,6 +43,8 @@
             this.labelMenu = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelForm.SuspendLayout();
+            this.panelCenter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUSVLogo)).BeginInit();
             this.panelTop.SuspendLayout();
@@ -60,15 +65,36 @@
             // panelCenter
             // 
             this.panelCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
+            this.panelCenter.Controls.Add(this.richTextBox1);
+            this.panelCenter.Controls.Add(this.dataGridView1);
             this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCenter.Location = new System.Drawing.Point(131, 76);
             this.panelCenter.Name = "panelCenter";
             this.panelCenter.Size = new System.Drawing.Size(969, 462);
             this.panelCenter.TabIndex = 2;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(20, 90);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(286, 262);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = "";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(323, 77);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(539, 193);
+            this.dataGridView1.TabIndex = 0;
+            // 
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.panelLeft.Controls.Add(this.button1);
             this.panelLeft.Controls.Add(this.btnMenuMa);
             this.panelLeft.Controls.Add(this.pictureBoxUSVLogo);
             this.panelLeft.Controls.Add(this.btnMenuStudents);
@@ -79,6 +105,21 @@
             this.panelLeft.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.panelLeft.Size = new System.Drawing.Size(131, 462);
             this.panelLeft.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(0, 240);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(131, 75);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Meniu Materii";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnMenuMa
             // 
@@ -182,6 +223,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "University Manager";
             this.panelForm.ResumeLayout(false);
+            this.panelCenter.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelLeft.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUSVLogo)).EndInit();
             this.panelTop.ResumeLayout(false);
@@ -202,6 +245,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelMenu;
         private System.Windows.Forms.Button btnMenuMa;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 

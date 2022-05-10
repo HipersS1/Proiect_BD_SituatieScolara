@@ -34,7 +34,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Configuration.ConfigurationManager.6.0.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Permissions.6.0.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,60 +62,67 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SubjectForms\FormAdaugareMaterie.cs">
+    <Compile Include="FormMaterii\FormModificareMaterie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SubjectForms\FormAdaugareMaterie.Designer.cs">
+    <Compile Include="FormMaterii\FormModificareMaterie.Designer.cs">
+      <DependentUpon>FormModificareMaterie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMaterii\FormAdaugareMaterie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMaterii\FormAdaugareMaterie.Designer.cs">
       <DependentUpon>FormAdaugareMaterie.cs</DependentUpon>
     </Compile>
-    <Compile Include="FacultyForms\FormModificareFacultate.cs">
+    <Compile Include="FormFacultati\FormModificareFacultate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FacultyForms\FormModificareFacultate.Designer.cs">
+    <Compile Include="FormFacultati\FormModificareFacultate.Designer.cs">
       <DependentUpon>FormModificareFacultate.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentForms\FormAdaugaNote.cs">
+    <Compile Include="FormStudenti\FormAdaugaNote.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentForms\FormAdaugaNote.Designer.cs">
+    <Compile Include="FormStudenti\FormAdaugaNote.Designer.cs">
       <DependentUpon>FormAdaugaNote.cs</DependentUpon>
     </Compile>
-    <Compile Include="FacultyForms\FormMenuFacultate.cs">
+    <Compile Include="FormFacultati\FormMenuFacultate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FacultyForms\FormMenuFacultate.Designer.cs">
+    <Compile Include="FormFacultati\FormMenuFacultate.Designer.cs">
       <DependentUpon>FormMenuFacultate.cs</DependentUpon>
     </Compile>
-    <Compile Include="FacultyForms\FormAdaugareFacultate.cs">
+    <Compile Include="FormFacultati\FormAdaugareFacultate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FacultyForms\FormAdaugareFacultate.Designer.cs">
+    <Compile Include="FormFacultati\FormAdaugareFacultate.Designer.cs">
       <DependentUpon>FormAdaugareFacultate.cs</DependentUpon>
     </Compile>
-    <Compile Include="SubjectForms\FormMenuMaterii.cs">
+    <Compile Include="FormMaterii\FormMenuMaterii.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SubjectForms\FormMenuMaterii.Designer.cs">
+    <Compile Include="FormMaterii\FormMenuMaterii.Designer.cs">
       <DependentUpon>FormMenuMaterii.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentForms\FormModificareStudent.cs">
+    <Compile Include="FormStudenti\FormModificareStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentForms\FormModificareStudent.Designer.cs">
+    <Compile Include="FormStudenti\FormModificareStudent.Designer.cs">
       <DependentUpon>FormModificareStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentForms\FormAdaugareStudent.cs">
+    <Compile Include="FormStudenti\FormAdaugareStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentForms\FormAdaugareStudent.Designer.cs">
+    <Compile Include="FormStudenti\FormAdaugareStudent.Designer.cs">
       <DependentUpon>FormAdaugareStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentForms\FormMenuStudent.cs">
+    <Compile Include="FormStudenti\FormMenuStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentForms\FormMenuStudent.Designer.cs">
+    <Compile Include="FormStudenti\FormMenuStudent.Designer.cs">
       <DependentUpon>FormMenuStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="FormInitializare.cs">
@@ -108,31 +133,35 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="SubjectForms\FormAdaugareMaterie.resx">
+    <Compile Include="StocareFactory.cs" />
+    <EmbeddedResource Include="FormMaterii\FormModificareMaterie.resx">
+      <DependentUpon>FormModificareMaterie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMaterii\FormAdaugareMaterie.resx">
       <DependentUpon>FormAdaugareMaterie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FacultyForms\FormModificareFacultate.resx">
+    <EmbeddedResource Include="FormFacultati\FormModificareFacultate.resx">
       <DependentUpon>FormModificareFacultate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentForms\FormAdaugaNote.resx">
+    <EmbeddedResource Include="FormStudenti\FormAdaugaNote.resx">
       <DependentUpon>FormAdaugaNote.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FacultyForms\FormMenuFacultate.resx">
+    <EmbeddedResource Include="FormFacultati\FormMenuFacultate.resx">
       <DependentUpon>FormMenuFacultate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FacultyForms\FormAdaugareFacultate.resx">
+    <EmbeddedResource Include="FormFacultati\FormAdaugareFacultate.resx">
       <DependentUpon>FormAdaugareFacultate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubjectForms\FormMenuMaterii.resx">
+    <EmbeddedResource Include="FormMaterii\FormMenuMaterii.resx">
       <DependentUpon>FormMenuMaterii.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentForms\FormModificareStudent.resx">
+    <EmbeddedResource Include="FormStudenti\FormModificareStudent.resx">
       <DependentUpon>FormModificareStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentForms\FormAdaugareStudent.resx">
+    <EmbeddedResource Include="FormStudenti\FormAdaugareStudent.resx">
       <DependentUpon>FormAdaugareStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentForms\FormMenuStudent.resx">
+    <EmbeddedResource Include="FormStudenti\FormMenuStudent.resx">
       <DependentUpon>FormMenuStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormInitializare.resx">
@@ -148,6 +177,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -161,7 +191,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\LibrarieModele\LibrarieModele.csproj">
+      <Project>{5e469999-22f3-4775-9001-3be18bf6b09f}</Project>
+      <Name>LibrarieModele</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NivelAccesDate\NivelAccesDate.csproj">
+      <Project>{2b855924-0883-4ad7-9827-757f870e2b13}</Project>
+      <Name>NivelAccesDate</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Pictures\640px-Ștefan_cel_Mare_University_of_Suceava_logo.svg.png" />
     <None Include="Pictures\University.png" />
