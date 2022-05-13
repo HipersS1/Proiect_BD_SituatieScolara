@@ -38,7 +38,7 @@ namespace Proiect_BD_SituatieScolara
             {
                 form.ShowDialog();
             }
-            AfisareFacultati();
+            IncarcaFacultati();
         }
 
         private void btnModifyFaculty_Click(object sender, EventArgs e)
@@ -49,32 +49,25 @@ namespace Proiect_BD_SituatieScolara
             }
         }
 
-        private void AfisareFacultati()
+        
+
+        private void FormMenuFacultate_Load(object sender, EventArgs e)
+        {
+            IncarcaFacultati();
+        }
+
+        private void IncarcaFacultati()
         {
             try
             {
                 var facultati = stocareFacultati.GetFacultati();
-                if (facultati != null && facultati.Any())
-                {
-                    dataGridView1.DataSource = facultati.Select(f => new { f.IdFacultate, f.Denumire, f.ProgramStudiu, f.Specializare, f.Durata }).ToList();
-
-                    dataGridView1.Columns["IdFacultate"].Visible = false;
-                    dataGridView1.Columns["Denumire"].HeaderText = "Denumire";
-                    dataGridView1.Columns["ProgramStudiu"].HeaderText = "ProgramStudiu";
-                    dataGridView1.Columns["Specializare"].HeaderText = "Specializare";
-                    dataGridView1.Columns["Durata"].HeaderText = "Durata";
-                }
+                IncarcareDataGridView.AfisareFacultati(dataGridView1, facultati);
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show(ex.Message);
+                throw;
             }
-        }
-
-        private void FormMenuFacultate_Load(object sender, EventArgs e)
-        {
-            AfisareFacultati();
         }
     }
 }
