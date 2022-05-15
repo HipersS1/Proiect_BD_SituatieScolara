@@ -32,25 +32,25 @@
             this.panelForm = new System.Windows.Forms.Panel();
             this.panelCenter = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panelInputs = new System.Windows.Forms.Panel();
             this.labelDenumire = new System.Windows.Forms.Label();
             this.labelProgramStudiu = new System.Windows.Forms.Label();
-            this.textBoxProgramStudiu = new System.Windows.Forms.TextBox();
             this.btnAnuleaza = new System.Windows.Forms.Button();
             this.textBoxSpecializare = new System.Windows.Forms.TextBox();
             this.labelSpecializare = new System.Windows.Forms.Label();
             this.btnTrimite = new System.Windows.Forms.Button();
-            this.textBoxDurata = new System.Windows.Forms.TextBox();
             this.labelDurata = new System.Windows.Forms.Label();
             this.textBoxDenumire = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
             this.labelFormularAdaugare = new System.Windows.Forms.Label();
+            this.comboBoxProgramStudiu = new System.Windows.Forms.ComboBox();
+            this.comboBoxDurata = new System.Windows.Forms.ComboBox();
             this.panelForm.SuspendLayout();
             this.panelCenter.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.panelInputs.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,7 +77,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
-            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.panelInputs);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -86,23 +86,23 @@
             this.panel1.Size = new System.Drawing.Size(500, 324);
             this.panel1.TabIndex = 1;
             // 
-            // panel4
+            // panelInputs
             // 
-            this.panel4.Controls.Add(this.labelDenumire);
-            this.panel4.Controls.Add(this.labelProgramStudiu);
-            this.panel4.Controls.Add(this.textBoxProgramStudiu);
-            this.panel4.Controls.Add(this.btnAnuleaza);
-            this.panel4.Controls.Add(this.textBoxSpecializare);
-            this.panel4.Controls.Add(this.labelSpecializare);
-            this.panel4.Controls.Add(this.btnTrimite);
-            this.panel4.Controls.Add(this.textBoxDurata);
-            this.panel4.Controls.Add(this.labelDurata);
-            this.panel4.Controls.Add(this.textBoxDenumire);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(72, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(356, 324);
-            this.panel4.TabIndex = 17;
+            this.panelInputs.Controls.Add(this.comboBoxDurata);
+            this.panelInputs.Controls.Add(this.comboBoxProgramStudiu);
+            this.panelInputs.Controls.Add(this.labelDenumire);
+            this.panelInputs.Controls.Add(this.labelProgramStudiu);
+            this.panelInputs.Controls.Add(this.btnAnuleaza);
+            this.panelInputs.Controls.Add(this.textBoxSpecializare);
+            this.panelInputs.Controls.Add(this.labelSpecializare);
+            this.panelInputs.Controls.Add(this.btnTrimite);
+            this.panelInputs.Controls.Add(this.labelDurata);
+            this.panelInputs.Controls.Add(this.textBoxDenumire);
+            this.panelInputs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelInputs.Location = new System.Drawing.Point(72, 0);
+            this.panelInputs.Name = "panelInputs";
+            this.panelInputs.Size = new System.Drawing.Size(356, 324);
+            this.panelInputs.TabIndex = 17;
             // 
             // labelDenumire
             // 
@@ -124,18 +124,10 @@
             this.labelProgramStudiu.TabIndex = 1;
             this.labelProgramStudiu.Text = "Program studiu";
             // 
-            // textBoxProgramStudiu
-            // 
-            this.textBoxProgramStudiu.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProgramStudiu.Location = new System.Drawing.Point(161, 83);
-            this.textBoxProgramStudiu.Name = "textBoxProgramStudiu";
-            this.textBoxProgramStudiu.Size = new System.Drawing.Size(188, 36);
-            this.textBoxProgramStudiu.TabIndex = 8;
-            // 
             // btnAnuleaza
             // 
             this.btnAnuleaza.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnuleaza.Location = new System.Drawing.Point(181, 274);
+            this.btnAnuleaza.Location = new System.Drawing.Point(205, 274);
             this.btnAnuleaza.Name = "btnAnuleaza";
             this.btnAnuleaza.Size = new System.Drawing.Size(144, 38);
             this.btnAnuleaza.TabIndex = 14;
@@ -170,14 +162,7 @@
             this.btnTrimite.TabIndex = 13;
             this.btnTrimite.Text = "Actualizeaza";
             this.btnTrimite.UseVisualStyleBackColor = true;
-            // 
-            // textBoxDurata
-            // 
-            this.textBoxDurata.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDurata.Location = new System.Drawing.Point(161, 158);
-            this.textBoxDurata.Name = "textBoxDurata";
-            this.textBoxDurata.Size = new System.Drawing.Size(188, 36);
-            this.textBoxDurata.TabIndex = 10;
+            this.btnTrimite.Click += new System.EventHandler(this.btnTrimite_Click);
             // 
             // labelDurata
             // 
@@ -235,6 +220,28 @@
             this.labelFormularAdaugare.Text = "Formular Modificare Facultate";
             this.labelFormularAdaugare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // comboBoxProgramStudiu
+            // 
+            this.comboBoxProgramStudiu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxProgramStudiu.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxProgramStudiu.FormatString = "N0";
+            this.comboBoxProgramStudiu.FormattingEnabled = true;
+            this.comboBoxProgramStudiu.Location = new System.Drawing.Point(161, 83);
+            this.comboBoxProgramStudiu.Name = "comboBoxProgramStudiu";
+            this.comboBoxProgramStudiu.Size = new System.Drawing.Size(188, 36);
+            this.comboBoxProgramStudiu.TabIndex = 15;
+            // 
+            // comboBoxDurata
+            // 
+            this.comboBoxDurata.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDurata.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxDurata.FormatString = "N0";
+            this.comboBoxDurata.FormattingEnabled = true;
+            this.comboBoxDurata.Location = new System.Drawing.Point(161, 158);
+            this.comboBoxDurata.Name = "comboBoxDurata";
+            this.comboBoxDurata.Size = new System.Drawing.Size(188, 36);
+            this.comboBoxDurata.TabIndex = 16;
+            // 
             // FormModificareFacultate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -250,8 +257,8 @@
             this.panelForm.ResumeLayout(false);
             this.panelCenter.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.panelInputs.ResumeLayout(false);
+            this.panelInputs.PerformLayout();
             this.panelTop.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -265,18 +272,18 @@
         private System.Windows.Forms.Label labelFormularAdaugare;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnTrimite;
-        private System.Windows.Forms.TextBox textBoxDurata;
         private System.Windows.Forms.TextBox textBoxSpecializare;
-        private System.Windows.Forms.TextBox textBoxProgramStudiu;
         private System.Windows.Forms.TextBox textBoxDenumire;
         private System.Windows.Forms.Label labelDurata;
         private System.Windows.Forms.Label labelSpecializare;
         private System.Windows.Forms.Label labelDenumire;
         private System.Windows.Forms.Label labelProgramStudiu;
         private System.Windows.Forms.Button btnAnuleaza;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panelInputs;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox comboBoxProgramStudiu;
+        private System.Windows.Forms.ComboBox comboBoxDurata;
     }
 }
 

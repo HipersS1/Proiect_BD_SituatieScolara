@@ -36,8 +36,13 @@
             this.panelDelimiterBottom = new System.Windows.Forms.Panel();
             this.panelDelimiterTop = new System.Windows.Forms.Panel();
             this.panelDelimiterCenter = new System.Windows.Forms.Panel();
-            this.textBoxProgramStudiu = new System.Windows.Forms.TextBox();
+            this.textBoxSpecializare = new System.Windows.Forms.TextBox();
+            this.labelSpecializare = new System.Windows.Forms.Label();
+            this.comboBoxProgramStudiu = new System.Windows.Forms.ComboBox();
             this.labelProgramStudiu = new System.Windows.Forms.Label();
+            this.comboBoxDurata = new System.Windows.Forms.ComboBox();
+            this.labelDurata = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.textBoxDenumire = new System.Windows.Forms.TextBox();
             this.labelDenumire = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -106,8 +111,13 @@
             // panelDelimiterCenter
             // 
             this.panelDelimiterCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
-            this.panelDelimiterCenter.Controls.Add(this.textBoxProgramStudiu);
+            this.panelDelimiterCenter.Controls.Add(this.textBoxSpecializare);
+            this.panelDelimiterCenter.Controls.Add(this.labelSpecializare);
+            this.panelDelimiterCenter.Controls.Add(this.comboBoxProgramStudiu);
             this.panelDelimiterCenter.Controls.Add(this.labelProgramStudiu);
+            this.panelDelimiterCenter.Controls.Add(this.comboBoxDurata);
+            this.panelDelimiterCenter.Controls.Add(this.labelDurata);
+            this.panelDelimiterCenter.Controls.Add(this.btnSearch);
             this.panelDelimiterCenter.Controls.Add(this.textBoxDenumire);
             this.panelDelimiterCenter.Controls.Add(this.labelDenumire);
             this.panelDelimiterCenter.Controls.Add(this.dataGridView1);
@@ -118,43 +128,92 @@
             this.panelDelimiterCenter.Size = new System.Drawing.Size(881, 462);
             this.panelDelimiterCenter.TabIndex = 2;
             // 
-            // textBoxProgramStudiu
+            // textBoxSpecializare
             // 
-            this.textBoxProgramStudiu.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBoxProgramStudiu.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxProgramStudiu.Location = new System.Drawing.Point(405, 38);
-            this.textBoxProgramStudiu.Name = "textBoxProgramStudiu";
-            this.textBoxProgramStudiu.Size = new System.Drawing.Size(190, 36);
-            this.textBoxProgramStudiu.TabIndex = 5;
+            this.textBoxSpecializare.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSpecializare.Location = new System.Drawing.Point(142, 84);
+            this.textBoxSpecializare.Name = "textBoxSpecializare";
+            this.textBoxSpecializare.Size = new System.Drawing.Size(232, 36);
+            this.textBoxSpecializare.TabIndex = 5;
+            // 
+            // labelSpecializare
+            // 
+            this.labelSpecializare.AutoSize = true;
+            this.labelSpecializare.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSpecializare.Location = new System.Drawing.Point(15, 92);
+            this.labelSpecializare.Name = "labelSpecializare";
+            this.labelSpecializare.Size = new System.Drawing.Size(121, 28);
+            this.labelSpecializare.TabIndex = 14;
+            this.labelSpecializare.Text = "Specializare";
+            // 
+            // comboBoxProgramStudiu
+            // 
+            this.comboBoxProgramStudiu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxProgramStudiu.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxProgramStudiu.FormatString = "N0";
+            this.comboBoxProgramStudiu.FormattingEnabled = true;
+            this.comboBoxProgramStudiu.Location = new System.Drawing.Point(563, 42);
+            this.comboBoxProgramStudiu.Name = "comboBoxProgramStudiu";
+            this.comboBoxProgramStudiu.Size = new System.Drawing.Size(143, 36);
+            this.comboBoxProgramStudiu.TabIndex = 6;
             // 
             // labelProgramStudiu
             // 
-            this.labelProgramStudiu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelProgramStudiu.AutoSize = true;
-            this.labelProgramStudiu.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProgramStudiu.Location = new System.Drawing.Point(321, 31);
+            this.labelProgramStudiu.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProgramStudiu.Location = new System.Drawing.Point(391, 50);
             this.labelProgramStudiu.Name = "labelProgramStudiu";
-            this.labelProgramStudiu.Size = new System.Drawing.Size(80, 48);
-            this.labelProgramStudiu.TabIndex = 3;
-            this.labelProgramStudiu.Text = "Program\r\nStudiu\r\n";
+            this.labelProgramStudiu.Size = new System.Drawing.Size(157, 28);
+            this.labelProgramStudiu.TabIndex = 12;
+            this.labelProgramStudiu.Text = "Program Studiu";
+            // 
+            // comboBoxDurata
+            // 
+            this.comboBoxDurata.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDurata.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxDurata.FormatString = "N0";
+            this.comboBoxDurata.FormattingEnabled = true;
+            this.comboBoxDurata.Location = new System.Drawing.Point(563, 84);
+            this.comboBoxDurata.Name = "comboBoxDurata";
+            this.comboBoxDurata.Size = new System.Drawing.Size(143, 36);
+            this.comboBoxDurata.TabIndex = 7;
+            // 
+            // labelDurata
+            // 
+            this.labelDurata.AutoSize = true;
+            this.labelDurata.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDurata.Location = new System.Drawing.Point(391, 92);
+            this.labelDurata.Name = "labelDurata";
+            this.labelDurata.Size = new System.Drawing.Size(76, 28);
+            this.labelDurata.TabIndex = 10;
+            this.labelDurata.Text = "Durata";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(760, 84);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(107, 36);
+            this.btnSearch.TabIndex = 8;
+            this.btnSearch.Text = "Cauta";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // textBoxDenumire
             // 
-            this.textBoxDenumire.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxDenumire.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDenumire.Location = new System.Drawing.Point(105, 38);
+            this.textBoxDenumire.Location = new System.Drawing.Point(142, 42);
             this.textBoxDenumire.Name = "textBoxDenumire";
-            this.textBoxDenumire.Size = new System.Drawing.Size(190, 36);
+            this.textBoxDenumire.Size = new System.Drawing.Size(232, 36);
             this.textBoxDenumire.TabIndex = 4;
             // 
             // labelDenumire
             // 
-            this.labelDenumire.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelDenumire.AutoSize = true;
-            this.labelDenumire.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDenumire.Location = new System.Drawing.Point(13, 50);
+            this.labelDenumire.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDenumire.Location = new System.Drawing.Point(15, 50);
             this.labelDenumire.Name = "labelDenumire";
-            this.labelDenumire.Size = new System.Drawing.Size(92, 24);
+            this.labelDenumire.Size = new System.Drawing.Size(103, 28);
             this.labelDenumire.TabIndex = 1;
             this.labelDenumire.Text = "Denumire";
             // 
@@ -180,12 +239,13 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(14, 102);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 138);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(853, 331);
-            this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.Size = new System.Drawing.Size(853, 295);
+            this.dataGridView1.TabIndex = 9;
+            this.dataGridView1.TabStop = false;
             // 
             // panelDelimiterRight
             // 
@@ -229,7 +289,7 @@
             this.btnReturn.Location = new System.Drawing.Point(0, 202);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(131, 64);
-            this.btnReturn.TabIndex = 4;
+            this.btnReturn.TabIndex = 3;
             this.btnReturn.Text = "O";
             this.btnReturn.UseVisualStyleBackColor = false;
             this.btnReturn.Click += new System.EventHandler(this.buttonReturn_Click);
@@ -248,6 +308,7 @@
             this.btnStergeFacultate.TabIndex = 2;
             this.btnStergeFacultate.Text = "Elimina";
             this.btnStergeFacultate.UseVisualStyleBackColor = false;
+            this.btnStergeFacultate.Click += new System.EventHandler(this.btnStergeFacultate_Click);
             // 
             // pictureBoxUSVLogo
             // 
@@ -367,13 +428,18 @@
         private System.Windows.Forms.Panel panelDelimiterBottom;
         private System.Windows.Forms.Panel panelDelimiterTop;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBoxProgramStudiu;
-        private System.Windows.Forms.Label labelProgramStudiu;
         private System.Windows.Forms.TextBox textBoxDenumire;
         private System.Windows.Forms.Label labelDenumire;
         private System.Windows.Forms.Button btnStergeFacultate;
         private System.Windows.Forms.Label labelMeniuFacultate;
         private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.ComboBox comboBoxDurata;
+        private System.Windows.Forms.Label labelDurata;
+        private System.Windows.Forms.ComboBox comboBoxProgramStudiu;
+        private System.Windows.Forms.Label labelProgramStudiu;
+        private System.Windows.Forms.TextBox textBoxSpecializare;
+        private System.Windows.Forms.Label labelSpecializare;
     }
 }
 
