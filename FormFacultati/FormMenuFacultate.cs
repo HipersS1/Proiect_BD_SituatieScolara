@@ -15,6 +15,7 @@ namespace Proiect_BD_SituatieScolara
     public partial class FormMenuFacultate : Form
     {
         IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
+        private const int PRIMA_COLOANA = 0;
 
         public FormMenuFacultate()
         {
@@ -23,8 +24,16 @@ namespace Proiect_BD_SituatieScolara
             {
                 MessageBox.Show("Eroare la initializare");
             }
+            IncarcareComboBox.IncarcaValoriNumerice(comboBoxDurata, 6);
+            IncarcareComboBox.IncarcaSpecializari(comboBoxProgramStudiu);
         }
 
+        private void FormMenuFacultate_Load(object sender, EventArgs e)
+        {
+            IncarcaFacultati();
+        }
+
+        #region Form Events
         private void buttonReturn_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -38,43 +47,123 @@ namespace Proiect_BD_SituatieScolara
             {
                 form.ShowDialog();
             }
-            AfisareFacultati();
+            IncarcaFacultati();
         }
 
         private void btnModifyFaculty_Click(object sender, EventArgs e)
         {
-            using (FormModificareFacultate form = new FormModificareFacultate())
+            try
             {
-                form.ShowDialog();
+                var currentCell = dataGridView1.CurrentCell;
+                if (currentCell == null)
+                {
+                    MessageBox.Show("Selectati o facultate din tabel pentru a o modifica");
+                    return;
+                }
+                int idFacultate = Convert.ToInt32(dataGridView1[PRIMA_COLOANA, currentCell.RowIndex].Value);
+
+                Facultate facultate = stocareFacultati.GetFacultate(idFacultate);
+
+                using (FormModificareFacultate form = new FormModificareFacultate(facultate))
+                {
+                    form.ShowDialog();
+                }
+                IncarcaFacultati();
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
-        private void AfisareFacultati()
-        {
+        private void btnStergeFacultate_Click(object sender, EventArgs e)
+        { 
             try
             {
-                var facultati = stocareFacultati.GetFacultati();
-                if (facultati != null && facultati.Any())
+                var currentCell = dataGridView1.CurrentCell;
+                if (currentCell == null)
                 {
-                    dataGridView1.DataSource = facultati.Select(f => new { f.IdFacultate, f.Denumire, f.ProgramStudiu, f.Specializare, f.Durata }).ToList();
+                    MessageBox.Show("Selectati o facultate din tabel pentru a o elimina");
+                    return;
+                }
 
-                    dataGridView1.Columns["IdFacultate"].Visible = false;
-                    dataGridView1.Columns["Denumire"].HeaderText = "Denumire";
-                    dataGridView1.Columns["ProgramStudiu"].HeaderText = "ProgramStudiu";
-                    dataGridView1.Columns["Specializare"].HeaderText = "Specializare";
-                    dataGridView1.Columns["Durata"].HeaderText = "Durata";
+                int idFacultate = Convert.ToInt32(dataGridView1[PRIMA_COLOANA, currentCell.RowIndex].Value);
+
+                Facultate facultate= stocareFacultati.GetFacultate(idFacultate);
+                var result = stocareFacultati.DeleteFacultate(idFacultate);
+
+                if(result == true)
+                {
+                    IncarcaFacultati();
+                    MessageBox.Show($"Facultatea: {facultate.Denumire} - {facultate.ProgramStudiu} - {facultate.Specializare} - {facultate.Durata}" +
+                        $" a fost stearsa cu succes");
                 }
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
+            }
 
-                MessageBox.Show(ex.Message.ToString());
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<SearchElement> searchElements = new List<SearchElement>();
+
+                if(textBoxDenumire.Text != String.Empty)
+                    searchElements.Add(new SearchElement(labelDenumire.Text, textBoxDenumire.Text));
+                
+                if (textBoxSpecializare.Text != String.Empty)
+                    searchElements.Add(new SearchElement(labelSpecializare.Text, textBoxSpecializare.Text));
+
+                if (comboBoxProgramStudiu.SelectedItem != null)
+                    searchElements.Add(new SearchElement(labelProgramStudiu.Text.Replace(" ", ""), comboBoxProgramStudiu.SelectedItem.ToString()));
+
+                if(comboBoxDurata.SelectedItem != null)
+                    searchElements.Add(new SearchElement(labelDurata.Text, comboBoxDurata.SelectedItem.ToString()));
+
+                List<Facultate> facultati;
+                if(searchElements.Count > 0)
+                {
+                    facultati = stocareFacultati.GetFacultati(searchElements);
+                    comboBoxProgramStudiu.SelectedItem = null;
+                    comboBoxDurata.SelectedItem = null;
+                }
+                else
+                    facultati = stocareFacultati.GetFacultati();
+
+                if (facultati.Count == 0)
+                {
+                    dataGridView1.DataSource = null;
+                    MessageBox.Show("Niciun rezultat gasit");
+                }
+                else
+                    IncarcareDataGridView.AfisareFacultati(dataGridView1, facultati);
+
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
 
-        private void FormMenuFacultate_Load(object sender, EventArgs e)
+
+        #endregion
+
+        private void IncarcaFacultati()
         {
-            AfisareFacultati();
+            try
+            {
+                var facultati = stocareFacultati.GetFacultati();
+                IncarcareDataGridView.AfisareFacultati(dataGridView1, facultati);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
         }
     }
 }
