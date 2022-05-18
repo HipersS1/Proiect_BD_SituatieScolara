@@ -26,6 +26,12 @@ namespace Proiect_BD_SituatieScolara
                         {
                             return new AdministrareFacultati();
                         }
+
+                        if(tipEntitate == typeof(Student))
+                        {
+                            return new AdministrareStudenti();
+                        }
+
                         break;
 
                     case "BIN":

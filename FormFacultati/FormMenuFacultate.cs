@@ -14,8 +14,9 @@ namespace Proiect_BD_SituatieScolara
 {
     public partial class FormMenuFacultate : Form
     {
-        IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
+        private readonly IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
         private const int PRIMA_COLOANA = 0;
+        
 
         public FormMenuFacultate()
         {
@@ -25,12 +26,14 @@ namespace Proiect_BD_SituatieScolara
                 MessageBox.Show("Eroare la initializare");
             }
             IncarcareComboBox.IncarcaValoriNumerice(comboBoxDurata, 6);
-            IncarcareComboBox.IncarcaSpecializari(comboBoxProgramStudiu);
+            IncarcareComboBox.IncarcaProgramStudiu(comboBoxProgramStudiu);
+
         }
 
         private void FormMenuFacultate_Load(object sender, EventArgs e)
         {
             IncarcaFacultati();
+
         }
 
         #region Form Events
@@ -45,9 +48,11 @@ namespace Proiect_BD_SituatieScolara
         {
             using (FormAdaugareFacultate form = new FormAdaugareFacultate())
             {
-                form.ShowDialog();
+                if(form.ShowDialog() == DialogResult.OK)
+                {
+                    IncarcaFacultati();
+                }
             }
-            IncarcaFacultati();
         }
 
         private void btnModifyFaculty_Click(object sender, EventArgs e)
@@ -66,9 +71,11 @@ namespace Proiect_BD_SituatieScolara
 
                 using (FormModificareFacultate form = new FormModificareFacultate(facultate))
                 {
-                    form.ShowDialog();
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        IncarcaFacultati();
+                    }
                 }
-                IncarcaFacultati();
             }
             catch (Exception)
             {

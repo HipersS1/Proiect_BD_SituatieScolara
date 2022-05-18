@@ -33,6 +33,7 @@
             this.panelCenter = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelInputs = new System.Windows.Forms.Panel();
+            this.comboBoxDurata = new System.Windows.Forms.ComboBox();
             this.comboBoxProgramStudiu = new System.Windows.Forms.ComboBox();
             this.labelDenumire = new System.Windows.Forms.Label();
             this.labelProgramStudiu = new System.Windows.Forms.Label();
@@ -46,7 +47,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
             this.labelFormularAdaugare = new System.Windows.Forms.Label();
-            this.comboBoxDurata = new System.Windows.Forms.ComboBox();
+            this.comboBoxFacultateExistenta = new System.Windows.Forms.ComboBox();
+            this.labelAlege = new System.Windows.Forms.Label();
             this.panelForm.SuspendLayout();
             this.panelCenter.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -88,6 +90,8 @@
             // 
             // panelInputs
             // 
+            this.panelInputs.Controls.Add(this.comboBoxFacultateExistenta);
+            this.panelInputs.Controls.Add(this.labelAlege);
             this.panelInputs.Controls.Add(this.comboBoxDurata);
             this.panelInputs.Controls.Add(this.comboBoxProgramStudiu);
             this.panelInputs.Controls.Add(this.labelDenumire);
@@ -104,13 +108,24 @@
             this.panelInputs.Size = new System.Drawing.Size(356, 324);
             this.panelInputs.TabIndex = 17;
             // 
+            // comboBoxDurata
+            // 
+            this.comboBoxDurata.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDurata.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxDurata.FormatString = "N0";
+            this.comboBoxDurata.FormattingEnabled = true;
+            this.comboBoxDurata.Location = new System.Drawing.Point(163, 175);
+            this.comboBoxDurata.Name = "comboBoxDurata";
+            this.comboBoxDurata.Size = new System.Drawing.Size(188, 36);
+            this.comboBoxDurata.TabIndex = 3;
+            // 
             // comboBoxProgramStudiu
             // 
             this.comboBoxProgramStudiu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxProgramStudiu.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxProgramStudiu.FormatString = "N0";
             this.comboBoxProgramStudiu.FormattingEnabled = true;
-            this.comboBoxProgramStudiu.Location = new System.Drawing.Point(161, 83);
+            this.comboBoxProgramStudiu.Location = new System.Drawing.Point(163, 100);
             this.comboBoxProgramStudiu.Name = "comboBoxProgramStudiu";
             this.comboBoxProgramStudiu.Size = new System.Drawing.Size(188, 36);
             this.comboBoxProgramStudiu.TabIndex = 1;
@@ -119,7 +134,7 @@
             // 
             this.labelDenumire.AutoSize = true;
             this.labelDenumire.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDenumire.Location = new System.Drawing.Point(4, 54);
+            this.labelDenumire.Location = new System.Drawing.Point(6, 71);
             this.labelDenumire.Name = "labelDenumire";
             this.labelDenumire.Size = new System.Drawing.Size(103, 28);
             this.labelDenumire.TabIndex = 2;
@@ -129,7 +144,7 @@
             // 
             this.labelProgramStudiu.AutoSize = true;
             this.labelProgramStudiu.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProgramStudiu.Location = new System.Drawing.Point(4, 91);
+            this.labelProgramStudiu.Location = new System.Drawing.Point(6, 108);
             this.labelProgramStudiu.Name = "labelProgramStudiu";
             this.labelProgramStudiu.Size = new System.Drawing.Size(155, 28);
             this.labelProgramStudiu.TabIndex = 1;
@@ -149,7 +164,7 @@
             // textBoxSpecializare
             // 
             this.textBoxSpecializare.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSpecializare.Location = new System.Drawing.Point(161, 121);
+            this.textBoxSpecializare.Location = new System.Drawing.Point(163, 138);
             this.textBoxSpecializare.Name = "textBoxSpecializare";
             this.textBoxSpecializare.Size = new System.Drawing.Size(188, 36);
             this.textBoxSpecializare.TabIndex = 2;
@@ -158,7 +173,7 @@
             // 
             this.labelSpecializare.AutoSize = true;
             this.labelSpecializare.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpecializare.Location = new System.Drawing.Point(4, 129);
+            this.labelSpecializare.Location = new System.Drawing.Point(6, 146);
             this.labelSpecializare.Name = "labelSpecializare";
             this.labelSpecializare.Size = new System.Drawing.Size(121, 28);
             this.labelSpecializare.TabIndex = 3;
@@ -179,7 +194,7 @@
             // 
             this.labelDurata.AutoSize = true;
             this.labelDurata.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDurata.Location = new System.Drawing.Point(4, 166);
+            this.labelDurata.Location = new System.Drawing.Point(6, 183);
             this.labelDurata.Name = "labelDurata";
             this.labelDurata.Size = new System.Drawing.Size(76, 28);
             this.labelDurata.TabIndex = 4;
@@ -188,7 +203,7 @@
             // textBoxDenumire
             // 
             this.textBoxDenumire.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDenumire.Location = new System.Drawing.Point(161, 46);
+            this.textBoxDenumire.Location = new System.Drawing.Point(163, 63);
             this.textBoxDenumire.Name = "textBoxDenumire";
             this.textBoxDenumire.Size = new System.Drawing.Size(188, 36);
             this.textBoxDenumire.TabIndex = 0;
@@ -231,16 +246,29 @@
             this.labelFormularAdaugare.Text = "Formular Adaugare Facultate";
             this.labelFormularAdaugare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBoxDurata
+            // comboBoxFacultateExistenta
             // 
-            this.comboBoxDurata.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDurata.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxDurata.FormatString = "N0";
-            this.comboBoxDurata.FormattingEnabled = true;
-            this.comboBoxDurata.Location = new System.Drawing.Point(161, 158);
-            this.comboBoxDurata.Name = "comboBoxDurata";
-            this.comboBoxDurata.Size = new System.Drawing.Size(188, 36);
-            this.comboBoxDurata.TabIndex = 3;
+            this.comboBoxFacultateExistenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFacultateExistenta.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxFacultateExistenta.FormatString = "N0";
+            this.comboBoxFacultateExistenta.FormattingEnabled = true;
+            this.comboBoxFacultateExistenta.Items.AddRange(new object[] {
+            "Creeaza facultate noua"});
+            this.comboBoxFacultateExistenta.Location = new System.Drawing.Point(163, 24);
+            this.comboBoxFacultateExistenta.Name = "comboBoxFacultateExistenta";
+            this.comboBoxFacultateExistenta.Size = new System.Drawing.Size(188, 36);
+            this.comboBoxFacultateExistenta.TabIndex = 6;
+            this.comboBoxFacultateExistenta.SelectedIndexChanged += new System.EventHandler(this.comboBoxFacultateExistenta_SelectedIndexChanged);
+            // 
+            // labelAlege
+            // 
+            this.labelAlege.AutoSize = true;
+            this.labelAlege.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAlege.Location = new System.Drawing.Point(6, 32);
+            this.labelAlege.Name = "labelAlege";
+            this.labelAlege.Size = new System.Drawing.Size(110, 28);
+            this.labelAlege.TabIndex = 7;
+            this.labelAlege.Text = "Selecteaza";
             // 
             // FormAdaugareFacultate
             // 
@@ -284,6 +312,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox comboBoxProgramStudiu;
         private System.Windows.Forms.ComboBox comboBoxDurata;
+        private System.Windows.Forms.ComboBox comboBoxFacultateExistenta;
+        private System.Windows.Forms.Label labelAlege;
     }
 }
 

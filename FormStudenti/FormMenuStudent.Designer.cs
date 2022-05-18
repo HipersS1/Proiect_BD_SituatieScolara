@@ -147,17 +147,17 @@
             this.comboBoxProgramStudiu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxProgramStudiu.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxProgramStudiu.FormattingEnabled = true;
-            this.comboBoxProgramStudiu.Location = new System.Drawing.Point(679, 25);
+            this.comboBoxProgramStudiu.Location = new System.Drawing.Point(335, 60);
             this.comboBoxProgramStudiu.Name = "comboBoxProgramStudiu";
             this.comboBoxProgramStudiu.Size = new System.Drawing.Size(188, 36);
             this.comboBoxProgramStudiu.TabIndex = 12;
+            this.comboBoxProgramStudiu.SelectedIndexChanged += new System.EventHandler(this.comboBoxProgramStudiu_SelectedIndexChanged);
             // 
             // labelProgramStudiu
             // 
-            this.labelProgramStudiu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelProgramStudiu.AutoSize = true;
             this.labelProgramStudiu.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProgramStudiu.Location = new System.Drawing.Point(593, 13);
+            this.labelProgramStudiu.Location = new System.Drawing.Point(249, 48);
             this.labelProgramStudiu.Name = "labelProgramStudiu";
             this.labelProgramStudiu.Size = new System.Drawing.Size(80, 48);
             this.labelProgramStudiu.TabIndex = 11;
@@ -166,19 +166,20 @@
             // comboBoxSpecializare
             // 
             this.comboBoxSpecializare.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSpecializare.DropDownWidth = 144;
             this.comboBoxSpecializare.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSpecializare.FormattingEnabled = true;
-            this.comboBoxSpecializare.Location = new System.Drawing.Point(400, 60);
+            this.comboBoxSpecializare.Location = new System.Drawing.Point(634, 20);
             this.comboBoxSpecializare.Name = "comboBoxSpecializare";
             this.comboBoxSpecializare.Size = new System.Drawing.Size(188, 36);
             this.comboBoxSpecializare.TabIndex = 10;
+            this.comboBoxSpecializare.DropDown += new System.EventHandler(this.comboBox_DropDown);
             // 
             // labelSpecializare
             // 
-            this.labelSpecializare.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelSpecializare.AutoSize = true;
             this.labelSpecializare.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpecializare.Location = new System.Drawing.Point(294, 72);
+            this.labelSpecializare.Location = new System.Drawing.Point(528, 32);
             this.labelSpecializare.Name = "labelSpecializare";
             this.labelSpecializare.Size = new System.Drawing.Size(108, 24);
             this.labelSpecializare.TabIndex = 9;
@@ -187,19 +188,22 @@
             // comboBoxFacultate
             // 
             this.comboBoxFacultate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFacultate.DropDownWidth = 144;
             this.comboBoxFacultate.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxFacultate.FormattingEnabled = true;
-            this.comboBoxFacultate.Location = new System.Drawing.Point(400, 20);
+            this.comboBoxFacultate.ItemHeight = 28;
+            this.comboBoxFacultate.Location = new System.Drawing.Point(335, 20);
             this.comboBoxFacultate.Name = "comboBoxFacultate";
             this.comboBoxFacultate.Size = new System.Drawing.Size(188, 36);
             this.comboBoxFacultate.TabIndex = 8;
+            this.comboBoxFacultate.DropDown += new System.EventHandler(this.comboBox_DropDown);
+            this.comboBoxFacultate.SelectedIndexChanged += new System.EventHandler(this.comboBoxFacultate_SelectedIndexChanged);
             // 
             // labelFacultate
             // 
-            this.labelFacultate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelFacultate.AutoSize = true;
             this.labelFacultate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFacultate.Location = new System.Drawing.Point(294, 32);
+            this.labelFacultate.Location = new System.Drawing.Point(249, 26);
             this.labelFacultate.Name = "labelFacultate";
             this.labelFacultate.Size = new System.Drawing.Size(86, 24);
             this.labelFacultate.TabIndex = 5;
@@ -207,16 +211,14 @@
             // 
             // textBoxPrenume
             // 
-            this.textBoxPrenume.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxPrenume.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPrenume.Location = new System.Drawing.Point(98, 60);
             this.textBoxPrenume.Name = "textBoxPrenume";
-            this.textBoxPrenume.Size = new System.Drawing.Size(190, 36);
+            this.textBoxPrenume.Size = new System.Drawing.Size(145, 36);
             this.textBoxPrenume.TabIndex = 5;
             // 
             // labelPrenume
             // 
-            this.labelPrenume.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelPrenume.AutoSize = true;
             this.labelPrenume.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPrenume.Location = new System.Drawing.Point(13, 72);
@@ -227,16 +229,14 @@
             // 
             // textBoxNume
             // 
-            this.textBoxNume.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBoxNume.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNume.Location = new System.Drawing.Point(98, 20);
             this.textBoxNume.Name = "textBoxNume";
-            this.textBoxNume.Size = new System.Drawing.Size(190, 36);
+            this.textBoxNume.Size = new System.Drawing.Size(145, 36);
             this.textBoxNume.TabIndex = 4;
             // 
             // labelNume
             // 
-            this.labelNume.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelNume.AutoSize = true;
             this.labelNume.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNume.Location = new System.Drawing.Point(13, 31);
@@ -250,6 +250,9 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(14, 102);
             this.dataGridView1.Name = "dataGridView1";
@@ -441,6 +444,7 @@
             this.Name = "FormMenuStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "University Manager";
+            this.Load += new System.EventHandler(this.FormMenuStudent_Load);
             this.panelForm.ResumeLayout(false);
             this.panelCenter.ResumeLayout(false);
             this.panelDelimiterCenter.ResumeLayout(false);

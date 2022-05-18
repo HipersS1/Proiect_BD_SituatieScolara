@@ -13,18 +13,27 @@ namespace Proiect_BD_SituatieScolara
 {
     public partial class FormAdaugareFacultate : Form
     {
-        IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
+        readonly private IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
+        private bool itemAdaugat = false;
 
         public FormAdaugareFacultate()
         {
             InitializeComponent();
-            IncarcareComboBox.IncarcaSpecializari(comboBoxProgramStudiu);
+            IncarcareComboBox.IncarcaProgramStudiu(comboBoxProgramStudiu);
             IncarcareComboBox.IncarcaValoriNumerice(comboBoxDurata, 6);
+            IncarcareComboBox.IncarcaDenumiriFacultati(comboBoxFacultateExistenta, stocareFacultati.GetFacultati());
+            comboBoxFacultateExistenta.SelectedIndex = 0;
         }
 
         #region Form Events
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            if (itemAdaugat == true)
+            {
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+                this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
@@ -38,6 +47,11 @@ namespace Proiect_BD_SituatieScolara
                 {
                     return;
                 }
+                if(stocareFacultati.ValideazaExistenta(facultate) == true)
+                {
+                    MessageBox.Show("Facultatea exista deja");
+                    return;
+                }
 
                 var rezultat = stocareFacultati.AddFacultate(facultate);
 
@@ -45,12 +59,38 @@ namespace Proiect_BD_SituatieScolara
                 {
                     MessageBox.Show("Facultatea a fost adaugata");
                     ClearResetFormComponents.ClearInputs(panelInputs.Controls.OfType<Control>());
+
+                    comboBoxFacultateExistenta.SelectedIndex=0;// pentru problema cu functia de resetare a controalelor
+                    itemAdaugat = true;
+
+                    comboBoxFacultateExistenta.Items.Clear();
+                    comboBoxFacultateExistenta.Items.Add("Creeaza facultate noua");
+                    comboBoxFacultateExistenta.SelectedIndex=0;
+                    IncarcareComboBox.IncarcaDenumiriFacultati(comboBoxFacultateExistenta, stocareFacultati.GetFacultati());
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 MessageBox.Show("Facultatea nu a fost adaugata cu succes");
+            }
+        }
+
+        private void comboBoxFacultateExistenta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxFacultateExistenta.SelectedIndex == -1)
+                return;
+
+            if (comboBoxFacultateExistenta.SelectedIndex == 0)
+            {
+                textBoxDenumire.ReadOnly = false;
+                textBoxDenumire.Text = String.Empty;
+
+            }
+            else
+            {
+                textBoxDenumire.ReadOnly = true;
+                textBoxDenumire.Text = comboBoxFacultateExistenta.SelectedItem.ToString();
             }
         }
 
@@ -111,9 +151,8 @@ namespace Proiect_BD_SituatieScolara
             return null;
         }
 
-
         #endregion
 
-
+        
     }
 }
