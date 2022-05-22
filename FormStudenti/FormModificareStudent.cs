@@ -18,14 +18,12 @@ namespace Proiect_BD_SituatieScolara
         private readonly IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
         private Student studentToBeModified;
         private Facultate facultateStudent;
-        private List<Student> listaStudenti;
         private bool itemModificat = false;
         public FormModificareStudent(Student student)
         {
             InitializeComponent();
             studentToBeModified = student;
             facultateStudent = stocareFacultati.GetFacultate(student.IdFacultate);
-            listaStudenti = stocareStudenti.GetStudents();
 
             textBoxPrenume.Text = student.Prenume;
             textBoxNume.Text = student.Nume;
@@ -33,6 +31,12 @@ namespace Proiect_BD_SituatieScolara
             textBoxTelefon.Text = student.Telefon;
 
             IncarcareComboBox.IncarcaValoriNumerice(comboBoxAn, facultateStudent.Durata);
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Denumirea Facultatii");
+            sb.AppendLine($"{facultateStudent.Denumire}");
+            sb.Append($"{facultateStudent.ProgramStudiu} {facultateStudent.Specializare}");
+            richTextBoxFacultate.Text = sb.ToString();
+
         }
 
         private void FormModificareStudent_Load(object sender, EventArgs e)
@@ -76,7 +80,7 @@ namespace Proiect_BD_SituatieScolara
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Studentul nu a fost adaugat cu succes");
+                MessageBox.Show("Studentul nu a fost modificat cu succes");
             }
 
         }

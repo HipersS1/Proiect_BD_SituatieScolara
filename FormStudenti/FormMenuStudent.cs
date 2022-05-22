@@ -21,7 +21,7 @@ namespace Proiect_BD_SituatieScolara
         public FormMenuStudent()
         {
             InitializeComponent();
-            if(stocareStudenti == null)
+            if(stocareStudenti == null || stocareFacultati == null)
             {
                 MessageBox.Show("Eroare la initializare");
             }
@@ -62,7 +62,6 @@ namespace Proiect_BD_SituatieScolara
 
         private void btnModificaStudent_Click(object sender, EventArgs e)
         {
-            
             try
             {
                 var currentCell = dataGridView1.CurrentCell;
@@ -164,7 +163,7 @@ namespace Proiect_BD_SituatieScolara
                 else
                     dataSetAfisare = stocareStudenti.GetStudentiFacultati();
 
-                if (dataSetAfisare.Tables.Count == 0)
+                if (dataSetAfisare.Tables[0].Rows.Count == 0)
                 {
                     dataGridView1.DataSource = null;
                     MessageBox.Show("Niciun rezultat gasit");
