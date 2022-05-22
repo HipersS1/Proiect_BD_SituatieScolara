@@ -220,6 +220,9 @@
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(199, 34);
             this.textBoxEmail.TabIndex = 2;
+            this.textBoxEmail.Text = "example@yahoo.com";
+            this.textBoxEmail.Enter += new System.EventHandler(this.textBoxEmail_Enter);
+            this.textBoxEmail.Leave += new System.EventHandler(this.textBoxEmail_Leave);
             // 
             // labelEmail
             // 
@@ -261,6 +264,9 @@
             this.textBoxTelefon.Name = "textBoxTelefon";
             this.textBoxTelefon.Size = new System.Drawing.Size(199, 34);
             this.textBoxTelefon.TabIndex = 3;
+            this.textBoxTelefon.Text = "07XXXXXXXX";
+            this.textBoxTelefon.Enter += new System.EventHandler(this.textBoxTelefon_Enter);
+            this.textBoxTelefon.Leave += new System.EventHandler(this.textBoxTelefon_Leave);
             // 
             // labelTelefon
             // 

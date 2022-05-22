@@ -51,11 +51,11 @@ namespace Proiect_BD_SituatieScolara
                 {
                     return;
                 }
-                if (stocareFacultati.ValideazaExistenta(facultate) == true)
-                {
-                    MessageBox.Show("Facultatea exista deja");
-                    return;
-                }
+                //if (stocareFacultati.ValideazaExistenta(facultate) == true)
+                //{
+                //    MessageBox.Show("Facultatea exista deja");
+                //    return;
+                //}
 
                 facultate.IdFacultate = _facultate.IdFacultate;
                 var rezultat = stocareFacultati.UpdateFacultate(facultate);

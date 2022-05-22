@@ -49,7 +49,7 @@ namespace Proiect_BD_SituatieScolara
                 }
                 if(stocareFacultati.ValideazaExistenta(facultate) == true)
                 {
-                    MessageBox.Show("Facultatea exista deja");
+                    MessageBox.Show("Facultatea exista deja", "Eroare");
                     return;
                 }
 

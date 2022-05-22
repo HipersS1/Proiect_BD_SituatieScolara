@@ -97,6 +97,9 @@ namespace Proiect_BD_SituatieScolara
                 int idFacultate = Convert.ToInt32(dataGridView1[PRIMA_COLOANA, currentCell.RowIndex].Value);
 
                 Facultate facultate= stocareFacultati.GetFacultate(idFacultate);
+                DialogResult dialogResult = MessageBox.Show("Esti sigur ca vrei sa elimini facultatea?", "Mesaj de confirmare", MessageBoxButtons.YesNo);
+                if (dialogResult != DialogResult.Yes)
+                    return;
                 var result = stocareFacultati.DeleteFacultate(idFacultate);
 
                 if(result == true)

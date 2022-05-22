@@ -20,7 +20,6 @@ namespace Proiect_BD_SituatieScolara
 
         //initializare obiecte utilizate pentru salvarea datelor in baza de date (sau alte medii de stocare...daca exista implementare corespunzatoare)
 
-
         public FormInitializare()
         {
             InitializeComponent();
@@ -35,7 +34,7 @@ namespace Proiect_BD_SituatieScolara
         }
 
         private void btnMenuUniversity_Click(object sender, EventArgs e)
-        {
+        {            
             this.Hide();
             FormMenuFacultate form = new FormMenuFacultate();
             form.ShowDialog();

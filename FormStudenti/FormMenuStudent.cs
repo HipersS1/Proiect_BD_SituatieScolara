@@ -37,6 +37,7 @@ namespace Proiect_BD_SituatieScolara
         {
             comboBoxSpecializare.Enabled = false;
             comboBoxSpecializare.Items.Add("Selecteaza o facultate");
+            dataGridView1.CurrentCell = null;
         }
 
 
@@ -52,15 +53,71 @@ namespace Proiect_BD_SituatieScolara
         {
             using (FormAdaugareStudent form = new FormAdaugareStudent())
             {
-                form.ShowDialog();
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    IncarcaStudenti();
+                }
             }
         }
 
         private void btnModificaStudent_Click(object sender, EventArgs e)
         {
-            using (FormModificareStudent form = new FormModificareStudent())
+            
+            try
             {
-                form.ShowDialog();
+                var currentCell = dataGridView1.CurrentCell;
+                if(currentCell == null)
+                {
+                    MessageBox.Show("Selectati un student din tabel");
+                    return;
+                }
+
+                int idStudent = Convert.ToInt32(dataGridView1[PRIMA_COLOANA, currentCell.RowIndex].Value);
+                Student student = stocareStudenti.GetStudent(idStudent);
+
+                using (FormModificareStudent form = new FormModificareStudent(student))
+                {
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        IncarcaStudenti();
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        private void btnEliminaStudent_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var currentCell = dataGridView1.CurrentCell;
+                if (currentCell == null)
+                {
+                    MessageBox.Show("Selectati un student din tabel");
+                    return;
+                }
+
+                int idStudent = Convert.ToInt32(dataGridView1[PRIMA_COLOANA, currentCell.RowIndex].Value);
+
+                Student student = stocareStudenti.GetStudent(idStudent);
+                DialogResult dialogResult = MessageBox.Show("Esti sigur ca vrei sa elimini acest student?", "Mesaj de confirmare", MessageBoxButtons.YesNo);
+                if (dialogResult != DialogResult.Yes)
+                    return;
+                var result = stocareStudenti.DeleteStudent(idStudent);
+
+                if (result == true)
+                {
+                    IncarcaStudenti();
+                    MessageBox.Show($"Studentul: {student.Nume} - {student.Prenume} a fost sters cu succes");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -72,6 +129,57 @@ namespace Proiect_BD_SituatieScolara
             }
         }
 
+        private void buttonClearSearch_Click(object sender, EventArgs e)
+        {
+            ClearResetFormComponents.ClearInputs(panelDelimiterCenter.Controls.OfType<Control>());
+            IncarcaStudenti();
+        }
+
+        private void btnCauta_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<SearchElement> searchElements = new List<SearchElement>();
+
+                if (textBoxNume.Text != String.Empty)
+                    searchElements.Add(new SearchElement("s.Nume", textBoxNume.Text));
+
+                if (textBoxPrenume.Text != String.Empty)
+                    searchElements.Add(new SearchElement("s.Prenume", textBoxPrenume.Text));
+
+                if (comboBoxFacultate.SelectedItem != null)
+                    searchElements.Add(new SearchElement("f.Denumire", comboBoxFacultate.SelectedItem.ToString()));
+
+                if (comboBoxProgramStudiu.SelectedItem != null)
+                    searchElements.Add(new SearchElement("f.ProgramStudiu", comboBoxProgramStudiu.SelectedItem.ToString()));
+
+                if (comboBoxSpecializare.SelectedItem != null)
+                    searchElements.Add(new SearchElement("f.Specializare", comboBoxSpecializare.SelectedItem.ToString()));
+
+                DataSet dataSetAfisare = new DataSet();
+                if (searchElements.Count > 0)
+                {
+                    dataSetAfisare = stocareStudenti.GetStudents(searchElements);
+                }
+                else
+                    dataSetAfisare = stocareStudenti.GetStudentiFacultati();
+
+                if (dataSetAfisare.Tables.Count == 0)
+                {
+                    dataGridView1.DataSource = null;
+                    MessageBox.Show("Niciun rezultat gasit");
+                }
+                else
+                    IncarcaStudentiSearch(dataSetAfisare);
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        #region ComboBoxEvents
         private void comboBoxFacultate_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxFacultate.SelectedIndex == -1)
@@ -126,6 +234,7 @@ namespace Proiect_BD_SituatieScolara
             }
             senderComboBox.DropDownWidth = width;
         }
+        #endregion
 
         #endregion
 
@@ -136,8 +245,8 @@ namespace Proiect_BD_SituatieScolara
         {
             try
             {
-                var studenti = stocareStudenti.GetStudents();
-                IncarcareDataGridView.AfisareStudenti(dataGridView1, studenti);
+                var studenti = stocareStudenti.GetStudentiFacultati();
+                IncarcareDataGridView.AfisareStudentiDataSet(dataGridView1, studenti);
             }
             catch (Exception ex)
             {
@@ -145,8 +254,22 @@ namespace Proiect_BD_SituatieScolara
                 throw;
             }
         }
+
+        private void IncarcaStudentiSearch(DataSet dataSet)
+        {
+            try
+            {
+                IncarcareDataGridView.AfisareStudentiDataSet(dataGridView1, dataSet);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+        }
+
+
         #endregion
 
-        
     }
 }
