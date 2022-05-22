@@ -32,15 +32,14 @@
             this.panelForm = new System.Windows.Forms.Panel();
             this.panelCenter = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panelInputs = new System.Windows.Forms.Panel();
+            this.richTextBoxFacultate = new System.Windows.Forms.RichTextBox();
             this.comboBoxAn = new System.Windows.Forms.ComboBox();
             this.numericUpCurs = new System.Windows.Forms.NumericUpDown();
             this.labelCurs = new System.Windows.Forms.Label();
             this.numericUpLaborator = new System.Windows.Forms.NumericUpDown();
             this.labelLaborator = new System.Windows.Forms.Label();
             this.comboBoxSemestru = new System.Windows.Forms.ComboBox();
-            this.labelFacultate = new System.Windows.Forms.Label();
-            this.comboBoxFacultate = new System.Windows.Forms.ComboBox();
             this.labelDenumire = new System.Windows.Forms.Label();
             this.labelAn = new System.Windows.Forms.Label();
             this.btnAnuleaza = new System.Windows.Forms.Button();
@@ -54,7 +53,7 @@
             this.panelForm.SuspendLayout();
             this.panelCenter.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.panelInputs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpCurs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpLaborator)).BeginInit();
             this.panelTop.SuspendLayout();
@@ -67,7 +66,7 @@
             this.panelForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelForm.Location = new System.Drawing.Point(0, 0);
             this.panelForm.Name = "panelForm";
-            this.panelForm.Size = new System.Drawing.Size(500, 400);
+            this.panelForm.Size = new System.Drawing.Size(492, 453);
             this.panelForm.TabIndex = 0;
             // 
             // panelCenter
@@ -75,44 +74,54 @@
             this.panelCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
             this.panelCenter.Controls.Add(this.panel1);
             this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenter.Location = new System.Drawing.Point(0, 76);
+            this.panelCenter.Location = new System.Drawing.Point(0, 86);
             this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(500, 324);
+            this.panelCenter.Size = new System.Drawing.Size(492, 367);
             this.panelCenter.TabIndex = 2;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
-            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.panelInputs);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(500, 324);
+            this.panel1.Size = new System.Drawing.Size(492, 367);
             this.panel1.TabIndex = 1;
             // 
-            // panel4
+            // panelInputs
             // 
-            this.panel4.Controls.Add(this.comboBoxAn);
-            this.panel4.Controls.Add(this.numericUpCurs);
-            this.panel4.Controls.Add(this.labelCurs);
-            this.panel4.Controls.Add(this.numericUpLaborator);
-            this.panel4.Controls.Add(this.labelLaborator);
-            this.panel4.Controls.Add(this.comboBoxSemestru);
-            this.panel4.Controls.Add(this.labelFacultate);
-            this.panel4.Controls.Add(this.comboBoxFacultate);
-            this.panel4.Controls.Add(this.labelDenumire);
-            this.panel4.Controls.Add(this.labelAn);
-            this.panel4.Controls.Add(this.btnAnuleaza);
-            this.panel4.Controls.Add(this.labelSemestru);
-            this.panel4.Controls.Add(this.btnTrimite);
-            this.panel4.Controls.Add(this.textBoxDenumire);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(72, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(356, 324);
-            this.panel4.TabIndex = 17;
+            this.panelInputs.Controls.Add(this.richTextBoxFacultate);
+            this.panelInputs.Controls.Add(this.comboBoxAn);
+            this.panelInputs.Controls.Add(this.numericUpCurs);
+            this.panelInputs.Controls.Add(this.labelCurs);
+            this.panelInputs.Controls.Add(this.numericUpLaborator);
+            this.panelInputs.Controls.Add(this.labelLaborator);
+            this.panelInputs.Controls.Add(this.comboBoxSemestru);
+            this.panelInputs.Controls.Add(this.labelDenumire);
+            this.panelInputs.Controls.Add(this.labelAn);
+            this.panelInputs.Controls.Add(this.btnAnuleaza);
+            this.panelInputs.Controls.Add(this.labelSemestru);
+            this.panelInputs.Controls.Add(this.btnTrimite);
+            this.panelInputs.Controls.Add(this.textBoxDenumire);
+            this.panelInputs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelInputs.Location = new System.Drawing.Point(72, 0);
+            this.panelInputs.Name = "panelInputs";
+            this.panelInputs.Size = new System.Drawing.Size(348, 367);
+            this.panelInputs.TabIndex = 17;
+            // 
+            // richTextBoxFacultate
+            // 
+            this.richTextBoxFacultate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
+            this.richTextBoxFacultate.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxFacultate.Location = new System.Drawing.Point(15, 6);
+            this.richTextBoxFacultate.Name = "richTextBoxFacultate";
+            this.richTextBoxFacultate.ReadOnly = true;
+            this.richTextBoxFacultate.Size = new System.Drawing.Size(315, 89);
+            this.richTextBoxFacultate.TabIndex = 0;
+            this.richTextBoxFacultate.Text = "";
             // 
             // comboBoxAn
             // 
@@ -120,7 +129,7 @@
             this.comboBoxAn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxAn.FormatString = "N0";
             this.comboBoxAn.FormattingEnabled = true;
-            this.comboBoxAn.Location = new System.Drawing.Point(160, 97);
+            this.comboBoxAn.Location = new System.Drawing.Point(142, 143);
             this.comboBoxAn.Name = "comboBoxAn";
             this.comboBoxAn.Size = new System.Drawing.Size(188, 32);
             this.comboBoxAn.TabIndex = 2;
@@ -133,7 +142,7 @@
             0,
             0,
             131072});
-            this.numericUpCurs.Location = new System.Drawing.Point(162, 210);
+            this.numericUpCurs.Location = new System.Drawing.Point(142, 257);
             this.numericUpCurs.Name = "numericUpCurs";
             this.numericUpCurs.Size = new System.Drawing.Size(188, 32);
             this.numericUpCurs.TabIndex = 5;
@@ -148,10 +157,10 @@
             // labelCurs
             // 
             this.labelCurs.AutoSize = true;
-            this.labelCurs.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCurs.Location = new System.Drawing.Point(5, 214);
+            this.labelCurs.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCurs.Location = new System.Drawing.Point(10, 261);
             this.labelCurs.Name = "labelCurs";
-            this.labelCurs.Size = new System.Drawing.Size(74, 28);
+            this.labelCurs.Size = new System.Drawing.Size(75, 28);
             this.labelCurs.TabIndex = 19;
             this.labelCurs.Text = "Curs %";
             // 
@@ -163,7 +172,7 @@
             0,
             0,
             131072});
-            this.numericUpLaborator.Location = new System.Drawing.Point(162, 173);
+            this.numericUpLaborator.Location = new System.Drawing.Point(142, 219);
             this.numericUpLaborator.Name = "numericUpLaborator";
             this.numericUpLaborator.Size = new System.Drawing.Size(188, 32);
             this.numericUpLaborator.TabIndex = 4;
@@ -178,10 +187,10 @@
             // labelLaborator
             // 
             this.labelLaborator.AutoSize = true;
-            this.labelLaborator.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLaborator.Location = new System.Drawing.Point(5, 177);
+            this.labelLaborator.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLaborator.Location = new System.Drawing.Point(10, 223);
             this.labelLaborator.Name = "labelLaborator";
-            this.labelLaborator.Size = new System.Drawing.Size(125, 28);
+            this.labelLaborator.Size = new System.Drawing.Size(122, 28);
             this.labelLaborator.TabIndex = 17;
             this.labelLaborator.Text = "Laborator %";
             // 
@@ -194,46 +203,26 @@
             this.comboBoxSemestru.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.comboBoxSemestru.Location = new System.Drawing.Point(160, 134);
+            this.comboBoxSemestru.Location = new System.Drawing.Point(142, 181);
             this.comboBoxSemestru.Name = "comboBoxSemestru";
             this.comboBoxSemestru.Size = new System.Drawing.Size(188, 32);
             this.comboBoxSemestru.TabIndex = 3;
             // 
-            // labelFacultate
-            // 
-            this.labelFacultate.AutoSize = true;
-            this.labelFacultate.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFacultate.Location = new System.Drawing.Point(5, 25);
-            this.labelFacultate.Name = "labelFacultate";
-            this.labelFacultate.Size = new System.Drawing.Size(98, 28);
-            this.labelFacultate.TabIndex = 16;
-            this.labelFacultate.Text = "Facultate";
-            // 
-            // comboBoxFacultate
-            // 
-            this.comboBoxFacultate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFacultate.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxFacultate.FormattingEnabled = true;
-            this.comboBoxFacultate.Location = new System.Drawing.Point(160, 17);
-            this.comboBoxFacultate.Name = "comboBoxFacultate";
-            this.comboBoxFacultate.Size = new System.Drawing.Size(188, 36);
-            this.comboBoxFacultate.TabIndex = 0;
-            // 
             // labelDenumire
             // 
             this.labelDenumire.AutoSize = true;
-            this.labelDenumire.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDenumire.Location = new System.Drawing.Point(3, 63);
+            this.labelDenumire.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDenumire.Location = new System.Drawing.Point(10, 109);
             this.labelDenumire.Name = "labelDenumire";
-            this.labelDenumire.Size = new System.Drawing.Size(103, 28);
+            this.labelDenumire.Size = new System.Drawing.Size(102, 28);
             this.labelDenumire.TabIndex = 2;
             this.labelDenumire.Text = "Denumire";
             // 
             // labelAn
             // 
             this.labelAn.AutoSize = true;
-            this.labelAn.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAn.Location = new System.Drawing.Point(3, 100);
+            this.labelAn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAn.Location = new System.Drawing.Point(10, 147);
             this.labelAn.Name = "labelAn";
             this.labelAn.Size = new System.Drawing.Size(37, 28);
             this.labelAn.TabIndex = 1;
@@ -241,10 +230,10 @@
             // 
             // btnAnuleaza
             // 
-            this.btnAnuleaza.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnuleaza.Location = new System.Drawing.Point(204, 274);
+            this.btnAnuleaza.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnuleaza.Location = new System.Drawing.Point(186, 312);
             this.btnAnuleaza.Name = "btnAnuleaza";
-            this.btnAnuleaza.Size = new System.Drawing.Size(144, 38);
+            this.btnAnuleaza.Size = new System.Drawing.Size(144, 43);
             this.btnAnuleaza.TabIndex = 7;
             this.btnAnuleaza.Text = "Anuleaza";
             this.btnAnuleaza.UseVisualStyleBackColor = true;
@@ -253,37 +242,40 @@
             // labelSemestru
             // 
             this.labelSemestru.AutoSize = true;
-            this.labelSemestru.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSemestru.Location = new System.Drawing.Point(3, 138);
+            this.labelSemestru.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSemestru.Location = new System.Drawing.Point(10, 185);
             this.labelSemestru.Name = "labelSemestru";
-            this.labelSemestru.Size = new System.Drawing.Size(100, 28);
+            this.labelSemestru.Size = new System.Drawing.Size(98, 28);
             this.labelSemestru.TabIndex = 3;
             this.labelSemestru.Text = "Semestru";
             // 
             // btnTrimite
             // 
-            this.btnTrimite.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTrimite.Location = new System.Drawing.Point(10, 274);
+            this.btnTrimite.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTrimite.Location = new System.Drawing.Point(15, 312);
             this.btnTrimite.Name = "btnTrimite";
-            this.btnTrimite.Size = new System.Drawing.Size(144, 38);
+            this.btnTrimite.Size = new System.Drawing.Size(144, 43);
             this.btnTrimite.TabIndex = 6;
             this.btnTrimite.Text = "Actualizeaza";
             this.btnTrimite.UseVisualStyleBackColor = true;
+            this.btnTrimite.Click += new System.EventHandler(this.btnTrimite_Click);
             // 
             // textBoxDenumire
             // 
             this.textBoxDenumire.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDenumire.Location = new System.Drawing.Point(160, 55);
+            this.textBoxDenumire.Location = new System.Drawing.Point(142, 101);
             this.textBoxDenumire.Name = "textBoxDenumire";
             this.textBoxDenumire.Size = new System.Drawing.Size(188, 36);
             this.textBoxDenumire.TabIndex = 1;
+            this.textBoxDenumire.Enter += new System.EventHandler(this.textBoxPlaceholder_Enter);
+            this.textBoxDenumire.Leave += new System.EventHandler(this.textBoxPlaceholder_Leave);
             // 
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(428, 0);
+            this.panel3.Location = new System.Drawing.Point(420, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(72, 324);
+            this.panel3.Size = new System.Drawing.Size(72, 367);
             this.panel3.TabIndex = 16;
             // 
             // panel2
@@ -291,7 +283,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(72, 324);
+            this.panel2.Size = new System.Drawing.Size(72, 367);
             this.panel2.TabIndex = 15;
             // 
             // panelTop
@@ -301,28 +293,28 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(500, 76);
+            this.panelTop.Size = new System.Drawing.Size(492, 86);
             this.panelTop.TabIndex = 0;
             // 
             // labelFormularModificare
             // 
             this.labelFormularModificare.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelFormularModificare.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelFormularModificare.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFormularModificare.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFormularModificare.Location = new System.Drawing.Point(0, 0);
             this.labelFormularModificare.Name = "labelFormularModificare";
-            this.labelFormularModificare.Size = new System.Drawing.Size(500, 76);
+            this.labelFormularModificare.Size = new System.Drawing.Size(492, 86);
             this.labelFormularModificare.TabIndex = 1;
             this.labelFormularModificare.Text = "Formular Modificare Materie";
             this.labelFormularModificare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormModificareMaterie
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 400);
+            this.ClientSize = new System.Drawing.Size(492, 453);
             this.Controls.Add(this.panelForm);
-            this.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormModificareMaterie";
@@ -331,8 +323,8 @@
             this.panelForm.ResumeLayout(false);
             this.panelCenter.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.panelInputs.ResumeLayout(false);
+            this.panelInputs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpCurs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpLaborator)).EndInit();
             this.panelTop.ResumeLayout(false);
@@ -353,17 +345,16 @@
         private System.Windows.Forms.Label labelDenumire;
         private System.Windows.Forms.Label labelAn;
         private System.Windows.Forms.Button btnAnuleaza;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panelInputs;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label labelFacultate;
-        private System.Windows.Forms.ComboBox comboBoxFacultate;
         private System.Windows.Forms.ComboBox comboBoxSemestru;
         private System.Windows.Forms.Label labelCurs;
         private System.Windows.Forms.NumericUpDown numericUpLaborator;
         private System.Windows.Forms.Label labelLaborator;
         private System.Windows.Forms.NumericUpDown numericUpCurs;
         private System.Windows.Forms.ComboBox comboBoxAn;
+        private System.Windows.Forms.RichTextBox richTextBoxFacultate;
     }
 }
 

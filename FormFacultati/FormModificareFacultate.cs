@@ -15,7 +15,8 @@ namespace Proiect_BD_SituatieScolara
     public partial class FormModificareFacultate : Form
     {
         private Facultate _facultate;
-        IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
+        private readonly IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
+        private bool itemModificat = false;
 
         public FormModificareFacultate()
         {
@@ -25,7 +26,7 @@ namespace Proiect_BD_SituatieScolara
         {
             InitializeComponent();
             this._facultate = facultateToBeModified;
-            IncarcareComboBox.IncarcaSpecializari(comboBoxProgramStudiu);
+            IncarcareComboBox.IncarcaProgramStudiu(comboBoxProgramStudiu);
             IncarcareComboBox.IncarcaValoriNumerice(comboBoxDurata, 6);
             IncarcaFacultate();
         }
@@ -33,6 +34,10 @@ namespace Proiect_BD_SituatieScolara
         #region Form Events
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            if(itemModificat == true)
+                this.DialogResult = DialogResult.OK;
+            else
+                this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
@@ -46,6 +51,11 @@ namespace Proiect_BD_SituatieScolara
                 {
                     return;
                 }
+                //if (stocareFacultati.ValideazaExistenta(facultate) == true)
+                //{
+                //    MessageBox.Show("Facultatea exista deja");
+                //    return;
+                //}
 
                 facultate.IdFacultate = _facultate.IdFacultate;
                 var rezultat = stocareFacultati.UpdateFacultate(facultate);
@@ -53,6 +63,7 @@ namespace Proiect_BD_SituatieScolara
                 if (rezultat == true)
                 {
                     MessageBox.Show("Facultatea a fost modificata");
+                    itemModificat = true;
                 }
             }
             catch (Exception ex)

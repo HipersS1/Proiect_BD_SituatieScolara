@@ -19,17 +19,10 @@ namespace Proiect_BD_SituatieScolara
         private const bool SUCCES = true;
 
         //initializare obiecte utilizate pentru salvarea datelor in baza de date (sau alte medii de stocare...daca exista implementare corespunzatoare)
-        IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
-        //IStocareMasini stocareMasini = (IStocareMasini)new StocareFactory().GetTipStocare(typeof(Masina));
-
 
         public FormInitializare()
         {
             InitializeComponent();
-            if(stocareFacultati == null)
-            {
-                MessageBox.Show("Eroare la initiere");
-            }
         }
 
         private void btnMenuStudents_Click(object sender, EventArgs e)
@@ -41,7 +34,7 @@ namespace Proiect_BD_SituatieScolara
         }
 
         private void btnMenuUniversity_Click(object sender, EventArgs e)
-        {
+        {            
             this.Hide();
             FormMenuFacultate form = new FormMenuFacultate();
             form.ShowDialog();
