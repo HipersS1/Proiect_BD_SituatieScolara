@@ -19,6 +19,10 @@ namespace Proiect_BD_SituatieScolara
         public FormAdaugareFacultate()
         {
             InitializeComponent();
+        }
+
+        private void FormAdaugareFacultate_Load(object sender, EventArgs e)
+        {
             IncarcareComboBox.IncarcaProgramStudiu(comboBoxProgramStudiu);
             IncarcareComboBox.IncarcaValoriNumerice(comboBoxDurata, 6);
             IncarcareComboBox.IncarcaDenumiriFacultati(comboBoxFacultateExistenta, stocareFacultati.GetFacultati());
@@ -76,6 +80,7 @@ namespace Proiect_BD_SituatieScolara
             }
         }
 
+        #region ComboBox
         private void comboBoxFacultateExistenta_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxFacultateExistenta.SelectedIndex == -1)
@@ -93,6 +98,30 @@ namespace Proiect_BD_SituatieScolara
                 textBoxDenumire.Text = comboBoxFacultateExistenta.SelectedItem.ToString();
             }
         }
+        private void comboBox_DropDown(object sender, EventArgs e)
+        {
+            ComboBox senderComboBox = (ComboBox)sender;
+            int width = 144;
+            Graphics g = senderComboBox.CreateGraphics();
+            Font font = senderComboBox.Font;
+            int vertScrollBarWidth =
+                (senderComboBox.Items.Count > senderComboBox.MaxDropDownItems)
+                ? SystemInformation.VerticalScrollBarWidth : 0;
+
+            int newWidth;
+            foreach (string s in ((ComboBox)sender).Items)
+            {
+                newWidth = (int)g.MeasureString(s, font).Width
+                    + vertScrollBarWidth;
+                if (width < newWidth)
+                {
+                    width = newWidth;
+                }
+            }
+            senderComboBox.DropDownWidth = width;
+        }
+
+        #endregion
 
         #endregion
 
@@ -150,6 +179,7 @@ namespace Proiect_BD_SituatieScolara
 
             return null;
         }
+
 
         #endregion
 

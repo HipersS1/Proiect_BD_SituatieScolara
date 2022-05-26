@@ -45,14 +45,26 @@ namespace Proiect_BD_SituatieScolara
             dataGridView1.CurrentCell = null;
         }
 
-        #region Form Events
-        private void buttonReturn_Click(object sender, EventArgs e)
+        private void FormMenuMaterii_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
-            FormInitializare form = new FormInitializare();
-            form.ShowDialog();
+            if (e.CloseReason == CloseReason.UserClosing)
+                Application.Exit();
+            else
+                this.Close();
         }
 
+        #region Form Events
+
+        private void buttonClearSearch_Click(object sender, EventArgs e)
+        {
+            ClearResetFormComponents.ClearInputs(panelDelimiterCenter.Controls.OfType<Control>());
+            IncarcaMateriiDataSet(stocareMaterii.GetMateriiFacultati());
+        }
+
+        private void buttonReturn_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
 
         private void btnAdaguaMaterie_Click(object sender, EventArgs e)
         {
@@ -67,33 +79,36 @@ namespace Proiect_BD_SituatieScolara
 
         private void btnModificaMaterie_Click(object sender, EventArgs e)
         {
-            try
+            Materie materie = getMaterieDataGrid();
+            if (materie == null)
+                return;
+            using (FormModificareMaterie form = new FormModificareMaterie(materie))
             {
-                var currentCell = dataGridView1.CurrentCell;
-                if (currentCell == null)
+                if (form.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show("Selectati o materie din tabel");
-                    return;
+                    IncarcaMateriiDataSet(stocareMaterii.GetMateriiFacultati());
                 }
-
-                int idMaterie = Convert.ToInt32(dataGridView1[PRIMA_COLOANA, currentCell.RowIndex].Value);
-                Materie materie = stocareMaterii.GetMaterie(idMaterie);
-
-                using (FormModificareMaterie form = new FormModificareMaterie(materie))
-                {
-                    if (form.ShowDialog() == DialogResult.OK)
-                    {
-                        IncarcaMateriiDataSet(stocareMaterii.GetMateriiFacultati());
-                    }
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
             }
 
         }
+        private void btnEliminaMaterie_Click(object sender, EventArgs e)
+        {
+            Materie materie = getMaterieDataGrid();
+            if (materie == null)
+                return;
+
+            DialogResult dialogResult = MessageBox.Show("Esti sigur ca vrei sa elimini aceasta materie?", "Mesaj de confirmare", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes)
+                return;
+            var result = stocareMaterii.DeleteMaterie(materie.IdMaterie);
+
+            if (result == true)
+            {
+                IncarcaMateriiDataSet(stocareMaterii.GetMateriiFacultati());
+                MessageBox.Show($"Materia: {materie.Denumire} a fost stearsa cu succes");
+            }
+        }
+
 
         private void btnCauta_Click(object sender, EventArgs e)
         {
@@ -139,43 +154,6 @@ namespace Proiect_BD_SituatieScolara
             catch (Exception ex)
             {
                 throw;
-            }
-        }
-        private void buttonClearSearch_Click(object sender, EventArgs e)
-        {
-            ClearResetFormComponents.ClearInputs(panelDelimiterCenter.Controls.OfType<Control>());
-            IncarcaMateriiDataSet(stocareMaterii.GetMateriiFacultati());
-        }
-
-        private void btnEliminaMaterie_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var currentCell = dataGridView1.CurrentCell;
-                if (currentCell == null)
-                {
-                    MessageBox.Show("Selectati o materie din tabel");
-                    return;
-                }
-
-                int idMaterie = Convert.ToInt32(dataGridView1[PRIMA_COLOANA, currentCell.RowIndex].Value);
-
-                Materie materie = stocareMaterii.GetMaterie(idMaterie);
-
-                DialogResult dialogResult = MessageBox.Show("Esti sigur ca vrei sa elimini aceasta materie?", "Mesaj de confirmare", MessageBoxButtons.YesNo);
-                if (dialogResult != DialogResult.Yes)
-                    return;
-                var result = stocareMaterii.DeleteMaterie(idMaterie);
-
-                if (result == true)
-                {
-                    IncarcaMateriiDataSet(stocareMaterii.GetMateriiFacultati());
-                    MessageBox.Show($"Materia: {materie.Denumire} a fost stearsa cu succes");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
         }
 
@@ -265,7 +243,31 @@ namespace Proiect_BD_SituatieScolara
                 throw;
             }
         }
+
+        private Materie getMaterieDataGrid()
+        {
+            try
+            {
+                var currentCell = dataGridView1.CurrentCell;
+                if (currentCell == null)
+                {
+                    MessageBox.Show("Selectati o materie din tabel");
+                    return null;
+                }
+
+                int idMaterie = Convert.ToInt32(dataGridView1[PRIMA_COLOANA, currentCell.RowIndex].Value);
+                return stocareMaterii.GetMaterie(idMaterie);
+            }
+            catch (Exception)
+            {   
+                throw;
+            }
+
+        }
+
         #endregion
+
+        
     }
 }
 

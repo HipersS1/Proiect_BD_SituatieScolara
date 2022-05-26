@@ -257,7 +257,6 @@ namespace Proiect_BD_SituatieScolara
         {
             ClearResetFormComponents.ClearInputs(panelInputs.Controls.OfType<Control>());
             ClearResetFormComponents.ResetColors(panelInputs.Controls.OfType<Label>());
-
         }
     }
 }

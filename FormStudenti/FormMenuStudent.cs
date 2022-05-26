@@ -39,14 +39,18 @@ namespace Proiect_BD_SituatieScolara
             comboBoxSpecializare.Items.Add("Selecteaza o facultate");
             dataGridView1.CurrentCell = null;
         }
-
+        private void FormMenuStudent_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+                Application.Exit();
+            else
+                this.Close();
+        }
 
         #region Forms Events
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormInitializare form = new FormInitializare();
-            form.ShowDialog();
+            this.Dispose();
         }
 
         private void btnAdaugaStudent_Click(object sender, EventArgs e)
@@ -62,67 +66,47 @@ namespace Proiect_BD_SituatieScolara
 
         private void btnModificaStudent_Click(object sender, EventArgs e)
         {
-            try
+            Student student = getStudentDataGrid();
+            if (student == null)
             {
-                var currentCell = dataGridView1.CurrentCell;
-                if(currentCell == null)
-                {
-                    MessageBox.Show("Selectati un student din tabel");
-                    return;
-                }
-
-                int idStudent = Convert.ToInt32(dataGridView1[PRIMA_COLOANA, currentCell.RowIndex].Value);
-                Student student = stocareStudenti.GetStudent(idStudent);
-
-                using (FormModificareStudent form = new FormModificareStudent(student))
-                {
-                    if (form.ShowDialog() == DialogResult.OK)
-                    {
-                        IncarcaStudenti();
-                    }
-                }
-
+                return;
             }
-            catch (Exception)
-            {
 
-                throw;
+            using (FormModificareStudent form = new FormModificareStudent(student))
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    IncarcaStudenti();
+                }
             }
         }
         private void btnEliminaStudent_Click(object sender, EventArgs e)
         {
-            try
+            Student student = getStudentDataGrid();
+            if (student == null)
             {
-                var currentCell = dataGridView1.CurrentCell;
-                if (currentCell == null)
-                {
-                    MessageBox.Show("Selectati un student din tabel");
-                    return;
-                }
-
-                int idStudent = Convert.ToInt32(dataGridView1[PRIMA_COLOANA, currentCell.RowIndex].Value);
-
-                Student student = stocareStudenti.GetStudent(idStudent);
-                DialogResult dialogResult = MessageBox.Show("Esti sigur ca vrei sa elimini acest student?", "Mesaj de confirmare", MessageBoxButtons.YesNo);
-                if (dialogResult != DialogResult.Yes)
-                    return;
-                var result = stocareStudenti.DeleteStudent(idStudent);
-
-                if (result == true)
-                {
-                    IncarcaStudenti();
-                    MessageBox.Show($"Studentul: {student.Nume} - {student.Prenume} a fost sters cu succes");
-                }
+                return;
             }
-            catch (Exception ex)
+            DialogResult dialogResult = MessageBox.Show("Esti sigur ca vrei sa elimini acest student?", "Mesaj de confirmare", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes)
+                return;
+            var result = stocareStudenti.DeleteStudent(student.IdStudent);
+
+            if (result == true)
             {
-                MessageBox.Show(ex.Message);
+                IncarcaStudenti();
+                MessageBox.Show($"Studentul: {student.Nume} - {student.Prenume} a fost sters cu succes");
             }
         }
 
         private void btnAdaugaNote_Click(object sender, EventArgs e)
         {
-            using (FormAdaugaNote form = new FormAdaugaNote())
+            Student student = getStudentDataGrid();
+            if (student == null)
+            {
+                return;
+            }
+            using (FormAdaugaNote form = new FormAdaugaNote(student))
             {
                 form.ShowDialog();
             }
@@ -246,6 +230,7 @@ namespace Proiect_BD_SituatieScolara
             {
                 var studenti = stocareStudenti.GetStudentiFacultati();
                 IncarcareDataGridView.AfisareStudentiDataSet(dataGridView1, studenti);
+                dataGridView1.CurrentCell = null;
             }
             catch (Exception ex)
             {
@@ -259,6 +244,8 @@ namespace Proiect_BD_SituatieScolara
             try
             {
                 IncarcareDataGridView.AfisareStudentiDataSet(dataGridView1, dataSet);
+                dataGridView1.CurrentCell = null;
+
             }
             catch (Exception ex)
             {
@@ -267,8 +254,29 @@ namespace Proiect_BD_SituatieScolara
             }
         }
 
+        private Student getStudentDataGrid()
+        {
+            try
+            {
+                var currentCell = dataGridView1.CurrentCell;
+                if (currentCell == null)
+                {
+                    MessageBox.Show("Selectati un student din tabel");
+                    return null;
+                }
+
+                int idStudent = Convert.ToInt32(dataGridView1[PRIMA_COLOANA, currentCell.RowIndex].Value);
+                return stocareStudenti.GetStudent(idStudent);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         #endregion
 
+        
     }
 }

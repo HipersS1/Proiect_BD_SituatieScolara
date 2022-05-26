@@ -15,11 +15,6 @@ namespace Proiect_BD_SituatieScolara
 {
     public partial class FormInitializare : Form
     {
-        private const int PRIMA_COLOANA = 0;
-        private const bool SUCCES = true;
-
-        //initializare obiecte utilizate pentru salvarea datelor in baza de date (sau alte medii de stocare...daca exista implementare corespunzatoare)
-
         public FormInitializare()
         {
             InitializeComponent();
@@ -30,7 +25,7 @@ namespace Proiect_BD_SituatieScolara
             this.Hide();
             FormMenuStudent form = new FormMenuStudent();
             form.ShowDialog();
-            this.Close();
+            this.Show();
         }
 
         private void btnMenuUniversity_Click(object sender, EventArgs e)
@@ -38,20 +33,15 @@ namespace Proiect_BD_SituatieScolara
             this.Hide();
             FormMenuFacultate form = new FormMenuFacultate();
             form.ShowDialog();
-            this.Close();
+            this.Show();
         }
 
-        private void btnMenuMa_Click(object sender, EventArgs e)
+        private void btnMenuMaterii_Click(object sender, EventArgs e)
         {
             this.Hide();
             FormMenuMaterii form = new FormMenuMaterii();
             form.ShowDialog();
-            this.Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
+            this.Show();
         }
     }
 }

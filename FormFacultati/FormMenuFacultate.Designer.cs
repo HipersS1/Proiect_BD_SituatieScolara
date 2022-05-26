@@ -36,6 +36,7 @@
             this.panelDelimiterBottom = new System.Windows.Forms.Panel();
             this.panelDelimiterTop = new System.Windows.Forms.Panel();
             this.panelDelimiterCenter = new System.Windows.Forms.Panel();
+            this.buttonClearSearch = new System.Windows.Forms.Button();
             this.textBoxSpecializare = new System.Windows.Forms.TextBox();
             this.labelSpecializare = new System.Windows.Forms.Label();
             this.comboBoxProgramStudiu = new System.Windows.Forms.ComboBox();
@@ -111,6 +112,7 @@
             // panelDelimiterCenter
             // 
             this.panelDelimiterCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.panelDelimiterCenter.Controls.Add(this.buttonClearSearch);
             this.panelDelimiterCenter.Controls.Add(this.textBoxSpecializare);
             this.panelDelimiterCenter.Controls.Add(this.labelSpecializare);
             this.panelDelimiterCenter.Controls.Add(this.comboBoxProgramStudiu);
@@ -128,72 +130,83 @@
             this.panelDelimiterCenter.Size = new System.Drawing.Size(881, 524);
             this.panelDelimiterCenter.TabIndex = 2;
             // 
+            // buttonClearSearch
+            // 
+            this.buttonClearSearch.Font = new System.Drawing.Font("Webdings", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.buttonClearSearch.Location = new System.Drawing.Point(740, 84);
+            this.buttonClearSearch.Name = "buttonClearSearch";
+            this.buttonClearSearch.Size = new System.Drawing.Size(33, 33);
+            this.buttonClearSearch.TabIndex = 15;
+            this.buttonClearSearch.Text = "q";
+            this.buttonClearSearch.UseVisualStyleBackColor = true;
+            this.buttonClearSearch.Click += new System.EventHandler(this.buttonClearSearch_Click);
+            // 
             // textBoxSpecializare
             // 
-            this.textBoxSpecializare.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSpecializare.Location = new System.Drawing.Point(142, 95);
+            this.textBoxSpecializare.Font = new System.Drawing.Font("Segoe UI", 13.8F);
+            this.textBoxSpecializare.Location = new System.Drawing.Point(149, 79);
             this.textBoxSpecializare.Name = "textBoxSpecializare";
-            this.textBoxSpecializare.Size = new System.Drawing.Size(232, 36);
+            this.textBoxSpecializare.Size = new System.Drawing.Size(232, 38);
             this.textBoxSpecializare.TabIndex = 5;
             // 
             // labelSpecializare
             // 
             this.labelSpecializare.AutoSize = true;
-            this.labelSpecializare.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpecializare.Location = new System.Drawing.Point(15, 104);
+            this.labelSpecializare.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSpecializare.Location = new System.Drawing.Point(8, 88);
             this.labelSpecializare.Name = "labelSpecializare";
-            this.labelSpecializare.Size = new System.Drawing.Size(121, 28);
+            this.labelSpecializare.Size = new System.Drawing.Size(135, 31);
             this.labelSpecializare.TabIndex = 14;
             this.labelSpecializare.Text = "Specializare";
             // 
             // comboBoxProgramStudiu
             // 
             this.comboBoxProgramStudiu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxProgramStudiu.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxProgramStudiu.Font = new System.Drawing.Font("Segoe UI", 13.8F);
             this.comboBoxProgramStudiu.FormatString = "N0";
             this.comboBoxProgramStudiu.FormattingEnabled = true;
-            this.comboBoxProgramStudiu.Location = new System.Drawing.Point(563, 48);
+            this.comboBoxProgramStudiu.Location = new System.Drawing.Point(549, 27);
             this.comboBoxProgramStudiu.Name = "comboBoxProgramStudiu";
-            this.comboBoxProgramStudiu.Size = new System.Drawing.Size(143, 36);
+            this.comboBoxProgramStudiu.Size = new System.Drawing.Size(143, 39);
             this.comboBoxProgramStudiu.TabIndex = 6;
             // 
             // labelProgramStudiu
             // 
             this.labelProgramStudiu.AutoSize = true;
-            this.labelProgramStudiu.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProgramStudiu.Location = new System.Drawing.Point(391, 57);
+            this.labelProgramStudiu.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProgramStudiu.Location = new System.Drawing.Point(391, 37);
             this.labelProgramStudiu.Name = "labelProgramStudiu";
-            this.labelProgramStudiu.Size = new System.Drawing.Size(157, 28);
+            this.labelProgramStudiu.Size = new System.Drawing.Size(173, 31);
             this.labelProgramStudiu.TabIndex = 12;
             this.labelProgramStudiu.Text = "Program Studiu";
             // 
             // comboBoxDurata
             // 
             this.comboBoxDurata.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDurata.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxDurata.Font = new System.Drawing.Font("Segoe UI", 13.8F);
             this.comboBoxDurata.FormatString = "N0";
             this.comboBoxDurata.FormattingEnabled = true;
-            this.comboBoxDurata.Location = new System.Drawing.Point(563, 95);
+            this.comboBoxDurata.Location = new System.Drawing.Point(549, 78);
             this.comboBoxDurata.Name = "comboBoxDurata";
-            this.comboBoxDurata.Size = new System.Drawing.Size(143, 36);
+            this.comboBoxDurata.Size = new System.Drawing.Size(143, 39);
             this.comboBoxDurata.TabIndex = 7;
             // 
             // labelDurata
             // 
             this.labelDurata.AutoSize = true;
-            this.labelDurata.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDurata.Location = new System.Drawing.Point(391, 104);
+            this.labelDurata.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDurata.Location = new System.Drawing.Point(391, 87);
             this.labelDurata.Name = "labelDurata";
-            this.labelDurata.Size = new System.Drawing.Size(76, 28);
+            this.labelDurata.Size = new System.Drawing.Size(83, 31);
             this.labelDurata.TabIndex = 10;
             this.labelDurata.Text = "Durata";
             // 
             // btnSearch
             // 
-            this.btnSearch.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(760, 95);
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnSearch.Location = new System.Drawing.Point(779, 84);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(107, 41);
+            this.btnSearch.Size = new System.Drawing.Size(88, 33);
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "Cauta";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -201,19 +214,19 @@
             // 
             // textBoxDenumire
             // 
-            this.textBoxDenumire.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDenumire.Location = new System.Drawing.Point(142, 48);
+            this.textBoxDenumire.Font = new System.Drawing.Font("Segoe UI", 13.8F);
+            this.textBoxDenumire.Location = new System.Drawing.Point(149, 30);
             this.textBoxDenumire.Name = "textBoxDenumire";
-            this.textBoxDenumire.Size = new System.Drawing.Size(232, 36);
+            this.textBoxDenumire.Size = new System.Drawing.Size(232, 38);
             this.textBoxDenumire.TabIndex = 4;
             // 
             // labelDenumire
             // 
             this.labelDenumire.AutoSize = true;
-            this.labelDenumire.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDenumire.Location = new System.Drawing.Point(15, 57);
+            this.labelDenumire.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDenumire.Location = new System.Drawing.Point(8, 37);
             this.labelDenumire.Name = "labelDenumire";
-            this.labelDenumire.Size = new System.Drawing.Size(103, 28);
+            this.labelDenumire.Size = new System.Drawing.Size(114, 31);
             this.labelDenumire.TabIndex = 1;
             this.labelDenumire.Text = "Denumire";
             // 
@@ -240,11 +253,11 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(14, 156);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 123);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(853, 334);
+            this.dataGridView1.Size = new System.Drawing.Size(853, 367);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.TabStop = false;
             // 
@@ -302,7 +315,7 @@
             this.btnStergeFacultate.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnStergeFacultate.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
             this.btnStergeFacultate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStergeFacultate.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStergeFacultate.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnStergeFacultate.Location = new System.Drawing.Point(0, 157);
             this.btnStergeFacultate.Name = "btnStergeFacultate";
             this.btnStergeFacultate.Size = new System.Drawing.Size(131, 73);
@@ -330,7 +343,7 @@
             this.btnModificaFacultate.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnModificaFacultate.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
             this.btnModificaFacultate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificaFacultate.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificaFacultate.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnModificaFacultate.Location = new System.Drawing.Point(0, 84);
             this.btnModificaFacultate.Name = "btnModificaFacultate";
             this.btnModificaFacultate.Size = new System.Drawing.Size(131, 73);
@@ -346,7 +359,7 @@
             this.btnAdaugaFacultate.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAdaugaFacultate.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
             this.btnAdaugaFacultate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdaugaFacultate.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdaugaFacultate.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnAdaugaFacultate.Location = new System.Drawing.Point(0, 11);
             this.btnAdaugaFacultate.Name = "btnAdaugaFacultate";
             this.btnAdaugaFacultate.Size = new System.Drawing.Size(131, 73);
@@ -369,7 +382,7 @@
             // labelMeniuFacultate
             // 
             this.labelMeniuFacultate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelMeniuFacultate.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMeniuFacultate.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMeniuFacultate.Location = new System.Drawing.Point(131, 0);
             this.labelMeniuFacultate.Name = "labelMeniuFacultate";
             this.labelMeniuFacultate.Size = new System.Drawing.Size(969, 86);
@@ -395,10 +408,12 @@
             this.ClientSize = new System.Drawing.Size(1100, 610);
             this.Controls.Add(this.panelForm);
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMenuFacultate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "University Manager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMenuFacultate_FormClosing);
             this.Load += new System.EventHandler(this.FormMenuFacultate_Load);
             this.panelForm.ResumeLayout(false);
             this.panelCenter.ResumeLayout(false);
@@ -441,6 +456,7 @@
         private System.Windows.Forms.Label labelProgramStudiu;
         private System.Windows.Forms.TextBox textBoxSpecializare;
         private System.Windows.Forms.Label labelSpecializare;
+        private System.Windows.Forms.Button buttonClearSearch;
     }
 }
 

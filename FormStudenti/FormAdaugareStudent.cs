@@ -68,7 +68,6 @@ namespace Proiect_BD_SituatieScolara
                     return;
                 }
 
-
                 var rezultat = stocareStudenti.AddStudent(student);
 
                 if (rezultat == true)

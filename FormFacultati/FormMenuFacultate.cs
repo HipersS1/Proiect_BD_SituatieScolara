@@ -17,7 +17,6 @@ namespace Proiect_BD_SituatieScolara
         private readonly IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
         private const int PRIMA_COLOANA = 0;
         
-
         public FormMenuFacultate()
         {
             InitializeComponent();
@@ -25,25 +24,33 @@ namespace Proiect_BD_SituatieScolara
             {
                 MessageBox.Show("Eroare la initializare");
             }
-            IncarcareComboBox.IncarcaValoriNumerice(comboBoxDurata, 6);
-            IncarcareComboBox.IncarcaProgramStudiu(comboBoxProgramStudiu);
-
         }
 
         private void FormMenuFacultate_Load(object sender, EventArgs e)
         {
             IncarcaFacultati();
-
+            IncarcareComboBox.IncarcaValoriNumerice(comboBoxDurata, 6);
+            IncarcareComboBox.IncarcaProgramStudiu(comboBoxProgramStudiu);
+        }
+        private void FormMenuFacultate_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+                Application.Exit();
+            else
+                this.Close();
         }
 
         #region Form Events
         private void buttonReturn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormInitializare form = new FormInitializare();
-            form.ShowDialog();
+            this.Dispose();
         }
+        private void buttonClearSearch_Click(object sender, EventArgs e)
+        {
+            ClearResetFormComponents.ClearInputs(panelDelimiterCenter.Controls.OfType<Control>());
+            IncarcaFacultati();
 
+        }
         private void btnAddFaculty_Click(object sender, EventArgs e)
         {
             using (FormAdaugareFacultate form = new FormAdaugareFacultate())
@@ -57,63 +64,35 @@ namespace Proiect_BD_SituatieScolara
 
         private void btnModifyFaculty_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var currentCell = dataGridView1.CurrentCell;
-                if (currentCell == null)
-                {
-                    MessageBox.Show("Selectati o facultate din tabel pentru a o modifica");
-                    return;
-                }
-                int idFacultate = Convert.ToInt32(dataGridView1[PRIMA_COLOANA, currentCell.RowIndex].Value);
+            Facultate facultate = GetFacultateDataGrid();
+            if (facultate == null) 
+                return;
 
-                Facultate facultate = stocareFacultati.GetFacultate(idFacultate);
-
-                using (FormModificareFacultate form = new FormModificareFacultate(facultate))
-                {
-                    if (form.ShowDialog() == DialogResult.OK)
-                    {
-                        IncarcaFacultati();
-                    }
-                }
-            }
-            catch (Exception)
+            using (FormModificareFacultate form = new FormModificareFacultate(facultate))
             {
-                throw;
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    IncarcaFacultati();
+                }
             }
         }
 
         private void btnStergeFacultate_Click(object sender, EventArgs e)
-        { 
-            try
+        {
+            Facultate facultate = GetFacultateDataGrid();
+            if (facultate == null) return;
+
+            DialogResult dialogResult = MessageBox.Show("Esti sigur ca vrei sa elimini facultatea?", "Mesaj de confirmare", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes)
+                return;
+            var result = stocareFacultati.DeleteFacultate(facultate.IdFacultate);
+
+            if(result == true)
             {
-                var currentCell = dataGridView1.CurrentCell;
-                if (currentCell == null)
-                {
-                    MessageBox.Show("Selectati o facultate din tabel pentru a o elimina");
-                    return;
-                }
-
-                int idFacultate = Convert.ToInt32(dataGridView1[PRIMA_COLOANA, currentCell.RowIndex].Value);
-
-                Facultate facultate= stocareFacultati.GetFacultate(idFacultate);
-                DialogResult dialogResult = MessageBox.Show("Esti sigur ca vrei sa elimini facultatea?", "Mesaj de confirmare", MessageBoxButtons.YesNo);
-                if (dialogResult != DialogResult.Yes)
-                    return;
-                var result = stocareFacultati.DeleteFacultate(idFacultate);
-
-                if(result == true)
-                {
-                    IncarcaFacultati();
-                    MessageBox.Show($"Facultatea: {facultate.Denumire} - {facultate.ProgramStudiu} - {facultate.Specializare} - {facultate.Durata}" +
-                        $" a fost stearsa cu succes");
-                }
+                IncarcaFacultati();
+                MessageBox.Show($"Facultatea: {facultate.Denumire} - {facultate.ProgramStudiu} - {facultate.Specializare} - {facultate.Durata}" +
+                    $" a fost stearsa cu succes");
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -162,6 +141,8 @@ namespace Proiect_BD_SituatieScolara
 
         #endregion
 
+
+        #region Functii
         private void IncarcaFacultati()
         {
             try
@@ -175,5 +156,28 @@ namespace Proiect_BD_SituatieScolara
                 throw;
             }
         }
+
+        private Facultate GetFacultateDataGrid()
+        {
+            try
+            {
+                var currentCell = dataGridView1.CurrentCell;
+                if (currentCell == null)
+                {
+                    MessageBox.Show("Selectati o facultate din tabel pentru a o modifica");
+                    return null;
+                }
+                int idFacultate = Convert.ToInt32(dataGridView1[PRIMA_COLOANA, currentCell.RowIndex].Value);
+
+                return stocareFacultati.GetFacultate(idFacultate);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
     }
 }

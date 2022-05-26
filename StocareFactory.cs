@@ -36,7 +36,10 @@ namespace Proiect_BD_SituatieScolara
                         {
                             return new AdministrareMaterii();
                         }
-
+                        if (tipEntitate == typeof(Note))
+                        {
+                            return new AdministrareNote();
+                        }
                         break;
 
                     case "BIN":

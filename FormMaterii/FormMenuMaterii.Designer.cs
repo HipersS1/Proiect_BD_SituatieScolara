@@ -35,6 +35,16 @@
             this.panelDelimiterBottom = new System.Windows.Forms.Panel();
             this.panelDelimiterTop = new System.Windows.Forms.Panel();
             this.panelDelimiterCenter = new System.Windows.Forms.Panel();
+            this.buttonClearSearch = new System.Windows.Forms.Button();
+            this.btnCauta = new System.Windows.Forms.Button();
+            this.comboBoxSemestru = new System.Windows.Forms.ComboBox();
+            this.comboBoxAn = new System.Windows.Forms.ComboBox();
+            this.comboBoxProgramStudiu = new System.Windows.Forms.ComboBox();
+            this.labelProgramStudiu = new System.Windows.Forms.Label();
+            this.comboBoxSpecializare = new System.Windows.Forms.ComboBox();
+            this.labelSpecializare = new System.Windows.Forms.Label();
+            this.comboBoxFacultate = new System.Windows.Forms.ComboBox();
+            this.labelFacultate = new System.Windows.Forms.Label();
             this.labelSemestru = new System.Windows.Forms.Label();
             this.labelAn = new System.Windows.Forms.Label();
             this.textBoxDenumire = new System.Windows.Forms.TextBox();
@@ -51,16 +61,6 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.labelMenuSubjects = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.comboBoxProgramStudiu = new System.Windows.Forms.ComboBox();
-            this.labelProgramStudiu = new System.Windows.Forms.Label();
-            this.comboBoxSpecializare = new System.Windows.Forms.ComboBox();
-            this.labelSpecializare = new System.Windows.Forms.Label();
-            this.comboBoxFacultate = new System.Windows.Forms.ComboBox();
-            this.labelFacultate = new System.Windows.Forms.Label();
-            this.comboBoxAn = new System.Windows.Forms.ComboBox();
-            this.comboBoxSemestru = new System.Windows.Forms.ComboBox();
-            this.buttonClearSearch = new System.Windows.Forms.Button();
-            this.btnCauta = new System.Windows.Forms.Button();
             this.panelForm.SuspendLayout();
             this.panelCenter.SuspendLayout();
             this.panelDelimiterCenter.SuspendLayout();
@@ -136,6 +136,121 @@
             this.panelDelimiterCenter.Padding = new System.Windows.Forms.Padding(10, 11, 10, 11);
             this.panelDelimiterCenter.Size = new System.Drawing.Size(881, 524);
             this.panelDelimiterCenter.TabIndex = 2;
+            // 
+            // buttonClearSearch
+            // 
+            this.buttonClearSearch.Font = new System.Drawing.Font("Webdings", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.buttonClearSearch.Location = new System.Drawing.Point(740, 113);
+            this.buttonClearSearch.Name = "buttonClearSearch";
+            this.buttonClearSearch.Size = new System.Drawing.Size(33, 33);
+            this.buttonClearSearch.TabIndex = 11;
+            this.buttonClearSearch.Text = "q";
+            this.buttonClearSearch.UseVisualStyleBackColor = true;
+            this.buttonClearSearch.Click += new System.EventHandler(this.buttonClearSearch_Click);
+            // 
+            // btnCauta
+            // 
+            this.btnCauta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCauta.Location = new System.Drawing.Point(779, 113);
+            this.btnCauta.Name = "btnCauta";
+            this.btnCauta.Size = new System.Drawing.Size(88, 33);
+            this.btnCauta.TabIndex = 10;
+            this.btnCauta.Text = "Cauta";
+            this.btnCauta.UseVisualStyleBackColor = true;
+            this.btnCauta.Click += new System.EventHandler(this.btnCauta_Click);
+            // 
+            // comboBoxSemestru
+            // 
+            this.comboBoxSemestru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSemestru.Font = new System.Drawing.Font("Segoe UI", 13.8F);
+            this.comboBoxSemestru.FormatString = "N0";
+            this.comboBoxSemestru.FormattingEnabled = true;
+            this.comboBoxSemestru.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.comboBoxSemestru.Location = new System.Drawing.Point(116, 107);
+            this.comboBoxSemestru.Name = "comboBoxSemestru";
+            this.comboBoxSemestru.Size = new System.Drawing.Size(190, 39);
+            this.comboBoxSemestru.TabIndex = 6;
+            // 
+            // comboBoxAn
+            // 
+            this.comboBoxAn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAn.Font = new System.Drawing.Font("Segoe UI", 13.8F);
+            this.comboBoxAn.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.comboBoxAn.FormattingEnabled = true;
+            this.comboBoxAn.Location = new System.Drawing.Point(116, 62);
+            this.comboBoxAn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBoxAn.Name = "comboBoxAn";
+            this.comboBoxAn.Size = new System.Drawing.Size(190, 39);
+            this.comboBoxAn.TabIndex = 5;
+            // 
+            // comboBoxProgramStudiu
+            // 
+            this.comboBoxProgramStudiu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxProgramStudiu.Font = new System.Drawing.Font("Segoe UI", 13.8F);
+            this.comboBoxProgramStudiu.FormattingEnabled = true;
+            this.comboBoxProgramStudiu.Location = new System.Drawing.Point(477, 62);
+            this.comboBoxProgramStudiu.Name = "comboBoxProgramStudiu";
+            this.comboBoxProgramStudiu.Size = new System.Drawing.Size(188, 39);
+            this.comboBoxProgramStudiu.TabIndex = 8;
+            this.comboBoxProgramStudiu.SelectedIndexChanged += new System.EventHandler(this.comboBoxProgramStudiu_SelectedIndexChanged);
+            // 
+            // labelProgramStudiu
+            // 
+            this.labelProgramStudiu.AutoSize = true;
+            this.labelProgramStudiu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProgramStudiu.Location = new System.Drawing.Point(322, 73);
+            this.labelProgramStudiu.Name = "labelProgramStudiu";
+            this.labelProgramStudiu.Size = new System.Drawing.Size(149, 28);
+            this.labelProgramStudiu.TabIndex = 17;
+            this.labelProgramStudiu.Text = "Program Studiu";
+            // 
+            // comboBoxSpecializare
+            // 
+            this.comboBoxSpecializare.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSpecializare.DropDownWidth = 144;
+            this.comboBoxSpecializare.Font = new System.Drawing.Font("Segoe UI", 13.8F);
+            this.comboBoxSpecializare.FormattingEnabled = true;
+            this.comboBoxSpecializare.Location = new System.Drawing.Point(477, 107);
+            this.comboBoxSpecializare.Name = "comboBoxSpecializare";
+            this.comboBoxSpecializare.Size = new System.Drawing.Size(188, 39);
+            this.comboBoxSpecializare.TabIndex = 9;
+            this.comboBoxSpecializare.DropDown += new System.EventHandler(this.comboBox_DropDown);
+            // 
+            // labelSpecializare
+            // 
+            this.labelSpecializare.AutoSize = true;
+            this.labelSpecializare.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSpecializare.Location = new System.Drawing.Point(322, 118);
+            this.labelSpecializare.Name = "labelSpecializare";
+            this.labelSpecializare.Size = new System.Drawing.Size(115, 28);
+            this.labelSpecializare.TabIndex = 15;
+            this.labelSpecializare.Text = "Specializare";
+            // 
+            // comboBoxFacultate
+            // 
+            this.comboBoxFacultate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFacultate.DropDownWidth = 144;
+            this.comboBoxFacultate.Font = new System.Drawing.Font("Segoe UI", 13.8F);
+            this.comboBoxFacultate.FormattingEnabled = true;
+            this.comboBoxFacultate.ItemHeight = 31;
+            this.comboBoxFacultate.Location = new System.Drawing.Point(477, 20);
+            this.comboBoxFacultate.Name = "comboBoxFacultate";
+            this.comboBoxFacultate.Size = new System.Drawing.Size(188, 39);
+            this.comboBoxFacultate.TabIndex = 7;
+            this.comboBoxFacultate.DropDown += new System.EventHandler(this.comboBox_DropDown);
+            this.comboBoxFacultate.SelectedIndexChanged += new System.EventHandler(this.comboBoxFacultate_SelectedIndexChanged);
+            // 
+            // labelFacultate
+            // 
+            this.labelFacultate.AutoSize = true;
+            this.labelFacultate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFacultate.Location = new System.Drawing.Point(322, 31);
+            this.labelFacultate.Name = "labelFacultate";
+            this.labelFacultate.Size = new System.Drawing.Size(90, 28);
+            this.labelFacultate.TabIndex = 12;
+            this.labelFacultate.Text = "Facultate";
             // 
             // labelSemestru
             // 
@@ -326,7 +441,7 @@
             // labelMenuSubjects
             // 
             this.labelMenuSubjects.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelMenuSubjects.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMenuSubjects.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMenuSubjects.Location = new System.Drawing.Point(131, 0);
             this.labelMenuSubjects.Name = "labelMenuSubjects";
             this.labelMenuSubjects.Size = new System.Drawing.Size(969, 86);
@@ -345,121 +460,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // comboBoxProgramStudiu
-            // 
-            this.comboBoxProgramStudiu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxProgramStudiu.Font = new System.Drawing.Font("Segoe UI", 13.8F);
-            this.comboBoxProgramStudiu.FormattingEnabled = true;
-            this.comboBoxProgramStudiu.Location = new System.Drawing.Point(477, 62);
-            this.comboBoxProgramStudiu.Name = "comboBoxProgramStudiu";
-            this.comboBoxProgramStudiu.Size = new System.Drawing.Size(188, 39);
-            this.comboBoxProgramStudiu.TabIndex = 8;
-            this.comboBoxProgramStudiu.SelectedIndexChanged += new System.EventHandler(this.comboBoxProgramStudiu_SelectedIndexChanged);
-            // 
-            // labelProgramStudiu
-            // 
-            this.labelProgramStudiu.AutoSize = true;
-            this.labelProgramStudiu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProgramStudiu.Location = new System.Drawing.Point(322, 73);
-            this.labelProgramStudiu.Name = "labelProgramStudiu";
-            this.labelProgramStudiu.Size = new System.Drawing.Size(149, 28);
-            this.labelProgramStudiu.TabIndex = 17;
-            this.labelProgramStudiu.Text = "Program Studiu";
-            // 
-            // comboBoxSpecializare
-            // 
-            this.comboBoxSpecializare.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSpecializare.DropDownWidth = 144;
-            this.comboBoxSpecializare.Font = new System.Drawing.Font("Segoe UI", 13.8F);
-            this.comboBoxSpecializare.FormattingEnabled = true;
-            this.comboBoxSpecializare.Location = new System.Drawing.Point(477, 107);
-            this.comboBoxSpecializare.Name = "comboBoxSpecializare";
-            this.comboBoxSpecializare.Size = new System.Drawing.Size(188, 39);
-            this.comboBoxSpecializare.TabIndex = 9;
-            this.comboBoxSpecializare.DropDown += new System.EventHandler(this.comboBox_DropDown);
-            // 
-            // labelSpecializare
-            // 
-            this.labelSpecializare.AutoSize = true;
-            this.labelSpecializare.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpecializare.Location = new System.Drawing.Point(322, 118);
-            this.labelSpecializare.Name = "labelSpecializare";
-            this.labelSpecializare.Size = new System.Drawing.Size(115, 28);
-            this.labelSpecializare.TabIndex = 15;
-            this.labelSpecializare.Text = "Specializare";
-            // 
-            // comboBoxFacultate
-            // 
-            this.comboBoxFacultate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFacultate.DropDownWidth = 144;
-            this.comboBoxFacultate.Font = new System.Drawing.Font("Segoe UI", 13.8F);
-            this.comboBoxFacultate.FormattingEnabled = true;
-            this.comboBoxFacultate.ItemHeight = 31;
-            this.comboBoxFacultate.Location = new System.Drawing.Point(477, 20);
-            this.comboBoxFacultate.Name = "comboBoxFacultate";
-            this.comboBoxFacultate.Size = new System.Drawing.Size(188, 39);
-            this.comboBoxFacultate.TabIndex = 7;
-            this.comboBoxFacultate.DropDown += new System.EventHandler(this.comboBox_DropDown);
-            this.comboBoxFacultate.SelectedIndexChanged += new System.EventHandler(this.comboBoxFacultate_SelectedIndexChanged);
-            // 
-            // labelFacultate
-            // 
-            this.labelFacultate.AutoSize = true;
-            this.labelFacultate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFacultate.Location = new System.Drawing.Point(322, 31);
-            this.labelFacultate.Name = "labelFacultate";
-            this.labelFacultate.Size = new System.Drawing.Size(90, 28);
-            this.labelFacultate.TabIndex = 12;
-            this.labelFacultate.Text = "Facultate";
-            // 
-            // comboBoxAn
-            // 
-            this.comboBoxAn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxAn.Font = new System.Drawing.Font("Segoe UI", 13.8F);
-            this.comboBoxAn.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.comboBoxAn.FormattingEnabled = true;
-            this.comboBoxAn.Location = new System.Drawing.Point(116, 62);
-            this.comboBoxAn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboBoxAn.Name = "comboBoxAn";
-            this.comboBoxAn.Size = new System.Drawing.Size(190, 39);
-            this.comboBoxAn.TabIndex = 5;
-            // 
-            // comboBoxSemestru
-            // 
-            this.comboBoxSemestru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSemestru.Font = new System.Drawing.Font("Segoe UI", 13.8F);
-            this.comboBoxSemestru.FormatString = "N0";
-            this.comboBoxSemestru.FormattingEnabled = true;
-            this.comboBoxSemestru.Items.AddRange(new object[] {
-            "1",
-            "2"});
-            this.comboBoxSemestru.Location = new System.Drawing.Point(116, 107);
-            this.comboBoxSemestru.Name = "comboBoxSemestru";
-            this.comboBoxSemestru.Size = new System.Drawing.Size(190, 39);
-            this.comboBoxSemestru.TabIndex = 6;
-            // 
-            // buttonClearSearch
-            // 
-            this.buttonClearSearch.Font = new System.Drawing.Font("Webdings", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.buttonClearSearch.Location = new System.Drawing.Point(740, 113);
-            this.buttonClearSearch.Name = "buttonClearSearch";
-            this.buttonClearSearch.Size = new System.Drawing.Size(33, 33);
-            this.buttonClearSearch.TabIndex = 11;
-            this.buttonClearSearch.Text = "q";
-            this.buttonClearSearch.UseVisualStyleBackColor = true;
-            this.buttonClearSearch.Click += new System.EventHandler(this.buttonClearSearch_Click);
-            // 
-            // btnCauta
-            // 
-            this.btnCauta.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCauta.Location = new System.Drawing.Point(779, 113);
-            this.btnCauta.Name = "btnCauta";
-            this.btnCauta.Size = new System.Drawing.Size(88, 33);
-            this.btnCauta.TabIndex = 10;
-            this.btnCauta.Text = "Cauta";
-            this.btnCauta.UseVisualStyleBackColor = true;
-            this.btnCauta.Click += new System.EventHandler(this.btnCauta_Click);
-            // 
             // FormMenuMaterii
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -467,10 +467,12 @@
             this.ClientSize = new System.Drawing.Size(1100, 610);
             this.Controls.Add(this.panelForm);
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMenuMaterii";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "University Manager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMenuMaterii_FormClosing);
             this.Load += new System.EventHandler(this.FormMenuMaterii_Load);
             this.panelForm.ResumeLayout(false);
             this.panelCenter.ResumeLayout(false);
