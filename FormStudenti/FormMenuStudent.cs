@@ -178,7 +178,7 @@ namespace Proiect_BD_SituatieScolara
 
             if (comboBoxFacultate.SelectedIndex != -1)
             {
-                IncarcareComboBox.IncarcaSpecializariFacultate(comboBoxSpecializare, listFacultati, comboBoxFacultate.SelectedItem.ToString());
+                //IncarcareComboBox.IncarcaSpecializariFacultate(comboBoxSpecializare, listFacultati, comboBoxFacultate.SelectedItem.ToString());
             }
 
 
@@ -191,7 +191,7 @@ namespace Proiect_BD_SituatieScolara
 
             if (comboBoxFacultate.SelectedIndex != -1 && comboBoxProgramStudiu.SelectedIndex != -1)
             {
-                IncarcareComboBox.IncarcaSpecializariFacultate(comboBoxSpecializare, listFacultati, comboBoxFacultate.SelectedItem.ToString(), comboBoxProgramStudiu.SelectedItem.ToString());
+                //IncarcareComboBox.IncarcaSpecializariFacultate(comboBoxSpecializare, listFacultati, comboBoxFacultate.SelectedItem.ToString(), comboBoxProgramStudiu.SelectedItem.ToString());
             }
         }
 

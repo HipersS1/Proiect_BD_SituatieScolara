@@ -30,12 +30,12 @@ namespace Proiect_BD_SituatieScolara
             textBoxEmail.Text = student.Email;
             textBoxTelefon.Text = student.Telefon;
 
-            IncarcareComboBox.IncarcaValoriNumerice(comboBoxAn, facultateStudent.Durata);
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("Denumirea Facultatii");
-            sb.AppendLine($"{facultateStudent.Denumire}");
-            sb.Append($"{facultateStudent.ProgramStudiu} {facultateStudent.Specializare}");
-            richTextBoxFacultate.Text = sb.ToString();
+            //IncarcareComboBox.IncarcaValoriNumerice(comboBoxAn, facultateStudent.Durata);
+            //StringBuilder sb = new StringBuilder();
+            //sb.AppendLine("Denumirea Facultatii");
+            //sb.AppendLine($"{facultateStudent.Denumire}");
+            //sb.Append($"{facultateStudent.ProgramStudiu} {facultateStudent.Specializare}");
+            //richTextBoxFacultate.Text = sb.ToString();
 
         }
 

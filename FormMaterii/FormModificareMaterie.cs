@@ -24,22 +24,22 @@ namespace Proiect_BD_SituatieScolara
         public FormModificareMaterie(Materie materie)
         {
             InitializeComponent();
-            materieToBeModified = materie;
-            facultateMaterie = stocareFacultati.GetFacultate(materie.IdFacultate);
+            //materieToBeModified = materie;
+            //facultateMaterie = stocareFacultati.GetFacultate(materie.IdFacultate);
 
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("Denumirea Facultatii");
-            sb.AppendLine($"{facultateMaterie.Denumire}");
-            sb.Append($"{facultateMaterie.ProgramStudiu} {facultateMaterie.Specializare}");
+            //StringBuilder sb = new StringBuilder();
+            //sb.AppendLine("Denumirea Facultatii");
+            //sb.AppendLine($"{facultateMaterie.Denumire}");
+            //sb.Append($"{facultateMaterie.ProgramStudiu} {facultateMaterie.Specializare}");
 
-            IncarcareComboBox.IncarcaValoriNumerice(comboBoxAn, facultateMaterie.Durata);
-            IncarcareComboBox.IncarcaValoriNumerice(comboBoxSemestru, 2);
+            //IncarcareComboBox.IncarcaValoriNumerice(comboBoxAn, facultateMaterie.Durata);
+            //IncarcareComboBox.IncarcaValoriNumerice(comboBoxSemestru, 2);
 
-            richTextBoxFacultate.Text = sb.ToString();
-            textBoxDenumire.Text = materieToBeModified.Denumire;
-            numericUpLaborator.Value = materieToBeModified.ProcentLaborator;
-            comboBoxAn.SelectedIndex = materieToBeModified.An - 1;
-            comboBoxSemestru.SelectedIndex = materieToBeModified.Semestru - 1;
+            //richTextBoxFacultate.Text = sb.ToString();
+            //textBoxDenumire.Text = materieToBeModified.Denumire;
+            //numericUpLaborator.Value = materieToBeModified.ProcentLaborator;
+            //comboBoxAn.SelectedIndex = materieToBeModified.An - 1;
+            //comboBoxSemestru.SelectedIndex = materieToBeModified.Semestru - 1;
         }
 
         #region Form events

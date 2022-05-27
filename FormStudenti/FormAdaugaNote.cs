@@ -41,13 +41,13 @@ namespace Proiect_BD_SituatieScolara
 
         private void FormAdaugaNote_Load(object sender, EventArgs e)
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Student: {studentCurrent.Nume} {studentCurrent.Prenume} An: {studentCurrent.An}");
-            sb.AppendLine($"Denumirea facultatii: {facultateCurenta.Denumire}");
-            sb.AppendLine($"Program studiu: {facultateCurenta.ProgramStudiu}");
-            sb.AppendLine($"Specializare: {facultateCurenta.Specializare}");
+            //StringBuilder sb = new StringBuilder();
+            //sb.AppendLine($"Student: {studentCurrent.Nume} {studentCurrent.Prenume} An: {studentCurrent.An}");
+            //sb.AppendLine($"Denumirea facultatii: {facultateCurenta.Denumire}");
+            //sb.AppendLine($"Program studiu: {facultateCurenta.ProgramStudiu}");
+            //sb.AppendLine($"Specializare: {facultateCurenta.Specializare}");
 
-            richTextBoxFacultate.Text = sb.ToString();
+            //richTextBoxFacultate.Text = sb.ToString();
         }
 
         #region Form events

@@ -14,17 +14,24 @@ namespace Proiect_BD_SituatieScolara
     public partial class FormAdaugareFacultate : Form
     {
         readonly private IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
+        private readonly IStocareProgrameStudii stocareProgrameStudii = (IStocareProgrameStudii)new StocareFactory().GetTipStocare(typeof(ProgramStudiu));
         private bool itemAdaugat = false;
 
         public FormAdaugareFacultate()
         {
             InitializeComponent();
+            if (stocareFacultati == null || stocareProgrameStudii == null)
+            {
+                MessageBox.Show("Eroare la initializare", "Info");
+            }
         }
 
         private void FormAdaugareFacultate_Load(object sender, EventArgs e)
         {
             IncarcareComboBox.IncarcaProgramStudiu(comboBoxProgramStudiu);
             IncarcareComboBox.IncarcaValoriNumerice(comboBoxDurata, 6);
+            comboBoxFacultateExistenta.Items.Add(new ComboItem("Creeaza facultate noua"));
+
             IncarcareComboBox.IncarcaDenumiriFacultati(comboBoxFacultateExistenta, stocareFacultati.GetFacultati());
             comboBoxFacultateExistenta.SelectedIndex = 0;
         }
@@ -46,37 +53,67 @@ namespace Proiect_BD_SituatieScolara
             try
             {
                 ClearResetFormComponents.ResetColors(panelInputs.Controls.OfType<Label>());
-                Facultate facultate = ValideazaInformatii();
-                if (facultate == null)
+
+                if(comboBoxFacultateExistenta.SelectedIndex == 0)
                 {
-                    return;
+                    ///disable textboxs
+
+                    Facultate facultate = ValideazaInformatii();
+                    if (facultate == null)
+                    {
+                        return;
+                    }
+                    if (stocareFacultati.ValideazaExistenta(facultate) == true)
+                    {
+                        MessageBox.Show("Facultatea exista deja", "Eroare");
+                        return;
+                    }
+
+                    var rezultat = stocareFacultati.AddFacultate(facultate);
+
+                    if (rezultat == true)
+                    {
+                        MessageBox.Show("Facultatea a fost adaugata");
+                        ClearResetFormComponents.ClearInputs(panelInputs.Controls.OfType<Control>());
+
+                        comboBoxFacultateExistenta.SelectedIndex = 0;// pentru problema cu functia de resetare a controalelor
+                        itemAdaugat = true;
+
+                        comboBoxFacultateExistenta.Items.Clear();
+                        comboBoxFacultateExistenta.Items.Add(new ComboItem("Creeaza facultate noua"));
+                        comboBoxFacultateExistenta.SelectedIndex = 0;
+                        IncarcareComboBox.IncarcaDenumiriFacultati(comboBoxFacultateExistenta, stocareFacultati.GetFacultati());
+                    }
                 }
-                if(stocareFacultati.ValideazaExistenta(facultate) == true)
+                else
                 {
-                    MessageBox.Show("Facultatea exista deja", "Eroare");
-                    return;
-                }
+                    ComboItem facultate = comboBoxFacultateExistenta.SelectedItem as ComboItem;
 
-                var rezultat = stocareFacultati.AddFacultate(facultate);
+                    ProgramStudiu programStudiu = ValideazaInformatiiProgramStudiu(facultate.Id);
+                    if (programStudiu == null)
+                    {
+                        return;
+                    }
+                    if (stocareProgrameStudii.ValideazaExisteanta(programStudiu) == true)
+                    {
+                        MessageBox.Show($"Programul de studiu exista deja la facultatea {facultate.Id}", "Eroare");
+                        return;
+                    }
 
-                if(rezultat == true)
-                {
-                    MessageBox.Show("Facultatea a fost adaugata");
-                    ClearResetFormComponents.ClearInputs(panelInputs.Controls.OfType<Control>());
+                    var result = stocareProgrameStudii.AddProgramStudiu(programStudiu);
+                    if (result)
+                    {
+                        itemAdaugat = true;
 
-                    comboBoxFacultateExistenta.SelectedIndex=0;// pentru problema cu functia de resetare a controalelor
-                    itemAdaugat = true;
-
-                    comboBoxFacultateExistenta.Items.Clear();
-                    comboBoxFacultateExistenta.Items.Add("Creeaza facultate noua");
-                    comboBoxFacultateExistenta.SelectedIndex=0;
-                    IncarcareComboBox.IncarcaDenumiriFacultati(comboBoxFacultateExistenta, stocareFacultati.GetFacultati());
+                        MessageBox.Show($"Programul de studiu a fost adaugat la faculteatea {facultate.Text}");
+                        ClearResetFormComponents.ClearInputs(panelProgramStudiu.Controls.OfType<Control>());
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                MessageBox.Show("Facultatea nu a fost adaugata cu succes");
+                MessageBox.Show("Problema la adaugare");
             }
         }
 
@@ -90,12 +127,13 @@ namespace Proiect_BD_SituatieScolara
             {
                 textBoxDenumire.ReadOnly = false;
                 textBoxDenumire.Text = String.Empty;
-
+                ClearResetFormComponents.TurnOffComponents(panelProgramStudiu.Controls);
             }
             else
             {
                 textBoxDenumire.ReadOnly = true;
                 textBoxDenumire.Text = comboBoxFacultateExistenta.SelectedItem.ToString();
+                ClearResetFormComponents.TurnOnComponents(panelProgramStudiu.Controls);
             }
         }
         private void comboBox_DropDown(object sender, EventArgs e)
@@ -109,10 +147,9 @@ namespace Proiect_BD_SituatieScolara
                 ? SystemInformation.VerticalScrollBarWidth : 0;
 
             int newWidth;
-            foreach (string s in ((ComboBox)sender).Items)
+            foreach (ComboItem s in ((ComboBox)sender).Items)
             {
-                newWidth = (int)g.MeasureString(s, font).Width
-                    + vertScrollBarWidth;
+                newWidth = (int)g.MeasureString(s.Text, font).Width + vertScrollBarWidth;
                 if (width < newWidth)
                 {
                     width = newWidth;
@@ -128,24 +165,14 @@ namespace Proiect_BD_SituatieScolara
 
         #region Validari
 
-        /// <summary>
-        /// Valideaza formularul de adaugare
-        /// </summary>
-        /// <returns></returns>
-        private Facultate ValideazaInformatii()
+
+        private ProgramStudiu ValideazaInformatiiProgramStudiu(int idFacultate)
         {
             try
             {
                 StringBuilder mesajEroare = new StringBuilder();
 
-                var denumireValida = ValidareString.ValideazaDenumire(textBoxDenumire.Text);
-                if (string.IsNullOrEmpty(denumireValida.Text))
-                {
-                    mesajEroare.Append($"Denumire:{textBoxDenumire.Text} : {denumireValida.Mesaj}\n");
-                    labelDenumire.ForeColor = Color.Red;
-                }
-                
-                if(comboBoxProgramStudiu.SelectedItem == null)
+                if (comboBoxProgramStudiu.SelectedItem == null)
                 {
                     mesajEroare.Append($"Program Studiu: Selectati o valoare\n");
                     labelProgramStudiu.ForeColor = Color.Red;
@@ -164,17 +191,50 @@ namespace Proiect_BD_SituatieScolara
                     labelDurata.ForeColor = Color.Red;
                 }
 
+                if (!string.IsNullOrEmpty(mesajEroare.ToString()))
+                {
+                    MessageBox.Show($"{mesajEroare}");
+                    return null;
+                }
+
+                return new ProgramStudiu(comboBoxProgramStudiu.SelectedItem.ToString(), specializareValida.Text, Convert.ToInt32(comboBoxDurata.SelectedItem), idFacultate);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("A aparut o problema la creearea programul de studiu");
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Valideaza formularul de adaugare
+        /// </summary>
+        /// <returns></returns>
+        private Facultate ValideazaInformatii()
+        {
+            try
+            {
+                StringBuilder mesajEroare = new StringBuilder();
+
+                var denumireValida = ValidareString.ValideazaDenumire(textBoxDenumire.Text);
+                if (string.IsNullOrEmpty(denumireValida.Text))
+                {
+                    mesajEroare.Append($"Denumire:{textBoxDenumire.Text} : {denumireValida.Mesaj}\n");
+                    labelDenumire.ForeColor = Color.Red;
+                }
+                
                 if(!string.IsNullOrEmpty(mesajEroare.ToString()))
                 {
                     MessageBox.Show($"{mesajEroare}");
                     return null;
                 }
 
-                return new Facultate(denumireValida.Text, comboBoxProgramStudiu.SelectedItem.ToString(), specializareValida.Text, Convert.ToInt32(comboBoxDurata.SelectedItem));
+                return new Facultate(denumireValida.Text);
             }
             catch (Exception)
             {
-                MessageBox.Show("A aparut o problema");
+                MessageBox.Show("A aparut o problema la creearea facultatii");
             }
 
             return null;
