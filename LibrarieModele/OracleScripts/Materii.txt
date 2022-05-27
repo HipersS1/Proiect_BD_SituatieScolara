@@ -1,0 +1,27 @@
+﻿
+
+// sterge
+DROP SEQUENCE seq_materii_brumaS;
+DROP TABLE materii_brumaS CASCADE CONSTRAINTS;
+
+// creare
+CREATE SEQUENCE seq_materii_brumaS;
+CREATE TABLE materii_brumaS(
+    IdMaterie NUMBER PRIMARY KEY,
+    Denumire VARCHAR2(50) NOT NULL,
+    An NUMBER(1) NOT NULL,
+    Semestru NUMBER(1) NOT NULL,
+    ProcentLaborator NUMBER(2) NOT NULL,
+    ProcentCurs NUMBER(2) NOT NULL,
+    IdFacultate NUMBER
+        CONSTRAINT nn_materii_facultati_brumaS not null
+        CONSTRAINT fk_materii_facultati_brumaS references facultati_brumaS (IdFacultate)
+)
+
+
+// introducere elemente
+
+INSERT INTO materii_brumaS(IdMaterie, Denumire, An, Semestru, ProcentLaborator, ProcentCurs, IdFacultate)
+VALUES (seq_materii_brumaS.NEXTVAL, 'PIU', 2, 1, 40, 60, 1);
+INSERT INTO materii_brumaS(IdMaterie, Denumire, An, Semestru, ProcentLaborator, ProcentCurs, IdFacultate)
+VALUES (seq_materii_brumaS.NEXTVAL, 'PALG', 3, 2, 50, 50, 1);

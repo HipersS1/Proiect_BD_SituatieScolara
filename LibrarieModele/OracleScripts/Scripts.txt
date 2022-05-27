@@ -1,0 +1,153 @@
+﻿
+///
+
+///Facultati
+select * from facultati_brumas;
+
+// Sterge secventa si tabelul
+
+DROP SEQUENCE seq_facultati_brumas;
+DROP TABLE facultati_brumas CASCADE CONSTRAINTS;
+
+// Crearea tabelului
+
+CREATE SEQUENCE seq_facultati_brumas;
+CREATE TABLE facultati_brumas(
+	IdFacultate NUMBER PRIMARY KEY,
+	Denumire VARCHAR(100) NOT NULL
+);
+
+
+
+/// ProgrameStudii
+
+select * from programestudii_brumas;
+
+// Sterge secventa si tabelul
+
+DROP SEQUENCE seq_programestudii_brumas;
+DROP TABLE programestudii_brumas CASCADE CONSTRAINTS;
+
+// Crearea tabelului
+
+CREATE SEQUENCE seq_programestudii_brumas;
+CREATE TABLE programestudii_brumas(
+	IdProgramStudiu NUMBER PRIMARY KEY,
+	Ciclu VARCHAR(30) NOT NULL,
+	Specializare VARCHAR(50) NOT NULL,
+	Durata NUMBER(1) NOT NULL
+        CONSTRAINT ck_programstudii_durata_brumas CHECK(Durata BETWEEN 1 AND 8),
+	IdFacultate NUMBER
+        CONSTRAINT nn_programstudiu_fac_brumas not null
+        CONSTRAINT fk_programstudiu_fac_brumas references facultati_brumas(IdFacultate)
+);
+
+
+/// Materii
+
+select * from materii_brumas;
+
+// sterge
+DROP SEQUENCE seq_materii_brumas;
+DROP TABLE materii_brumas CASCADE CONSTRAINTS;
+
+// creare
+CREATE SEQUENCE seq_materii_brumas;
+CREATE TABLE materii_brumas(
+    IdMaterie NUMBER PRIMARY KEY,
+    Denumire VARCHAR2(50) NOT NULL,
+    An NUMBER(1) NOT NULL
+        CONSTRAINT ck_materii_an_brumas CHECK(An BETWEEN 1 AND 6),
+    Semestru NUMBER(1) NOT NULL
+        CONSTRAINT ck_materii_semestru_brumas CHECK(Semestru BETWEEN 1 AND 2),
+    ProcentLaborator NUMBER(2) NOT NULL
+        CONSTRAINT ck_materii_procentlab_brumas CHECK(ProcentLaborator BETWEEN 10 AND 90),
+    ProcentCurs NUMBER(2) NOT NULL
+        CONSTRAINT ck_materii_procentcurs_brumas CHECK(ProcentCurs BETWEEN 10 AND 90),
+        CONSTRAINT ck_materii_procente_brumas CHECK(ProcentLaborator + ProcentCurs = 100)
+);
+
+
+/// Studenti
+
+select * from studenti_brumas;
+
+DROP SEQUENCE seq_studenti_brumas;
+DROP TABLE studenti_brumas CASCADE CONSTRAINTS;
+
+// Crearea tabel
+
+CREATE SEQUENCE seq_studenti_brumas;
+CREATE TABLE studenti_brumas(
+    IdStudent NUMBER PRIMARY KEY,
+    Nume VARCHAR2(30) NOT NULL,
+    Prenume VARCHAR2(30) NOT NULL,
+    Email VARCHAR2(60) NOT NULL UNIQUE,
+    Telefon VARCHAR(10) NOT NULL UNIQUE,
+    An NUMBER(1) NOT NULL,
+    IdProgramStudiu NUMBER
+        CONSTRAINT nn_stud_programstudiu_brumas not null
+        CONSTRAINT fk_stud_programstudiu_brumas references programestudii_brumas(IdProgramStudiu)
+);
+
+
+
+/// Note
+
+select * from note_brumas;
+
+//sterge
+DROP TABLE note_brumas cascade CONSTRAINTS;
+
+//crearea
+CREATE TABLE note_brumas (
+    NotaLaborator NUMBER(5,2)
+        CONSTRAINT ck_note_notaLaborator_brumas CHECK(NotaLaborator BETWEEN 1.00 AND 10.00),
+    NotaCurs NUMBER(5,2)
+        CONSTRAINT ck_note_notaCurs_brumas CHECK(NotaCurs BETWEEN 1.00 AND 10.00),
+    NotaFinala NUMBER(2)
+        CONSTRAINT ck_note_notaFinala_brumas CHECK(NotaFinala BETWEEN 1 AND 10),
+    IdStudent NUMBER
+        CONSTRAINT nn_note_studenti_brumas not null
+        CONSTRAINT fk_note_studenti_brumas references studenti_brumas (IdStudent),
+    IdMaterie NUMBER
+        CONSTRAINT nn_note_materii_brumas not null
+        CONSTRAINT fk_note_materii_brumas references materii_brumas (IdMaterie)
+);
+
+
+
+/// ProgramMaterii
+
+
+select * from programmaterii_brumas;
+
+drop table programmaterii_brumas;
+
+CREATE TABLE programmaterii_brumas(
+    IdProgramStudiu NUMBER
+        CONSTRAINT nn_program_programstud_brumas not null
+        CONSTRAINT fk_program_programstud_brumas references programestudii_brumas (IdProgramStudiu),
+    IdMaterie
+        CONSTRAINT nn_programmat_materii_brumas not null
+        CONSTRAINT fk_programmat_materii_brumas references materii_brumas (IdMaterie)
+);
+
+
+DROP SEQUENCE seq_facultati_brumas;
+DROP TABLE facultati_brumas CASCADE CONSTRAINTS;
+DROP SEQUENCE seq_programestudii_brumas;
+DROP TABLE programestudii_brumas CASCADE CONSTRAINTS;
+DROP SEQUENCE seq_materii_brumas;
+DROP TABLE materii_brumas CASCADE CONSTRAINTS;
+DROP SEQUENCE seq_studenti_brumas;
+DROP TABLE studenti_brumas CASCADE CONSTRAINTS;
+DROP TABLE note_brumas cascade CONSTRAINTS;
+drop table programmaterii_brumas;
+
+describe facultati_brumas;
+describe programestudii_brumas;
+describe materii_brumas;
+describe studenti_brumas;
+describe note_brumas;
+describe programmaterii_brumas;

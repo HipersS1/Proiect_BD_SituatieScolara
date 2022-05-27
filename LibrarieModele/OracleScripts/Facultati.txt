@@ -1,0 +1,27 @@
+﻿
+// afisare
+select * from facultati_brumaS;
+
+// Sterge secventa si tabelul
+
+DROP SEQUENCE seq_facultati_brumaS;
+DROP TABLE facultati_brumaS CASCADE CONSTRAINTS;
+
+// Crearea tabelului si introducerea a 2 elemente
+
+CREATE SEQUENCE seq_facultati_brumaS;
+CREATE TABLE facultati_brumaS(
+	IdFacultate NUMBER PRIMARY KEY,
+	Denumire VARCHAR(100) NOT NULL,
+	ProgramStudiu VARCHAR(25) NOT NULL,
+	Specializare VARCHAR(100) NOT NULL,
+	Durata NUMBER(1) NOT NULL
+);
+
+
+
+INSERT INTO facultati_brumaS (IdFacultate, Denumire, ProgramStudiu, Specializare, Durata)
+VALUES (seq_facultati_brumaS.NEXTVAL, 'FIESC', 'Licenta', 'Calculatoare', 4);
+
+INSERT INTO facultati_brumaS (IdFacultate, Denumire, ProgramStudiu, Specializare, Durata)
+VALUES (seq_facultati_brumaS.NEXTVAL, 'FIESC', 'Licenta', 'Automatica', 4);
