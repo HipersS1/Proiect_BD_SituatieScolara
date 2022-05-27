@@ -80,7 +80,7 @@ namespace NivelAccesDate
                 $"SELECT m.idmaterie, m.denumire, m.an, m.semestru, m.procentlaborator, m.procentcurs, " +
                 $"n.notalaborator, n.notacurs, n.notafinala " +
                 $"FROM {_tableNameMaterii} m, {_tableNameNote} n, {_tableNameFacultati} f" +
-                $"WHERE f.idfacultate = {student.IdFacultate} and f.idfacultate = m.idfacultate", CommandType.Text);
+                $"WHERE f.idfacultate = {student.IdProgramStudiu} and f.idfacultate = m.idfacultate", CommandType.Text);
             return dsMateriiNote;
         }
 

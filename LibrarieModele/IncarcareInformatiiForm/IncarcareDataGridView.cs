@@ -69,7 +69,9 @@ namespace LibrarieModele
             {
                 if (studenti != null && studenti.Any())
                 {
-                    dataGridView.DataSource = studenti.Select(f => new { f.IdStudent, f.Nume, f.Prenume, f.Email, f.Telefon, f.An, f.IdFacultate}).OrderBy(s => s.Nume).ToList();
+                    dataGridView.DataSource = studenti.Select(f => new { f.IdStudent, f.Nume, f.Prenume, f.Email, f.Telefon, f.An, f.IdProgramStudiu})
+                                                       .OrderBy(s => s.Nume)
+                                                       .ToList();
                     
                     dataGridView.Columns["IdStudent"].Visible = false;
                     dataGridView.Columns["Nume"].HeaderText = "Nume";
@@ -77,7 +79,7 @@ namespace LibrarieModele
                     dataGridView.Columns["Email"].HeaderText = "Email";
                     dataGridView.Columns["Telefon"].HeaderText = "Telefon";
                     dataGridView.Columns["An"].HeaderText = "An Studiu";
-                    dataGridView.Columns["IdFacultate"].Visible = false;
+                    dataGridView.Columns["IdProgramStudiu"].Visible = false;
                 }
             }
             catch (Exception ex)
@@ -99,14 +101,15 @@ namespace LibrarieModele
                     dataGridView.Columns["EMAIL"].HeaderText = "Email";
 
                     dataGridView.Columns["TELEFON"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                    dataGridView.Columns["TELEFON"].Width = 80;
+                    dataGridView.Columns["TELEFON"].Width = 68;
                     dataGridView.Columns["TELEFON"].HeaderText = "Telefon";
 
                     dataGridView.Columns["FACULTATE"].HeaderText = "Facultate";
+                    dataGridView.Columns["Program"].HeaderText = "Programul de studiu";
 
                     dataGridView.Columns["AN"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
                     dataGridView.Columns["AN"].HeaderText = "An";
-                    dataGridView.Columns["AN"].Width = 40;
+                    dataGridView.Columns["AN"].Width = 30;
                 }
             }
             catch (Exception ex)

@@ -37,7 +37,7 @@
             this.panelDelimiterCenter = new System.Windows.Forms.Panel();
             this.buttonClearSearch = new System.Windows.Forms.Button();
             this.btnCauta = new System.Windows.Forms.Button();
-            this.comboBoxProgramStudiu = new System.Windows.Forms.ComboBox();
+            this.comboBoxCicluStudiu = new System.Windows.Forms.ComboBox();
             this.labelProgramStudiu = new System.Windows.Forms.Label();
             this.comboBoxSpecializare = new System.Windows.Forms.ComboBox();
             this.labelSpecializare = new System.Windows.Forms.Label();
@@ -117,7 +117,7 @@
             this.panelDelimiterCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.panelDelimiterCenter.Controls.Add(this.buttonClearSearch);
             this.panelDelimiterCenter.Controls.Add(this.btnCauta);
-            this.panelDelimiterCenter.Controls.Add(this.comboBoxProgramStudiu);
+            this.panelDelimiterCenter.Controls.Add(this.comboBoxCicluStudiu);
             this.panelDelimiterCenter.Controls.Add(this.labelProgramStudiu);
             this.panelDelimiterCenter.Controls.Add(this.comboBoxSpecializare);
             this.panelDelimiterCenter.Controls.Add(this.labelSpecializare);
@@ -157,26 +157,26 @@
             this.btnCauta.UseVisualStyleBackColor = true;
             this.btnCauta.Click += new System.EventHandler(this.btnCauta_Click);
             // 
-            // comboBoxProgramStudiu
+            // comboBoxCicluStudiu
             // 
-            this.comboBoxProgramStudiu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxProgramStudiu.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxProgramStudiu.FormattingEnabled = true;
-            this.comboBoxProgramStudiu.Location = new System.Drawing.Point(343, 68);
-            this.comboBoxProgramStudiu.Name = "comboBoxProgramStudiu";
-            this.comboBoxProgramStudiu.Size = new System.Drawing.Size(188, 36);
-            this.comboBoxProgramStudiu.TabIndex = 9;
-            this.comboBoxProgramStudiu.SelectedIndexChanged += new System.EventHandler(this.comboBoxProgramStudiu_SelectedIndexChanged);
+            this.comboBoxCicluStudiu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCicluStudiu.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxCicluStudiu.FormattingEnabled = true;
+            this.comboBoxCicluStudiu.Location = new System.Drawing.Point(364, 69);
+            this.comboBoxCicluStudiu.Name = "comboBoxCicluStudiu";
+            this.comboBoxCicluStudiu.Size = new System.Drawing.Size(188, 36);
+            this.comboBoxCicluStudiu.TabIndex = 9;
+            this.comboBoxCicluStudiu.SelectedIndexChanged += new System.EventHandler(this.comboBoxProgramStudiu_SelectedIndexChanged);
             // 
             // labelProgramStudiu
             // 
             this.labelProgramStudiu.AutoSize = true;
             this.labelProgramStudiu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProgramStudiu.Location = new System.Drawing.Point(247, 57);
+            this.labelProgramStudiu.Location = new System.Drawing.Point(247, 78);
             this.labelProgramStudiu.Name = "labelProgramStudiu";
-            this.labelProgramStudiu.Size = new System.Drawing.Size(88, 56);
+            this.labelProgramStudiu.Size = new System.Drawing.Size(145, 28);
             this.labelProgramStudiu.TabIndex = 11;
-            this.labelProgramStudiu.Text = "Program\r\nStudiu\r\n";
+            this.labelProgramStudiu.Text = "Ciclul de studiu";
             // 
             // comboBoxSpecializare
             // 
@@ -194,7 +194,7 @@
             // 
             this.labelSpecializare.AutoSize = true;
             this.labelSpecializare.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpecializare.Location = new System.Drawing.Point(547, 31);
+            this.labelSpecializare.Location = new System.Drawing.Point(558, 30);
             this.labelSpecializare.Name = "labelSpecializare";
             this.labelSpecializare.Size = new System.Drawing.Size(115, 28);
             this.labelSpecializare.TabIndex = 9;
@@ -207,7 +207,7 @@
             this.comboBoxFacultate.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxFacultate.FormattingEnabled = true;
             this.comboBoxFacultate.ItemHeight = 28;
-            this.comboBoxFacultate.Location = new System.Drawing.Point(343, 23);
+            this.comboBoxFacultate.Location = new System.Drawing.Point(364, 23);
             this.comboBoxFacultate.Name = "comboBoxFacultate";
             this.comboBoxFacultate.Size = new System.Drawing.Size(188, 36);
             this.comboBoxFacultate.TabIndex = 8;
@@ -521,7 +521,7 @@
         private System.Windows.Forms.ComboBox comboBoxSpecializare;
         private System.Windows.Forms.Label labelSpecializare;
         private System.Windows.Forms.Button btnCauta;
-        private System.Windows.Forms.ComboBox comboBoxProgramStudiu;
+        private System.Windows.Forms.ComboBox comboBoxCicluStudiu;
         private System.Windows.Forms.Label labelProgramStudiu;
         private System.Windows.Forms.Button buttonClearSearch;
     }

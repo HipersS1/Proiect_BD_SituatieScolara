@@ -16,27 +16,32 @@ namespace Proiect_BD_SituatieScolara
     {
         private readonly IStocareStudenti stocareStudenti= (IStocareStudenti)new StocareFactory().GetTipStocare(typeof(Student));
         private readonly IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
+        private readonly IStocareProgrameStudii stocareProgrameStudii = (IStocareProgrameStudii)new StocareFactory().GetTipStocare(typeof(ProgramStudiu));
         private const int PRIMA_COLOANA = 0;
+        private List<Facultate> listaFacultati;
+        private List<ProgramStudiu> listaProgrameStudii;
 
         public FormMenuStudent()
         {
             InitializeComponent();
-            if(stocareStudenti == null || stocareFacultati == null)
+            if(stocareStudenti == null || stocareFacultati == null || stocareProgrameStudii == null)
             {
                 MessageBox.Show("Eroare la initializare");
             }
             else
             {
-                var facultateList = stocareFacultati.GetFacultati();
-                IncarcaStudenti();
-                IncarcareComboBox.IncarcaDenumiriFacultati(comboBoxFacultate, facultateList);
-                IncarcareComboBox.IncarcaProgramStudiu(comboBoxProgramStudiu);
+                listaFacultati = stocareFacultati.GetFacultati();
+                listaProgrameStudii = stocareProgrameStudii.GetProgrameStudii();
             }
+            
         }
         private void FormMenuStudent_Load(object sender, EventArgs e)
         {
             comboBoxSpecializare.Enabled = false;
             comboBoxSpecializare.Items.Add("Selecteaza o facultate");
+            IncarcaStudenti();
+            IncarcareComboBox.IncarcaDenumiriFacultati(comboBoxFacultate, listaFacultati);
+            IncarcareComboBox.IncarcaProgramStudiu(comboBoxCicluStudiu);
             dataGridView1.CurrentCell = null;
         }
         private void FormMenuStudent_FormClosing(object sender, FormClosingEventArgs e)
@@ -48,6 +53,8 @@ namespace Proiect_BD_SituatieScolara
         }
 
         #region Forms Events
+
+        #region Butoane Stanga
         private void btnReturn_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -112,6 +119,12 @@ namespace Proiect_BD_SituatieScolara
             }
         }
 
+
+
+        #endregion
+
+        #region Butoane centru
+
         private void buttonClearSearch_Click(object sender, EventArgs e)
         {
             ClearResetFormComponents.ClearInputs(panelDelimiterCenter.Controls.OfType<Control>());
@@ -133,11 +146,11 @@ namespace Proiect_BD_SituatieScolara
                 if (comboBoxFacultate.SelectedItem != null)
                     searchElements.Add(new SearchElement("f.Denumire", comboBoxFacultate.SelectedItem.ToString()));
 
-                if (comboBoxProgramStudiu.SelectedItem != null)
-                    searchElements.Add(new SearchElement("f.ProgramStudiu", comboBoxProgramStudiu.SelectedItem.ToString()));
+                if (comboBoxCicluStudiu.SelectedItem != null)
+                    searchElements.Add(new SearchElement("p.Ciclu", comboBoxCicluStudiu.SelectedItem.ToString()));
 
                 if (comboBoxSpecializare.SelectedItem != null)
-                    searchElements.Add(new SearchElement("f.Specializare", comboBoxSpecializare.SelectedItem.ToString()));
+                    searchElements.Add(new SearchElement("p.Specializare", comboBoxSpecializare.SelectedItem.ToString()));
 
                 DataSet dataSetAfisare = new DataSet();
                 if (searchElements.Count > 0)
@@ -162,6 +175,8 @@ namespace Proiect_BD_SituatieScolara
             }
         }
 
+        #endregion
+
         #region ComboBoxEvents
         private void comboBoxFacultate_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -174,11 +189,11 @@ namespace Proiect_BD_SituatieScolara
             var listFacultati = stocareFacultati.GetFacultati();
             comboBoxSpecializare.Enabled = true;
             comboBoxSpecializare.Items.Clear();
-            comboBoxProgramStudiu.SelectedIndex = -1;
+            comboBoxCicluStudiu.SelectedIndex = -1;
 
             if (comboBoxFacultate.SelectedIndex != -1)
             {
-                //IncarcareComboBox.IncarcaSpecializariFacultate(comboBoxSpecializare, listFacultati, comboBoxFacultate.SelectedItem.ToString());
+                IncarcareComboBox.IncarcaSpecializariFacultate(comboBoxSpecializare, listaProgrameStudii, ((ComboItem)comboBoxFacultate.SelectedItem).Id);
             }
 
 
@@ -189,9 +204,9 @@ namespace Proiect_BD_SituatieScolara
             var listFacultati = stocareFacultati.GetFacultati();
             comboBoxSpecializare.Items.Clear();
 
-            if (comboBoxFacultate.SelectedIndex != -1 && comboBoxProgramStudiu.SelectedIndex != -1)
+            if (comboBoxFacultate.SelectedIndex != -1 && comboBoxCicluStudiu.SelectedIndex != -1)
             {
-                //IncarcareComboBox.IncarcaSpecializariFacultate(comboBoxSpecializare, listFacultati, comboBoxFacultate.SelectedItem.ToString(), comboBoxProgramStudiu.SelectedItem.ToString());
+                IncarcareComboBox.IncarcaSpecializariFacultate(comboBoxSpecializare, listaProgrameStudii, ((ComboItem)comboBoxFacultate.SelectedItem).Id, ((ComboItem)comboBoxCicluStudiu.SelectedItem).Text);
             }
         }
 
@@ -206,9 +221,9 @@ namespace Proiect_BD_SituatieScolara
                 ? SystemInformation.VerticalScrollBarWidth : 0;
 
             int newWidth;
-            foreach (string s in ((ComboBox)sender).Items)
+            foreach (ComboItem s in ((ComboBox)sender).Items)
             {
-                newWidth = (int)g.MeasureString(s, font).Width
+                newWidth = (int)g.MeasureString(s.Text, font).Width
                     + vertScrollBarWidth;
                 if (width < newWidth)
                 {

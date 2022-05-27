@@ -106,7 +106,7 @@ namespace Proiect_BD_SituatieScolara
                     {
                         return;
                     }
-                    if (stocareProgrameStudii.ValideazaExisteanta(programStudiu) == true)
+                    if (stocareProgrameStudii.ValideazaExistenta(programStudiu) == true)
                     {
                         MessageBox.Show("Programul de studiu exista deja");
                         return;

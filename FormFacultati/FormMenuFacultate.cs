@@ -157,17 +157,15 @@ namespace Proiect_BD_SituatieScolara
                 if (dialogResult != DialogResult.Yes)
                     return;
 
-                var resultPrograme = stocareProgrameStudii.DeleteProgrameStudii();
-                if (resultPrograme == true)
-                {
-                    var result = stocareFacultati.DeleteFacultate(facultate.IdFacultate);
+                var resultPrograme = stocareProgrameStudii.DeleteProgrameStudii(facultate.IdFacultate);
+                var result = stocareFacultati.DeleteFacultate(facultate.IdFacultate);
 
-                    if (result == true)
-                    {
-                        IncarcaFacultati();
-                        MessageBox.Show($"Facultatea: {facultate.Denumire} a fost stearsa cu succes");
-                    }
+                if (result == true)
+                {
+                    IncarcaFacultati();
+                    MessageBox.Show($"Facultatea: {facultate.Denumire} a fost stearsa cu succes");
                 }
+                
             }
 
             if (tabelActivPrograme)

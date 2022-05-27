@@ -23,7 +23,7 @@ namespace Proiect_BD_SituatieScolara
         {
             InitializeComponent();
             studentToBeModified = student;
-            facultateStudent = stocareFacultati.GetFacultate(student.IdFacultate);
+            facultateStudent = stocareFacultati.GetFacultate(student.IdProgramStudiu);
 
             textBoxPrenume.Text = student.Prenume;
             textBoxNume.Text = student.Nume;
@@ -195,7 +195,7 @@ namespace Proiect_BD_SituatieScolara
 
                 var anStudent = Convert.ToInt32(comboBoxAn.SelectedItem.ToString());
 
-                return new Student(numeValid.Text, prenumeValid.Text, emailValid.Text, telefonValid.Text, anStudent, studentToBeModified.IdFacultate, studentToBeModified.IdStudent);
+                return new Student(numeValid.Text, prenumeValid.Text, emailValid.Text, telefonValid.Text, anStudent, studentToBeModified.IdProgramStudiu, studentToBeModified.IdStudent);
             }
             catch (Exception)
             {

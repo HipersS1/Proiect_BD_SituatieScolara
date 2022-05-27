@@ -27,7 +27,7 @@ namespace Proiect_BD_SituatieScolara
         {
             InitializeComponent();
             studentCurrent = student;
-            facultateCurenta = stocareFacultati.GetFacultate(student.IdFacultate);
+            facultateCurenta = stocareFacultati.GetFacultate(student.IdProgramStudiu);
             if(stocareMaterii == null)
             {
                 MessageBox.Show("Eroare la initializare");
