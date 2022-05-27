@@ -32,7 +32,7 @@
             this.panelForm = new System.Windows.Forms.Panel();
             this.panelCenter = new System.Windows.Forms.Panel();
             this.panelLeft = new System.Windows.Forms.Panel();
-            this.btnMenuMa = new System.Windows.Forms.Button();
+            this.btnMenuMaterii = new System.Windows.Forms.Button();
             this.pictureBoxUSVLogo = new System.Windows.Forms.PictureBox();
             this.btnMenuStudents = new System.Windows.Forms.Button();
             this.btnMenuUniversity = new System.Windows.Forms.Button();
@@ -69,7 +69,7 @@
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
-            this.panelLeft.Controls.Add(this.btnMenuMa);
+            this.panelLeft.Controls.Add(this.btnMenuMaterii);
             this.panelLeft.Controls.Add(this.pictureBoxUSVLogo);
             this.panelLeft.Controls.Add(this.btnMenuStudents);
             this.panelLeft.Controls.Add(this.btnMenuUniversity);
@@ -80,20 +80,20 @@
             this.panelLeft.Size = new System.Drawing.Size(131, 524);
             this.panelLeft.TabIndex = 1;
             // 
-            // btnMenuMa
+            // btnMenuMaterii
             // 
-            this.btnMenuMa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
-            this.btnMenuMa.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMenuMa.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
-            this.btnMenuMa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuMa.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuMa.Location = new System.Drawing.Point(0, 187);
-            this.btnMenuMa.Name = "btnMenuMa";
-            this.btnMenuMa.Size = new System.Drawing.Size(131, 85);
-            this.btnMenuMa.TabIndex = 2;
-            this.btnMenuMa.Text = "Meniu Materii";
-            this.btnMenuMa.UseVisualStyleBackColor = false;
-            this.btnMenuMa.Click += new System.EventHandler(this.btnMenuMa_Click);
+            this.btnMenuMaterii.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
+            this.btnMenuMaterii.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuMaterii.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.btnMenuMaterii.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuMaterii.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuMaterii.Location = new System.Drawing.Point(0, 187);
+            this.btnMenuMaterii.Name = "btnMenuMaterii";
+            this.btnMenuMaterii.Size = new System.Drawing.Size(131, 85);
+            this.btnMenuMaterii.TabIndex = 2;
+            this.btnMenuMaterii.Text = "Meniu Materii";
+            this.btnMenuMaterii.UseVisualStyleBackColor = false;
+            this.btnMenuMaterii.Click += new System.EventHandler(this.btnMenuMaterii_Click);
             // 
             // pictureBoxUSVLogo
             // 
@@ -201,7 +201,7 @@
         private System.Windows.Forms.PictureBox pictureBoxUSVLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelMenu;
-        private System.Windows.Forms.Button btnMenuMa;
+        private System.Windows.Forms.Button btnMenuMaterii;
     }
 }
 

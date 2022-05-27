@@ -33,6 +33,8 @@
             this.panelCenter = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelInputs = new System.Windows.Forms.Panel();
+            this.comboBoxFacultateExistenta = new System.Windows.Forms.ComboBox();
+            this.labelAlege = new System.Windows.Forms.Label();
             this.comboBoxDurata = new System.Windows.Forms.ComboBox();
             this.comboBoxProgramStudiu = new System.Windows.Forms.ComboBox();
             this.labelDenumire = new System.Windows.Forms.Label();
@@ -47,8 +49,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
             this.labelFormularAdaugare = new System.Windows.Forms.Label();
-            this.comboBoxFacultateExistenta = new System.Windows.Forms.ComboBox();
-            this.labelAlege = new System.Windows.Forms.Label();
             this.panelForm.SuspendLayout();
             this.panelCenter.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -107,6 +107,31 @@
             this.panelInputs.Name = "panelInputs";
             this.panelInputs.Size = new System.Drawing.Size(356, 324);
             this.panelInputs.TabIndex = 17;
+            // 
+            // comboBoxFacultateExistenta
+            // 
+            this.comboBoxFacultateExistenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFacultateExistenta.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxFacultateExistenta.FormatString = "N0";
+            this.comboBoxFacultateExistenta.FormattingEnabled = true;
+            this.comboBoxFacultateExistenta.Items.AddRange(new object[] {
+            "Creeaza facultate noua"});
+            this.comboBoxFacultateExistenta.Location = new System.Drawing.Point(163, 24);
+            this.comboBoxFacultateExistenta.Name = "comboBoxFacultateExistenta";
+            this.comboBoxFacultateExistenta.Size = new System.Drawing.Size(188, 36);
+            this.comboBoxFacultateExistenta.TabIndex = 6;
+            this.comboBoxFacultateExistenta.DropDown += new System.EventHandler(this.comboBox_DropDown);
+            this.comboBoxFacultateExistenta.SelectedIndexChanged += new System.EventHandler(this.comboBoxFacultateExistenta_SelectedIndexChanged);
+            // 
+            // labelAlege
+            // 
+            this.labelAlege.AutoSize = true;
+            this.labelAlege.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAlege.Location = new System.Drawing.Point(6, 32);
+            this.labelAlege.Name = "labelAlege";
+            this.labelAlege.Size = new System.Drawing.Size(110, 28);
+            this.labelAlege.TabIndex = 7;
+            this.labelAlege.Text = "Selecteaza";
             // 
             // comboBoxDurata
             // 
@@ -246,30 +271,6 @@
             this.labelFormularAdaugare.Text = "Formular Adaugare Facultate";
             this.labelFormularAdaugare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBoxFacultateExistenta
-            // 
-            this.comboBoxFacultateExistenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFacultateExistenta.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxFacultateExistenta.FormatString = "N0";
-            this.comboBoxFacultateExistenta.FormattingEnabled = true;
-            this.comboBoxFacultateExistenta.Items.AddRange(new object[] {
-            "Creeaza facultate noua"});
-            this.comboBoxFacultateExistenta.Location = new System.Drawing.Point(163, 24);
-            this.comboBoxFacultateExistenta.Name = "comboBoxFacultateExistenta";
-            this.comboBoxFacultateExistenta.Size = new System.Drawing.Size(188, 36);
-            this.comboBoxFacultateExistenta.TabIndex = 6;
-            this.comboBoxFacultateExistenta.SelectedIndexChanged += new System.EventHandler(this.comboBoxFacultateExistenta_SelectedIndexChanged);
-            // 
-            // labelAlege
-            // 
-            this.labelAlege.AutoSize = true;
-            this.labelAlege.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAlege.Location = new System.Drawing.Point(6, 32);
-            this.labelAlege.Name = "labelAlege";
-            this.labelAlege.Size = new System.Drawing.Size(110, 28);
-            this.labelAlege.TabIndex = 7;
-            this.labelAlege.Text = "Selecteaza";
-            // 
             // FormAdaugareFacultate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -282,6 +283,7 @@
             this.Name = "FormAdaugareFacultate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "University Manager";
+            this.Load += new System.EventHandler(this.FormAdaugareFacultate_Load);
             this.panelForm.ResumeLayout(false);
             this.panelCenter.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

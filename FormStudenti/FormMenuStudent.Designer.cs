@@ -35,6 +35,7 @@
             this.panelDelimiterBottom = new System.Windows.Forms.Panel();
             this.panelDelimiterTop = new System.Windows.Forms.Panel();
             this.panelDelimiterCenter = new System.Windows.Forms.Panel();
+            this.buttonClearSearch = new System.Windows.Forms.Button();
             this.btnCauta = new System.Windows.Forms.Button();
             this.comboBoxProgramStudiu = new System.Windows.Forms.ComboBox();
             this.labelProgramStudiu = new System.Windows.Forms.Label();
@@ -60,7 +61,6 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.labelMenuStudents = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.buttonClearSearch = new System.Windows.Forms.Button();
             this.panelForm.SuspendLayout();
             this.panelCenter.SuspendLayout();
             this.panelDelimiterCenter.SuspendLayout();
@@ -134,6 +134,17 @@
             this.panelDelimiterCenter.Padding = new System.Windows.Forms.Padding(10, 11, 10, 11);
             this.panelDelimiterCenter.Size = new System.Drawing.Size(881, 524);
             this.panelDelimiterCenter.TabIndex = 2;
+            // 
+            // buttonClearSearch
+            // 
+            this.buttonClearSearch.Font = new System.Drawing.Font("Webdings", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.buttonClearSearch.Location = new System.Drawing.Point(740, 77);
+            this.buttonClearSearch.Name = "buttonClearSearch";
+            this.buttonClearSearch.Size = new System.Drawing.Size(33, 33);
+            this.buttonClearSearch.TabIndex = 12;
+            this.buttonClearSearch.Text = "q";
+            this.buttonClearSearch.UseVisualStyleBackColor = true;
+            this.buttonClearSearch.Click += new System.EventHandler(this.buttonClearSearch_Click);
             // 
             // btnCauta
             // 
@@ -453,17 +464,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // buttonClearSearch
-            // 
-            this.buttonClearSearch.Font = new System.Drawing.Font("Webdings", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.buttonClearSearch.Location = new System.Drawing.Point(740, 77);
-            this.buttonClearSearch.Name = "buttonClearSearch";
-            this.buttonClearSearch.Size = new System.Drawing.Size(33, 33);
-            this.buttonClearSearch.TabIndex = 12;
-            this.buttonClearSearch.Text = "q";
-            this.buttonClearSearch.UseVisualStyleBackColor = true;
-            this.buttonClearSearch.Click += new System.EventHandler(this.buttonClearSearch_Click);
-            // 
             // FormMenuStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -471,10 +471,12 @@
             this.ClientSize = new System.Drawing.Size(1100, 610);
             this.Controls.Add(this.panelForm);
             this.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMenuStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "University Manager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMenuStudent_FormClosing);
             this.Load += new System.EventHandler(this.FormMenuStudent_Load);
             this.panelForm.ResumeLayout(false);
             this.panelCenter.ResumeLayout(false);
