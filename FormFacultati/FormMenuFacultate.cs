@@ -15,12 +15,17 @@ namespace Proiect_BD_SituatieScolara
     public partial class FormMenuFacultate : Form
     {
         private readonly IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
+        private readonly IStocareProgrameStudii stocareProgrameStudii = (IStocareProgrameStudii)new StocareFactory().GetTipStocare(typeof(ProgramStudiu));
         private const int PRIMA_COLOANA = 0;
+
+        private int _idFacultate;
+        bool tabelActivFacultate = false;
+        bool tabelActivPrograme = false;
         
         public FormMenuFacultate()
         {
             InitializeComponent();
-            if(stocareFacultati == null)
+            if(stocareFacultati == null && stocareProgrameStudii == null)
             {
                 MessageBox.Show("Eroare la initializare");
             }
@@ -29,8 +34,11 @@ namespace Proiect_BD_SituatieScolara
         private void FormMenuFacultate_Load(object sender, EventArgs e)
         {
             IncarcaFacultati();
+            tabelActivFacultate=true;
+            labelCampNume.Text = "Denumire";
             IncarcareComboBox.IncarcaValoriNumerice(comboBoxDurata, 6);
-            IncarcareComboBox.IncarcaProgramStudiu(comboBoxProgramStudiu);
+            IncarcareComboBox.IncarcaProgramStudiu(comboBoxCicluStudiu);
+            buttonVizualizeazaPrograme.Text = "Vizualizeaza programe";
         }
         private void FormMenuFacultate_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -41,6 +49,35 @@ namespace Proiect_BD_SituatieScolara
         }
 
         #region Form Events
+
+        private void buttonVizualizeazaPrograme_Click(object sender, EventArgs e)
+        {
+            if (tabelActivFacultate)
+            {
+                Facultate facultate = GetFacultateDataGrid();
+                if (facultate == null)
+                {
+                    return;
+                }
+                _idFacultate = facultate.IdFacultate;
+                tabelActivFacultate = false;
+                tabelActivPrograme = true;
+                labelCampNume.Text = "Specializare";
+                buttonVizualizeazaPrograme.Text = "Vizualizeaza facultati";
+                IncarcaProgrameStudii(facultate.IdFacultate);
+            }
+            else if (tabelActivPrograme)
+            {
+                _idFacultate = -1;
+                tabelActivFacultate = true;
+                tabelActivPrograme = false;
+                labelCampNume.Text = "Denumire";
+                buttonVizualizeazaPrograme.Text = "Vizualizeaza programe";
+                IncarcaFacultati();
+            }
+
+        }
+
         private void buttonReturn_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -48,7 +85,15 @@ namespace Proiect_BD_SituatieScolara
         private void buttonClearSearch_Click(object sender, EventArgs e)
         {
             ClearResetFormComponents.ClearInputs(panelDelimiterCenter.Controls.OfType<Control>());
-            IncarcaFacultati();
+            if (tabelActivFacultate)
+            {
+                IncarcaFacultati();
+            }
+            if (tabelActivPrograme)
+            {
+                IncarcaProgrameStudii(_idFacultate);
+            }
+            dataGridView1.CurrentCell = null;
 
         }
         private void btnAddFaculty_Click(object sender, EventArgs e)
@@ -57,41 +102,89 @@ namespace Proiect_BD_SituatieScolara
             {
                 if(form.ShowDialog() == DialogResult.OK)
                 {
-                    IncarcaFacultati();
+                    if (tabelActivFacultate)
+                    {
+                        IncarcaFacultati();
+                    }
+                    if (tabelActivPrograme)
+                    {
+                        IncarcaProgrameStudii(_idFacultate);
+                    }
                 }
             }
         }
 
         private void btnModifyFaculty_Click(object sender, EventArgs e)
         {
-            Facultate facultate = GetFacultateDataGrid();
-            if (facultate == null) 
-                return;
-
-            using (FormModificareFacultate form = new FormModificareFacultate(facultate))
+            if (tabelActivFacultate)
             {
-                if (form.ShowDialog() == DialogResult.OK)
+                Facultate facultate = GetFacultateDataGrid();
+                if (facultate == null)
+                    return;
+
+                using (FormModificareFacultate form = new FormModificareFacultate(facultate))
                 {
-                    IncarcaFacultati();
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        IncarcaFacultati();
+                    }
                 }
             }
+
+            if (tabelActivPrograme)
+            {
+                ProgramStudiu programStudiu = GetProgramStudiuDataGrid();
+                if (programStudiu == null) return;
+                using (FormModificareFacultate form = new FormModificareFacultate(programStudiu))
+                {
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        IncarcaProgrameStudii(programStudiu.IdFacultate);
+                    }
+                }
+            }
+            
         }
 
         private void btnStergeFacultate_Click(object sender, EventArgs e)
         {
-            Facultate facultate = GetFacultateDataGrid();
-            if (facultate == null) return;
-
-            DialogResult dialogResult = MessageBox.Show("Esti sigur ca vrei sa elimini facultatea?", "Mesaj de confirmare", MessageBoxButtons.YesNo);
-            if (dialogResult != DialogResult.Yes)
-                return;
-            var result = stocareFacultati.DeleteFacultate(facultate.IdFacultate);
-
-            if(result == true)
+            if (tabelActivFacultate)
             {
-                IncarcaFacultati();
-                MessageBox.Show($"Facultatea: {facultate.Denumire} - {facultate.ProgramStudiu} - {facultate.Specializare} - {facultate.Durata}" +
-                    $" a fost stearsa cu succes");
+                Facultate facultate = GetFacultateDataGrid();
+                if (facultate == null) return;
+
+                DialogResult dialogResult = MessageBox.Show("Esti sigur ca vrei sa elimini facultatea?", "Mesaj de confirmare", MessageBoxButtons.YesNo);
+                if (dialogResult != DialogResult.Yes)
+                    return;
+
+                var resultPrograme = stocareProgrameStudii.DeleteProgrameStudii();
+                if (resultPrograme == true)
+                {
+                    var result = stocareFacultati.DeleteFacultate(facultate.IdFacultate);
+
+                    if (result == true)
+                    {
+                        IncarcaFacultati();
+                        MessageBox.Show($"Facultatea: {facultate.Denumire} a fost stearsa cu succes");
+                    }
+                }
+            }
+
+            if (tabelActivPrograme)
+            {
+                ProgramStudiu programStudiu = GetProgramStudiuDataGrid();
+                if (programStudiu == null) return;
+
+                DialogResult dialogResult = MessageBox.Show("Esti sigur ca vrei sa elimini programul de studiu?", "Mesaj de confirmare", MessageBoxButtons.YesNo);
+                if (dialogResult != DialogResult.Yes)
+                    return;
+                var result = stocareProgrameStudii.DeleteProgramStudiu(programStudiu.IdProgramStudiu);
+
+                if (result == true)
+                {
+                    IncarcaProgrameStudii(programStudiu.IdFacultate);
+                    MessageBox.Show($"Programul de studiu : {programStudiu.Ciclu} {programStudiu.Specializare} a fost sters cu succes");
+                }
             }
         }
 
@@ -101,36 +194,55 @@ namespace Proiect_BD_SituatieScolara
             {
                 List<SearchElement> searchElements = new List<SearchElement>();
 
-                if(textBoxDenumire.Text != String.Empty)
-                    searchElements.Add(new SearchElement(labelDenumire.Text, textBoxDenumire.Text));
-                
-                if (textBoxSpecializare.Text != String.Empty)
-                    searchElements.Add(new SearchElement(labelSpecializare.Text, textBoxSpecializare.Text));
+                // Aici se gaseste si denumiera facultatii dar si specializarea programului de studiu
+                if (textBoxCampNume.Text != String.Empty)
+                    searchElements.Add(new SearchElement(labelCampNume.Text, textBoxCampNume.Text));
 
-                if (comboBoxProgramStudiu.SelectedItem != null)
-                    searchElements.Add(new SearchElement(labelProgramStudiu.Text.Replace(" ", ""), comboBoxProgramStudiu.SelectedItem.ToString()));
-
-                if(comboBoxDurata.SelectedItem != null)
-                    searchElements.Add(new SearchElement(labelDurata.Text, comboBoxDurata.SelectedItem.ToString()));
-
-                List<Facultate> facultati;
-                if(searchElements.Count > 0)
+                if (tabelActivFacultate)
                 {
-                    facultati = stocareFacultati.GetFacultati(searchElements);
-                    comboBoxProgramStudiu.SelectedItem = null;
-                    comboBoxDurata.SelectedItem = null;
-                }
-                else
-                    facultati = stocareFacultati.GetFacultati();
+                    List<Facultate> facultati;
+                    if (searchElements.Count > 0)
+                    {
+                        facultati = stocareFacultati.GetFacultati(searchElements);
+                    }
+                    else
+                        facultati = stocareFacultati.GetFacultati();
 
-                if (facultati.Count == 0)
+                    if (facultati.Count == 0)
+                    {
+                        dataGridView1.DataSource = null;
+                        MessageBox.Show("Niciun rezultat gasit");
+                    }
+                    else
+                        IncarcareDataGridView.AfisareFacultati(dataGridView1, facultati);
+                }
+
+                if (tabelActivPrograme)
                 {
-                    dataGridView1.DataSource = null;
-                    MessageBox.Show("Niciun rezultat gasit");
-                }
-                else
-                    IncarcareDataGridView.AfisareFacultati(dataGridView1, facultati);
+                    List<ProgramStudiu> programeStudii;
+                    if (comboBoxCicluStudiu.SelectedItem != null)
+                        searchElements.Add(new SearchElement("Ciclu", comboBoxCicluStudiu.SelectedItem.ToString()));
 
+                    if (comboBoxDurata.SelectedItem != null)
+                        searchElements.Add(new SearchElement(labelDurata.Text, comboBoxDurata.SelectedItem.ToString()));
+
+                    searchElements.Add(new SearchElement("IdFacultate", _idFacultate.ToString()));
+
+                    if (searchElements.Count > 1)
+                    {
+                        programeStudii = stocareProgrameStudii.GetProgrameStudii(searchElements);
+                    }
+                    else
+                        programeStudii = stocareProgrameStudii.GetProgrameStudii();
+
+                    if (programeStudii.Count == 0)
+                    {
+                        dataGridView1.DataSource = null;
+                        MessageBox.Show("Niciun rezultat gasit");
+                    }
+                    else
+                        IncarcareDataGridView.AfisareProgrameStudii(dataGridView1, programeStudii, _idFacultate);
+                }
             }
             catch (Exception ex)
             {
@@ -138,7 +250,10 @@ namespace Proiect_BD_SituatieScolara
             }
         }
 
-
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
         #endregion
 
 
@@ -147,8 +262,32 @@ namespace Proiect_BD_SituatieScolara
         {
             try
             {
+                dataGridView1.DataSource = null;
+                labelCicluStudiu.Visible = false;
+                comboBoxCicluStudiu.Visible=false;
+                labelDurata.Visible = false;
+                comboBoxDurata.Visible = false;
                 var facultati = stocareFacultati.GetFacultati();
                 IncarcareDataGridView.AfisareFacultati(dataGridView1, facultati);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+        }
+
+        private void IncarcaProgrameStudii(int idFacultate)
+        {
+            try
+            {
+                dataGridView1.DataSource = null;
+                labelCicluStudiu.Visible = true;
+                comboBoxCicluStudiu.Visible = true;
+                labelDurata.Visible = true;
+                comboBoxDurata.Visible = true;
+                var programeStudii = stocareProgrameStudii.GetProgrameStudii();
+                IncarcareDataGridView.AfisareProgrameStudii(dataGridView1, programeStudii, idFacultate);
             }
             catch (Exception ex)
             {
@@ -164,7 +303,7 @@ namespace Proiect_BD_SituatieScolara
                 var currentCell = dataGridView1.CurrentCell;
                 if (currentCell == null)
                 {
-                    MessageBox.Show("Selectati o facultate din tabel pentru a o modifica");
+                    MessageBox.Show("Selectati o facultate din tabel");
                     return null;
                 }
                 int idFacultate = Convert.ToInt32(dataGridView1[PRIMA_COLOANA, currentCell.RowIndex].Value);
@@ -176,8 +315,28 @@ namespace Proiect_BD_SituatieScolara
                 throw;
             }
         }
+        private ProgramStudiu GetProgramStudiuDataGrid()
+        {
+            try
+            {
+                var currentCell = dataGridView1.CurrentCell;
+                if (currentCell == null)
+                {
+                    MessageBox.Show("Selectati un program de studiu din tabel");
+                    return null;
+                }
+                int idProgram = Convert.ToInt32(dataGridView1[PRIMA_COLOANA, currentCell.RowIndex].Value);
+
+                return stocareProgrameStudii.GetProgramStudiu(idProgram);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
         #endregion
+
 
     }
 }

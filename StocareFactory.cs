@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using LibrarieModele;
 using NivelAccesDate;
-using NivelAccesDate.Administrare;
 
 namespace Proiect_BD_SituatieScolara
 {
@@ -36,9 +35,20 @@ namespace Proiect_BD_SituatieScolara
                         {
                             return new AdministrareMaterii();
                         }
+
                         if (tipEntitate == typeof(Note))
                         {
                             return new AdministrareNote();
+                        }
+
+                        if (tipEntitate == typeof(ProgramStudiu))
+                        {
+                            return new AdministrareProgrameStudii();
+                        }
+
+                        if (tipEntitate == typeof(ProgramStudiuMaterie))
+                        {
+                            return new AdministrareProgramStudiuMaterie();
                         }
                         break;
 

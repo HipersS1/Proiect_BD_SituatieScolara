@@ -33,6 +33,8 @@
             this.panelCenter = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelInputs = new System.Windows.Forms.Panel();
+            this.comboBoxDurata = new System.Windows.Forms.ComboBox();
+            this.comboBoxCiclu = new System.Windows.Forms.ComboBox();
             this.labelDenumire = new System.Windows.Forms.Label();
             this.labelProgramStudiu = new System.Windows.Forms.Label();
             this.btnAnuleaza = new System.Windows.Forms.Button();
@@ -45,13 +47,15 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
             this.labelFormularAdaugare = new System.Windows.Forms.Label();
-            this.comboBoxProgramStudiu = new System.Windows.Forms.ComboBox();
-            this.comboBoxDurata = new System.Windows.Forms.ComboBox();
+            this.panelFacultate = new System.Windows.Forms.Panel();
+            this.panelProgramStudiu = new System.Windows.Forms.Panel();
             this.panelForm.SuspendLayout();
             this.panelCenter.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelInputs.SuspendLayout();
             this.panelTop.SuspendLayout();
+            this.panelFacultate.SuspendLayout();
+            this.panelProgramStudiu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelForm
@@ -88,27 +92,43 @@
             // 
             // panelInputs
             // 
-            this.panelInputs.Controls.Add(this.comboBoxDurata);
-            this.panelInputs.Controls.Add(this.comboBoxProgramStudiu);
-            this.panelInputs.Controls.Add(this.labelDenumire);
-            this.panelInputs.Controls.Add(this.labelProgramStudiu);
+            this.panelInputs.Controls.Add(this.panelProgramStudiu);
+            this.panelInputs.Controls.Add(this.panelFacultate);
             this.panelInputs.Controls.Add(this.btnAnuleaza);
-            this.panelInputs.Controls.Add(this.textBoxSpecializare);
-            this.panelInputs.Controls.Add(this.labelSpecializare);
             this.panelInputs.Controls.Add(this.btnTrimite);
-            this.panelInputs.Controls.Add(this.labelDurata);
-            this.panelInputs.Controls.Add(this.textBoxDenumire);
             this.panelInputs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelInputs.Location = new System.Drawing.Point(72, 0);
             this.panelInputs.Name = "panelInputs";
             this.panelInputs.Size = new System.Drawing.Size(356, 324);
             this.panelInputs.TabIndex = 17;
             // 
+            // comboBoxDurata
+            // 
+            this.comboBoxDurata.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDurata.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxDurata.FormatString = "N0";
+            this.comboBoxDurata.FormattingEnabled = true;
+            this.comboBoxDurata.Location = new System.Drawing.Point(163, 81);
+            this.comboBoxDurata.Name = "comboBoxDurata";
+            this.comboBoxDurata.Size = new System.Drawing.Size(188, 36);
+            this.comboBoxDurata.TabIndex = 16;
+            // 
+            // comboBoxCiclu
+            // 
+            this.comboBoxCiclu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCiclu.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxCiclu.FormatString = "N0";
+            this.comboBoxCiclu.FormattingEnabled = true;
+            this.comboBoxCiclu.Location = new System.Drawing.Point(163, 6);
+            this.comboBoxCiclu.Name = "comboBoxCiclu";
+            this.comboBoxCiclu.Size = new System.Drawing.Size(188, 36);
+            this.comboBoxCiclu.TabIndex = 15;
+            // 
             // labelDenumire
             // 
             this.labelDenumire.AutoSize = true;
             this.labelDenumire.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDenumire.Location = new System.Drawing.Point(4, 54);
+            this.labelDenumire.Location = new System.Drawing.Point(6, 47);
             this.labelDenumire.Name = "labelDenumire";
             this.labelDenumire.Size = new System.Drawing.Size(103, 28);
             this.labelDenumire.TabIndex = 2;
@@ -118,11 +138,11 @@
             // 
             this.labelProgramStudiu.AutoSize = true;
             this.labelProgramStudiu.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelProgramStudiu.Location = new System.Drawing.Point(4, 91);
+            this.labelProgramStudiu.Location = new System.Drawing.Point(6, 14);
             this.labelProgramStudiu.Name = "labelProgramStudiu";
-            this.labelProgramStudiu.Size = new System.Drawing.Size(155, 28);
+            this.labelProgramStudiu.Size = new System.Drawing.Size(56, 28);
             this.labelProgramStudiu.TabIndex = 1;
-            this.labelProgramStudiu.Text = "Program studiu";
+            this.labelProgramStudiu.Text = "Ciclu";
             // 
             // btnAnuleaza
             // 
@@ -138,7 +158,7 @@
             // textBoxSpecializare
             // 
             this.textBoxSpecializare.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSpecializare.Location = new System.Drawing.Point(161, 121);
+            this.textBoxSpecializare.Location = new System.Drawing.Point(163, 44);
             this.textBoxSpecializare.Name = "textBoxSpecializare";
             this.textBoxSpecializare.Size = new System.Drawing.Size(188, 36);
             this.textBoxSpecializare.TabIndex = 9;
@@ -147,7 +167,7 @@
             // 
             this.labelSpecializare.AutoSize = true;
             this.labelSpecializare.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpecializare.Location = new System.Drawing.Point(4, 129);
+            this.labelSpecializare.Location = new System.Drawing.Point(6, 52);
             this.labelSpecializare.Name = "labelSpecializare";
             this.labelSpecializare.Size = new System.Drawing.Size(121, 28);
             this.labelSpecializare.TabIndex = 3;
@@ -168,7 +188,7 @@
             // 
             this.labelDurata.AutoSize = true;
             this.labelDurata.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDurata.Location = new System.Drawing.Point(4, 166);
+            this.labelDurata.Location = new System.Drawing.Point(6, 89);
             this.labelDurata.Name = "labelDurata";
             this.labelDurata.Size = new System.Drawing.Size(76, 28);
             this.labelDurata.TabIndex = 4;
@@ -177,7 +197,7 @@
             // textBoxDenumire
             // 
             this.textBoxDenumire.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDenumire.Location = new System.Drawing.Point(161, 46);
+            this.textBoxDenumire.Location = new System.Drawing.Point(163, 39);
             this.textBoxDenumire.Name = "textBoxDenumire";
             this.textBoxDenumire.Size = new System.Drawing.Size(188, 36);
             this.textBoxDenumire.TabIndex = 6;
@@ -220,27 +240,32 @@
             this.labelFormularAdaugare.Text = "Formular Modificare Facultate";
             this.labelFormularAdaugare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBoxProgramStudiu
+            // panelFacultate
             // 
-            this.comboBoxProgramStudiu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxProgramStudiu.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxProgramStudiu.FormatString = "N0";
-            this.comboBoxProgramStudiu.FormattingEnabled = true;
-            this.comboBoxProgramStudiu.Location = new System.Drawing.Point(161, 83);
-            this.comboBoxProgramStudiu.Name = "comboBoxProgramStudiu";
-            this.comboBoxProgramStudiu.Size = new System.Drawing.Size(188, 36);
-            this.comboBoxProgramStudiu.TabIndex = 15;
+            this.panelFacultate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.panelFacultate.Controls.Add(this.labelDenumire);
+            this.panelFacultate.Controls.Add(this.textBoxDenumire);
+            this.panelFacultate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelFacultate.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelFacultate.Location = new System.Drawing.Point(0, 0);
+            this.panelFacultate.Name = "panelFacultate";
+            this.panelFacultate.Size = new System.Drawing.Size(356, 84);
+            this.panelFacultate.TabIndex = 17;
             // 
-            // comboBoxDurata
+            // panelProgramStudiu
             // 
-            this.comboBoxDurata.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDurata.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxDurata.FormatString = "N0";
-            this.comboBoxDurata.FormattingEnabled = true;
-            this.comboBoxDurata.Location = new System.Drawing.Point(161, 158);
-            this.comboBoxDurata.Name = "comboBoxDurata";
-            this.comboBoxDurata.Size = new System.Drawing.Size(188, 36);
-            this.comboBoxDurata.TabIndex = 16;
+            this.panelProgramStudiu.BackColor = System.Drawing.Color.Teal;
+            this.panelProgramStudiu.Controls.Add(this.textBoxSpecializare);
+            this.panelProgramStudiu.Controls.Add(this.labelDurata);
+            this.panelProgramStudiu.Controls.Add(this.comboBoxDurata);
+            this.panelProgramStudiu.Controls.Add(this.labelSpecializare);
+            this.panelProgramStudiu.Controls.Add(this.comboBoxCiclu);
+            this.panelProgramStudiu.Controls.Add(this.labelProgramStudiu);
+            this.panelProgramStudiu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelProgramStudiu.Location = new System.Drawing.Point(0, 84);
+            this.panelProgramStudiu.Name = "panelProgramStudiu";
+            this.panelProgramStudiu.Size = new System.Drawing.Size(356, 135);
+            this.panelProgramStudiu.TabIndex = 18;
             // 
             // FormModificareFacultate
             // 
@@ -258,8 +283,11 @@
             this.panelCenter.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panelInputs.ResumeLayout(false);
-            this.panelInputs.PerformLayout();
             this.panelTop.ResumeLayout(false);
+            this.panelFacultate.ResumeLayout(false);
+            this.panelFacultate.PerformLayout();
+            this.panelProgramStudiu.ResumeLayout(false);
+            this.panelProgramStudiu.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -282,8 +310,10 @@
         private System.Windows.Forms.Panel panelInputs;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ComboBox comboBoxProgramStudiu;
+        private System.Windows.Forms.ComboBox comboBoxCiclu;
         private System.Windows.Forms.ComboBox comboBoxDurata;
+        private System.Windows.Forms.Panel panelFacultate;
+        private System.Windows.Forms.Panel panelProgramStudiu;
     }
 }
 
