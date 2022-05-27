@@ -192,19 +192,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LibrarieModele\LibrarieModele.csproj">
-      <Project>{5e469999-22f3-4775-9001-3be18bf6b09f}</Project>
-      <Name>LibrarieModele</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NivelAccesDate\NivelAccesDate.csproj">
-      <Project>{2b855924-0883-4ad7-9827-757f870e2b13}</Project>
-      <Name>NivelAccesDate</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Pictures\640px-Ștefan_cel_Mare_University_of_Suceava_logo.svg.png" />
     <None Include="Pictures\University.png" />
     <None Include="Pictures\universitatea-suceava-usv-968x460.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="LibrarieModele\LibrarieModele.csproj">
+      <Project>{5e469999-22f3-4775-9001-3be18bf6b09f}</Project>
+      <Name>LibrarieModele</Name>
+    </ProjectReference>
+    <ProjectReference Include="NivelAccesDate\NivelAccesDate.csproj">
+      <Project>{2b855924-0883-4ad7-9827-757f870e2b13}</Project>
+      <Name>NivelAccesDate</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
