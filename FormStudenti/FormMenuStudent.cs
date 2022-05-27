@@ -74,12 +74,14 @@ namespace Proiect_BD_SituatieScolara
         private void btnModificaStudent_Click(object sender, EventArgs e)
         {
             Student student = getStudentDataGrid();
-            if (student == null)
+            Facultate facultate = getFacultateDataGrid();
+            ProgramStudiu programStudiu = getProgramStudiuDataGrid();
+            if (student == null )
             {
                 return;
             }
 
-            using (FormModificareStudent form = new FormModificareStudent(student))
+            using (FormModificareStudent form = new FormModificareStudent(student,facultate, programStudiu))
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
@@ -195,8 +197,6 @@ namespace Proiect_BD_SituatieScolara
             {
                 IncarcareComboBox.IncarcaSpecializariFacultate(comboBoxSpecializare, listaProgrameStudii, ((ComboItem)comboBoxFacultate.SelectedItem).Id);
             }
-
-
         }
 
         private void comboBoxProgramStudiu_SelectedIndexChanged(object sender, EventArgs e)
@@ -290,8 +290,50 @@ namespace Proiect_BD_SituatieScolara
             }
         }
 
+        private Facultate getFacultateDataGrid()
+        {
+            try
+            {
+                var currentCell = dataGridView1.CurrentCell;
+                if (currentCell == null)
+                {
+                    MessageBox.Show("Selectati un student din tabel");
+                    return null;
+                }
+
+                int idFacultate = Convert.ToInt32(dataGridView1["IdFacultate", currentCell.RowIndex].Value);
+                return stocareFacultati.GetFacultate(idFacultate);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private ProgramStudiu getProgramStudiuDataGrid()
+        {
+            try
+            {
+                var currentCell = dataGridView1.CurrentCell;
+                if (currentCell == null)
+                {
+                    MessageBox.Show("Selectati un student din tabel");
+                    return null;
+                }
+
+                int idProgram = Convert.ToInt32(dataGridView1["IdProgramStudiu", currentCell.RowIndex].Value);
+                return stocareProgrameStudii.GetProgramStudiu(idProgram);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         #endregion
 
-        
+
     }
 }

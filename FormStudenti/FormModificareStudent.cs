@@ -16,32 +16,41 @@ namespace Proiect_BD_SituatieScolara
     {
         private readonly IStocareStudenti stocareStudenti = (IStocareStudenti)new StocareFactory().GetTipStocare(typeof(Student));
         private readonly IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
+        private readonly IStocareProgrameStudii stocareProgrameStudii = (IStocareProgrameStudii)new StocareFactory().GetTipStocare(typeof(ProgramStudiu));
+
         private Student studentToBeModified;
-        private Facultate facultateStudent;
+        private readonly Facultate facultateStudent;
+        private readonly ProgramStudiu programStudiu;
+
         private bool itemModificat = false;
-        public FormModificareStudent(Student student)
+
+        public FormModificareStudent(Student student, Facultate facultate, ProgramStudiu program)
         {
             InitializeComponent();
+            if (stocareStudenti == null || stocareFacultati == null || stocareProgrameStudii == null)
+            {
+                MessageBox.Show("Eroare la initializare");
+            }
             studentToBeModified = student;
-            facultateStudent = stocareFacultati.GetFacultate(student.IdProgramStudiu);
-
-            textBoxPrenume.Text = student.Prenume;
-            textBoxNume.Text = student.Nume;
-            textBoxEmail.Text = student.Email;
-            textBoxTelefon.Text = student.Telefon;
-
-            //IncarcareComboBox.IncarcaValoriNumerice(comboBoxAn, facultateStudent.Durata);
-            //StringBuilder sb = new StringBuilder();
-            //sb.AppendLine("Denumirea Facultatii");
-            //sb.AppendLine($"{facultateStudent.Denumire}");
-            //sb.Append($"{facultateStudent.ProgramStudiu} {facultateStudent.Specializare}");
-            //richTextBoxFacultate.Text = sb.ToString();
-
+            programStudiu = program;
+            facultateStudent = facultate;
         }
 
         private void FormModificareStudent_Load(object sender, EventArgs e)
         {
+            textBoxPrenume.Text = studentToBeModified.Prenume;
+            textBoxNume.Text = studentToBeModified.Nume;
+            textBoxEmail.Text = studentToBeModified.Email;
+            textBoxTelefon.Text = studentToBeModified.Telefon;
+
+            IncarcareComboBox.IncarcaValoriNumerice(comboBoxAn, programStudiu.Durata);
             comboBoxAn.SelectedIndex = studentToBeModified.An - 1;
+
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Denumirea Facultatii");
+            sb.AppendLine($"{facultateStudent.Denumire}");
+            sb.Append($"Program de studiu: {programStudiu.Ciclu} {programStudiu.Specializare}");
+            richTextBoxFacultate.Text = sb.ToString();
         }
 
         #region Form Events

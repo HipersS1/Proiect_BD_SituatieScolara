@@ -16,7 +16,7 @@ namespace LibrarieModele
         #region Incarcare informatii Facultate
 
         /// <summary>
-        /// Incarca componenta de tip comboBox cu informatiile predefinite din clasa ProgramStudiu
+        /// Incarca componenta de tip comboBox cu informatiile predefinite din clasa Ciclu
         /// </summary>
         /// <param name="comboBox">componenta combobox</param>
         public static void IncarcaProgramStudiu(ComboBox comboBox)
@@ -27,6 +27,9 @@ namespace LibrarieModele
             }
         }
 
+        /// <summary>
+        /// Incarca combobox cu ciclurile de studii pentru facultatea selectata
+        /// </summary>
         public static void IncarcaProgrameStudiiFacultate(ComboBox comboBox, List<ProgramStudiu> programeStudii, int idFacultate)
         {
             var programe = programeStudii.Where(f => f.IdFacultate == idFacultate)
@@ -42,6 +45,9 @@ namespace LibrarieModele
                 comboBox.Items.Add(new ComboItem(notFound));
             }
         }
+        /// <summary>
+        /// Incarca combobox cu specializarile facultatii selectate si ciclului de studiu selectat
+        /// </summary>
         public static void IncarcaSpecializariFacultate(ComboBox comboBox, List<ProgramStudiu> programeStudii, int idFacultate, string cicluStudiu)
         {
             var specializari = programeStudii.Where(f => f.IdFacultate == idFacultate && f.Ciclu == cicluStudiu)
@@ -57,6 +63,9 @@ namespace LibrarieModele
                 comboBox.Items.Add(new ComboItem(notFound));
             }
         }
+        /// <summary>
+        /// Incarca combobox cu specializarile facultatii selectate
+        /// </summary>
         public static void IncarcaSpecializariFacultate(ComboBox comboBox, List<ProgramStudiu> programeStudii, int idFacultate)
         {
             var specializari = programeStudii.Where(f => f.IdFacultate == idFacultate)
@@ -73,6 +82,9 @@ namespace LibrarieModele
             }
         }
 
+        /// <summary>
+        /// Incarca combobox cu anii programului de studiu si facultatii selectate
+        /// </summary>
         public static void IncarcaAniStudent(ComboBox comboBox, List<ProgramStudiu> programeStudii, int idFacultate, string cicluStudiu, string specializare)
         {
 
@@ -83,12 +95,9 @@ namespace LibrarieModele
             IncarcaValoriNumerice(comboBox, ani);
         }
 
-
         /// <summary>
         /// Incarca comboBox cu denumirile facultatilor din BD
         /// </summary>
-        /// <param name="comboBox"></param>
-        /// <param name="facultati"></param>
         public static void IncarcaDenumiriFacultati(ComboBox comboBox, List<Facultate> facultati)
         {
             var listFacultati = facultati.Select(f => new { f.IdFacultate, f.Denumire })
@@ -154,7 +163,6 @@ namespace LibrarieModele
         /// <summary>
         /// Incarca cu valori numerice: ex pentru durata de 1-6 ani
         /// </summary>
-        /// 
         public static void IncarcaValoriNumerice(ComboBox comboBox, int maxim)
         {
             if(maxim <= 0)

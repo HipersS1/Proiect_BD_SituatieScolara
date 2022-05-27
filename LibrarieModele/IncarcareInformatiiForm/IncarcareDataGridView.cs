@@ -16,8 +16,6 @@ namespace LibrarieModele
         /// <summary>
         /// Incarca informatiile despre facultati in DataGridView
         /// </summary>
-        /// <param name="dataGridView">componenta DataGridView</param>
-        /// <param name="facultati">Lista cu facultatile ce trebuie afisate</param>
         public static void AfisareFacultati(DataGridView dataGridView, List<Facultate> facultati)
         {
             try
@@ -97,6 +95,9 @@ namespace LibrarieModele
                     dataGridView.DataSource = studenti.Tables[0];
 
                     dataGridView.Columns["IDSTUDENT"].Visible = false;
+                    dataGridView.Columns["IdFacultate"].Visible = false;
+                    dataGridView.Columns["IdProgramStudiu"].Visible = false;
+
                     dataGridView.Columns["Student"].HeaderText = "Student";
                     dataGridView.Columns["EMAIL"].HeaderText = "Email";
 
