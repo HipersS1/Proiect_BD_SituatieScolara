@@ -1,0 +1,34 @@
+﻿
+
+//
+DROP SEQUENCE seq_studenti_brumaS;
+DROP TABLE studenti_brumaS CASCADE CONSTRAINTS;
+
+// Crearea tabel
+
+CREATE SEQUENCE seq_studenti_brumaS;
+CREATE TABLE studenti_brumaS(
+    IdStudent NUMBER PRIMARY KEY,
+    Nume VARCHAR2(20) NOT NULL,
+    Prenume VARCHAR2(30) NOT NULL,
+    Email VARCHAR2(60) NOT NULL UNIQUE,
+    Telefon VARCHAR(10) NOT NULL,
+    An NUMBER(1) NOT NULL,
+    IdFacultate NUMBER
+        CONSTRAINT nn_studenti_facultati_brumaS not null
+        CONSTRAINT fk_studenti_facultati_brumaS references facultati_brumaS(IdFacultate)
+)
+
+
+// Introducere date
+
+INSERT INTO studenti_brumas(IdStudent, Nume, Prenume, Email, Telefon, An, IdFacultate)
+VALUES(seq_studenti_brumaS.NEXTVAL, 'Bruma', 'Sebastian', 'sebastian.bruma@student.usv.ro', '0783005001', 3, 1);
+
+INSERT INTO studenti_brumas(IdStudent, Nume, Prenume, Email, Telefon, An, IdFacultate)
+VALUES(seq_studenti_brumaS.NEXTVAL, 'Nume2', 'Prenume2', 'prenume2.nume2@student.usv.ro', '0783005002', 2, 2);
+
+select s.nume || ' ' || s.prenume AS Student, s.email, s.telefon,
+f.denumire || ' ' || f.programstudiu || ' ' || f.specializare as Facultate, s.an
+FROM studenti_brumas s, facultati_brumas f
+where s.idfacultate = f.idfacultate;

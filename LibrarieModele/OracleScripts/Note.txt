@@ -1,0 +1,29 @@
+﻿
+//sterge
+DROP TABLE note_brumaS cascade CONSTRAINTS;
+
+//crearea
+CREATE TABLE note_brumaS (
+    NotaLaborator NUMBER(5,2),
+    NotaCurs NUMBER(5,2),
+    NotaFinala NUMBER(2),
+    IdStudent NUMBER
+        CONSTRAINT nn_note_studenti_brumaS not null
+        CONSTRAINT fk_note_studenti_brumaS references studenti_brumaS (IdStudent),
+    IdMaterie NUMBER
+        CONSTRAINT nn_note_materii_brumaS not null
+        CONSTRAINT fk_note_materii_brumaS references materii_brumaS (IdMaterie)
+);
+
+
+// adauga element
+INSERT INTO note_brumaS(NotaLaborator, NotaCurs, NotaFinala, IdStudent, IdMaterie)
+VALUES(9, 6, 7, 1, 1);
+
+
+select * from studenti_brumas;
+select * from materii_brumas;
+
+
+INSERT INTO note_brumaS(NotaLaborator, NotaCurs, NotaFinala, IdStudent, IdMaterie)
+VALUES(9, 6, 7, 3, 22);
