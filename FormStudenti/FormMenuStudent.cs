@@ -20,10 +20,14 @@ namespace Proiect_BD_SituatieScolara
         private const int PRIMA_COLOANA = 0;
         private List<Facultate> listaFacultati;
         private List<ProgramStudiu> listaProgrameStudii;
+        private readonly FormWindowState windowState;
 
-        public FormMenuStudent()
+
+        public FormMenuStudent(FormWindowState windowState)
         {
             InitializeComponent();
+            this.windowState = windowState;
+
             if(stocareStudenti == null || stocareFacultati == null || stocareProgrameStudii == null)
             {
                 MessageBox.Show("Eroare la initializare");
@@ -33,7 +37,7 @@ namespace Proiect_BD_SituatieScolara
                 listaFacultati = stocareFacultati.GetFacultati();
                 listaProgrameStudii = stocareProgrameStudii.GetProgrameStudii();
             }
-            
+
         }
         private void FormMenuStudent_Load(object sender, EventArgs e)
         {
@@ -42,7 +46,12 @@ namespace Proiect_BD_SituatieScolara
             IncarcaStudenti();
             IncarcareComboBox.IncarcaDenumiriFacultati(comboBoxFacultate, listaFacultati);
             IncarcareComboBox.IncarcaProgramStudiu(comboBoxCicluStudiu);
+            comboBoxSpecializare.Items.Add(new ComboItem("Selecteaza o facultate"));
+            comboBoxSpecializare.SelectedIndex = 0;
             dataGridView1.CurrentCell = null;
+
+            this.WindowState = windowState;
+
         }
         private void FormMenuStudent_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -111,11 +120,13 @@ namespace Proiect_BD_SituatieScolara
         private void btnAdaugaNote_Click(object sender, EventArgs e)
         {
             Student student = getStudentDataGrid();
+            Facultate facultate = getFacultateDataGrid();
+            ProgramStudiu programStudiu = getProgramStudiuDataGrid();
             if (student == null)
             {
                 return;
             }
-            using (FormAdaugaNote form = new FormAdaugaNote(student))
+            using (FormAdaugaNote form = new FormAdaugaNote(student, facultate, programStudiu))
             {
                 form.ShowDialog();
             }
@@ -131,6 +142,9 @@ namespace Proiect_BD_SituatieScolara
         {
             ClearResetFormComponents.ClearInputs(panelDelimiterCenter.Controls.OfType<Control>());
             IncarcaStudenti();
+            comboBoxSpecializare.Items.Clear();
+            comboBoxSpecializare.Items.Add(new ComboItem("Selecteaza o facultate"));
+            comboBoxSpecializare.SelectedIndex = 0;
         }
 
         private void btnCauta_Click(object sender, EventArgs e)
@@ -297,7 +311,6 @@ namespace Proiect_BD_SituatieScolara
                 var currentCell = dataGridView1.CurrentCell;
                 if (currentCell == null)
                 {
-                    MessageBox.Show("Selectati un student din tabel");
                     return null;
                 }
 
@@ -318,7 +331,6 @@ namespace Proiect_BD_SituatieScolara
                 var currentCell = dataGridView1.CurrentCell;
                 if (currentCell == null)
                 {
-                    MessageBox.Show("Selectati un student din tabel");
                     return null;
                 }
 

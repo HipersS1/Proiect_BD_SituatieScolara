@@ -26,13 +26,27 @@ namespace NivelAccesDate
         {
             return SqlDBHelper.ExecuteNonQuery(
                 $"INSERT INTO {_tableNameNote} VALUES (:NotaLaborator, :NotaCurs, :NotaFinala, :IdMaterie, :IdStudent)", CommandType.Text,
-                new OracleParameter(":NotaLaborator", OracleDbType.Varchar2, note.NotaLaborator, ParameterDirection.Input),
-                new OracleParameter(":NotaCurs", OracleDbType.Varchar2, note.NotaCurs, ParameterDirection.Input),
-                new OracleParameter(":NotaFinala", OracleDbType.Varchar2, note.NotaFinala, ParameterDirection.Input),
-                new OracleParameter(":IdMaterie", OracleDbType.Varchar2, note.IdMaterie, ParameterDirection.Input),
+                new OracleParameter(":NotaLaborator", OracleDbType.Decimal, note.NotaLaborator, ParameterDirection.Input),
+                new OracleParameter(":NotaCurs", OracleDbType.Decimal, note.NotaCurs, ParameterDirection.Input),
+                new OracleParameter(":NotaFinala", OracleDbType.Int32, note.NotaFinala, ParameterDirection.Input),
+                new OracleParameter(":IdMaterie", OracleDbType.Int32, note.IdMaterie, ParameterDirection.Input),
                 new OracleParameter(":IdStudent", OracleDbType.Int32, note.IdStudent, ParameterDirection.Input)
                 );
         }
+
+        public bool UpdateNote(Note note)
+        {
+            return SqlDBHelper.ExecuteNonQuery(
+                $"UPDATE {_tableNameNote} SET NotaLaborator = :NotaLaborator, NotaCurs = :NotaCurs, NotaFinala = :NotaFinala " +
+                $"WHERE IdStudent = :IdStudent AND IdMaterie = :IdMaterie", CommandType.Text,
+                new OracleParameter(":NotaLaborator", OracleDbType.Decimal, note.NotaLaborator, ParameterDirection.Input),
+                new OracleParameter(":NotaCurs", OracleDbType.Decimal, note.NotaCurs, ParameterDirection.Input),
+                new OracleParameter(":NotaFinala", OracleDbType.Int32, note.NotaFinala, ParameterDirection.Input),
+                new OracleParameter(":IdStudent", OracleDbType.Int32, note.IdStudent, ParameterDirection.Input),
+                new OracleParameter(":IdMaterie", OracleDbType.Int32, note.IdMaterie, ParameterDirection.Input)
+                );
+        }
+
         public Note GetNote(int idStudent, int idMaterie)
         {
             Note noteStudent = null;
@@ -64,29 +78,19 @@ namespace NivelAccesDate
             return result;
         }
 
-        public DataSet GetNoteStudent(int idStudent)
-        {
-            var dsMateriiNote = SqlDBHelper.ExecuteDataSet(
-                $"SELECT m.idmaterie, m.denumire, m.an, m.semestru, m.procentlaborator, m.procentcurs, " +
-                $"n.notalaborator, n.notacurs, n.notafinala " +
-                $"FROM {_tableNameMaterii} m, {_tableNameNote} n " +
-                $"WHERE n.idstudent = idstudent and n.idmaterie = m.idmaterie", CommandType.Text);
-            return dsMateriiNote;
-        }
 
-        public DataSet GetNoteStudent(Student student)
+        public List<Note> GetNoteStudent(int idStudent)
         {
-            var dsMateriiNote = SqlDBHelper.ExecuteDataSet(
-                $"SELECT m.idmaterie, m.denumire, m.an, m.semestru, m.procentlaborator, m.procentcurs, " +
-                $"n.notalaborator, n.notacurs, n.notafinala " +
-                $"FROM {_tableNameMaterii} m, {_tableNameNote} n, {_tableNameFacultati} f" +
-                $"WHERE f.idfacultate = {student.IdProgramStudiu} and f.idfacultate = m.idfacultate", CommandType.Text);
-            return dsMateriiNote;
-        }
+            var result = new List<Note>();
 
-        public bool UpdateNote(Note note)
-        {
-            throw new NotImplementedException();
+            var dsNote = SqlDBHelper.ExecuteDataSet($"SELECT n.*, m.procentlaboator, m.procentcurs FROM {_tableNameNote} n, {_tableNameMaterii} m WHERE IdStudent = {idStudent}", CommandType.Text);
+
+            foreach (DataRow linieDB in dsNote.Tables[PRIMUL_TABEL].Rows)
+            {
+                result.Add(new Note(linieDB));
+            }
+            return result;
         }
+        
     }
 }

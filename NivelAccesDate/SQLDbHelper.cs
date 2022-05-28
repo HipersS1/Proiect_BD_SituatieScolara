@@ -50,7 +50,7 @@ namespace NivelAccesDate
                     try
                     {
                         new OracleDataAdapter(cmd).Fill(ds);
-                        WriteToFileSQL(cmd.CommandText);
+                        //WriteToFileSQL(cmd.CommandText);
                     }
                     catch (OracleException ex)
                     {
@@ -85,7 +85,7 @@ namespace NivelAccesDate
                     {
                         cmd.Connection.Open();
                         rezult = cmd.ExecuteNonQuery();
-                        WriteToFileSQL(cmd.ToString());
+                        WriteToFileSQL(cmd.CommandText);
                     }
                     catch (OracleException ex)
                     {

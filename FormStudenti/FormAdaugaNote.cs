@@ -21,33 +21,38 @@ namespace Proiect_BD_SituatieScolara
 
         private readonly Student studentCurrent;
         private readonly Facultate facultateCurenta;
+        private readonly ProgramStudiu programStudiuCurent;
 
 
-        public FormAdaugaNote(Student student)
+        public FormAdaugaNote(Student student, Facultate facultate, ProgramStudiu programStudiu)
         {
             InitializeComponent();
             studentCurrent = student;
-            facultateCurenta = stocareFacultati.GetFacultate(student.IdProgramStudiu);
+            facultateCurenta = facultate;
+            programStudiuCurent = programStudiu;
+
             if(stocareMaterii == null)
             {
                 MessageBox.Show("Eroare la initializare");
             }
             else
             {
-                IncarcaInformatiiMateriiNote(stocareNote.GetNoteStudent(student.IdStudent));
+                facultateCurenta = stocareFacultati.GetFacultate(student.IdProgramStudiu);
             }
 
         }
 
         private void FormAdaugaNote_Load(object sender, EventArgs e)
         {
-            //StringBuilder sb = new StringBuilder();
-            //sb.AppendLine($"Student: {studentCurrent.Nume} {studentCurrent.Prenume} An: {studentCurrent.An}");
-            //sb.AppendLine($"Denumirea facultatii: {facultateCurenta.Denumire}");
-            //sb.AppendLine($"Program studiu: {facultateCurenta.ProgramStudiu}");
-            //sb.AppendLine($"Specializare: {facultateCurenta.Specializare}");
+            //IncarcaInformatiiMateriiNote(stocareNote.GetNoteStudent(studentCurrent.IdStudent));
 
-            //richTextBoxFacultate.Text = sb.ToString();
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"Facultatea: {facultateCurenta.Denumire}");
+            sb.AppendLine($"Program Studiu: {programStudiuCurent.Ciclu} {programStudiuCurent.Specializare}");
+            sb.AppendLine($"Student: {studentCurrent.Nume} {studentCurrent.Prenume} An: {studentCurrent.An}");
+
+
+            richTextBoxFacultate.Text = sb.ToString();
         }
 
         #region Form events
@@ -60,11 +65,11 @@ namespace Proiect_BD_SituatieScolara
 
 
         #region Functii
-        private void IncarcaInformatiiMateriiNote(DataSet dataSet)
+        private void IncarcaInformatiiMateriiNote(List<Materie> materii)
         {
             try
             {
-                IncarcareDataGridView.AfisareDataSetMateriiNote(dataGridView1, dataSet);
+                IncarcareDataGridView.AfisareDataSetMateriiNote(dataGridView1, materii);
             }
             catch (Exception ex)
             {

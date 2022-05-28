@@ -88,7 +88,7 @@ namespace NivelAccesDate
             conditions = conditions.Remove(conditions.Length - 4, 3);
             Console.WriteLine(conditions.ToString());
             var dsStudenti = SqlDBHelper.ExecuteDataSet($"SELECT S.idstudent, F.IdFacultate, P.IdProgramStudiu, S.nume || ' ' || S.prenume AS Student, S.email, S.telefon, F.denumire as Facultate, P.ciclu || ' ' || P.specializare as Program, S.an " +
-                $"FROM {_tableName} S, {_tableNameFacultate} F, {_tableNameProgrameStudii} P WHERE {conditions} AND S.IdProgramStudiu = P.IdProgramStudiu AND P.IdFacultate = F.IdFacultate", CommandType.Text);
+                $"FROM {_tableName} S, {_tableNameFacultate} F, {_tableNameProgrameStudii} P WHERE {conditions} AND S.IdProgramStudiu = P.IdProgramStudiu AND P.IdFacultate = F.IdFacultate ORDER BY Student", CommandType.Text);
 
             return dsStudenti;
         }
@@ -99,7 +99,7 @@ namespace NivelAccesDate
         public DataSet GetStudentiFacultati()
         {
             var dsStudenti = SqlDBHelper.ExecuteDataSet($"SELECT S.idstudent,F.IdFacultate, P.IdProgramStudiu, S.nume || ' ' || S.prenume AS Student, S.email, S.telefon, F.denumire as Facultate, P.ciclu || ' ' || P.specializare as Program, S.an " +
-                                                        $"FROM {_tableName} S, {_tableNameFacultate} F, {_tableNameProgrameStudii} P WHERE S.IdProgramStudiu = P.IdProgramStudiu AND P.IdFacultate = F.IdFacultate", CommandType.Text);
+                                                        $"FROM {_tableName} S, {_tableNameFacultate} F, {_tableNameProgrameStudii} P WHERE S.IdProgramStudiu = P.IdProgramStudiu AND P.IdFacultate = F.IdFacultate ORDER BY Student", CommandType.Text);
             return dsStudenti;
         }
 

@@ -1,0 +1,77 @@
+﻿
+
+INSERT INTO studenti_brumas VALUES (seq_studenti_brumas.NEXTVAL, , :Prenume, :Email, :Telefon, :An, :IdProgramStudiu);
+
+
+
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, :Denumire, :An, :Semestru, :ProcentLaborator, :ProcentCurs)
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, , 1, 2, 50, 50);
+
+/// MATERII
+
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Algebra Liniara, Geometrie Analitica Si Diferentiala', 1, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Analiza Matematica', 1, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Proiectare Logica', 1, 1, 60, 40);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Grafica Asistata De Calculator', 1, 1, 40, 60);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Programarea Calculatoarelor Si Limbaje De Programare 1', 1, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Comunicare', 1, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Limba Engleza 1', 1, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Educatie fizica si sport 1', 1, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Matematici Speciale', 1, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Fizica 1', 1, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Programarea Calculatoarelor si limbaje de programare 2', 1, 2, 55, 45);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Arhitectura Sistemelor De Calcul', 1, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Electrotehnica', 1, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Limba Engleza 2', 1, 2, 50, 50);
+
+// 2
+
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Dispozitive electronice si electronica analogica 1', 2, 1, 60, 40);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Programare Orientata Pe Obiecte', 2, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Fizica 2', 2, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Teorie Sistemelor', 2, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Retele De Calculatoare', 2, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Structura Si Organizarea Calculatoarelor', 2, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Educatie Fizica Si Sport 3', 2, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Proiectare Interfete Utilizator', 2, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Metode Numerice', 2, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Programarea Calculatoarelor Si Limbaje De Programare 3', 2, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Masurari Electronice Si Electronica Analogica 2', 2, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Dispozitive Electronice Si Electronica Analogica 2', 2, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Proiectarea Aplicatiilor Orientate Pe Obiecte Proiect', 2, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Electronica Digitala', 2, 2, 50, 50);
+
+
+
+/// 3
+
+
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Structuri De Date Si Algoritmi', 3, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Elemente De Grafica Pe Calculator', 3, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Microcontrolere', 3, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Protocoala De Comunicatii', 3, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Sisteme De Operare', 3, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Elemente De Grafica Pe Calculator Proiect', 3, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Microcontrolere Proiect', 3, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Proiectarea Aplicatiilor WEB', 3, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Proiectarea Algoritmilor', 3, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Baze De Date', 3, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Baze De Date Proiect', 3, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Inteligenta Artificiala', 3, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Limba Engleza', 3, 2, 50, 50);
+
+
+/// 4
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Sisteme Inteligente', 4, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Sisteme De Intrare-Iesire Si Echipamente Periferice', 4, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Ingineria programelor', 4, 1, 50, 50);
+
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Recunoasterea formelor', 4, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Circuite VLSI', 4, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Arhitecturi Si Prelucrari Paralele', 4, 2, 50, 50);
+
+
+
+
+
+

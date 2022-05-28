@@ -17,13 +17,15 @@ namespace Proiect_BD_SituatieScolara
         private readonly IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
         private readonly IStocareProgrameStudii stocareProgrameStudii = (IStocareProgrameStudii)new StocareFactory().GetTipStocare(typeof(ProgramStudiu));
         private const int PRIMA_COLOANA = 0;
+        private readonly FormWindowState windowState;
 
         private int _idFacultate;
         bool tabelActivFacultate = false;
         bool tabelActivPrograme = false;
         
-        public FormMenuFacultate()
+        public FormMenuFacultate(FormWindowState windowState)
         {
+            this.windowState = windowState;
             InitializeComponent();
             if(stocareFacultati == null && stocareProgrameStudii == null)
             {
@@ -39,6 +41,8 @@ namespace Proiect_BD_SituatieScolara
             IncarcareComboBox.IncarcaValoriNumerice(comboBoxDurata, 6);
             IncarcareComboBox.IncarcaProgramStudiu(comboBoxCicluStudiu);
             buttonVizualizeazaPrograme.Text = "Vizualizeaza programe";
+            this.WindowState = windowState;
+
         }
         private void FormMenuFacultate_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -64,7 +68,9 @@ namespace Proiect_BD_SituatieScolara
                 tabelActivPrograme = true;
                 labelCampNume.Text = "Specializare";
                 buttonVizualizeazaPrograme.Text = "Vizualizeaza facultati";
+                buttonVizualizeazaMaterii.Visible = true;
                 IncarcaProgrameStudii(facultate.IdFacultate);
+                
             }
             else if (tabelActivPrograme)
             {
@@ -73,6 +79,7 @@ namespace Proiect_BD_SituatieScolara
                 tabelActivPrograme = false;
                 labelCampNume.Text = "Denumire";
                 buttonVizualizeazaPrograme.Text = "Vizualizeaza programe";
+                buttonVizualizeazaMaterii.Visible = false;
                 IncarcaFacultati();
             }
 

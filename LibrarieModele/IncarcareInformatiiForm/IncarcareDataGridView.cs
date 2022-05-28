@@ -125,7 +125,10 @@ namespace LibrarieModele
             {
                 if (materii != null && materii.Any())
                 {
-                    dataGridView.DataSource = materii.Select(f => new { f.IdMaterie, f.Denumire, f.An, f.Semestru, f.ProcentLaborator, f.ProcentCurs, f.IdFacultate }).Distinct().OrderBy(s => s.Denumire).ToList();
+                    dataGridView.DataSource = materii.Select(f => new { f.IdMaterie, f.Denumire, f.An, f.Semestru, f.ProcentLaborator, f.ProcentCurs})
+                                                     .Distinct()
+                                                     .OrderBy(s => s.Denumire)
+                                                     .ToList();
 
                     dataGridView.Columns["IdMaterie"].Visible = false;
                     dataGridView.Columns["Denumire"].HeaderText = "Materia";
@@ -133,7 +136,6 @@ namespace LibrarieModele
                     dataGridView.Columns["Semestru"].HeaderText = "Semestru";
                     dataGridView.Columns["ProcentLaborator"].HeaderText = "Procent laborator";
                     dataGridView.Columns["ProcentCurs"].HeaderText = "Procent curs";
-                    dataGridView.Columns["IdFacultate"].Visible = false;
                 }
             }
             catch (Exception ex)
@@ -178,13 +180,13 @@ namespace LibrarieModele
         }
 
 
-        public static void AfisareDataSetMateriiNote(DataGridView dataGridView, DataSet materiiNote)
+        public static void AfisareDataSetMateriiNote(DataGridView dataGridView, List<Materie> materiiNote)
         {
             try
             {
                 if (materiiNote != null)
                 {
-                    dataGridView.DataSource = materiiNote.Tables[0];
+                    dataGridView.DataSource = materiiNote;
 
                     //Materie
                     dataGridView.Columns["IDMATERIE"].Visible = false;

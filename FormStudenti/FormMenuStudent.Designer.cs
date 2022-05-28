@@ -137,6 +137,7 @@
             // 
             // buttonClearSearch
             // 
+            this.buttonClearSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonClearSearch.Font = new System.Drawing.Font("Webdings", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.buttonClearSearch.Location = new System.Drawing.Point(740, 77);
             this.buttonClearSearch.Name = "buttonClearSearch";
@@ -148,6 +149,7 @@
             // 
             // btnCauta
             // 
+            this.btnCauta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCauta.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCauta.Location = new System.Drawing.Point(779, 77);
             this.btnCauta.Name = "btnCauta";
@@ -272,6 +274,7 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
@@ -321,7 +324,7 @@
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 86);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Padding = new System.Windows.Forms.Padding(0, 11, 0, 0);
+            this.panelLeft.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.panelLeft.Size = new System.Drawing.Size(131, 524);
             this.panelLeft.TabIndex = 1;
             // 
@@ -329,11 +332,11 @@
             // 
             this.btnReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReturn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReturn.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.btnReturn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReturn.Font = new System.Drawing.Font("Wingdings 3", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.btnReturn.Location = new System.Drawing.Point(0, 376);
+            this.btnReturn.Location = new System.Drawing.Point(0, 392);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(131, 73);
             this.btnReturn.TabIndex = 5;
@@ -346,10 +349,10 @@
             this.btnVizualizeazaNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
             this.btnVizualizeazaNote.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVizualizeazaNote.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVizualizeazaNote.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.btnVizualizeazaNote.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.btnVizualizeazaNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVizualizeazaNote.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVizualizeazaNote.Location = new System.Drawing.Point(0, 303);
+            this.btnVizualizeazaNote.Location = new System.Drawing.Point(0, 307);
             this.btnVizualizeazaNote.Name = "btnVizualizeazaNote";
             this.btnVizualizeazaNote.Size = new System.Drawing.Size(131, 73);
             this.btnVizualizeazaNote.TabIndex = 4;
@@ -361,10 +364,10 @@
             this.btnAdaugaNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
             this.btnAdaugaNote.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdaugaNote.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAdaugaNote.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.btnAdaugaNote.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.btnAdaugaNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdaugaNote.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdaugaNote.Location = new System.Drawing.Point(0, 230);
+            this.btnAdaugaNote.Location = new System.Drawing.Point(0, 234);
             this.btnAdaugaNote.Name = "btnAdaugaNote";
             this.btnAdaugaNote.Size = new System.Drawing.Size(131, 73);
             this.btnAdaugaNote.TabIndex = 3;
@@ -377,10 +380,10 @@
             this.btnEliminaStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
             this.btnEliminaStudent.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminaStudent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEliminaStudent.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.btnEliminaStudent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.btnEliminaStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminaStudent.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminaStudent.Location = new System.Drawing.Point(0, 157);
+            this.btnEliminaStudent.Location = new System.Drawing.Point(0, 161);
             this.btnEliminaStudent.Name = "btnEliminaStudent";
             this.btnEliminaStudent.Size = new System.Drawing.Size(131, 73);
             this.btnEliminaStudent.TabIndex = 2;
@@ -405,10 +408,10 @@
             this.btnModificaStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
             this.btnModificaStudent.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModificaStudent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnModificaStudent.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.btnModificaStudent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.btnModificaStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificaStudent.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificaStudent.Location = new System.Drawing.Point(0, 84);
+            this.btnModificaStudent.Location = new System.Drawing.Point(0, 88);
             this.btnModificaStudent.Name = "btnModificaStudent";
             this.btnModificaStudent.Size = new System.Drawing.Size(131, 73);
             this.btnModificaStudent.TabIndex = 1;
@@ -421,10 +424,10 @@
             this.btnAdaugaStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
             this.btnAdaugaStudent.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdaugaStudent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAdaugaStudent.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.btnAdaugaStudent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.btnAdaugaStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdaugaStudent.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdaugaStudent.Location = new System.Drawing.Point(0, 11);
+            this.btnAdaugaStudent.Location = new System.Drawing.Point(0, 15);
             this.btnAdaugaStudent.Name = "btnAdaugaStudent";
             this.btnAdaugaStudent.Size = new System.Drawing.Size(131, 73);
             this.btnAdaugaStudent.TabIndex = 0;
@@ -446,12 +449,12 @@
             // labelMenuStudents
             // 
             this.labelMenuStudents.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelMenuStudents.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMenuStudents.Font = new System.Drawing.Font("Segoe UI Black", 19.8F, System.Drawing.FontStyle.Bold);
             this.labelMenuStudents.Location = new System.Drawing.Point(131, 0);
             this.labelMenuStudents.Name = "labelMenuStudents";
             this.labelMenuStudents.Size = new System.Drawing.Size(969, 86);
             this.labelMenuStudents.TabIndex = 1;
-            this.labelMenuStudents.Text = "Meniu Studenti";
+            this.labelMenuStudents.Text = "Administrare Studenti";
             this.labelMenuStudents.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1

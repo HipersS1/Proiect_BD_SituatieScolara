@@ -48,6 +48,7 @@
             this.panelDelimiterRight = new System.Windows.Forms.Panel();
             this.panelDelimiterLeft = new System.Windows.Forms.Panel();
             this.panelLeft = new System.Windows.Forms.Panel();
+            this.buttonVizualizeazaMaterii = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
             this.buttonVizualizeazaPrograme = new System.Windows.Forms.Button();
             this.btnStergeFacultate = new System.Windows.Forms.Button();
@@ -129,6 +130,7 @@
             // 
             // buttonClearSearch
             // 
+            this.buttonClearSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonClearSearch.Font = new System.Drawing.Font("Webdings", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.buttonClearSearch.Location = new System.Drawing.Point(740, 71);
             this.buttonClearSearch.Name = "buttonClearSearch";
@@ -182,6 +184,7 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnSearch.Location = new System.Drawing.Point(779, 71);
             this.btnSearch.Name = "btnSearch";
@@ -223,6 +226,7 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -260,6 +264,7 @@
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.panelLeft.Controls.Add(this.buttonVizualizeazaMaterii);
             this.panelLeft.Controls.Add(this.btnReturn);
             this.panelLeft.Controls.Add(this.buttonVizualizeazaPrograme);
             this.panelLeft.Controls.Add(this.btnStergeFacultate);
@@ -269,19 +274,35 @@
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 86);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Padding = new System.Windows.Forms.Padding(0, 11, 0, 0);
+            this.panelLeft.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.panelLeft.Size = new System.Drawing.Size(131, 524);
             this.panelLeft.TabIndex = 1;
+            // 
+            // buttonVizualizeazaMaterii
+            // 
+            this.buttonVizualizeazaMaterii.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
+            this.buttonVizualizeazaMaterii.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonVizualizeazaMaterii.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonVizualizeazaMaterii.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.buttonVizualizeazaMaterii.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonVizualizeazaMaterii.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold);
+            this.buttonVizualizeazaMaterii.Location = new System.Drawing.Point(0, 307);
+            this.buttonVizualizeazaMaterii.Name = "buttonVizualizeazaMaterii";
+            this.buttonVizualizeazaMaterii.Size = new System.Drawing.Size(131, 73);
+            this.buttonVizualizeazaMaterii.TabIndex = 5;
+            this.buttonVizualizeazaMaterii.Text = "Vizualizeaza Materii";
+            this.buttonVizualizeazaMaterii.UseVisualStyleBackColor = false;
+            this.buttonVizualizeazaMaterii.Visible = false;
             // 
             // btnReturn
             // 
             this.btnReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReturn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReturn.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.btnReturn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReturn.Font = new System.Drawing.Font("Wingdings 3", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.btnReturn.Location = new System.Drawing.Point(0, 303);
+            this.btnReturn.Location = new System.Drawing.Point(0, 392);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(131, 73);
             this.btnReturn.TabIndex = 4;
@@ -294,10 +315,10 @@
             this.buttonVizualizeazaPrograme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
             this.buttonVizualizeazaPrograme.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonVizualizeazaPrograme.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonVizualizeazaPrograme.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.buttonVizualizeazaPrograme.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.buttonVizualizeazaPrograme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonVizualizeazaPrograme.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold);
-            this.buttonVizualizeazaPrograme.Location = new System.Drawing.Point(0, 230);
+            this.buttonVizualizeazaPrograme.Location = new System.Drawing.Point(0, 234);
             this.buttonVizualizeazaPrograme.Name = "buttonVizualizeazaPrograme";
             this.buttonVizualizeazaPrograme.Size = new System.Drawing.Size(131, 73);
             this.buttonVizualizeazaPrograme.TabIndex = 3;
@@ -310,10 +331,10 @@
             this.btnStergeFacultate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
             this.btnStergeFacultate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStergeFacultate.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnStergeFacultate.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.btnStergeFacultate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.btnStergeFacultate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStergeFacultate.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold);
-            this.btnStergeFacultate.Location = new System.Drawing.Point(0, 157);
+            this.btnStergeFacultate.Location = new System.Drawing.Point(0, 161);
             this.btnStergeFacultate.Name = "btnStergeFacultate";
             this.btnStergeFacultate.Size = new System.Drawing.Size(131, 73);
             this.btnStergeFacultate.TabIndex = 2;
@@ -338,10 +359,10 @@
             this.btnModificaFacultate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
             this.btnModificaFacultate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModificaFacultate.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnModificaFacultate.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.btnModificaFacultate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.btnModificaFacultate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificaFacultate.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold);
-            this.btnModificaFacultate.Location = new System.Drawing.Point(0, 84);
+            this.btnModificaFacultate.Location = new System.Drawing.Point(0, 88);
             this.btnModificaFacultate.Name = "btnModificaFacultate";
             this.btnModificaFacultate.Size = new System.Drawing.Size(131, 73);
             this.btnModificaFacultate.TabIndex = 1;
@@ -354,10 +375,10 @@
             this.btnAdaugaFacultate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
             this.btnAdaugaFacultate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdaugaFacultate.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAdaugaFacultate.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.btnAdaugaFacultate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.btnAdaugaFacultate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdaugaFacultate.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold);
-            this.btnAdaugaFacultate.Location = new System.Drawing.Point(0, 11);
+            this.btnAdaugaFacultate.Location = new System.Drawing.Point(0, 15);
             this.btnAdaugaFacultate.Name = "btnAdaugaFacultate";
             this.btnAdaugaFacultate.Size = new System.Drawing.Size(131, 73);
             this.btnAdaugaFacultate.TabIndex = 0;
@@ -379,12 +400,12 @@
             // labelMeniuFacultate
             // 
             this.labelMeniuFacultate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelMeniuFacultate.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMeniuFacultate.Font = new System.Drawing.Font("Segoe UI Black", 19.8F, System.Drawing.FontStyle.Bold);
             this.labelMeniuFacultate.Location = new System.Drawing.Point(131, 0);
             this.labelMeniuFacultate.Name = "labelMeniuFacultate";
             this.labelMeniuFacultate.Size = new System.Drawing.Size(969, 86);
             this.labelMeniuFacultate.TabIndex = 1;
-            this.labelMeniuFacultate.Text = "Meniu Facultati";
+            this.labelMeniuFacultate.Text = "Administrare Facultati";
             this.labelMeniuFacultate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
@@ -453,6 +474,7 @@
         private System.Windows.Forms.Label labelCicluStudiu;
         private System.Windows.Forms.Button buttonClearSearch;
         private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Button buttonVizualizeazaMaterii;
     }
 }
 
