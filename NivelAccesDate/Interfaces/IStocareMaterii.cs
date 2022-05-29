@@ -11,6 +11,7 @@ namespace NivelAccesDate
     public interface IStocareMaterii: IStocareFactory
     {
         List<Materie> GetMaterii();
+        DataSet GetMateriiDataSet();
         List<Materie> GetMateriiSearch(List<SearchElement> searchElements);
         Materie GetMaterie(int id);
         bool AddMaterie(Materie materie);

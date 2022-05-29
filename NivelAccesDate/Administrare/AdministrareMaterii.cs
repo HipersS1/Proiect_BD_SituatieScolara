@@ -77,6 +77,11 @@ namespace NivelAccesDate
             }
             return result;
         }
+        public DataSet GetMateriiDataSet()
+        {
+            var dsMaterii = SqlDBHelper.ExecuteDataSet($"SELECT * FROM {_tableName}", CommandType.Text);
+            return dsMaterii;
+        }
 
         public bool UpdateMaterie(Materie materie)
         {

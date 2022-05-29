@@ -30,12 +30,15 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenuFacultate));
             this.panelForm = new System.Windows.Forms.Panel();
             this.panelCenter = new System.Windows.Forms.Panel();
             this.panelDelimiterBottom = new System.Windows.Forms.Panel();
             this.panelDelimiterTop = new System.Windows.Forms.Panel();
             this.panelDelimiterCenter = new System.Windows.Forms.Panel();
+            this.panelMenuHeader = new System.Windows.Forms.Panel();
+            this.labelMenuHeader = new System.Windows.Forms.Label();
             this.buttonClearSearch = new System.Windows.Forms.Button();
             this.comboBoxCicluStudiu = new System.Windows.Forms.ComboBox();
             this.labelCicluStudiu = new System.Windows.Forms.Label();
@@ -58,9 +61,11 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.labelMeniuFacultate = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelNumarElemente = new System.Windows.Forms.Label();
             this.panelForm.SuspendLayout();
             this.panelCenter.SuspendLayout();
             this.panelDelimiterCenter.SuspendLayout();
+            this.panelMenuHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUSVLogo)).BeginInit();
@@ -112,6 +117,8 @@
             // panelDelimiterCenter
             // 
             this.panelDelimiterCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.panelDelimiterCenter.Controls.Add(this.labelNumarElemente);
+            this.panelDelimiterCenter.Controls.Add(this.panelMenuHeader);
             this.panelDelimiterCenter.Controls.Add(this.buttonClearSearch);
             this.panelDelimiterCenter.Controls.Add(this.comboBoxCicluStudiu);
             this.panelDelimiterCenter.Controls.Add(this.labelCicluStudiu);
@@ -127,6 +134,29 @@
             this.panelDelimiterCenter.Padding = new System.Windows.Forms.Padding(10, 11, 10, 11);
             this.panelDelimiterCenter.Size = new System.Drawing.Size(881, 524);
             this.panelDelimiterCenter.TabIndex = 2;
+            // 
+            // panelMenuHeader
+            // 
+            this.panelMenuHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMenuHeader.BackColor = System.Drawing.Color.Yellow;
+            this.panelMenuHeader.Controls.Add(this.labelMenuHeader);
+            this.panelMenuHeader.Location = new System.Drawing.Point(0, 15);
+            this.panelMenuHeader.Name = "panelMenuHeader";
+            this.panelMenuHeader.Size = new System.Drawing.Size(881, 42);
+            this.panelMenuHeader.TabIndex = 16;
+            // 
+            // labelMenuHeader
+            // 
+            this.labelMenuHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelMenuHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.labelMenuHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMenuHeader.Location = new System.Drawing.Point(0, 0);
+            this.labelMenuHeader.Name = "labelMenuHeader";
+            this.labelMenuHeader.Size = new System.Drawing.Size(881, 42);
+            this.labelMenuHeader.TabIndex = 2;
+            this.labelMenuHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonClearSearch
             // 
@@ -146,18 +176,18 @@
             this.comboBoxCicluStudiu.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.comboBoxCicluStudiu.FormatString = "N0";
             this.comboBoxCicluStudiu.FormattingEnabled = true;
-            this.comboBoxCicluStudiu.Location = new System.Drawing.Point(494, 22);
+            this.comboBoxCicluStudiu.Location = new System.Drawing.Point(426, 63);
             this.comboBoxCicluStudiu.Name = "comboBoxCicluStudiu";
-            this.comboBoxCicluStudiu.Size = new System.Drawing.Size(155, 36);
+            this.comboBoxCicluStudiu.Size = new System.Drawing.Size(95, 36);
             this.comboBoxCicluStudiu.TabIndex = 6;
             // 
             // labelCicluStudiu
             // 
             this.labelCicluStudiu.AutoSize = true;
-            this.labelCicluStudiu.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCicluStudiu.Location = new System.Drawing.Point(356, 27);
+            this.labelCicluStudiu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCicluStudiu.Location = new System.Drawing.Point(316, 71);
             this.labelCicluStudiu.Name = "labelCicluStudiu";
-            this.labelCicluStudiu.Size = new System.Drawing.Size(166, 31);
+            this.labelCicluStudiu.Size = new System.Drawing.Size(140, 28);
             this.labelCicluStudiu.TabIndex = 12;
             this.labelCicluStudiu.Text = "Ciclu de studiu";
             // 
@@ -167,18 +197,18 @@
             this.comboBoxDurata.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.comboBoxDurata.FormatString = "N0";
             this.comboBoxDurata.FormattingEnabled = true;
-            this.comboBoxDurata.Location = new System.Drawing.Point(724, 22);
+            this.comboBoxDurata.Location = new System.Drawing.Point(582, 63);
             this.comboBoxDurata.Name = "comboBoxDurata";
-            this.comboBoxDurata.Size = new System.Drawing.Size(143, 36);
+            this.comboBoxDurata.Size = new System.Drawing.Size(72, 36);
             this.comboBoxDurata.TabIndex = 7;
             // 
             // labelDurata
             // 
             this.labelDurata.AutoSize = true;
-            this.labelDurata.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDurata.Location = new System.Drawing.Point(647, 27);
+            this.labelDurata.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDurata.Location = new System.Drawing.Point(527, 71);
             this.labelDurata.Name = "labelDurata";
-            this.labelDurata.Size = new System.Drawing.Size(83, 31);
+            this.labelDurata.Size = new System.Drawing.Size(71, 28);
             this.labelDurata.TabIndex = 10;
             this.labelDurata.Text = "Durata";
             // 
@@ -197,18 +227,18 @@
             // textBoxCampNume
             // 
             this.textBoxCampNume.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBoxCampNume.Location = new System.Drawing.Point(118, 22);
+            this.textBoxCampNume.Location = new System.Drawing.Point(103, 63);
             this.textBoxCampNume.Name = "textBoxCampNume";
-            this.textBoxCampNume.Size = new System.Drawing.Size(232, 34);
+            this.textBoxCampNume.Size = new System.Drawing.Size(207, 34);
             this.textBoxCampNume.TabIndex = 4;
             // 
             // labelCampNume
             // 
             this.labelCampNume.AutoSize = true;
-            this.labelCampNume.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCampNume.Location = new System.Drawing.Point(8, 27);
+            this.labelCampNume.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCampNume.Location = new System.Drawing.Point(9, 71);
             this.labelCampNume.Name = "labelCampNume";
-            this.labelCampNume.Size = new System.Drawing.Size(114, 31);
+            this.labelCampNume.Size = new System.Drawing.Size(97, 28);
             this.labelCampNume.TabIndex = 1;
             this.labelCampNume.Text = "Denumire";
             // 
@@ -219,6 +249,7 @@
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -227,23 +258,36 @@
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(14, 110);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(853, 380);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(853, 371);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.TabStop = false;
+            this.dataGridView1.DataSourceChanged += new System.EventHandler(this.dataGridView1_DataSourceChanged);
             // 
             // panelDelimiterRight
             // 
@@ -293,6 +337,7 @@
             this.buttonVizualizeazaMaterii.Text = "Vizualizeaza Materii";
             this.buttonVizualizeazaMaterii.UseVisualStyleBackColor = false;
             this.buttonVizualizeazaMaterii.Visible = false;
+            this.buttonVizualizeazaMaterii.Click += new System.EventHandler(this.buttonVizualizeazaMaterii_Click);
             // 
             // btnReturn
             // 
@@ -419,6 +464,17 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // labelNumarElemente
+            // 
+            this.labelNumarElemente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelNumarElemente.AutoSize = true;
+            this.labelNumarElemente.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNumarElemente.Location = new System.Drawing.Point(725, 484);
+            this.labelNumarElemente.Name = "labelNumarElemente";
+            this.labelNumarElemente.Size = new System.Drawing.Size(0, 25);
+            this.labelNumarElemente.TabIndex = 17;
+            this.labelNumarElemente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // FormMenuFacultate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -437,6 +493,7 @@
             this.panelCenter.ResumeLayout(false);
             this.panelDelimiterCenter.ResumeLayout(false);
             this.panelDelimiterCenter.PerformLayout();
+            this.panelMenuHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelLeft.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUSVLogo)).EndInit();
@@ -475,6 +532,9 @@
         private System.Windows.Forms.Button buttonClearSearch;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Button buttonVizualizeazaMaterii;
+        private System.Windows.Forms.Panel panelMenuHeader;
+        private System.Windows.Forms.Label labelMenuHeader;
+        private System.Windows.Forms.Label labelNumarElemente;
     }
 }
 

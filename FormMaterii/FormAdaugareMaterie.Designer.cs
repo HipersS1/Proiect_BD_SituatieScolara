@@ -34,6 +34,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelInputs = new System.Windows.Forms.Panel();
             this.buttonClearSearch = new System.Windows.Forms.Button();
+            this.comboBoxAn = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.numericUpCurs = new System.Windows.Forms.NumericUpDown();
             this.labelCurs = new System.Windows.Forms.Label();
             this.numericUpLaborator = new System.Windows.Forms.NumericUpDown();
@@ -48,8 +50,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
             this.labelFormularAdaugare = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxAn = new System.Windows.Forms.ComboBox();
             this.panelForm.SuspendLayout();
             this.panelCenter.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -61,11 +61,13 @@
             // 
             // panelForm
             // 
+            this.panelForm.BackColor = System.Drawing.Color.Black;
             this.panelForm.Controls.Add(this.panelCenter);
             this.panelForm.Controls.Add(this.panelTop);
             this.panelForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelForm.Location = new System.Drawing.Point(0, 0);
             this.panelForm.Name = "panelForm";
+            this.panelForm.Padding = new System.Windows.Forms.Padding(1);
             this.panelForm.Size = new System.Drawing.Size(537, 373);
             this.panelForm.TabIndex = 0;
             // 
@@ -74,9 +76,9 @@
             this.panelCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
             this.panelCenter.Controls.Add(this.panel1);
             this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenter.Location = new System.Drawing.Point(0, 86);
+            this.panelCenter.Location = new System.Drawing.Point(1, 87);
             this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(537, 287);
+            this.panelCenter.Size = new System.Drawing.Size(535, 285);
             this.panelCenter.TabIndex = 2;
             // 
             // panel1
@@ -88,7 +90,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(537, 287);
+            this.panel1.Size = new System.Drawing.Size(535, 285);
             this.panel1.TabIndex = 1;
             // 
             // panelInputs
@@ -109,7 +111,7 @@
             this.panelInputs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelInputs.Location = new System.Drawing.Point(72, 0);
             this.panelInputs.Name = "panelInputs";
-            this.panelInputs.Size = new System.Drawing.Size(393, 287);
+            this.panelInputs.Size = new System.Drawing.Size(391, 285);
             this.panelInputs.TabIndex = 17;
             // 
             // buttonClearSearch
@@ -122,6 +124,28 @@
             this.buttonClearSearch.Text = "q";
             this.buttonClearSearch.UseVisualStyleBackColor = true;
             this.buttonClearSearch.Click += new System.EventHandler(this.buttonClearSearch_Click);
+            // 
+            // comboBoxAn
+            // 
+            this.comboBoxAn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxAn.FormattingEnabled = true;
+            this.comboBoxAn.Location = new System.Drawing.Point(184, 52);
+            this.comboBoxAn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBoxAn.Name = "comboBoxAn";
+            this.comboBoxAn.Size = new System.Drawing.Size(188, 36);
+            this.comboBoxAn.TabIndex = 25;
+            this.comboBoxAn.EnabledChanged += new System.EventHandler(this.comboBox_EnabledChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 28);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "An";
             // 
             // numericUpCurs
             // 
@@ -272,9 +296,9 @@
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(465, 0);
+            this.panel3.Location = new System.Drawing.Point(463, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(72, 287);
+            this.panel3.Size = new System.Drawing.Size(72, 285);
             this.panel3.TabIndex = 16;
             // 
             // panel2
@@ -282,7 +306,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(72, 287);
+            this.panel2.Size = new System.Drawing.Size(72, 285);
             this.panel2.TabIndex = 15;
             // 
             // panelTop
@@ -290,9 +314,9 @@
             this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.panelTop.Controls.Add(this.labelFormularAdaugare);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Location = new System.Drawing.Point(1, 1);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(537, 86);
+            this.panelTop.Size = new System.Drawing.Size(535, 86);
             this.panelTop.TabIndex = 0;
             // 
             // labelFormularAdaugare
@@ -302,32 +326,10 @@
             this.labelFormularAdaugare.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFormularAdaugare.Location = new System.Drawing.Point(0, 0);
             this.labelFormularAdaugare.Name = "labelFormularAdaugare";
-            this.labelFormularAdaugare.Size = new System.Drawing.Size(537, 86);
+            this.labelFormularAdaugare.Size = new System.Drawing.Size(535, 86);
             this.labelFormularAdaugare.TabIndex = 1;
             this.labelFormularAdaugare.Text = "Formular Adaugare Materie";
             this.labelFormularAdaugare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 60);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 28);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "An";
-            // 
-            // comboBoxAn
-            // 
-            this.comboBoxAn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxAn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxAn.FormattingEnabled = true;
-            this.comboBoxAn.Location = new System.Drawing.Point(184, 52);
-            this.comboBoxAn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboBoxAn.Name = "comboBoxAn";
-            this.comboBoxAn.Size = new System.Drawing.Size(188, 36);
-            this.comboBoxAn.TabIndex = 25;
-            this.comboBoxAn.EnabledChanged += new System.EventHandler(this.comboBox_EnabledChanged);
             // 
             // FormAdaugareMaterie
             // 

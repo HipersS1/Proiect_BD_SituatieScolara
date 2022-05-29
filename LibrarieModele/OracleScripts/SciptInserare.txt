@@ -7,7 +7,8 @@ INSERT INTO studenti_brumas VALUES (seq_studenti_brumas.NEXTVAL, , :Prenume, :Em
 INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, :Denumire, :An, :Semestru, :ProcentLaborator, :ProcentCurs)
 INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, , 1, 2, 50, 50);
 
-/// MATERII
+/// MATERII 
+Licenta
 
 INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Algebra Liniara, Geometrie Analitica Si Diferentiala', 1, 1, 50, 50);
 INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Analiza Matematica', 1, 1, 50, 50);
@@ -71,6 +72,28 @@ INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Circuite VLSI', 
 INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Arhitecturi Si Prelucrari Paralele', 4, 2, 50, 50);
 
 
+///
+Masterat
+//1
+
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Arhitecturi Avansate De Retele De Calculatoare', 1, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Algoritmi Avansati, Probabilistici Si Tehnici Metaeuristice', 1, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Sisteme Avansate De Baze De Date', 1, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Paradigme De Proiectare A Aplicatiilor Web', 1, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Invatare Automata', 1, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Algoritmi Paraleli Avansati', 1, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Tehnologii Web Avansate Si Arhitecturi Orientare Pe Servicii', 1, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Inginerie Software Avansata', 1, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Creativitate Stiintifica, Comunicare Tehnica Si Inovare', 1, 2, 50, 50);
+
+//2
+
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Proiectarea Sistemelor Inglobate', 2, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Data  Warehouse Si Data Mining', 2, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Inteligenta Ambientala Si Realitate Augmentata', 2, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Etica Si Inteligenta Academica', 2, 1, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Practica de cercetare', 2, 2, 50, 50);
+INSERT INTO materii_brumas VALUES (seq_materii_brumas.NEXTVAL, 'Practica pentru elaborarea disertatiei', 2, 2, 50, 50);
 
 
 

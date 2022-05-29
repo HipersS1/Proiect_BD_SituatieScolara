@@ -61,6 +61,30 @@ namespace LibrarieModele
             }
         }
 
+        public static void AfisareMateriiProgramStudiu(DataGridView dataGridView, DataSet materiiProgramStudiu)
+        {
+            try
+            {
+                if (materiiProgramStudiu != null)
+                {
+                    dataGridView.DataSource = materiiProgramStudiu.Tables[0];
+
+                    dataGridView.Columns["IdMaterie"].Visible = false;
+
+                    dataGridView.Columns["Denumire"].HeaderText = "Materia";
+                    dataGridView.Columns["An"].HeaderText = "An";
+                    dataGridView.Columns["Semestru"].HeaderText = "Semestru";
+                    dataGridView.Columns["ProcentLaborator"].HeaderText = "Procent laborator (%)";
+                    dataGridView.Columns["ProcentCurs"].HeaderText = "Procent curs (%)";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+
         public static void AfisareStudenti(DataGridView dataGridView, List<Student> studenti)
         {
             try
@@ -134,8 +158,8 @@ namespace LibrarieModele
                     dataGridView.Columns["Denumire"].HeaderText = "Materia";
                     dataGridView.Columns["An"].HeaderText = "An";
                     dataGridView.Columns["Semestru"].HeaderText = "Semestru";
-                    dataGridView.Columns["ProcentLaborator"].HeaderText = "Procent laborator";
-                    dataGridView.Columns["ProcentCurs"].HeaderText = "Procent curs";
+                    dataGridView.Columns["ProcentLaborator"].HeaderText = "Procent laborator (%)";
+                    dataGridView.Columns["ProcentCurs"].HeaderText = "Procent curs (%)";
                 }
             }
             catch (Exception ex)
@@ -155,22 +179,9 @@ namespace LibrarieModele
                     dataGridView.Columns["IDMATERIE"].Visible = false;
                     dataGridView.Columns["DENUMIRE"].HeaderText = "Denumire";
                     dataGridView.Columns["AN"].HeaderText = "An";
-                    dataGridView.Columns["An"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                    dataGridView.Columns["An"].Width = 60;
-
                     dataGridView.Columns["SEMESTRU"].HeaderText = "Semestru";
-                    dataGridView.Columns["SEMESTRU"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                    dataGridView.Columns["SEMESTRU"].Width = 60;
-
                     dataGridView.Columns["PROCENTLABORATOR"].HeaderText = "Procent Laborator";
-                    dataGridView.Columns["PROCENTLABORATOR"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                    dataGridView.Columns["PROCENTLABORATOR"].Width = 60;
-
                     dataGridView.Columns["PROCENTCURS"].HeaderText = "Procent curs";
-                    dataGridView.Columns["PROCENTCURS"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                    dataGridView.Columns["PROCENTCURS"].Width = 60;
-
-                    dataGridView.Columns["FACULTATE"].HeaderText = "Facultate";
                 }
             }
             catch (Exception ex)

@@ -33,6 +33,7 @@
             this.panelCenter = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelInputs = new System.Windows.Forms.Panel();
+            this.richTextBoxFacultate = new System.Windows.Forms.RichTextBox();
             this.labelPrenume = new System.Windows.Forms.Label();
             this.labelNume = new System.Windows.Forms.Label();
             this.textBoxNume = new System.Windows.Forms.TextBox();
@@ -49,7 +50,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
             this.labelFormularModificare = new System.Windows.Forms.Label();
-            this.richTextBoxFacultate = new System.Windows.Forms.RichTextBox();
             this.panelForm.SuspendLayout();
             this.panelCenter.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -59,11 +59,13 @@
             // 
             // panelForm
             // 
+            this.panelForm.BackColor = System.Drawing.Color.Black;
             this.panelForm.Controls.Add(this.panelCenter);
             this.panelForm.Controls.Add(this.panelTop);
             this.panelForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelForm.Location = new System.Drawing.Point(0, 0);
             this.panelForm.Name = "panelForm";
+            this.panelForm.Padding = new System.Windows.Forms.Padding(1);
             this.panelForm.Size = new System.Drawing.Size(513, 472);
             this.panelForm.TabIndex = 0;
             // 
@@ -72,9 +74,9 @@
             this.panelCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
             this.panelCenter.Controls.Add(this.panel1);
             this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenter.Location = new System.Drawing.Point(0, 86);
+            this.panelCenter.Location = new System.Drawing.Point(1, 87);
             this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(513, 386);
+            this.panelCenter.Size = new System.Drawing.Size(511, 384);
             this.panelCenter.TabIndex = 2;
             // 
             // panel1
@@ -86,7 +88,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(513, 386);
+            this.panel1.Size = new System.Drawing.Size(511, 384);
             this.panel1.TabIndex = 1;
             // 
             // panelInputs
@@ -107,8 +109,19 @@
             this.panelInputs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelInputs.Location = new System.Drawing.Point(72, 0);
             this.panelInputs.Name = "panelInputs";
-            this.panelInputs.Size = new System.Drawing.Size(369, 386);
+            this.panelInputs.Size = new System.Drawing.Size(367, 384);
             this.panelInputs.TabIndex = 17;
+            // 
+            // richTextBoxFacultate
+            // 
+            this.richTextBoxFacultate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
+            this.richTextBoxFacultate.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxFacultate.Location = new System.Drawing.Point(15, 6);
+            this.richTextBoxFacultate.Name = "richTextBoxFacultate";
+            this.richTextBoxFacultate.ReadOnly = true;
+            this.richTextBoxFacultate.Size = new System.Drawing.Size(339, 89);
+            this.richTextBoxFacultate.TabIndex = 0;
+            this.richTextBoxFacultate.Text = "";
             // 
             // labelPrenume
             // 
@@ -235,9 +248,9 @@
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(441, 0);
+            this.panel3.Location = new System.Drawing.Point(439, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(72, 386);
+            this.panel3.Size = new System.Drawing.Size(72, 384);
             this.panel3.TabIndex = 16;
             // 
             // panel2
@@ -245,7 +258,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(72, 386);
+            this.panel2.Size = new System.Drawing.Size(72, 384);
             this.panel2.TabIndex = 15;
             // 
             // panelTop
@@ -253,9 +266,9 @@
             this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.panelTop.Controls.Add(this.labelFormularModificare);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Location = new System.Drawing.Point(1, 1);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(513, 86);
+            this.panelTop.Size = new System.Drawing.Size(511, 86);
             this.panelTop.TabIndex = 0;
             // 
             // labelFormularModificare
@@ -265,21 +278,10 @@
             this.labelFormularModificare.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFormularModificare.Location = new System.Drawing.Point(0, 0);
             this.labelFormularModificare.Name = "labelFormularModificare";
-            this.labelFormularModificare.Size = new System.Drawing.Size(513, 86);
+            this.labelFormularModificare.Size = new System.Drawing.Size(511, 86);
             this.labelFormularModificare.TabIndex = 0;
             this.labelFormularModificare.Text = "Formular Modificare Student";
             this.labelFormularModificare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // richTextBoxFacultate
-            // 
-            this.richTextBoxFacultate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
-            this.richTextBoxFacultate.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxFacultate.Location = new System.Drawing.Point(15, 6);
-            this.richTextBoxFacultate.Name = "richTextBoxFacultate";
-            this.richTextBoxFacultate.ReadOnly = true;
-            this.richTextBoxFacultate.Size = new System.Drawing.Size(339, 89);
-            this.richTextBoxFacultate.TabIndex = 0;
-            this.richTextBoxFacultate.Text = "";
             // 
             // FormModificareStudent
             // 
