@@ -25,12 +25,12 @@ namespace NivelAccesDate
         public bool AddNote(Note note)
         {
             return SqlDBHelper.ExecuteNonQuery(
-                $"INSERT INTO {_tableNameNote} VALUES (:NotaLaborator, :NotaCurs, :NotaFinala, :IdMaterie, :IdStudent)", CommandType.Text,
-                new OracleParameter(":NotaLaborator", OracleDbType.Decimal, note.NotaLaborator, ParameterDirection.Input),
-                new OracleParameter(":NotaCurs", OracleDbType.Decimal, note.NotaCurs, ParameterDirection.Input),
-                new OracleParameter(":NotaFinala", OracleDbType.Int32, note.NotaFinala, ParameterDirection.Input),
-                new OracleParameter(":IdMaterie", OracleDbType.Int32, note.IdMaterie, ParameterDirection.Input),
-                new OracleParameter(":IdStudent", OracleDbType.Int32, note.IdStudent, ParameterDirection.Input)
+                $"INSERT INTO {_tableNameNote} VALUES (null, null, null, :IdStudent, :IdMaterie)", CommandType.Text,
+                //new OracleParameter(":NotaLaborator", OracleDbType.Decimal, null, ParameterDirection.Input),
+                //new OracleParameter(":NotaCurs", OracleDbType.Decimal, null, ParameterDirection.Input),
+                //new OracleParameter(":NotaFinala", OracleDbType.Int32, null, ParameterDirection.Input),
+                new OracleParameter(":IdStudent", OracleDbType.Int32, note.IdStudent, ParameterDirection.Input),
+                new OracleParameter(":IdMaterie", OracleDbType.Int32, note.IdMaterie, ParameterDirection.Input)
                 );
         }
 
@@ -79,17 +79,10 @@ namespace NivelAccesDate
         }
 
 
-        public List<Note> GetNoteStudent(int idStudent)
+        public DataSet GetNoteStudent(int idStudent)
         {
-            var result = new List<Note>();
-
-            var dsNote = SqlDBHelper.ExecuteDataSet($"SELECT n.*, m.procentlaboator, m.procentcurs FROM {_tableNameNote} n, {_tableNameMaterii} m WHERE IdStudent = {idStudent}", CommandType.Text);
-
-            foreach (DataRow linieDB in dsNote.Tables[PRIMUL_TABEL].Rows)
-            {
-                result.Add(new Note(linieDB));
-            }
-            return result;
+            return SqlDBHelper.ExecuteDataSet($"SELECT m.idmaterie, m.denumire, m.an, m.semestru, m.procentlaborator, m.procentcurs, n.notalaborator, n.notacurs, n.notafinala " +
+                   $"FROM {_tableNameNote} n, {_tableNameMaterii} m WHERE IdStudent = {idStudent} and n.idmaterie = m.idmaterie", CommandType.Text);
         }
         
     }

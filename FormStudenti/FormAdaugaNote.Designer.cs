@@ -53,11 +53,13 @@
             // 
             // panelForm
             // 
+            this.panelForm.BackColor = System.Drawing.Color.Black;
             this.panelForm.Controls.Add(this.panelCenter);
             this.panelForm.Controls.Add(this.panelTop);
             this.panelForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelForm.Location = new System.Drawing.Point(0, 0);
             this.panelForm.Name = "panelForm";
+            this.panelForm.Padding = new System.Windows.Forms.Padding(1);
             this.panelForm.Size = new System.Drawing.Size(944, 535);
             this.panelForm.TabIndex = 0;
             // 
@@ -66,9 +68,9 @@
             this.panelCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
             this.panelCenter.Controls.Add(this.panel1);
             this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenter.Location = new System.Drawing.Point(0, 76);
+            this.panelCenter.Location = new System.Drawing.Point(1, 77);
             this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(944, 459);
+            this.panelCenter.Size = new System.Drawing.Size(942, 457);
             this.panelCenter.TabIndex = 2;
             // 
             // panel1
@@ -80,7 +82,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(944, 459);
+            this.panel1.Size = new System.Drawing.Size(942, 457);
             this.panel1.TabIndex = 1;
             // 
             // panel4
@@ -92,7 +94,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(72, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(800, 459);
+            this.panel4.Size = new System.Drawing.Size(798, 457);
             this.panel4.TabIndex = 17;
             // 
             // dataGridView1
@@ -101,7 +103,7 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -112,21 +114,26 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridView1.Location = new System.Drawing.Point(6, 128);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(788, 275);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(786, 273);
             this.dataGridView1.TabIndex = 19;
             this.dataGridView1.TabStop = false;
+            this.dataGridView1.DataSourceChanged += new System.EventHandler(this.dataGridView1_DataSourceChanged);
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             // 
             // richTextBoxFacultate
             // 
@@ -159,13 +166,14 @@
             this.btnTrimite.TabIndex = 6;
             this.btnTrimite.Text = "Actualizeaza";
             this.btnTrimite.UseVisualStyleBackColor = true;
+            this.btnTrimite.Click += new System.EventHandler(this.btnTrimite_Click);
             // 
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(872, 0);
+            this.panel3.Location = new System.Drawing.Point(870, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(72, 459);
+            this.panel3.Size = new System.Drawing.Size(72, 457);
             this.panel3.TabIndex = 16;
             // 
             // panel2
@@ -173,7 +181,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(72, 459);
+            this.panel2.Size = new System.Drawing.Size(72, 457);
             this.panel2.TabIndex = 15;
             // 
             // panelTop
@@ -181,9 +189,9 @@
             this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.panelTop.Controls.Add(this.labelFormularAdaugareNota);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Location = new System.Drawing.Point(1, 1);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(944, 76);
+            this.panelTop.Size = new System.Drawing.Size(942, 76);
             this.panelTop.TabIndex = 0;
             // 
             // labelFormularAdaugareNota
@@ -193,7 +201,7 @@
             this.labelFormularAdaugareNota.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFormularAdaugareNota.Location = new System.Drawing.Point(0, 0);
             this.labelFormularAdaugareNota.Name = "labelFormularAdaugareNota";
-            this.labelFormularAdaugareNota.Size = new System.Drawing.Size(944, 76);
+            this.labelFormularAdaugareNota.Size = new System.Drawing.Size(942, 76);
             this.labelFormularAdaugareNota.TabIndex = 1;
             this.labelFormularAdaugareNota.Text = "Formular Adaugare Nota";
             this.labelFormularAdaugareNota.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

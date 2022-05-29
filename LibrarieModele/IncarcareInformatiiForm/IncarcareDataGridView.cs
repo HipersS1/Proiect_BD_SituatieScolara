@@ -191,18 +191,20 @@ namespace LibrarieModele
         }
 
 
-        public static void AfisareDataSetMateriiNote(DataGridView dataGridView, List<Materie> materiiNote)
+        public static void AfisareDataSetMateriiNote(DataGridView dataGridView, DataSet materiiNote)
         {
             try
             {
                 if (materiiNote != null)
                 {
-                    dataGridView.DataSource = materiiNote;
-
+                    dataGridView.DataSource = materiiNote.Tables[0];
                     //Materie
                     dataGridView.Columns["IDMATERIE"].Visible = false;
                     dataGridView.Columns["DENUMIRE"].ReadOnly = true;
+                    dataGridView.Columns["DENUMIRE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
                     dataGridView.Columns["DENUMIRE"].HeaderText = "Denumire";
+                    dataGridView.Columns["DENUMIRE"].Width = 200;
+                   
 
                     dataGridView.Columns["AN"].ReadOnly = true;
                     dataGridView.Columns["AN"].HeaderText = "An";

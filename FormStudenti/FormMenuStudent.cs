@@ -344,8 +344,13 @@ namespace Proiect_BD_SituatieScolara
             }
         }
 
+
         #endregion
 
-
+        private void dataGridView1_DataSourceChanged(object sender, EventArgs e)
+        {
+            DataGridView dataGrid = (DataGridView)sender;
+            dataGrid.CurrentCell = null;
+        }
     }
 }

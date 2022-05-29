@@ -12,7 +12,7 @@ namespace NivelAccesDate
     {
         List<Note> GetNote();
         Note GetNote(int idStudent, int idMaterie);
-        List<Note> GetNoteStudent(int idStudent);
+        DataSet GetNoteStudent(int idStudent);
         bool AddNote(Note note);
         bool UpdateNote(Note note);
     }

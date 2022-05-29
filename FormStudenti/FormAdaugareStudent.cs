@@ -15,8 +15,11 @@ namespace Proiect_BD_SituatieScolara
     public partial class FormAdaugareStudent : Form
     {
         private readonly IStocareStudenti stocareStudenti = (IStocareStudenti)new StocareFactory().GetTipStocare(typeof(Student));
+        private readonly IStocareNote stocareNote = (IStocareNote)new StocareFactory().GetTipStocare(typeof(Note));
+        private readonly IStocareMaterii stocareMaterii = (IStocareMaterii)new StocareFactory().GetTipStocare(typeof(Materie));
         private readonly IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
         private readonly IStocareProgrameStudii stocareProgrameStudii = (IStocareProgrameStudii)new StocareFactory().GetTipStocare(typeof(ProgramStudiu));
+        private readonly IStocareProgramStudiuMaterie stocareMateriiProgramStudiu = (IStocareProgramStudiuMaterie)new StocareFactory().GetTipStocare(typeof(ProgramStudiuMaterie));
         private const int PRIMA_COLOANA = 0;
         private List<Facultate> listFacultati;
         private List<ProgramStudiu> listProgramStudiu;
@@ -81,6 +84,33 @@ namespace Proiect_BD_SituatieScolara
                     itemAdaugat = true;
                     MessageBox.Show("Studentul a fost adaugat");
                     ClearResetFormComponents.ClearInputs(panelInputs.Controls.OfType<Control>());
+                }
+
+                List<ProgramStudiuMaterie> listaMateriiProgramStudiu = stocareMateriiProgramStudiu.GetMateriiProgramStudiu(student.IdProgramStudiu);
+                List<Materie> listaMaterii = stocareMaterii.GetMaterii();
+
+                int idStudentAdaugat = stocareStudenti.GetStudents()
+                                                      .Where(s => s.Nume == student.Nume && s.Prenume == student.Prenume && s.Email == student.Email &&
+                                                             s.Telefon == student.Telefon && s.IdProgramStudiu == student.IdProgramStudiu && s.An == student.An)
+                                                      .Select(s => s.IdStudent)
+                                                      .FirstOrDefault();
+
+                var listaMateriiSpecificAnStudent = listaMaterii.Where(m => m.An <= student.An)
+                                                                .Select(m => m.IdMaterie)
+                                                                .ToList();
+
+                for (int i = 0; i < listaMateriiProgramStudiu.Count; i++)
+                {
+                    if (listaMateriiSpecificAnStudent.Contains(listaMateriiProgramStudiu[i].IdMaterie))
+                    {
+                        var materieAdaugata = stocareNote.AddNote(new Note(idStudentAdaugat, listaMateriiProgramStudiu[i].IdMaterie));
+
+                        if (materieAdaugata == false)
+                        {
+                            MessageBox.Show("A aparut o problema cu adaugarea materie la student");
+                            return;
+                        }
+                    }
                 }
             }
             catch (Exception ex)

@@ -105,7 +105,7 @@ CREATE TABLE note_brumas (
         CONSTRAINT ck_note_notaLaborator_brumas CHECK(NotaLaborator BETWEEN 1.00 AND 10.00),
     NotaCurs NUMBER(5,2)
         CONSTRAINT ck_note_notaCurs_brumas CHECK(NotaCurs BETWEEN 1.00 AND 10.00),
-    NotaFinala NUMBER(2)
+    NotaFinala NUMBER(2) DEFAULT -1
         CONSTRAINT ck_note_notaFinala_brumas CHECK(NotaFinala BETWEEN 1 AND 10),
     IdStudent NUMBER
         CONSTRAINT nn_note_studenti_brumas not null
@@ -114,6 +114,8 @@ CREATE TABLE note_brumas (
         CONSTRAINT nn_note_materii_brumas not null
         CONSTRAINT fk_note_materii_brumas references materii_brumas (IdMaterie)
 );
+INSERT INTO NOTE_BRUMAs(NOTALABORATOR, NOTACURS, NOTAFINALA, IDMATERIE, IDSTUDENT)
+VALUES(null, null, null, 18,15);
 
 
 

@@ -52,7 +52,6 @@
             this.panelDelimiterLeft = new System.Windows.Forms.Panel();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.btnReturn = new System.Windows.Forms.Button();
-            this.btnVizualizeazaNote = new System.Windows.Forms.Button();
             this.btnAdaugaNote = new System.Windows.Forms.Button();
             this.btnEliminaStudent = new System.Windows.Forms.Button();
             this.pictureBoxUSVLogo = new System.Windows.Forms.PictureBox();
@@ -285,15 +284,17 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Location = new System.Drawing.Point(14, 116);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(853, 375);
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.TabStop = false;
+            this.dataGridView1.DataSourceChanged += new System.EventHandler(this.dataGridView1_DataSourceChanged);
             // 
             // panelDelimiterRight
             // 
@@ -315,7 +316,6 @@
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.panelLeft.Controls.Add(this.btnReturn);
-            this.panelLeft.Controls.Add(this.btnVizualizeazaNote);
             this.panelLeft.Controls.Add(this.btnAdaugaNote);
             this.panelLeft.Controls.Add(this.btnEliminaStudent);
             this.panelLeft.Controls.Add(this.pictureBoxUSVLogo);
@@ -343,21 +343,6 @@
             this.btnReturn.Text = "O";
             this.btnReturn.UseVisualStyleBackColor = false;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
-            // btnVizualizeazaNote
-            // 
-            this.btnVizualizeazaNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
-            this.btnVizualizeazaNote.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVizualizeazaNote.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVizualizeazaNote.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
-            this.btnVizualizeazaNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVizualizeazaNote.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVizualizeazaNote.Location = new System.Drawing.Point(0, 307);
-            this.btnVizualizeazaNote.Name = "btnVizualizeazaNote";
-            this.btnVizualizeazaNote.Size = new System.Drawing.Size(131, 73);
-            this.btnVizualizeazaNote.TabIndex = 4;
-            this.btnVizualizeazaNote.Text = "Vizualizeaza Note";
-            this.btnVizualizeazaNote.UseVisualStyleBackColor = false;
             // 
             // btnAdaugaNote
             // 
@@ -520,7 +505,6 @@
         private System.Windows.Forms.Label labelFacultate;
         private System.Windows.Forms.Button btnAdaugaNote;
         private System.Windows.Forms.Button btnReturn;
-        private System.Windows.Forms.Button btnVizualizeazaNote;
         private System.Windows.Forms.ComboBox comboBoxFacultate;
         private System.Windows.Forms.ComboBox comboBoxSpecializare;
         private System.Windows.Forms.Label labelSpecializare;

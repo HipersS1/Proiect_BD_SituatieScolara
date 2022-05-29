@@ -9,16 +9,18 @@ namespace LibrarieModele
 {
     public class Note
     {
-        public decimal NotaLaborator { get; set; }
-        public decimal NotaCurs { get; set; }
-        public int NotaFinala { get; set; }
+        public decimal NotaLaborator { get; set; } = 0;
+        public decimal NotaCurs { get; set; } = 0;
+        public int NotaFinala { get; set; } = 0;
 
         // FK
         public int IdStudent { get; set; }
         public int IdMaterie { get; set; }
 
-        public Note()
+        public Note(int idStudent = 0, int idMaterie = 0)
         {
+            IdStudent = idStudent;
+            IdMaterie = idMaterie;
         }
 
         public Note(decimal notaLaborator, decimal notaCurs, int notaFinala, int idStudent = 0, int idMaterie = 0)
