@@ -36,7 +36,7 @@
             this.labelSpecializare = new System.Windows.Forms.Label();
             this.comboBoxSpecializare = new System.Windows.Forms.ComboBox();
             this.labelProgramStudiu = new System.Windows.Forms.Label();
-            this.comboBoxProgramStudiu = new System.Windows.Forms.ComboBox();
+            this.comboBoxCicluStudiu = new System.Windows.Forms.ComboBox();
             this.labelPrenume = new System.Windows.Forms.Label();
             this.labelNume = new System.Windows.Forms.Label();
             this.textBoxNume = new System.Windows.Forms.TextBox();
@@ -64,12 +64,14 @@
             // 
             // panelForm
             // 
+            this.panelForm.BackColor = System.Drawing.Color.Black;
             this.panelForm.Controls.Add(this.panelCenter);
             this.panelForm.Controls.Add(this.panelTop);
             this.panelForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelForm.Location = new System.Drawing.Point(0, 0);
             this.panelForm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelForm.Name = "panelForm";
+            this.panelForm.Padding = new System.Windows.Forms.Padding(1);
             this.panelForm.Size = new System.Drawing.Size(564, 515);
             this.panelForm.TabIndex = 0;
             // 
@@ -78,10 +80,10 @@
             this.panelCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
             this.panelCenter.Controls.Add(this.panel1);
             this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenter.Location = new System.Drawing.Point(0, 86);
+            this.panelCenter.Location = new System.Drawing.Point(1, 87);
             this.panelCenter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(564, 429);
+            this.panelCenter.Size = new System.Drawing.Size(562, 427);
             this.panelCenter.TabIndex = 2;
             // 
             // panel1
@@ -94,15 +96,16 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(564, 429);
+            this.panel1.Size = new System.Drawing.Size(562, 427);
             this.panel1.TabIndex = 1;
             // 
             // panelInputs
             // 
+            this.panelInputs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panelInputs.Controls.Add(this.labelSpecializare);
             this.panelInputs.Controls.Add(this.comboBoxSpecializare);
             this.panelInputs.Controls.Add(this.labelProgramStudiu);
-            this.panelInputs.Controls.Add(this.comboBoxProgramStudiu);
+            this.panelInputs.Controls.Add(this.comboBoxCicluStudiu);
             this.panelInputs.Controls.Add(this.labelPrenume);
             this.panelInputs.Controls.Add(this.labelNume);
             this.panelInputs.Controls.Add(this.textBoxNume);
@@ -121,7 +124,7 @@
             this.panelInputs.Location = new System.Drawing.Point(72, 0);
             this.panelInputs.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelInputs.Name = "panelInputs";
-            this.panelInputs.Size = new System.Drawing.Size(420, 429);
+            this.panelInputs.Size = new System.Drawing.Size(418, 427);
             this.panelInputs.TabIndex = 17;
             // 
             // labelSpecializare
@@ -154,28 +157,28 @@
             this.labelProgramStudiu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelProgramStudiu.Location = new System.Drawing.Point(22, 238);
             this.labelProgramStudiu.Name = "labelProgramStudiu";
-            this.labelProgramStudiu.Size = new System.Drawing.Size(153, 28);
+            this.labelProgramStudiu.Size = new System.Drawing.Size(147, 28);
             this.labelProgramStudiu.TabIndex = 15;
-            this.labelProgramStudiu.Text = "Program studiu";
+            this.labelProgramStudiu.Text = "Ciclu de studiu";
             // 
-            // comboBoxProgramStudiu
+            // comboBoxCicluStudiu
             // 
-            this.comboBoxProgramStudiu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxProgramStudiu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxProgramStudiu.FormattingEnabled = true;
-            this.comboBoxProgramStudiu.Location = new System.Drawing.Point(201, 230);
-            this.comboBoxProgramStudiu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboBoxProgramStudiu.Name = "comboBoxProgramStudiu";
-            this.comboBoxProgramStudiu.Size = new System.Drawing.Size(199, 36);
-            this.comboBoxProgramStudiu.TabIndex = 5;
-            this.comboBoxProgramStudiu.SelectedIndexChanged += new System.EventHandler(this.comboBoxProgramStudiu_SelectedIndexChanged);
-            this.comboBoxProgramStudiu.EnabledChanged += new System.EventHandler(this.comboBox_EnabledChanged);
+            this.comboBoxCicluStudiu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCicluStudiu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxCicluStudiu.FormattingEnabled = true;
+            this.comboBoxCicluStudiu.Location = new System.Drawing.Point(201, 230);
+            this.comboBoxCicluStudiu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBoxCicluStudiu.Name = "comboBoxCicluStudiu";
+            this.comboBoxCicluStudiu.Size = new System.Drawing.Size(199, 36);
+            this.comboBoxCicluStudiu.TabIndex = 5;
+            this.comboBoxCicluStudiu.SelectedIndexChanged += new System.EventHandler(this.comboBoxProgramStudiu_SelectedIndexChanged);
+            this.comboBoxCicluStudiu.EnabledChanged += new System.EventHandler(this.comboBox_EnabledChanged);
             // 
             // labelPrenume
             // 
             this.labelPrenume.AutoSize = true;
             this.labelPrenume.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPrenume.Location = new System.Drawing.Point(22, 24);
+            this.labelPrenume.Location = new System.Drawing.Point(22, 69);
             this.labelPrenume.Name = "labelPrenume";
             this.labelPrenume.Size = new System.Drawing.Size(95, 28);
             this.labelPrenume.TabIndex = 2;
@@ -185,7 +188,7 @@
             // 
             this.labelNume.AutoSize = true;
             this.labelNume.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNume.Location = new System.Drawing.Point(22, 66);
+            this.labelNume.Location = new System.Drawing.Point(22, 31);
             this.labelNume.Name = "labelNume";
             this.labelNume.Size = new System.Drawing.Size(68, 28);
             this.labelNume.TabIndex = 1;
@@ -194,11 +197,11 @@
             // textBoxNume
             // 
             this.textBoxNume.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNume.Location = new System.Drawing.Point(201, 60);
+            this.textBoxNume.Location = new System.Drawing.Point(201, 25);
             this.textBoxNume.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxNume.Name = "textBoxNume";
             this.textBoxNume.Size = new System.Drawing.Size(199, 34);
-            this.textBoxNume.TabIndex = 1;
+            this.textBoxNume.TabIndex = 0;
             // 
             // btnAnuleaza
             // 
@@ -281,11 +284,11 @@
             // textBoxPrenume
             // 
             this.textBoxPrenume.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPrenume.Location = new System.Drawing.Point(201, 18);
+            this.textBoxPrenume.Location = new System.Drawing.Point(201, 63);
             this.textBoxPrenume.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxPrenume.Name = "textBoxPrenume";
             this.textBoxPrenume.Size = new System.Drawing.Size(199, 34);
-            this.textBoxPrenume.TabIndex = 0;
+            this.textBoxPrenume.TabIndex = 1;
             // 
             // comboBoxAn
             // 
@@ -324,20 +327,22 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(492, 0);
+            this.panel3.Location = new System.Drawing.Point(490, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(72, 429);
+            this.panel3.Size = new System.Drawing.Size(72, 427);
             this.panel3.TabIndex = 16;
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(72, 429);
+            this.panel2.Size = new System.Drawing.Size(72, 427);
             this.panel2.TabIndex = 15;
             // 
             // panelTop
@@ -345,20 +350,21 @@
             this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
             this.panelTop.Controls.Add(this.labelFormularAdaugare);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Location = new System.Drawing.Point(1, 1);
             this.panelTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(564, 86);
+            this.panelTop.Size = new System.Drawing.Size(562, 86);
             this.panelTop.TabIndex = 0;
             // 
             // labelFormularAdaugare
             // 
+            this.labelFormularAdaugare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
             this.labelFormularAdaugare.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelFormularAdaugare.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelFormularAdaugare.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFormularAdaugare.Location = new System.Drawing.Point(0, 0);
             this.labelFormularAdaugare.Name = "labelFormularAdaugare";
-            this.labelFormularAdaugare.Size = new System.Drawing.Size(564, 86);
+            this.labelFormularAdaugare.Size = new System.Drawing.Size(562, 86);
             this.labelFormularAdaugare.TabIndex = 1;
             this.labelFormularAdaugare.Text = "Formular Adaugare Student";
             this.labelFormularAdaugare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -414,7 +420,7 @@
         private System.Windows.Forms.Label labelSpecializare;
         private System.Windows.Forms.ComboBox comboBoxSpecializare;
         private System.Windows.Forms.Label labelProgramStudiu;
-        private System.Windows.Forms.ComboBox comboBoxProgramStudiu;
+        private System.Windows.Forms.ComboBox comboBoxCicluStudiu;
     }
 }
 

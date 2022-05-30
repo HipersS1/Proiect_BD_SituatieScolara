@@ -55,8 +55,9 @@ namespace Proiect_BD_SituatieScolara
             modificareProgramStudiu = true;
             this._programStudiu = programStudiuToBeModified;
             this._facultate = stocareFacultati.GetFacultate(programStudiuToBeModified.IdFacultate);
+            richTextBoxDenumireFacultate.ReadOnly = true;
 
-            ClearResetFormComponents.TurnOffComponents(panelFacultate.Controls);
+            //ClearResetFormComponents.TurnOffComponents(panelFacultate.Controls);
             IncarcareComboBox.IncarcaProgramStudiu(comboBoxCiclu);
             IncarcareComboBox.IncarcaValoriNumerice(comboBoxDurata, DURATA);
             IncarcaProgramStudiu();  
@@ -106,7 +107,7 @@ namespace Proiect_BD_SituatieScolara
                     {
                         return;
                     }
-                    if (stocareProgrameStudii.ValideazaExisteanta(programStudiu) == true)
+                    if (stocareProgrameStudii.ValideazaExistenta(programStudiu) == true)
                     {
                         MessageBox.Show("Programul de studiu exista deja");
                         return;
@@ -137,14 +138,14 @@ namespace Proiect_BD_SituatieScolara
         {
             if (this._facultate == null)
                 return;
-            textBoxDenumire.Text = this._facultate.Denumire;
+            richTextBoxDenumireFacultate.Text = this._facultate.Denumire;
         }
         private void IncarcaProgramStudiu()
         {
             if (this._facultate == null)
                 return;
 
-            textBoxDenumire.Text = this._facultate.Denumire;
+            richTextBoxDenumireFacultate.Text = this._facultate.Denumire;
             comboBoxCiclu.SelectedIndex = comboBoxCiclu.FindString(_programStudiu.Ciclu);
             textBoxSpecializare.Text = this._programStudiu.Specializare;
             comboBoxDurata.SelectedIndex = comboBoxDurata.FindString(_programStudiu.Durata.ToString());
@@ -156,10 +157,10 @@ namespace Proiect_BD_SituatieScolara
             {
                 StringBuilder mesajEroare = new StringBuilder();
 
-                var denumireValida = ValidareString.ValideazaDenumire(textBoxDenumire.Text);
+                var denumireValida = ValidareString.ValideazaDenumire(richTextBoxDenumireFacultate.Text);
                 if (string.IsNullOrEmpty(denumireValida.Text))
                 {
-                    mesajEroare.Append($"Denumire:{textBoxDenumire.Text} : {denumireValida.Mesaj}\n");
+                    mesajEroare.Append($"Denumire:{richTextBoxDenumireFacultate.Text} : {denumireValida.Mesaj}\n");
                     labelDenumire.ForeColor = Color.Red;
                 }
 

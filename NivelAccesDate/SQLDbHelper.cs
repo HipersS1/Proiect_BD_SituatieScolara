@@ -2,6 +2,7 @@
 using System.Configuration;
 using System;
 using Oracle.DataAccess.Client;
+using System.IO;
 
 namespace NivelAccesDate
 {
@@ -49,6 +50,7 @@ namespace NivelAccesDate
                     try
                     {
                         new OracleDataAdapter(cmd).Fill(ds);
+                        //WriteToFileSQL(cmd.CommandText);
                     }
                     catch (OracleException ex)
                     {
@@ -83,6 +85,7 @@ namespace NivelAccesDate
                     {
                         cmd.Connection.Open();
                         rezult = cmd.ExecuteNonQuery();
+                        WriteToFileSQL(cmd.CommandText);
                     }
                     catch (OracleException ex)
                     {
@@ -92,6 +95,20 @@ namespace NivelAccesDate
                 }
             }
             return Convert.ToBoolean(rezult);
+        }
+
+        /// <summary>
+        /// Memorarea infisier a comenzilor
+        /// </summary>
+        public static void WriteToFileSQL(string cmd)
+        {
+            string path = "cmd.txt";
+            using (StreamWriter streamWrite = new StreamWriter(path, true))
+            {
+                if(!File.Exists(path))
+                    File.Create(path);
+                streamWrite.WriteLine(cmd);
+            }
         }
     }
 }

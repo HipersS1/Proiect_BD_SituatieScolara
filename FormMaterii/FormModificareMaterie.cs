@@ -14,33 +14,26 @@ namespace Proiect_BD_SituatieScolara
 {
     public partial class FormModificareMaterie : Form
     {
-        private readonly IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
         private readonly IStocareMaterii stocareMaterii = (IStocareMaterii)new StocareFactory().GetTipStocare(typeof(Materie));
         private Materie materieToBeModified;
-        private Facultate facultateMaterie;
         private bool itemModificat = false;
-
+        private const int MAXAN = 6;
+        private const int SEMESTRU = 2;
 
         public FormModificareMaterie(Materie materie)
         {
             InitializeComponent();
-            //materieToBeModified = materie;
-            //facultateMaterie = stocareFacultati.GetFacultate(materie.IdFacultate);
-
-            //StringBuilder sb = new StringBuilder();
-            //sb.AppendLine("Denumirea Facultatii");
-            //sb.AppendLine($"{facultateMaterie.Denumire}");
-            //sb.Append($"{facultateMaterie.ProgramStudiu} {facultateMaterie.Specializare}");
-
-            //IncarcareComboBox.IncarcaValoriNumerice(comboBoxAn, facultateMaterie.Durata);
-            //IncarcareComboBox.IncarcaValoriNumerice(comboBoxSemestru, 2);
-
-            //richTextBoxFacultate.Text = sb.ToString();
-            //textBoxDenumire.Text = materieToBeModified.Denumire;
-            //numericUpLaborator.Value = materieToBeModified.ProcentLaborator;
-            //comboBoxAn.SelectedIndex = materieToBeModified.An - 1;
-            //comboBoxSemestru.SelectedIndex = materieToBeModified.Semestru - 1;
+            materieToBeModified = materie;
         }
+        private void FormModificareMaterie_Load(object sender, EventArgs e)
+        {
+            IncarcareComboBox.IncarcaValoriNumerice(comboBoxAn, MAXAN);
+            IncarcareComboBox.IncarcaValoriNumerice(comboBoxSemestru, SEMESTRU);
+            numericUpLaborator.Value = materieToBeModified.ProcentLaborator;
+            comboBoxAn.SelectedIndex = materieToBeModified.An - 1;
+            comboBoxSemestru.SelectedIndex = materieToBeModified.Semestru - 1;
+        }
+
 
         #region Form events
 
@@ -163,19 +156,18 @@ namespace Proiect_BD_SituatieScolara
                 int procentLaborator = Convert.ToInt32(numericUpLaborator.Value);
                 int procentCurs = Convert.ToInt32(numericUpCurs.Value);
 
-                return new Materie(denumireValida.Text, anMaterie, semestru, procentLaborator, procentCurs, materieToBeModified.IdFacultate, materieToBeModified.IdMaterie);
+                return new Materie(denumireValida.Text, anMaterie, semestru, procentLaborator, procentCurs, materieToBeModified.IdMaterie);
             }
             catch (Exception)
             {
                 MessageBox.Show("A aparut o problema la validarea informatiilor");
             }
 
-
-
             return null;
         }
-        #endregion
 
+
+        #endregion
 
 
     }

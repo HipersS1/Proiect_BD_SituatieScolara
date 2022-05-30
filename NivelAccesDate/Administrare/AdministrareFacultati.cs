@@ -81,37 +81,18 @@ namespace NivelAccesDate
         }
         
         /// <summary>
-        /// Obtine lista cu facultatile dupa anumite campuri - Search
+        /// Obtine lista cu facultati - Search dupa anumite campuri
         /// </summary>
         /// <param name="searchString"></param>
         /// <param name="columnName"></param>
         /// <returns></returns>
         public List<Facultate> GetFacultati(List<SearchElement> searchElements)
         {
-            var result = new List<Facultate>();
-            StringBuilder conditions = new StringBuilder();
-
-            foreach (var item in searchElements)
-            {
-                int number;
-                if(Int32.TryParse(item.Value, out number))
-                    conditions.Append($"{item.ColumnName} = {number} AND ");
-                else
-                    conditions.Append($"UPPER({item.ColumnName}) LIKE '%{item.Value.ToUpper()}%' AND ");
-            }
-
-            conditions = conditions.Remove(conditions.Length - 4, 3);
-            var dsFacultati = SqlDBHelper.ExecuteDataSet($"SELECT * FROM {_tableName} WHERE {conditions}", CommandType.Text);
-
-            foreach (DataRow linieDB in dsFacultati.Tables[PRIMUL_TABEL].Rows)
-            {
-                result.Add(new Facultate(linieDB));
-            }
-            return result;
+            return SearchDB<Facultate>.GetSpecificElements(searchElements, _tableName);
         }
-        
+
         /// <summary>
-        /// Actualizeaza o facultate
+        /// Pentru actualizarea facultatii - denumire
         /// </summary>
         /// <param name="facultate"></param>
         /// <returns></returns>

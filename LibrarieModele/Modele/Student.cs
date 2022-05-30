@@ -1,5 +1,4 @@
-﻿using DataAnnotationsExtensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -13,13 +12,12 @@ namespace LibrarieModele
         public int IdStudent { get; set; }
         public string Nume { get; set; }
         public string Prenume { get; set; }
-        [Email]
         public string Email { get; set; }
         public string Telefon { get; set; }
         public int An { get; set; }
 
         // FK
-        public int IdFacultate { get; set; }
+        public int IdProgramStudiu { get; set; }
 
         #region  Constructors
         public Student()
@@ -33,7 +31,7 @@ namespace LibrarieModele
             Email = email ?? throw new ArgumentNullException(nameof(email));
             Telefon = telefon ?? throw new ArgumentNullException(nameof(telefon));
             An = an;
-            IdFacultate = idFacultate;
+            IdProgramStudiu = idFacultate;
         }
 
         public Student(DataRow linieDB)
@@ -44,7 +42,7 @@ namespace LibrarieModele
             Email = linieDB["Email"].ToString();
             Telefon = linieDB["Telefon"].ToString();
             An = Convert.ToInt32(linieDB["An"]);
-            IdFacultate = Convert.ToInt32(linieDB["IdFacultate"]);
+            IdProgramStudiu = Convert.ToInt32(linieDB["IdProgramStudiu"]);
         }
         #endregion
 
@@ -58,7 +56,7 @@ namespace LibrarieModele
                    Email == student.Email &&
                    Telefon == student.Telefon &&
                    An == student.An &&
-                   IdFacultate == student.IdFacultate;
+                   IdProgramStudiu == student.IdProgramStudiu;
         }
 
         public override int GetHashCode()
@@ -70,7 +68,7 @@ namespace LibrarieModele
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Email);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Telefon);
             hashCode = hashCode * -1521134295 + An.GetHashCode();
-            hashCode = hashCode * -1521134295 + IdFacultate.GetHashCode();
+            hashCode = hashCode * -1521134295 + IdProgramStudiu.GetHashCode();
             return hashCode;
         }
 

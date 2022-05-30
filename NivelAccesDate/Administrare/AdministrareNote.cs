@@ -25,14 +25,28 @@ namespace NivelAccesDate
         public bool AddNote(Note note)
         {
             return SqlDBHelper.ExecuteNonQuery(
-                $"INSERT INTO {_tableNameNote} VALUES (:NotaLaborator, :NotaCurs, :NotaFinala, :IdMaterie, :IdStudent)", CommandType.Text,
-                new OracleParameter(":NotaLaborator", OracleDbType.Varchar2, note.NotaLaborator, ParameterDirection.Input),
-                new OracleParameter(":NotaCurs", OracleDbType.Varchar2, note.NotaCurs, ParameterDirection.Input),
-                new OracleParameter(":NotaFinala", OracleDbType.Varchar2, note.NotaFinala, ParameterDirection.Input),
-                new OracleParameter(":IdMaterie", OracleDbType.Varchar2, note.IdMaterie, ParameterDirection.Input),
-                new OracleParameter(":IdStudent", OracleDbType.Int32, note.IdStudent, ParameterDirection.Input)
+                $"INSERT INTO {_tableNameNote} VALUES (null, null, null, :IdStudent, :IdMaterie)", CommandType.Text,
+                //new OracleParameter(":NotaLaborator", OracleDbType.Decimal, null, ParameterDirection.Input),
+                //new OracleParameter(":NotaCurs", OracleDbType.Decimal, null, ParameterDirection.Input),
+                //new OracleParameter(":NotaFinala", OracleDbType.Int32, null, ParameterDirection.Input),
+                new OracleParameter(":IdStudent", OracleDbType.Int32, note.IdStudent, ParameterDirection.Input),
+                new OracleParameter(":IdMaterie", OracleDbType.Int32, note.IdMaterie, ParameterDirection.Input)
                 );
         }
+
+        public bool UpdateNote(Note note)
+        {
+            return SqlDBHelper.ExecuteNonQuery(
+                $"UPDATE {_tableNameNote} SET NotaLaborator = :NotaLaborator, NotaCurs = :NotaCurs, NotaFinala = :NotaFinala " +
+                $"WHERE IdStudent = :IdStudent AND IdMaterie = :IdMaterie", CommandType.Text,
+                new OracleParameter(":NotaLaborator", OracleDbType.Decimal, note.NotaLaborator, ParameterDirection.Input),
+                new OracleParameter(":NotaCurs", OracleDbType.Decimal, note.NotaCurs, ParameterDirection.Input),
+                new OracleParameter(":NotaFinala", OracleDbType.Int32, note.NotaFinala, ParameterDirection.Input),
+                new OracleParameter(":IdStudent", OracleDbType.Int32, note.IdStudent, ParameterDirection.Input),
+                new OracleParameter(":IdMaterie", OracleDbType.Int32, note.IdMaterie, ParameterDirection.Input)
+                );
+        }
+
         public Note GetNote(int idStudent, int idMaterie)
         {
             Note noteStudent = null;
@@ -51,11 +65,11 @@ namespace NivelAccesDate
         }
 
 
-        public List<Note> GetNote()
+        public List<Note> GetNoteStudentList(int idStudent)
         {
             var result = new List<Note>();
 
-            var dsNote = SqlDBHelper.ExecuteDataSet($"SELECT * FROM {_tableNameNote}", CommandType.Text);
+            var dsNote = SqlDBHelper.ExecuteDataSet($"SELECT * FROM {_tableNameNote} WHERE IdStudent = {idStudent}", CommandType.Text);
 
             foreach (DataRow linieDB in dsNote.Tables[PRIMUL_TABEL].Rows)
             {
@@ -64,29 +78,17 @@ namespace NivelAccesDate
             return result;
         }
 
+
         public DataSet GetNoteStudent(int idStudent)
         {
-            var dsMateriiNote = SqlDBHelper.ExecuteDataSet(
-                $"SELECT m.idmaterie, m.denumire, m.an, m.semestru, m.procentlaborator, m.procentcurs, " +
-                $"n.notalaborator, n.notacurs, n.notafinala " +
-                $"FROM {_tableNameMaterii} m, {_tableNameNote} n " +
-                $"WHERE n.idstudent = idstudent and n.idmaterie = m.idmaterie", CommandType.Text);
-            return dsMateriiNote;
+            return SqlDBHelper.ExecuteDataSet($"SELECT m.idmaterie, m.denumire, m.an, m.semestru, m.procentlaborator, m.procentcurs, n.notalaborator, n.notacurs, n.notafinala " +
+                   $"FROM {_tableNameNote} n, {_tableNameMaterii} m WHERE IdStudent = {idStudent} and n.idmaterie = m.idmaterie", CommandType.Text);
         }
 
-        public DataSet GetNoteStudent(Student student)
+        public bool DeleteNote(int idStudent)
         {
-            var dsMateriiNote = SqlDBHelper.ExecuteDataSet(
-                $"SELECT m.idmaterie, m.denumire, m.an, m.semestru, m.procentlaborator, m.procentcurs, " +
-                $"n.notalaborator, n.notacurs, n.notafinala " +
-                $"FROM {_tableNameMaterii} m, {_tableNameNote} n, {_tableNameFacultati} f" +
-                $"WHERE f.idfacultate = {student.IdFacultate} and f.idfacultate = m.idfacultate", CommandType.Text);
-            return dsMateriiNote;
-        }
-
-        public bool UpdateNote(Note note)
-        {
-            throw new NotImplementedException();
+            return SqlDBHelper.ExecuteNonQuery(
+               $"DELETE FROM {_tableNameNote} WHERE IdStudent = {idStudent}", CommandType.Text);
         }
     }
 }

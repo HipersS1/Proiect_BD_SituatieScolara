@@ -16,8 +16,6 @@ namespace LibrarieModele
         /// <summary>
         /// Incarca informatiile despre facultati in DataGridView
         /// </summary>
-        /// <param name="dataGridView">componenta DataGridView</param>
-        /// <param name="facultati">Lista cu facultatile ce trebuie afisate</param>
         public static void AfisareFacultati(DataGridView dataGridView, List<Facultate> facultati)
         {
             try
@@ -63,13 +61,64 @@ namespace LibrarieModele
             }
         }
 
+        public static void AfisareMateriiDataSet(DataGridView dataGridView, DataSet materii)
+        {
+            try
+            {
+                if (materii != null)
+                {
+                    dataGridView.DataSource = materii.Tables[0];
+
+                    dataGridView.Columns["IDMATERIE"].Visible = false;
+                    dataGridView.Columns["DENUMIRE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    dataGridView.Columns["DENUMIRE"].HeaderText = "Denumire";
+                    dataGridView.Columns["DENUMIRE"].Width = 200;
+                    dataGridView.Columns["AN"].HeaderText = "An";
+                    dataGridView.Columns["SEMESTRU"].HeaderText = "Semestru";
+                    dataGridView.Columns["PROCENTLABORATOR"].HeaderText = "Procent Laborator";
+                    dataGridView.Columns["PROCENTCURS"].HeaderText = "Procent curs";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        public static void AfisareMateriiProgramStudiu(DataGridView dataGridView, DataSet materiiProgramStudiu)
+        {
+            try
+            {
+                if (materiiProgramStudiu != null)
+                {
+                    dataGridView.DataSource = materiiProgramStudiu.Tables[0];
+
+                    dataGridView.Columns["IdMaterie"].Visible = false;
+                    dataGridView.Columns["DENUMIRE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    dataGridView.Columns["DENUMIRE"].HeaderText = "Denumire";
+                    dataGridView.Columns["DENUMIRE"].Width = 200;
+                    dataGridView.Columns["An"].HeaderText = "An";
+                    dataGridView.Columns["Semestru"].HeaderText = "Semestru";
+                    dataGridView.Columns["ProcentLaborator"].HeaderText = "Procent laborator (%)";
+                    dataGridView.Columns["ProcentCurs"].HeaderText = "Procent curs (%)";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+
         public static void AfisareStudenti(DataGridView dataGridView, List<Student> studenti)
         {
             try
             {
                 if (studenti != null && studenti.Any())
                 {
-                    dataGridView.DataSource = studenti.Select(f => new { f.IdStudent, f.Nume, f.Prenume, f.Email, f.Telefon, f.An, f.IdFacultate}).OrderBy(s => s.Nume).ToList();
+                    dataGridView.DataSource = studenti.Select(f => new { f.IdStudent, f.Nume, f.Prenume, f.Email, f.Telefon, f.An, f.IdProgramStudiu})
+                                                       .OrderBy(s => s.Nume)
+                                                       .ToList();
                     
                     dataGridView.Columns["IdStudent"].Visible = false;
                     dataGridView.Columns["Nume"].HeaderText = "Nume";
@@ -77,7 +126,7 @@ namespace LibrarieModele
                     dataGridView.Columns["Email"].HeaderText = "Email";
                     dataGridView.Columns["Telefon"].HeaderText = "Telefon";
                     dataGridView.Columns["An"].HeaderText = "An Studiu";
-                    dataGridView.Columns["IdFacultate"].Visible = false;
+                    dataGridView.Columns["IdProgramStudiu"].Visible = false;
                 }
             }
             catch (Exception ex)
@@ -95,18 +144,22 @@ namespace LibrarieModele
                     dataGridView.DataSource = studenti.Tables[0];
 
                     dataGridView.Columns["IDSTUDENT"].Visible = false;
+                    dataGridView.Columns["IdFacultate"].Visible = false;
+                    dataGridView.Columns["IdProgramStudiu"].Visible = false;
+
                     dataGridView.Columns["Student"].HeaderText = "Student";
                     dataGridView.Columns["EMAIL"].HeaderText = "Email";
 
                     dataGridView.Columns["TELEFON"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                    dataGridView.Columns["TELEFON"].Width = 80;
+                    dataGridView.Columns["TELEFON"].Width = 68;
                     dataGridView.Columns["TELEFON"].HeaderText = "Telefon";
 
                     dataGridView.Columns["FACULTATE"].HeaderText = "Facultate";
+                    dataGridView.Columns["Program"].HeaderText = "Programul de studiu";
 
                     dataGridView.Columns["AN"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
                     dataGridView.Columns["AN"].HeaderText = "An";
-                    dataGridView.Columns["AN"].Width = 40;
+                    dataGridView.Columns["AN"].Width = 30;
                 }
             }
             catch (Exception ex)
@@ -121,15 +174,19 @@ namespace LibrarieModele
             {
                 if (materii != null && materii.Any())
                 {
-                    dataGridView.DataSource = materii.Select(f => new { f.IdMaterie, f.Denumire, f.An, f.Semestru, f.ProcentLaborator, f.ProcentCurs, f.IdFacultate }).Distinct().OrderBy(s => s.Denumire).ToList();
+                    dataGridView.DataSource = materii.Select(f => new { f.IdMaterie, f.Denumire, f.An, f.Semestru, f.ProcentLaborator, f.ProcentCurs})
+                                                     .Distinct()
+                                                     .OrderBy(s => s.Denumire)
+                                                     .ToList();
 
                     dataGridView.Columns["IdMaterie"].Visible = false;
-                    dataGridView.Columns["Denumire"].HeaderText = "Materia";
+                    dataGridView.Columns["DENUMIRE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    dataGridView.Columns["DENUMIRE"].HeaderText = "Denumire";
+                    dataGridView.Columns["DENUMIRE"].Width = 200;
                     dataGridView.Columns["An"].HeaderText = "An";
                     dataGridView.Columns["Semestru"].HeaderText = "Semestru";
-                    dataGridView.Columns["ProcentLaborator"].HeaderText = "Procent laborator";
-                    dataGridView.Columns["ProcentCurs"].HeaderText = "Procent curs";
-                    dataGridView.Columns["IdFacultate"].Visible = false;
+                    dataGridView.Columns["ProcentLaborator"].HeaderText = "Procent laborator (%)";
+                    dataGridView.Columns["ProcentCurs"].HeaderText = "Procent curs (%)";
                 }
             }
             catch (Exception ex)
@@ -138,40 +195,7 @@ namespace LibrarieModele
             }
         }
 
-        public static void AfisareMateriiDataSet(DataGridView dataGridView, DataSet materii)
-        {
-            try
-            {
-                if (materii != null)
-                {
-                    dataGridView.DataSource = materii.Tables[0];
-
-                    dataGridView.Columns["IDMATERIE"].Visible = false;
-                    dataGridView.Columns["DENUMIRE"].HeaderText = "Denumire";
-                    dataGridView.Columns["AN"].HeaderText = "An";
-                    dataGridView.Columns["An"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                    dataGridView.Columns["An"].Width = 60;
-
-                    dataGridView.Columns["SEMESTRU"].HeaderText = "Semestru";
-                    dataGridView.Columns["SEMESTRU"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                    dataGridView.Columns["SEMESTRU"].Width = 60;
-
-                    dataGridView.Columns["PROCENTLABORATOR"].HeaderText = "Procent Laborator";
-                    dataGridView.Columns["PROCENTLABORATOR"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                    dataGridView.Columns["PROCENTLABORATOR"].Width = 60;
-
-                    dataGridView.Columns["PROCENTCURS"].HeaderText = "Procent curs";
-                    dataGridView.Columns["PROCENTCURS"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                    dataGridView.Columns["PROCENTCURS"].Width = 60;
-
-                    dataGridView.Columns["FACULTATE"].HeaderText = "Facultate";
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
-        }
+        
 
 
         public static void AfisareDataSetMateriiNote(DataGridView dataGridView, DataSet materiiNote)
@@ -181,11 +205,13 @@ namespace LibrarieModele
                 if (materiiNote != null)
                 {
                     dataGridView.DataSource = materiiNote.Tables[0];
-
                     //Materie
                     dataGridView.Columns["IDMATERIE"].Visible = false;
                     dataGridView.Columns["DENUMIRE"].ReadOnly = true;
+                    dataGridView.Columns["DENUMIRE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
                     dataGridView.Columns["DENUMIRE"].HeaderText = "Denumire";
+                    dataGridView.Columns["DENUMIRE"].Width = 200;
+                   
 
                     dataGridView.Columns["AN"].ReadOnly = true;
                     dataGridView.Columns["AN"].HeaderText = "An";

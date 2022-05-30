@@ -15,6 +15,7 @@ namespace NivelAccesDate
         private const int PRIMUL_TABEL = 0;
         private const int PRIMA_LINIE = 0;
         private readonly string _tableName = ConfigurationManager.AppSettings.Get("TableNameProgramMaterie");
+        private readonly string _tableNameMaterii = ConfigurationManager.AppSettings.Get("TableNameMaterii");
 
         public bool AddProgramMaterie(ProgramStudiuMaterie program)
         {
@@ -25,19 +26,19 @@ namespace NivelAccesDate
                 );
         }
 
-        public bool DeleteProgramMaterie(int idProgram, int idMaterie)
+        public bool DeleteProgramMaterie(ProgramStudiuMaterie programStudiu)
         {
             return SqlDBHelper.ExecuteNonQuery(
                 $"DELETE FROM {_tableName} WHERE IdProgramStudiu = :IdProgramStudiu AND IdMaterie = :IdMaterie", CommandType.Text,
-                new OracleParameter(":IdProgramStudiu", OracleDbType.Int32, idProgram, ParameterDirection.Input),
-                new OracleParameter(":IdMaterie", OracleDbType.Int32, idMaterie, ParameterDirection.Input)
+                new OracleParameter(":IdProgramStudiu", OracleDbType.Int32, programStudiu.IdProgramStudiu, ParameterDirection.Input),
+                new OracleParameter(":IdMaterie", OracleDbType.Int32, programStudiu.IdMaterie, ParameterDirection.Input)
                 );
         }
 
-        public List<ProgramStudiuMaterie> GetProgramMaterie()
+        public List<ProgramStudiuMaterie> GetMateriiProgramStudiu(int idProgramStudiu)
         {
             var result = new List<ProgramStudiuMaterie>();
-            var dsPrograme = SqlDBHelper.ExecuteDataSet($"SELECT * FROM {_tableName}", CommandType.Text);
+            var dsPrograme = SqlDBHelper.ExecuteDataSet($"SELECT * FROM {_tableName} WHERE IdProgramStudiu = {idProgramStudiu}", CommandType.Text);
 
             foreach (DataRow linieDB in dsPrograme.Tables[PRIMUL_TABEL].Rows)
             {
@@ -45,6 +46,18 @@ namespace NivelAccesDate
             }
             return result;
         }
+
+        public DataSet GetDetaliiMateriiProgramStudiu(int idProgramStudiu)
+        {
+            var dsPrograme = SqlDBHelper.ExecuteDataSet($"SELECT m.* FROM {_tableNameMaterii} m, {_tableName} pm WHERE pm.IdProgramStudiu = {idProgramStudiu} AND pm.IdMaterie = m.IdMaterie", CommandType.Text);
+            return dsPrograme;
+        }
+        public DataSet GetDetaliiMateriiProgramStudiuDiferite(int idProgramStudiu)
+        {
+            var dsPrograme = SqlDBHelper.ExecuteDataSet($"SELECT m.* FROM {_tableNameMaterii} m where m.idmaterie != ALL (select idmaterie from {_tableName} where IdProgramStudiu = {idProgramStudiu})", CommandType.Text);
+            return dsPrograme;
+        }
+
 
         public ProgramStudiuMaterie GetProgramStudiu(int idProgram, int idMaterie)
         {

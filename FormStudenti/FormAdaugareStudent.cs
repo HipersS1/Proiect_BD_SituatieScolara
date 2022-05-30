@@ -15,19 +15,26 @@ namespace Proiect_BD_SituatieScolara
     public partial class FormAdaugareStudent : Form
     {
         private readonly IStocareStudenti stocareStudenti = (IStocareStudenti)new StocareFactory().GetTipStocare(typeof(Student));
+        private readonly IStocareNote stocareNote = (IStocareNote)new StocareFactory().GetTipStocare(typeof(Note));
+        private readonly IStocareMaterii stocareMaterii = (IStocareMaterii)new StocareFactory().GetTipStocare(typeof(Materie));
         private readonly IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
+        private readonly IStocareProgrameStudii stocareProgrameStudii = (IStocareProgrameStudii)new StocareFactory().GetTipStocare(typeof(ProgramStudiu));
+        private readonly IStocareProgramStudiuMaterie stocareMateriiProgramStudiu = (IStocareProgramStudiuMaterie)new StocareFactory().GetTipStocare(typeof(ProgramStudiuMaterie));
         private const int PRIMA_COLOANA = 0;
         private List<Facultate> listFacultati;
+        private List<ProgramStudiu> listProgramStudiu;
         private bool itemAdaugat = false;
 
+        // Selectie form
+        private int idFacultateSelected;
+        private string cicluStudiuSelected;
+        private string specializareSelected;
 
         public FormAdaugareStudent()
         {
             InitializeComponent();
             listFacultati = stocareFacultati.GetFacultati();
-
-            IncarcareComboBox.IncarcaDenumiriFacultati(comboBoxFacultate, listFacultati);
-
+            listProgramStudiu = stocareProgrameStudii.GetProgrameStudii();
         }
 
         #region Form events
@@ -36,9 +43,11 @@ namespace Proiect_BD_SituatieScolara
 
         private void FormAdaugareStudent_Load(object sender, EventArgs e)
         {
-            comboBoxProgramStudiu.Enabled = false;
+            comboBoxCicluStudiu.Enabled = false;
             comboBoxSpecializare.Enabled = false;
             comboBoxAn.Enabled = false;
+
+            IncarcareComboBox.IncarcaDenumiriFacultati(comboBoxFacultate, listFacultati);
         }
 
         #endregion
@@ -76,6 +85,33 @@ namespace Proiect_BD_SituatieScolara
                     MessageBox.Show("Studentul a fost adaugat");
                     ClearResetFormComponents.ClearInputs(panelInputs.Controls.OfType<Control>());
                 }
+
+                List<ProgramStudiuMaterie> listaMateriiProgramStudiu = stocareMateriiProgramStudiu.GetMateriiProgramStudiu(student.IdProgramStudiu);
+                List<Materie> listaMaterii = stocareMaterii.GetMaterii();
+
+                int idStudentAdaugat = stocareStudenti.GetStudents()
+                                                      .Where(s => s.Nume == student.Nume && s.Prenume == student.Prenume && s.Email == student.Email &&
+                                                             s.Telefon == student.Telefon && s.IdProgramStudiu == student.IdProgramStudiu && s.An == student.An)
+                                                      .Select(s => s.IdStudent)
+                                                      .FirstOrDefault();
+
+                var listaMateriiSpecificAnStudent = listaMaterii.Where(m => m.An <= student.An)
+                                                                .Select(m => m.IdMaterie)
+                                                                .ToList();
+
+                for (int i = 0; i < listaMateriiProgramStudiu.Count; i++)
+                {
+                    if (listaMateriiSpecificAnStudent.Contains(listaMateriiProgramStudiu[i].IdMaterie))
+                    {
+                        var materieAdaugata = stocareNote.AddNote(new Note(idStudentAdaugat, listaMateriiProgramStudiu[i].IdMaterie));
+
+                        if (materieAdaugata == false)
+                        {
+                            MessageBox.Show("A aparut o problema cu adaugarea materie la student");
+                            return;
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -97,9 +133,9 @@ namespace Proiect_BD_SituatieScolara
                 ? SystemInformation.VerticalScrollBarWidth : 0;
 
             int newWidth;
-            foreach (string s in ((ComboBox)sender).Items)
+            foreach (ComboItem s in ((ComboBox)sender).Items)
             {
-                newWidth = (int)g.MeasureString(s, font).Width
+                newWidth = (int)g.MeasureString(s.Text, font).Width
                     + vertScrollBarWidth;
                 if (width < newWidth)
                 {
@@ -125,28 +161,27 @@ namespace Proiect_BD_SituatieScolara
             if (comboBoxFacultate.SelectedIndex == -1)
                 return;
 
-            comboBoxProgramStudiu.Enabled = true;
+            comboBoxCicluStudiu.Enabled = true;
             comboBoxSpecializare.Enabled = false;
             comboBoxAn.Enabled = false;
 
-            comboBoxProgramStudiu.Items.Clear();
-
-            //var facultati = stocareFacultati.GetFacultati();
-            //IncarcareComboBox.IncarcaProgrameStudiiFacultate(comboBoxProgramStudiu, listFacultati, comboBoxFacultate.SelectedItem.ToString());
+            comboBoxCicluStudiu.Items.Clear();
+            idFacultateSelected = ((ComboItem)comboBoxFacultate.SelectedItem).Id;
+            IncarcareComboBox.IncarcaProgrameStudiiFacultate(comboBoxCicluStudiu, listProgramStudiu, idFacultateSelected);
         }
 
         private void comboBoxProgramStudiu_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxProgramStudiu.SelectedIndex == -1)
+            if (comboBoxCicluStudiu.SelectedIndex == -1)
                 return;
             comboBoxSpecializare.Enabled = true;
             comboBoxAn.Enabled=false;
 
             comboBoxSpecializare.Items.Clear();
+            cicluStudiuSelected = ((ComboItem)comboBoxCicluStudiu.SelectedItem).Text;
 
-            //var facultati = stocareFacultati.GetFacultati();
-            //IncarcareComboBox.IncarcaSpecializariFacultate(comboBoxSpecializare, listFacultati,
-            //   comboBoxFacultate.SelectedItem.ToString(), comboBoxProgramStudiu.SelectedItem.ToString());
+            IncarcareComboBox.IncarcaSpecializariFacultate(comboBoxSpecializare, listProgramStudiu,
+               idFacultateSelected, cicluStudiuSelected);
         }
         private void comboBoxSpecializare_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -156,10 +191,10 @@ namespace Proiect_BD_SituatieScolara
             comboBoxAn.Enabled = true;
             comboBoxAn.Items.Clear();
 
-            //var facultati = stocareFacultati.GetFacultati();
-            //IncarcareComboBox.IncarcaAniStudent(comboBoxAn, listFacultati,
-            //     comboBoxFacultate.SelectedItem.ToString(), comboBoxProgramStudiu.SelectedItem.ToString(),
-            //     comboBoxSpecializare.SelectedItem.ToString());
+            specializareSelected = ((ComboItem)comboBoxSpecializare.SelectedItem).Text;
+
+            IncarcareComboBox.IncarcaAniStudent(comboBoxAn, listProgramStudiu,
+                 idFacultateSelected, cicluStudiuSelected, specializareSelected);
         }
 
         #endregion
@@ -203,79 +238,79 @@ namespace Proiect_BD_SituatieScolara
 
         private Student ValideazaInformatii()
         {
-            //try
-            //{
-            //    StringBuilder mesajEroare = new StringBuilder();
+            try
+            {
+                StringBuilder mesajEroare = new StringBuilder();
 
-            //    var numeValid = ValidareString.ValideazaDenumire(textBoxNume.Text);
-            //    if (string.IsNullOrEmpty(numeValid.Text))
-            //    {
-            //        mesajEroare.Append($"{labelNume.Text} : {numeValid.Mesaj}\n");
-            //        labelNume.ForeColor = Color.Red;
-            //    }
+                var numeValid = ValidareString.ValideazaDenumire(textBoxNume.Text);
+                if (string.IsNullOrEmpty(numeValid.Text))
+                {
+                    mesajEroare.Append($"{labelNume.Text} : {numeValid.Mesaj}\n");
+                    labelNume.ForeColor = Color.Red;
+                }
 
-            //    var prenumeValid = ValidareString.ValideazaDenumire(textBoxPrenume.Text);
-            //    if (string.IsNullOrEmpty(prenumeValid.Text))
-            //    {
-            //        mesajEroare.Append($"{labelPrenume.Text} : {prenumeValid.Mesaj}\n");
-            //        labelPrenume.ForeColor = Color.Red;
-            //    }
+                var prenumeValid = ValidareString.ValideazaDenumire(textBoxPrenume.Text);
+                if (string.IsNullOrEmpty(prenumeValid.Text))
+                {
+                    mesajEroare.Append($"{labelPrenume.Text} : {prenumeValid.Mesaj}\n");
+                    labelPrenume.ForeColor = Color.Red;
+                }
 
-            //    var emailValid = ValidareString.ValideazaEmail(textBoxEmail.Text);
-            //    if(string.IsNullOrEmpty(emailValid.Text))
-            //    {
-            //        mesajEroare.Append($"{labelEmail.Text} : {emailValid.Mesaj}\n");
-            //        labelEmail.ForeColor = Color.Red;
-            //    }
+                var emailValid = ValidareString.ValideazaEmail(textBoxEmail.Text);
+                if (string.IsNullOrEmpty(emailValid.Text))
+                {
+                    mesajEroare.Append($"{labelEmail.Text} : {emailValid.Mesaj}\n");
+                    labelEmail.ForeColor = Color.Red;
+                }
 
-            //    var telefonValid = ValidareString.ValideazaNumarTelefon(textBoxTelefon.Text);
-            //    if (string.IsNullOrEmpty(telefonValid.Text))
-            //    {
-            //        mesajEroare.Append($"{labelTelefon.Text} : {telefonValid.Mesaj}\n");
-            //        labelTelefon.ForeColor = Color.Red;
-            //    }
+                var telefonValid = ValidareString.ValideazaNumarTelefon(textBoxTelefon.Text);
+                if (string.IsNullOrEmpty(telefonValid.Text))
+                {
+                    mesajEroare.Append($"{labelTelefon.Text} : {telefonValid.Mesaj}\n");
+                    labelTelefon.ForeColor = Color.Red;
+                }
 
-            //    if(comboBoxFacultate.SelectedIndex == -1)
-            //    {
-            //        mesajEroare.Append($"{labelFacultate.Text} Selecteaza o optiune\n");
-            //        labelFacultate.ForeColor = Color.Red;
-            //    }
+                if (comboBoxFacultate.SelectedIndex == -1)
+                {
+                    mesajEroare.Append($"{labelFacultate.Text} Selecteaza o optiune\n");
+                    labelFacultate.ForeColor = Color.Red;
+                }
 
-            //    if (comboBoxProgramStudiu.SelectedIndex == -1)
-            //    {
-            //        mesajEroare.Append($"{labelProgramStudiu.Text} Selecteaza o optiune\n");
-            //        labelProgramStudiu.ForeColor = Color.Red;
-            //    }
-            //    if (comboBoxSpecializare.SelectedIndex == -1)
-            //    {
-            //        mesajEroare.Append($"{labelSpecializare.Text} Selecteaza o optiune\n");
-            //        labelSpecializare.ForeColor = Color.Red;
-            //    }
-            //    if (comboBoxAn.SelectedIndex == -1)
-            //    {
-            //        mesajEroare.Append($"{labelAn.Text} Selecteaza o optiune\n");
-            //        labelAn.ForeColor = Color.Red;
-            //    }
+                if (comboBoxCicluStudiu.SelectedIndex == -1)
+                {
+                    mesajEroare.Append($"{labelProgramStudiu.Text} Selecteaza o optiune\n");
+                    labelProgramStudiu.ForeColor = Color.Red;
+                }
+                if (comboBoxSpecializare.SelectedIndex == -1)
+                {
+                    mesajEroare.Append($"{labelSpecializare.Text} Selecteaza o optiune\n");
+                    labelSpecializare.ForeColor = Color.Red;
+                }
+                if (comboBoxAn.SelectedIndex == -1)
+                {
+                    mesajEroare.Append($"{labelAn.Text} Selecteaza o optiune\n");
+                    labelAn.ForeColor = Color.Red;
+                }
 
-            //    if (!string.IsNullOrEmpty(mesajEroare.ToString()))
-            //    {
-            //        MessageBox.Show($"{mesajEroare}");
-            //        return null;
-            //    }
+                if (!string.IsNullOrEmpty(mesajEroare.ToString()))
+                {
+                    MessageBox.Show($"{mesajEroare}");
+                    return null;
+                }
 
 
-            //    var idFacultate = listFacultati.Where(f => f.Denumire == comboBoxFacultate.SelectedItem.ToString() &&
-            //                             f.ProgramStudiu == comboBoxProgramStudiu.SelectedItem.ToString() &&
-            //                             f.Specializare == comboBoxSpecializare.SelectedItem.ToString())
-            //                .Select(f => f.IdFacultate).FirstOrDefault();
-            //    var anStudent = Convert.ToInt32(comboBoxAn.SelectedItem.ToString());
+                var programStudiu = listProgramStudiu.Where(p => p.Ciclu == cicluStudiuSelected && p.Specializare == specializareSelected && p.IdFacultate == idFacultateSelected)
+                                                     .Select(p => p.IdProgramStudiu)
+                                                     .FirstOrDefault();
 
-            //    return new Student(numeValid.Text, prenumeValid.Text, emailValid.Text, telefonValid.Text, anStudent,idFacultate);
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("A aparut o problema la validarea informatiilor despre student");
-            //}
+                var anStudent = Convert.ToInt32(comboBoxAn.SelectedItem.ToString());
+
+                return new Student(numeValid.Text, prenumeValid.Text, emailValid.Text, telefonValid.Text, anStudent, programStudiu);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("A aparut o problema la validarea informatiilor despre student");
+            }
 
             return null;
         }

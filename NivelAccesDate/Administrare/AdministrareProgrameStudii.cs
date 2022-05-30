@@ -73,15 +73,15 @@ namespace NivelAccesDate
                 new OracleParameter(":IdProgramStudiu", OracleDbType.Int32, id, ParameterDirection.Input));
         }
 
-        public bool DeleteProgrameStudii()
+        public bool DeleteProgrameStudii(int idFacultate)
         {
-            return SqlDBHelper.ExecuteNonQuery($"DELETE FROM {_tableName}", CommandType.Text);
+            return SqlDBHelper.ExecuteNonQuery($"DELETE FROM {_tableName} WHERE IdFacultate = {idFacultate}", CommandType.Text);
         }
 
 
         //
 
-        public bool ValideazaExisteanta(ProgramStudiu programStudiu)
+        public bool ValideazaExistenta(ProgramStudiu programStudiu)
         {
             var dsProgram = SqlDBHelper.ExecuteDataSet(
                 $"SELECT * FROM {_tableName} WHERE Ciclu = '{programStudiu.Ciclu}' AND Specializare = '{programStudiu.Specializare}' " +
@@ -93,26 +93,7 @@ namespace NivelAccesDate
 
         public List<ProgramStudiu> GetProgrameStudii(List<SearchElement> searchElements)
         {
-            var result = new List<ProgramStudiu>();
-            StringBuilder conditions = new StringBuilder();
-
-            foreach (var item in searchElements)
-            {
-                int number;
-                if (Int32.TryParse(item.Value, out number))
-                    conditions.Append($"{item.ColumnName} = {number} AND ");
-                else
-                    conditions.Append($"UPPER({item.ColumnName}) LIKE '%{item.Value.ToUpper()}%' AND ");
-            }
-
-            conditions = conditions.Remove(conditions.Length - 4, 3);
-            var ds = SqlDBHelper.ExecuteDataSet($"SELECT * FROM {_tableName} WHERE {conditions}", CommandType.Text);
-
-            foreach (DataRow linieDB in ds.Tables[PRIMUL_TABEL].Rows)
-            {
-                result.Add(new ProgramStudiu(linieDB));
-            }
-            return result;
+            return SearchDB<ProgramStudiu>.GetSpecificElements(searchElements, _tableName);
         }
     }
 }

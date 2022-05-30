@@ -16,7 +16,9 @@ namespace NivelAccesDate
         private const int PRIMUL_TABEL = 0;
         private const int PRIMA_LINIE = 0;
         private readonly string _tableName = ConfigurationManager.AppSettings.Get("TableNameMaterii");
-        private readonly string _tableNameFaculty = ConfigurationManager.AppSettings.Get("TableNameFacultati");
+        private readonly string _tableNameFacultate = ConfigurationManager.AppSettings.Get("TableNameFacultati");
+        private readonly string _tableNameProgrameStudii = ConfigurationManager.AppSettings.Get("TableNameProgrameStudii");
+
         private readonly string _tableSequence = ConfigurationManager.AppSettings.Get("TableSequenceMaterii");
 
 
@@ -35,16 +37,16 @@ namespace NivelAccesDate
             return false;
         }
 
+        #region CRUD
         public bool AddMaterie(Materie materie)
         {
             return SqlDBHelper.ExecuteNonQuery(
-                $"INSERT INTO {_tableName} VALUES ({_tableSequence}.NEXTVAL, :Denumire, :An, :Semestru, :ProcentLaborator, :ProcentCurs, :IdFacultate)", CommandType.Text,
+                $"INSERT INTO {_tableName} VALUES ({_tableSequence}.NEXTVAL, :Denumire, :An, :Semestru, :ProcentLaborator, :ProcentCurs)", CommandType.Text,
                 new OracleParameter(":Denumire", OracleDbType.Varchar2, materie.Denumire, ParameterDirection.Input),
                 new OracleParameter(":An", OracleDbType.Varchar2, materie.An, ParameterDirection.Input),
                 new OracleParameter(":Semestru", OracleDbType.Varchar2, materie.Semestru, ParameterDirection.Input),
                 new OracleParameter(":ProcentLaborator", OracleDbType.Varchar2, materie.ProcentLaborator, ParameterDirection.Input),
-                new OracleParameter(":ProcentCurs", OracleDbType.Int32, materie.ProcentCurs, ParameterDirection.Input),
-                new OracleParameter(":IdFacultate", OracleDbType.Int32, materie.IdFacultate, ParameterDirection.Input)
+                new OracleParameter(":ProcentCurs", OracleDbType.Int32, materie.ProcentCurs, ParameterDirection.Input)
                 );
         }
 
@@ -75,6 +77,11 @@ namespace NivelAccesDate
             }
             return result;
         }
+        public DataSet GetMateriiDataSet()
+        {
+            var dsMaterii = SqlDBHelper.ExecuteDataSet($"SELECT * FROM {_tableName}", CommandType.Text);
+            return dsMaterii;
+        }
 
         public bool UpdateMaterie(Materie materie)
         {
@@ -90,53 +97,32 @@ namespace NivelAccesDate
                 );
         }
 
-
-        public DataSet GetMateriiFacultati()
-        {
-            var dsStudenti = SqlDBHelper.ExecuteDataSet($"SELECT m.idmaterie, m.denumire, m.an, m.semestru, m.procentlaborator, m.procentcurs, " +
-                                                        $"f.denumire || ' ' || f.programstudiu || ' ' || f.specializare as Facultate " +
-                                                        $"FROM {_tableName} m, {_tableNameFaculty} f WHERE m.idfacultate = f.idfacultate", CommandType.Text);
-            return dsStudenti;
-        }
-
-        public DataSet GetMateriiSearch(List<SearchElement> searchElements)
-        {
-            StringBuilder conditions = new StringBuilder();
-
-            foreach (var item in searchElements)
-            {
-                int number;
-                if (Int32.TryParse(item.Value, out number))
-                    conditions.Append($"{item.ColumnName} = {number} AND ");
-                else
-                    conditions.Append($"UPPER({item.ColumnName.ToUpper()}) LIKE '%{item.Value.ToUpper()}%' AND ");
-            }
-
-            conditions = conditions.Remove(conditions.Length - 4, 3);
-            Console.WriteLine(conditions.ToString());
-            var dsStudenti = SqlDBHelper.ExecuteDataSet($"SELECT m.idmaterie, m.denumire, m.an, m.semestru, m.procentlaborator, m.procentcurs, " +
-                $"f.denumire || ' ' || f.programstudiu || ' ' || f.specializare as Facultate " +
-                $"FROM {_tableName} M, {_tableNameFaculty} F WHERE {conditions} AND M.IDFACULTATE = F.IDFACULTATE", CommandType.Text);
-
-
-            return dsStudenti;
-        }
-
-        public bool ValideazaExistenta(Materie materie)
-        {
-            var dsFacultate = SqlDBHelper.ExecuteDataSet(
-                $"SELECT * FROM {_tableName} WHERE Denumire = '{materie.Denumire}' AND An = '{materie.An}' AND Semestru = '{materie.Semestru}' AND " +
-                $"IdFacultate = {materie.IdFacultate}",
-                CommandType.Text);
-
-            return dsFacultate.Tables[PRIMUL_TABEL].Rows.Count > 0 ? true : false;
-        }
-
         public bool DeleteMaterie(int id)
         {
             return SqlDBHelper.ExecuteNonQuery(
                 $"DELETE FROM {_tableName} WHERE IdMaterie = :IdMaterie", CommandType.Text,
                 new OracleParameter(":IdMaterie", OracleDbType.Int32, id, ParameterDirection.Input));
         }
+
+        #endregion
+
+
+
+        #region Functii
+
+        public bool ValideazaExistenta(Materie materie)
+        {
+            var dsFacultate = SqlDBHelper.ExecuteDataSet(
+                $"SELECT * FROM {_tableName} WHERE Denumire = '{materie.Denumire}' AND An = '{materie.An}' AND Semestru = '{materie.Semestru}'", CommandType.Text);
+
+            return dsFacultate.Tables[PRIMUL_TABEL].Rows.Count > 0 ? true : false;
+        }
+
+        public List<Materie> GetMateriiSearch(List<SearchElement> searchElements)
+        {
+            return SearchDB<Materie>.GetSpecificElements(searchElements, _tableName);
+        }
+
+        #endregion
     }
 }

@@ -22,7 +22,9 @@ namespace LibrarieModele
                 if (control is TextBox)
                     ((TextBox)control).Text = String.Empty;
                 if (control is ComboBox)
+                {
                     ((ComboBox)control).SelectedIndex = -1;// modificat aici
+                }
             }
         }
 

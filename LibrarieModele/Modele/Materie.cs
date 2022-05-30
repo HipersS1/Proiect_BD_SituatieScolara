@@ -18,10 +18,7 @@ namespace LibrarieModele
         public int ProcentLaborator { get; set; }
         public int ProcentCurs { get; set; }
 
-        // FK
-        public int IdFacultate { get; set; }
-
-        public Materie(string denumire, int an, int semestru, int procentLaborator, int procentCurs, int idFacultate, int idMaterie = 0)
+        public Materie(string denumire, int an, int semestru, int procentLaborator, int procentCurs, int idMaterie = 0)
         {
             IdMaterie = idMaterie;
             Denumire = denumire ?? throw new ArgumentNullException(nameof(denumire));
@@ -29,7 +26,6 @@ namespace LibrarieModele
             Semestru = semestru;
             ProcentLaborator = procentLaborator;
             ProcentCurs = procentCurs;
-            IdFacultate = idFacultate;
         }
 
         public Materie(DataRow linieDB)
@@ -40,7 +36,6 @@ namespace LibrarieModele
             Semestru = Convert.ToInt32(linieDB["Semestru"]);
             ProcentLaborator = Convert.ToInt32(linieDB["ProcentLaborator"]);
             ProcentCurs = Convert.ToInt32(linieDB["ProcentCurs"]);
-            IdFacultate = Convert.ToInt32(linieDB["IdFacultate"]);
         }
 
         #region Equals
@@ -52,8 +47,7 @@ namespace LibrarieModele
                    An == materie.An &&
                    Semestru == materie.Semestru &&
                    ProcentLaborator == materie.ProcentLaborator &&
-                   ProcentCurs == materie.ProcentCurs &&
-                   IdFacultate == materie.IdFacultate;
+                   ProcentCurs == materie.ProcentCurs;
         }
 
         public override int GetHashCode()
@@ -65,7 +59,6 @@ namespace LibrarieModele
             hashCode = hashCode * -1521134295 + Semestru.GetHashCode();
             hashCode = hashCode * -1521134295 + ProcentLaborator.GetHashCode();
             hashCode = hashCode * -1521134295 + ProcentCurs.GetHashCode();
-            hashCode = hashCode * -1521134295 + IdFacultate.GetHashCode();
             return hashCode;
         }
 

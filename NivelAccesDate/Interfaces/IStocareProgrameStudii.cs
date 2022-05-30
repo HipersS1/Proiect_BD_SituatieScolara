@@ -15,7 +15,7 @@ namespace NivelAccesDate
         bool AddProgramStudiu(ProgramStudiu programStudiu);
         bool UpdateProgramStudiu(ProgramStudiu programStudiu);
         bool DeleteProgramStudiu(int id);
-        bool DeleteProgrameStudii();
-        bool ValideazaExisteanta(ProgramStudiu programStudiu);
+        bool DeleteProgrameStudii(int idFacultate);
+        bool ValideazaExistenta(ProgramStudiu programStudiu);
     }
 }

@@ -16,32 +16,51 @@ namespace Proiect_BD_SituatieScolara
     {
         private readonly IStocareStudenti stocareStudenti = (IStocareStudenti)new StocareFactory().GetTipStocare(typeof(Student));
         private readonly IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
+        private readonly IStocareProgrameStudii stocareProgrameStudii = (IStocareProgrameStudii)new StocareFactory().GetTipStocare(typeof(ProgramStudiu));
+        private readonly IStocareNote stocareNote = (IStocareNote)new StocareFactory().GetTipStocare(typeof(Note));
+        private readonly IStocareMaterii stocareMaterii = (IStocareMaterii)new StocareFactory().GetTipStocare(typeof(Materie));
+        private readonly IStocareProgramStudiuMaterie stocareMateriiProgramStudiu = (IStocareProgramStudiuMaterie)new StocareFactory().GetTipStocare(typeof(ProgramStudiuMaterie));
+
+
+
         private Student studentToBeModified;
-        private Facultate facultateStudent;
+        private readonly Facultate facultateStudent;
+        private readonly ProgramStudiu programStudiu;
+
         private bool itemModificat = false;
-        public FormModificareStudent(Student student)
+
+        public FormModificareStudent(Student student, Facultate facultate, ProgramStudiu program)
         {
             InitializeComponent();
+            if (stocareStudenti == null || stocareFacultati == null || stocareProgrameStudii == null || stocareNote == null)
+            {
+                MessageBox.Show("Eroare la initializare");
+            }
             studentToBeModified = student;
-            facultateStudent = stocareFacultati.GetFacultate(student.IdFacultate);
-
-            textBoxPrenume.Text = student.Prenume;
-            textBoxNume.Text = student.Nume;
-            textBoxEmail.Text = student.Email;
-            textBoxTelefon.Text = student.Telefon;
-
-            //IncarcareComboBox.IncarcaValoriNumerice(comboBoxAn, facultateStudent.Durata);
-            //StringBuilder sb = new StringBuilder();
-            //sb.AppendLine("Denumirea Facultatii");
-            //sb.AppendLine($"{facultateStudent.Denumire}");
-            //sb.Append($"{facultateStudent.ProgramStudiu} {facultateStudent.Specializare}");
-            //richTextBoxFacultate.Text = sb.ToString();
-
+            programStudiu = program;
+            facultateStudent = facultate;
         }
 
         private void FormModificareStudent_Load(object sender, EventArgs e)
         {
-            comboBoxAn.SelectedIndex = studentToBeModified.An - 1;
+            textBoxPrenume.Text = studentToBeModified.Prenume;
+            textBoxNume.Text = studentToBeModified.Nume;
+            textBoxEmail.Text = studentToBeModified.Email;
+            textBoxTelefon.Text = studentToBeModified.Telefon;
+
+            if (studentToBeModified.An + 1 <= programStudiu.Durata)
+            {
+                IncarcareComboBox.IncarcaValoriNumerice(comboBoxAn, studentToBeModified.An, studentToBeModified.An+1);
+            }
+            else
+                IncarcareComboBox.IncarcaValoriNumerice(comboBoxAn, studentToBeModified.An, studentToBeModified.An);
+            comboBoxAn.SelectedIndex = 0;
+
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Denumirea Facultatii");
+            sb.AppendLine($"{facultateStudent.Denumire}");
+            sb.Append($"Program de studiu: {programStudiu.Ciclu} {programStudiu.Specializare}");
+            richTextBoxFacultate.Text = sb.ToString();
         }
 
         #region Form Events
@@ -62,7 +81,7 @@ namespace Proiect_BD_SituatieScolara
                 Student student = ValideazaInformatii();
                 if (student == null)
                     return;
-
+                studentToBeModified = student;
 
                 if (stocareStudenti.ValideazaExistenta(student))
                 {
@@ -76,18 +95,40 @@ namespace Proiect_BD_SituatieScolara
                 {
                     MessageBox.Show("Studentul a fost modificat");
                     itemModificat = true;
+                    comboBoxAn.Items.Clear();
+                    IncarcareComboBox.IncarcaValoriNumerice(comboBoxAn, studentToBeModified.An, programStudiu.Durata);
+
+                    List<ProgramStudiuMaterie> listaMateriiProgramStudiu = stocareMateriiProgramStudiu.GetMateriiProgramStudiu(student.IdProgramStudiu);
+                    List<Materie> listaMaterii = stocareMaterii.GetMaterii();
+                    var materiiActualeStudent = stocareNote.GetNoteStudentList(student.IdStudent)
+                                                .Select(n => n.IdMaterie).ToList();
+
+                    var listaMateriiSpecificAnStudent = listaMaterii.Where(m => m.An <= student.An)
+                                                                    .Select(m => m.IdMaterie)
+                                                                    .ToList();
+
+                    for (int i = 0; i < listaMateriiProgramStudiu.Count; i++)
+                    {
+                        if (listaMateriiSpecificAnStudent.Contains(listaMateriiProgramStudiu[i].IdMaterie) 
+                            && !materiiActualeStudent.Contains(listaMateriiProgramStudiu[i].IdMaterie))
+                        {
+                            var materieAdaugata = stocareNote.AddNote(new Note(student.IdStudent, listaMateriiProgramStudiu[i].IdMaterie));
+
+                            if (materieAdaugata == false)
+                            {
+                                MessageBox.Show("A aparut o problema cu adaugarea materie la student");
+                                return;
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Studentul nu a fost modificat cu succes");
             }
-
         }
-
         #endregion
-
-
 
         #region PlaceHolders
 
@@ -147,6 +188,9 @@ namespace Proiect_BD_SituatieScolara
 
         #region Functii
 
+        /// <summary>
+        /// Validararea inputului
+        /// </summary>
         private Student ValideazaInformatii()
         {
             try
@@ -187,15 +231,21 @@ namespace Proiect_BD_SituatieScolara
                     labelAn.ForeColor = Color.Red;
                 }
 
+                var anStudent = Convert.ToInt32(comboBoxAn.SelectedItem.ToString());
+
+                if (anStudent != studentToBeModified.An && ValideazaNoteStudent() == false)
+                {
+                    mesajEroare.Append($"Toate materiile necesita absolvite pentru a modifica anul\n");
+                    comboBoxAn.SelectedIndex = 0;
+                }
+
                 if (!string.IsNullOrEmpty(mesajEroare.ToString()))
                 {
                     MessageBox.Show($"{mesajEroare}");
                     return null;
                 }
 
-                var anStudent = Convert.ToInt32(comboBoxAn.SelectedItem.ToString());
-
-                return new Student(numeValid.Text, prenumeValid.Text, emailValid.Text, telefonValid.Text, anStudent, studentToBeModified.IdFacultate, studentToBeModified.IdStudent);
+                return new Student(numeValid.Text, prenumeValid.Text, emailValid.Text, telefonValid.Text, anStudent, studentToBeModified.IdProgramStudiu, studentToBeModified.IdStudent);
             }
             catch (Exception)
             {
@@ -204,6 +254,18 @@ namespace Proiect_BD_SituatieScolara
 
             return null;
         }
+
+        /// <summary>
+        /// Verific daca toate notele studentului sunt >= 5
+        /// </summary>
+        private bool ValideazaNoteStudent()
+        {
+            var noteStudent = stocareNote.GetNoteStudentList(studentToBeModified.IdStudent);
+            var noteTrecute = noteStudent.Where(n => n.NotaFinala >= 5).ToList();
+
+            return noteTrecute.Count == noteStudent.Count ? true : false;
+        }
+
         #endregion
 
     }
