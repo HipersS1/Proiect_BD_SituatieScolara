@@ -80,7 +80,7 @@
             // 
             // panelCenter
             // 
-            this.panelCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.panelCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
             this.panelCenter.Controls.Add(this.pictureBoxUSVLogo);
             this.panelCenter.Controls.Add(this.btnMenuStudents);
             this.panelCenter.Controls.Add(this.btnMenuMaterii);
@@ -106,9 +106,9 @@
             // 
             // btnMenuStudents
             // 
-            this.btnMenuStudents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
+            this.btnMenuStudents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
             this.btnMenuStudents.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMenuStudents.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.btnMenuStudents.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
             this.btnMenuStudents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuStudents.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuStudents.Location = new System.Drawing.Point(0, 250);
@@ -122,9 +122,9 @@
             // 
             // btnMenuMaterii
             // 
-            this.btnMenuMaterii.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
+            this.btnMenuMaterii.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
             this.btnMenuMaterii.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMenuMaterii.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.btnMenuMaterii.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
             this.btnMenuMaterii.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuMaterii.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuMaterii.Location = new System.Drawing.Point(0, 165);
@@ -138,9 +138,9 @@
             // 
             // btnMenuUniversity
             // 
-            this.btnMenuUniversity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
+            this.btnMenuUniversity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
             this.btnMenuUniversity.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMenuUniversity.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.btnMenuUniversity.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
             this.btnMenuUniversity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuUniversity.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuUniversity.Location = new System.Drawing.Point(0, 80);
@@ -154,11 +154,11 @@
             // 
             // btnFake
             // 
-            this.btnFake.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
+            this.btnFake.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
             this.btnFake.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFake.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
-            this.btnFake.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
-            this.btnFake.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
+            this.btnFake.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
+            this.btnFake.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
+            this.btnFake.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
             this.btnFake.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFake.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFake.Location = new System.Drawing.Point(0, 0);
@@ -171,7 +171,7 @@
             // 
             // panelBottomMenu
             // 
-            this.panelBottomMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
+            this.panelBottomMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panelBottomMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelBottomMenu.Location = new System.Drawing.Point(300, 504);
             this.panelBottomMenu.Name = "panelBottomMenu";
@@ -180,7 +180,7 @@
             // 
             // panelUpMenu
             // 
-            this.panelUpMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
+            this.panelUpMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
             this.panelUpMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUpMenu.Location = new System.Drawing.Point(300, 0);
             this.panelUpMenu.Name = "panelUpMenu";
@@ -189,7 +189,7 @@
             // 
             // panelLeft
             // 
-            this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
+            this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
@@ -198,7 +198,7 @@
             // 
             // panelRight
             // 
-            this.panelRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
+            this.panelRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelRight.Location = new System.Drawing.Point(800, 0);
             this.panelRight.Name = "panelRight";
@@ -207,7 +207,7 @@
             // 
             // panelTop
             // 
-            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
             this.panelTop.Controls.Add(this.pictureBox2);
             this.panelTop.Controls.Add(this.pictureBox1);
             this.panelTop.Controls.Add(this.labelMenu);
@@ -288,9 +288,9 @@
         private System.Windows.Forms.Panel panelUpMenu;
         private System.Windows.Forms.Panel panelLeft;
         private System.Windows.Forms.Panel panelCenter;
-        private System.Windows.Forms.Panel panelBottomMenu;
         private System.Windows.Forms.Button btnFake;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panelBottomMenu;
     }
 }
 

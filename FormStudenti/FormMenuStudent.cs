@@ -17,6 +17,8 @@ namespace Proiect_BD_SituatieScolara
         private readonly IStocareStudenti stocareStudenti= (IStocareStudenti)new StocareFactory().GetTipStocare(typeof(Student));
         private readonly IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
         private readonly IStocareProgrameStudii stocareProgrameStudii = (IStocareProgrameStudii)new StocareFactory().GetTipStocare(typeof(ProgramStudiu));
+        private readonly IStocareNote stocareNote = (IStocareNote)new StocareFactory().GetTipStocare(typeof(Note));
+
         private const int PRIMA_COLOANA = 0;
         private List<Facultate> listaFacultati;
         private List<ProgramStudiu> listaProgrameStudii;
@@ -28,7 +30,7 @@ namespace Proiect_BD_SituatieScolara
             InitializeComponent();
             this.windowState = windowState;
 
-            if(stocareStudenti == null || stocareFacultati == null || stocareProgrameStudii == null)
+            if(stocareStudenti == null || stocareFacultati == null || stocareProgrameStudii == null || stocareNote == null)
             {
                 MessageBox.Show("Eroare la initializare");
             }
@@ -108,13 +110,19 @@ namespace Proiect_BD_SituatieScolara
             DialogResult dialogResult = MessageBox.Show("Esti sigur ca vrei sa elimini acest student?", "Mesaj de confirmare", MessageBoxButtons.YesNo);
             if (dialogResult != DialogResult.Yes)
                 return;
-            var result = stocareStudenti.DeleteStudent(student.IdStudent);
 
-            if (result == true)
+            var resultNote = stocareNote.DeleteNote(student.IdStudent);
+            if (resultNote)
             {
-                IncarcaStudenti();
-                MessageBox.Show($"Studentul: {student.Nume} - {student.Prenume} a fost sters cu succes");
+                var result = stocareStudenti.DeleteStudent(student.IdStudent);
+
+                if (result == true)
+                {
+                    IncarcaStudenti();
+                    MessageBox.Show($"Studentul: {student.Nume} - {student.Prenume} a fost sters cu succes");
+                }
             }
+
         }
 
         private void btnAdaugaNote_Click(object sender, EventArgs e)
@@ -351,6 +359,12 @@ namespace Proiect_BD_SituatieScolara
         {
             DataGridView dataGrid = (DataGridView)sender;
             dataGrid.CurrentCell = null;
+        }
+
+        private void dataGridView1_DataSourceChanged_1(object sender, EventArgs e)
+        {
+            labelNumarElemente.Text = $"Nr.Elemente: {dataGridView1.RowCount}";
+            dataGridView1.CurrentCell = null;
         }
     }
 }

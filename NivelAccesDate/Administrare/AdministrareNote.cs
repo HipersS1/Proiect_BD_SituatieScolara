@@ -65,11 +65,11 @@ namespace NivelAccesDate
         }
 
 
-        public List<Note> GetNote()
+        public List<Note> GetNoteStudentList(int idStudent)
         {
             var result = new List<Note>();
 
-            var dsNote = SqlDBHelper.ExecuteDataSet($"SELECT * FROM {_tableNameNote}", CommandType.Text);
+            var dsNote = SqlDBHelper.ExecuteDataSet($"SELECT * FROM {_tableNameNote} WHERE IdStudent = {idStudent}", CommandType.Text);
 
             foreach (DataRow linieDB in dsNote.Tables[PRIMUL_TABEL].Rows)
             {
@@ -84,6 +84,11 @@ namespace NivelAccesDate
             return SqlDBHelper.ExecuteDataSet($"SELECT m.idmaterie, m.denumire, m.an, m.semestru, m.procentlaborator, m.procentcurs, n.notalaborator, n.notacurs, n.notafinala " +
                    $"FROM {_tableNameNote} n, {_tableNameMaterii} m WHERE IdStudent = {idStudent} and n.idmaterie = m.idmaterie", CommandType.Text);
         }
-        
+
+        public bool DeleteNote(int idStudent)
+        {
+            return SqlDBHelper.ExecuteNonQuery(
+               $"DELETE FROM {_tableNameNote} WHERE IdStudent = {idStudent}", CommandType.Text);
+        }
     }
 }

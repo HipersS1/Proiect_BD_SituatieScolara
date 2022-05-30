@@ -166,6 +166,11 @@ namespace Proiect_BD_SituatieScolara
             return (int)f;
         }
 
+        private void dataGridView1_DataSourceChanged_1(object sender, EventArgs e)
+        {
+            labelNumarElemente.Text = $"Nr.Elemente: {dataGridView1.RowCount}";
+            dataGridView1.CurrentCell = null;
 
+        }
     }
 }

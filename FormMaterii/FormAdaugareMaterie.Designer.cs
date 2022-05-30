@@ -95,6 +95,7 @@
             // 
             // panelInputs
             // 
+            this.panelInputs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panelInputs.Controls.Add(this.buttonClearSearch);
             this.panelInputs.Controls.Add(this.comboBoxAn);
             this.panelInputs.Controls.Add(this.label1);
@@ -295,6 +296,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(463, 0);
             this.panel3.Name = "panel3";
@@ -303,6 +305,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -321,9 +324,10 @@
             // 
             // labelFormularAdaugare
             // 
+            this.labelFormularAdaugare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
             this.labelFormularAdaugare.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelFormularAdaugare.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelFormularAdaugare.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFormularAdaugare.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFormularAdaugare.Location = new System.Drawing.Point(0, 0);
             this.labelFormularAdaugare.Name = "labelFormularAdaugare";
             this.labelFormularAdaugare.Size = new System.Drawing.Size(535, 86);

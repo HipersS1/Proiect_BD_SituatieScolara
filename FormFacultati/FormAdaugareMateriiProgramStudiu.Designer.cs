@@ -32,11 +32,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdaugareMateriiProgramStudiu));
             this.panelForm = new System.Windows.Forms.Panel();
             this.panelCenter = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelInputs = new System.Windows.Forms.Panel();
+            this.labelNrMateriiCurente = new System.Windows.Forms.Label();
+            this.labelNrMateriiTotal = new System.Windows.Forms.Label();
+            this.buttonElimina = new System.Windows.Forms.Button();
             this.labelFacultateProgram = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.labelMaterii = new System.Windows.Forms.Label();
@@ -50,9 +55,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
             this.labelFormularAdaugareMaterii = new System.Windows.Forms.Label();
-            this.buttonElimina = new System.Windows.Forms.Button();
-            this.labelNrMateriiTotal = new System.Windows.Forms.Label();
-            this.labelNrMateriiCurente = new System.Windows.Forms.Label();
             this.panelForm.SuspendLayout();
             this.panelCenter.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -100,6 +102,7 @@
             // 
             // panelInputs
             // 
+            this.panelInputs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panelInputs.Controls.Add(this.labelNrMateriiCurente);
             this.panelInputs.Controls.Add(this.labelNrMateriiTotal);
             this.panelInputs.Controls.Add(this.buttonElimina);
@@ -116,9 +119,43 @@
             this.panelInputs.Size = new System.Drawing.Size(917, 557);
             this.panelInputs.TabIndex = 17;
             // 
+            // labelNrMateriiCurente
+            // 
+            this.labelNrMateriiCurente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelNrMateriiCurente.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNrMateriiCurente.Location = new System.Drawing.Point(6, 523);
+            this.labelNrMateriiCurente.Name = "labelNrMateriiCurente";
+            this.labelNrMateriiCurente.Size = new System.Drawing.Size(213, 25);
+            this.labelNrMateriiCurente.TabIndex = 19;
+            this.labelNrMateriiCurente.Text = "aa";
+            this.labelNrMateriiCurente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelNrMateriiTotal
+            // 
+            this.labelNrMateriiTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelNrMateriiTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNrMateriiTotal.Location = new System.Drawing.Point(234, 523);
+            this.labelNrMateriiTotal.Name = "labelNrMateriiTotal";
+            this.labelNrMateriiTotal.Size = new System.Drawing.Size(222, 25);
+            this.labelNrMateriiTotal.TabIndex = 18;
+            this.labelNrMateriiTotal.Text = "aa";
+            this.labelNrMateriiTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // buttonElimina
+            // 
+            this.buttonElimina.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonElimina.Location = new System.Drawing.Point(618, 516);
+            this.buttonElimina.Name = "buttonElimina";
+            this.buttonElimina.Size = new System.Drawing.Size(144, 38);
+            this.buttonElimina.TabIndex = 1;
+            this.buttonElimina.Text = "Elimina";
+            this.buttonElimina.UseVisualStyleBackColor = true;
+            this.buttonElimina.Click += new System.EventHandler(this.buttonElimina_Click);
+            // 
             // labelFacultateProgram
             // 
-            this.labelFacultateProgram.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFacultateProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
+            this.labelFacultateProgram.Font = new System.Drawing.Font("Segoe UI Semibold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFacultateProgram.Location = new System.Drawing.Point(6, 8);
             this.labelFacultateProgram.Name = "labelFacultateProgram";
             this.labelFacultateProgram.Size = new System.Drawing.Size(906, 80);
@@ -136,7 +173,7 @@
             // labelMaterii
             // 
             this.labelMaterii.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelMaterii.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMaterii.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMaterii.Location = new System.Drawing.Point(0, 0);
             this.labelMaterii.Name = "labelMaterii";
             this.labelMaterii.Size = new System.Drawing.Size(450, 51);
@@ -155,7 +192,7 @@
             // labelMateriiCurente
             // 
             this.labelMateriiCurente.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelMateriiCurente.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMateriiCurente.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMateriiCurente.Location = new System.Drawing.Point(0, 0);
             this.labelMateriiCurente.Name = "labelMateriiCurente";
             this.labelMateriiCurente.Size = new System.Drawing.Size(450, 51);
@@ -170,21 +207,30 @@
             this.dataGridViewMaterii.AllowUserToResizeColumns = false;
             this.dataGridViewMaterii.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
             this.dataGridViewMaterii.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewMaterii.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewMaterii.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewMaterii.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.dataGridViewMaterii.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
             this.dataGridViewMaterii.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewMaterii.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMaterii.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewMaterii.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewMaterii.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewMaterii.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewMaterii.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewMaterii.Location = new System.Drawing.Point(462, 148);
             this.dataGridViewMaterii.Name = "dataGridViewMaterii";
             this.dataGridViewMaterii.RowHeadersVisible = false;
@@ -202,22 +248,31 @@
             this.dataGridViewMateriiCurente.AllowUserToDeleteRows = false;
             this.dataGridViewMateriiCurente.AllowUserToResizeColumns = false;
             this.dataGridViewMateriiCurente.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightGray;
-            this.dataGridViewMateriiCurente.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
+            this.dataGridViewMateriiCurente.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewMateriiCurente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewMateriiCurente.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewMateriiCurente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.dataGridViewMateriiCurente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
             this.dataGridViewMateriiCurente.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewMateriiCurente.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewMateriiCurente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewMateriiCurente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewMateriiCurente.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewMateriiCurente.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewMateriiCurente.Location = new System.Drawing.Point(6, 148);
             this.dataGridViewMateriiCurente.Name = "dataGridViewMateriiCurente";
             this.dataGridViewMateriiCurente.RowHeadersVisible = false;
@@ -231,28 +286,29 @@
             // 
             // btnAnuleaza
             // 
-            this.btnAnuleaza.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnuleaza.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnuleaza.Location = new System.Drawing.Point(768, 516);
             this.btnAnuleaza.Name = "btnAnuleaza";
             this.btnAnuleaza.Size = new System.Drawing.Size(144, 38);
-            this.btnAnuleaza.TabIndex = 5;
+            this.btnAnuleaza.TabIndex = 2;
             this.btnAnuleaza.Text = "Anuleaza";
             this.btnAnuleaza.UseVisualStyleBackColor = true;
             this.btnAnuleaza.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnTrimite
             // 
-            this.btnTrimite.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTrimite.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrimite.Location = new System.Drawing.Point(462, 516);
             this.btnTrimite.Name = "btnTrimite";
             this.btnTrimite.Size = new System.Drawing.Size(144, 38);
-            this.btnTrimite.TabIndex = 4;
+            this.btnTrimite.TabIndex = 0;
             this.btnTrimite.Text = "Adauga";
             this.btnTrimite.UseVisualStyleBackColor = true;
             this.btnTrimite.Click += new System.EventHandler(this.btnTrimite_Click);
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(989, 0);
             this.panel3.Name = "panel3";
@@ -261,6 +317,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -279,48 +336,16 @@
             // 
             // labelFormularAdaugareMaterii
             // 
+            this.labelFormularAdaugareMaterii.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
             this.labelFormularAdaugareMaterii.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelFormularAdaugareMaterii.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelFormularAdaugareMaterii.Font = new System.Drawing.Font("Calibri", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFormularAdaugareMaterii.Font = new System.Drawing.Font("Segoe UI Black", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFormularAdaugareMaterii.Location = new System.Drawing.Point(0, 0);
             this.labelFormularAdaugareMaterii.Name = "labelFormularAdaugareMaterii";
             this.labelFormularAdaugareMaterii.Size = new System.Drawing.Size(1061, 76);
             this.labelFormularAdaugareMaterii.TabIndex = 1;
             this.labelFormularAdaugareMaterii.Text = "Formular Adaugare Materii";
             this.labelFormularAdaugareMaterii.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // buttonElimina
-            // 
-            this.buttonElimina.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonElimina.Location = new System.Drawing.Point(618, 516);
-            this.buttonElimina.Name = "buttonElimina";
-            this.buttonElimina.Size = new System.Drawing.Size(144, 38);
-            this.buttonElimina.TabIndex = 15;
-            this.buttonElimina.Text = "Elimina";
-            this.buttonElimina.UseVisualStyleBackColor = true;
-            this.buttonElimina.Click += new System.EventHandler(this.buttonElimina_Click);
-            // 
-            // labelNrMateriiTotal
-            // 
-            this.labelNrMateriiTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelNrMateriiTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNrMateriiTotal.Location = new System.Drawing.Point(234, 523);
-            this.labelNrMateriiTotal.Name = "labelNrMateriiTotal";
-            this.labelNrMateriiTotal.Size = new System.Drawing.Size(222, 25);
-            this.labelNrMateriiTotal.TabIndex = 18;
-            this.labelNrMateriiTotal.Text = "aa";
-            this.labelNrMateriiTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // labelNrMateriiCurente
-            // 
-            this.labelNrMateriiCurente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelNrMateriiCurente.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNrMateriiCurente.Location = new System.Drawing.Point(6, 523);
-            this.labelNrMateriiCurente.Name = "labelNrMateriiCurente";
-            this.labelNrMateriiCurente.Size = new System.Drawing.Size(213, 25);
-            this.labelNrMateriiCurente.TabIndex = 19;
-            this.labelNrMateriiCurente.Text = "aa";
-            this.labelNrMateriiCurente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FormAdaugareMateriiProgramStudiu
             // 

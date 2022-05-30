@@ -61,6 +61,30 @@ namespace LibrarieModele
             }
         }
 
+        public static void AfisareMateriiDataSet(DataGridView dataGridView, DataSet materii)
+        {
+            try
+            {
+                if (materii != null)
+                {
+                    dataGridView.DataSource = materii.Tables[0];
+
+                    dataGridView.Columns["IDMATERIE"].Visible = false;
+                    dataGridView.Columns["DENUMIRE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    dataGridView.Columns["DENUMIRE"].HeaderText = "Denumire";
+                    dataGridView.Columns["DENUMIRE"].Width = 200;
+                    dataGridView.Columns["AN"].HeaderText = "An";
+                    dataGridView.Columns["SEMESTRU"].HeaderText = "Semestru";
+                    dataGridView.Columns["PROCENTLABORATOR"].HeaderText = "Procent Laborator";
+                    dataGridView.Columns["PROCENTCURS"].HeaderText = "Procent curs";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
         public static void AfisareMateriiProgramStudiu(DataGridView dataGridView, DataSet materiiProgramStudiu)
         {
             try
@@ -70,8 +94,9 @@ namespace LibrarieModele
                     dataGridView.DataSource = materiiProgramStudiu.Tables[0];
 
                     dataGridView.Columns["IdMaterie"].Visible = false;
-
-                    dataGridView.Columns["Denumire"].HeaderText = "Materia";
+                    dataGridView.Columns["DENUMIRE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    dataGridView.Columns["DENUMIRE"].HeaderText = "Denumire";
+                    dataGridView.Columns["DENUMIRE"].Width = 200;
                     dataGridView.Columns["An"].HeaderText = "An";
                     dataGridView.Columns["Semestru"].HeaderText = "Semestru";
                     dataGridView.Columns["ProcentLaborator"].HeaderText = "Procent laborator (%)";
@@ -155,7 +180,9 @@ namespace LibrarieModele
                                                      .ToList();
 
                     dataGridView.Columns["IdMaterie"].Visible = false;
-                    dataGridView.Columns["Denumire"].HeaderText = "Materia";
+                    dataGridView.Columns["DENUMIRE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    dataGridView.Columns["DENUMIRE"].HeaderText = "Denumire";
+                    dataGridView.Columns["DENUMIRE"].Width = 200;
                     dataGridView.Columns["An"].HeaderText = "An";
                     dataGridView.Columns["Semestru"].HeaderText = "Semestru";
                     dataGridView.Columns["ProcentLaborator"].HeaderText = "Procent laborator (%)";
@@ -168,27 +195,7 @@ namespace LibrarieModele
             }
         }
 
-        public static void AfisareMateriiDataSet(DataGridView dataGridView, DataSet materii)
-        {
-            try
-            {
-                if (materii != null)
-                {
-                    dataGridView.DataSource = materii.Tables[0];
-
-                    dataGridView.Columns["IDMATERIE"].Visible = false;
-                    dataGridView.Columns["DENUMIRE"].HeaderText = "Denumire";
-                    dataGridView.Columns["AN"].HeaderText = "An";
-                    dataGridView.Columns["SEMESTRU"].HeaderText = "Semestru";
-                    dataGridView.Columns["PROCENTLABORATOR"].HeaderText = "Procent Laborator";
-                    dataGridView.Columns["PROCENTCURS"].HeaderText = "Procent curs";
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
-        }
+        
 
 
         public static void AfisareDataSetMateriiNote(DataGridView dataGridView, DataSet materiiNote)

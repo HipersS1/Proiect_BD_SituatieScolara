@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenuMaterii));
             this.panelForm = new System.Windows.Forms.Panel();
             this.panelCenter = new System.Windows.Forms.Panel();
             this.panelDelimiterBottom = new System.Windows.Forms.Panel();
             this.panelDelimiterTop = new System.Windows.Forms.Panel();
             this.panelDelimiterCenter = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonClearSearch = new System.Windows.Forms.Button();
             this.btnCauta = new System.Windows.Forms.Button();
             this.comboBoxSemestru = new System.Windows.Forms.ComboBox();
@@ -43,7 +46,6 @@
             this.labelAn = new System.Windows.Forms.Label();
             this.textBoxDenumire = new System.Windows.Forms.TextBox();
             this.labelDenumire = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panelDelimiterRight = new System.Windows.Forms.Panel();
             this.panelDelimiterLeft = new System.Windows.Forms.Panel();
             this.panelLeft = new System.Windows.Forms.Panel();
@@ -55,6 +57,7 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.labelMenuSubjects = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelNumarElemente = new System.Windows.Forms.Label();
             this.panelForm.SuspendLayout();
             this.panelCenter.SuspendLayout();
             this.panelDelimiterCenter.SuspendLayout();
@@ -92,6 +95,7 @@
             // 
             // panelDelimiterBottom
             // 
+            this.panelDelimiterBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panelDelimiterBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelDelimiterBottom.Location = new System.Drawing.Point(44, 508);
             this.panelDelimiterBottom.Name = "panelDelimiterBottom";
@@ -100,6 +104,7 @@
             // 
             // panelDelimiterTop
             // 
+            this.panelDelimiterTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panelDelimiterTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDelimiterTop.Location = new System.Drawing.Point(44, 0);
             this.panelDelimiterTop.Name = "panelDelimiterTop";
@@ -108,7 +113,9 @@
             // 
             // panelDelimiterCenter
             // 
-            this.panelDelimiterCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.panelDelimiterCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
+            this.panelDelimiterCenter.Controls.Add(this.labelNumarElemente);
+            this.panelDelimiterCenter.Controls.Add(this.dataGridView1);
             this.panelDelimiterCenter.Controls.Add(this.buttonClearSearch);
             this.panelDelimiterCenter.Controls.Add(this.btnCauta);
             this.panelDelimiterCenter.Controls.Add(this.comboBoxSemestru);
@@ -117,13 +124,58 @@
             this.panelDelimiterCenter.Controls.Add(this.labelAn);
             this.panelDelimiterCenter.Controls.Add(this.textBoxDenumire);
             this.panelDelimiterCenter.Controls.Add(this.labelDenumire);
-            this.panelDelimiterCenter.Controls.Add(this.dataGridView1);
             this.panelDelimiterCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDelimiterCenter.Location = new System.Drawing.Point(44, 0);
             this.panelDelimiterCenter.Name = "panelDelimiterCenter";
             this.panelDelimiterCenter.Padding = new System.Windows.Forms.Padding(10, 11, 10, 11);
             this.panelDelimiterCenter.Size = new System.Drawing.Size(881, 524);
             this.panelDelimiterCenter.TabIndex = 2;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.Location = new System.Drawing.Point(13, 123);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(854, 361);
+            this.dataGridView1.TabIndex = 10;
+            this.dataGridView1.TabStop = false;
+            this.dataGridView1.DataSourceChanged += new System.EventHandler(this.dataGridView1_DataSourceChanged);
             // 
             // buttonClearSearch
             // 
@@ -213,40 +265,9 @@
             this.labelDenumire.TabIndex = 1;
             this.labelDenumire.Text = "Denumire";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 123);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(853, 363);
-            this.dataGridView1.TabIndex = 7;
-            this.dataGridView1.TabStop = false;
-            // 
             // panelDelimiterRight
             // 
+            this.panelDelimiterRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panelDelimiterRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelDelimiterRight.Location = new System.Drawing.Point(925, 0);
             this.panelDelimiterRight.Name = "panelDelimiterRight";
@@ -255,6 +276,7 @@
             // 
             // panelDelimiterLeft
             // 
+            this.panelDelimiterLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panelDelimiterLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelDelimiterLeft.Location = new System.Drawing.Point(0, 0);
             this.panelDelimiterLeft.Name = "panelDelimiterLeft";
@@ -263,7 +285,7 @@
             // 
             // panelLeft
             // 
-            this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
             this.panelLeft.Controls.Add(this.btnReturn);
             this.panelLeft.Controls.Add(this.btnEliminaMaterie);
             this.panelLeft.Controls.Add(this.pictureBoxUSVLogo);
@@ -272,21 +294,21 @@
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 86);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.panelLeft.Padding = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.panelLeft.Size = new System.Drawing.Size(131, 524);
             this.panelLeft.TabIndex = 1;
             // 
             // btnReturn
             // 
-            this.btnReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
+            this.btnReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReturn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.btnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
             this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReturn.Font = new System.Drawing.Font("Wingdings 3", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.btnReturn.Location = new System.Drawing.Point(0, 392);
+            this.btnReturn.Location = new System.Drawing.Point(3, 392);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(131, 73);
+            this.btnReturn.Size = new System.Drawing.Size(125, 73);
             this.btnReturn.TabIndex = 3;
             this.btnReturn.Text = "O";
             this.btnReturn.UseVisualStyleBackColor = false;
@@ -294,15 +316,15 @@
             // 
             // btnEliminaMaterie
             // 
-            this.btnEliminaMaterie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
+            this.btnEliminaMaterie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
             this.btnEliminaMaterie.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminaMaterie.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEliminaMaterie.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.btnEliminaMaterie.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
             this.btnEliminaMaterie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminaMaterie.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminaMaterie.Location = new System.Drawing.Point(0, 161);
+            this.btnEliminaMaterie.Location = new System.Drawing.Point(3, 161);
             this.btnEliminaMaterie.Name = "btnEliminaMaterie";
-            this.btnEliminaMaterie.Size = new System.Drawing.Size(131, 73);
+            this.btnEliminaMaterie.Size = new System.Drawing.Size(125, 73);
             this.btnEliminaMaterie.TabIndex = 2;
             this.btnEliminaMaterie.Text = "Elimina";
             this.btnEliminaMaterie.UseVisualStyleBackColor = false;
@@ -313,24 +335,24 @@
             this.pictureBoxUSVLogo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pictureBoxUSVLogo.Image = global::Proiect_BD_SituatieScolara.Properties.Resources._640px_Ștefan_cel_Mare_University_of_Suceava_logo_svg;
             this.pictureBoxUSVLogo.InitialImage = global::Proiect_BD_SituatieScolara.Properties.Resources.universitatea_suceava_usv_968x460;
-            this.pictureBoxUSVLogo.Location = new System.Drawing.Point(0, 465);
+            this.pictureBoxUSVLogo.Location = new System.Drawing.Point(3, 465);
             this.pictureBoxUSVLogo.Name = "pictureBoxUSVLogo";
-            this.pictureBoxUSVLogo.Size = new System.Drawing.Size(131, 59);
+            this.pictureBoxUSVLogo.Size = new System.Drawing.Size(125, 59);
             this.pictureBoxUSVLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxUSVLogo.TabIndex = 0;
             this.pictureBoxUSVLogo.TabStop = false;
             // 
             // btnModificaMaterie
             // 
-            this.btnModificaMaterie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
+            this.btnModificaMaterie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
             this.btnModificaMaterie.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModificaMaterie.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnModificaMaterie.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.btnModificaMaterie.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
             this.btnModificaMaterie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificaMaterie.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificaMaterie.Location = new System.Drawing.Point(0, 88);
+            this.btnModificaMaterie.Location = new System.Drawing.Point(3, 88);
             this.btnModificaMaterie.Name = "btnModificaMaterie";
-            this.btnModificaMaterie.Size = new System.Drawing.Size(131, 73);
+            this.btnModificaMaterie.Size = new System.Drawing.Size(125, 73);
             this.btnModificaMaterie.TabIndex = 1;
             this.btnModificaMaterie.Text = "Modifica";
             this.btnModificaMaterie.UseVisualStyleBackColor = false;
@@ -338,15 +360,15 @@
             // 
             // btnAdaguaMaterie
             // 
-            this.btnAdaguaMaterie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(183)))), ((int)(((byte)(160)))));
+            this.btnAdaguaMaterie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
             this.btnAdaguaMaterie.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdaguaMaterie.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAdaguaMaterie.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.btnAdaguaMaterie.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
             this.btnAdaguaMaterie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdaguaMaterie.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdaguaMaterie.Location = new System.Drawing.Point(0, 15);
+            this.btnAdaguaMaterie.Location = new System.Drawing.Point(3, 15);
             this.btnAdaguaMaterie.Name = "btnAdaguaMaterie";
-            this.btnAdaguaMaterie.Size = new System.Drawing.Size(131, 73);
+            this.btnAdaguaMaterie.Size = new System.Drawing.Size(125, 73);
             this.btnAdaguaMaterie.TabIndex = 0;
             this.btnAdaguaMaterie.Text = "Adauga";
             this.btnAdaguaMaterie.UseVisualStyleBackColor = false;
@@ -354,7 +376,7 @@
             // 
             // panelTop
             // 
-            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(205)))), ((int)(((byte)(187)))));
+            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
             this.panelTop.Controls.Add(this.labelMenuSubjects);
             this.panelTop.Controls.Add(this.pictureBox1);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -365,6 +387,7 @@
             // 
             // labelMenuSubjects
             // 
+            this.labelMenuSubjects.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
             this.labelMenuSubjects.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelMenuSubjects.Font = new System.Drawing.Font("Segoe UI Black", 19.8F, System.Drawing.FontStyle.Bold);
             this.labelMenuSubjects.Location = new System.Drawing.Point(131, 0);
@@ -384,6 +407,18 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // labelNumarElemente
+            // 
+            this.labelNumarElemente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelNumarElemente.AutoSize = true;
+            this.labelNumarElemente.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNumarElemente.Location = new System.Drawing.Point(755, 487);
+            this.labelNumarElemente.Name = "labelNumarElemente";
+            this.labelNumarElemente.Size = new System.Drawing.Size(112, 25);
+            this.labelNumarElemente.TabIndex = 18;
+            this.labelNumarElemente.Text = "nr.elemente";
+            this.labelNumarElemente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FormMenuMaterii
             // 
@@ -427,7 +462,6 @@
         private System.Windows.Forms.Panel panelDelimiterRight;
         private System.Windows.Forms.Panel panelDelimiterBottom;
         private System.Windows.Forms.Panel panelDelimiterTop;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label labelAn;
         private System.Windows.Forms.TextBox textBoxDenumire;
         private System.Windows.Forms.Label labelDenumire;
@@ -439,6 +473,8 @@
         private System.Windows.Forms.ComboBox comboBoxSemestru;
         private System.Windows.Forms.Button buttonClearSearch;
         private System.Windows.Forms.Button btnCauta;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label labelNumarElemente;
     }
 }
 

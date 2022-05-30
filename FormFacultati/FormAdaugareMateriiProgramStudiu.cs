@@ -104,7 +104,8 @@ namespace Proiect_BD_SituatieScolara
             }
             materiiBD = stocareMateriiProgramStudiu.GetDetaliiMateriiProgramStudiuDiferite(programStudiuCurent.IdProgramStudiu);
             dataGridViewMaterii.DataSource = null;
-            IncarcareDataGridView.AfisareMateriiDataSet(dataGridViewMaterii, materiiBD);
+            //IncarcareDataGridView.AfisareMateriiDataSet(dataGridViewMaterii, materiiBD);
+            IncarcareDataGridView.AfisareMateriiProgramStudiu(dataGridViewMaterii, materiiBD);
             materiiProgramStudiuCurent = stocareMateriiProgramStudiu.GetDetaliiMateriiProgramStudiu(programStudiuCurent.IdProgramStudiu);
             IncarcareDataGridView.AfisareMateriiProgramStudiu(dataGridViewMateriiCurente, materiiProgramStudiuCurent);
             dataGridViewMateriiCurente.CurrentCell = null;
@@ -191,11 +192,14 @@ namespace Proiect_BD_SituatieScolara
         private void dataGridViewMateriiCurente_DataSourceChanged(object sender, EventArgs e)
         {
             labelNrMateriiCurente.Text = $"Nr.Materii Curente:{dataGridViewMateriiCurente.RowCount}";
+            dataGridViewMateriiCurente.CurrentCell = null;
         }
 
         private void dataGridViewMaterii_DataSourceChanged(object sender, EventArgs e)
         {
             labelNrMateriiTotal.Text = $"Disponibile:{dataGridViewMaterii.RowCount}";
+            dataGridViewMaterii.CurrentCell = null;
+
         }
     }
 }

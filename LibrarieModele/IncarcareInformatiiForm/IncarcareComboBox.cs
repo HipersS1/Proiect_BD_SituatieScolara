@@ -176,7 +176,20 @@ namespace LibrarieModele
             }
         }
 
-       
+        public static void IncarcaValoriNumerice(ComboBox comboBox, int min, int maxim)
+        {
+            if (maxim <= 0)
+            {
+                return;
+            }
+
+            for (int i = min; i <= maxim; i++)
+            {
+                comboBox.Items.Add(i);
+            }
+        }
+
+
 
         #endregion
 

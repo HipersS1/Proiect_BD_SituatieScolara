@@ -34,9 +34,29 @@ namespace LibrarieModele
 
         public Note(DataRow linieDB)
         {
-            NotaLaborator = Convert.ToInt32(linieDB["NotaLaborator"]);
-            NotaCurs = Convert.ToInt32(linieDB["NotaCurs"]);
-            NotaFinala = Convert.ToInt32(linieDB["NotaFinala"]);
+            decimal nL, nC;
+
+            if (linieDB["NotaLaborator"] == DBNull.Value)
+            {
+                NotaLaborator = -1;
+            }
+            else
+                NotaLaborator = Convert.ToDecimal(linieDB["NotaLaborator"]);
+
+            if (linieDB["NotaCurs"] == DBNull.Value)
+            {
+                NotaCurs = -1;
+            }
+            else
+                NotaCurs = Convert.ToDecimal(linieDB["NotaCurs"]);
+
+            if (linieDB["NotaFinala"] == DBNull.Value)
+            {
+                NotaFinala = -1;
+            }
+            else
+                NotaFinala = Convert.ToInt32(linieDB["NotaFinala"]);
+
             IdStudent = Convert.ToInt32(linieDB["IdStudent"]);
             IdMaterie = Convert.ToInt32(linieDB["IdMaterie"]);
         }

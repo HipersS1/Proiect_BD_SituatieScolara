@@ -93,6 +93,7 @@
             // 
             // panelInputs
             // 
+            this.panelInputs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panelInputs.Controls.Add(this.richTextBoxFacultate);
             this.panelInputs.Controls.Add(this.labelPrenume);
             this.panelInputs.Controls.Add(this.labelNume);
@@ -114,7 +115,7 @@
             // 
             // richTextBoxFacultate
             // 
-            this.richTextBoxFacultate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(237)))), ((int)(((byte)(219)))));
+            this.richTextBoxFacultate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.richTextBoxFacultate.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxFacultate.Location = new System.Drawing.Point(15, 6);
             this.richTextBoxFacultate.Name = "richTextBoxFacultate";
@@ -247,6 +248,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(439, 0);
             this.panel3.Name = "panel3";
@@ -255,6 +257,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -273,6 +276,7 @@
             // 
             // labelFormularModificare
             // 
+            this.labelFormularModificare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
             this.labelFormularModificare.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelFormularModificare.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelFormularModificare.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
