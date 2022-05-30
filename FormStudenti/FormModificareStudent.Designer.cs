@@ -161,7 +161,7 @@
             this.btnAnuleaza.Name = "btnAnuleaza";
             this.btnAnuleaza.Size = new System.Drawing.Size(158, 43);
             this.btnAnuleaza.TabIndex = 7;
-            this.btnAnuleaza.Text = "Anuleaza";
+            this.btnAnuleaza.Text = "Inchide";
             this.btnAnuleaza.UseVisualStyleBackColor = true;
             this.btnAnuleaza.Click += new System.EventHandler(this.btnCancel_Click);
             // 

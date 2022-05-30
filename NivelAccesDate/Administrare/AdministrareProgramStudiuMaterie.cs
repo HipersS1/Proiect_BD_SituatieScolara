@@ -34,6 +34,12 @@ namespace NivelAccesDate
                 new OracleParameter(":IdMaterie", OracleDbType.Int32, programStudiu.IdMaterie, ParameterDirection.Input)
                 );
         }
+        public bool DeleteAllProgramMaterii(int idProgramStudiu)
+        {
+            return SqlDBHelper.ExecuteNonQuery(
+                $"DELETE FROM {_tableName} where IdProgramStudiu = :IdProgramStudiu", CommandType.Text,
+                new OracleParameter(":IdProgramStudiu", OracleDbType.Int32, idProgramStudiu, ParameterDirection.Input));
+        }
 
         public List<ProgramStudiuMaterie> GetMateriiProgramStudiu(int idProgramStudiu)
         {
@@ -80,5 +86,7 @@ namespace NivelAccesDate
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }

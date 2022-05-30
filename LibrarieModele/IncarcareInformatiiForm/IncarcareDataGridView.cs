@@ -61,31 +61,9 @@ namespace LibrarieModele
             }
         }
 
-        public static void AfisareMateriiDataSet(DataGridView dataGridView, DataSet materii)
-        {
-            try
-            {
-                if (materii != null)
-                {
-                    dataGridView.DataSource = materii.Tables[0];
+        
 
-                    dataGridView.Columns["IDMATERIE"].Visible = false;
-                    dataGridView.Columns["DENUMIRE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                    dataGridView.Columns["DENUMIRE"].HeaderText = "Denumire";
-                    dataGridView.Columns["DENUMIRE"].Width = 200;
-                    dataGridView.Columns["AN"].HeaderText = "An";
-                    dataGridView.Columns["SEMESTRU"].HeaderText = "Semestru";
-                    dataGridView.Columns["PROCENTLABORATOR"].HeaderText = "Procent Laborator";
-                    dataGridView.Columns["PROCENTCURS"].HeaderText = "Procent curs";
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
-        }
-
-        public static void AfisareMateriiProgramStudiu(DataGridView dataGridView, DataSet materiiProgramStudiu)
+        public static void AfisareMateriiProgramStudiu(DataGridView dataGridView, DataSet materiiProgramStudiu, int widthDenumire)
         {
             try
             {
@@ -96,11 +74,11 @@ namespace LibrarieModele
                     dataGridView.Columns["IdMaterie"].Visible = false;
                     dataGridView.Columns["DENUMIRE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
                     dataGridView.Columns["DENUMIRE"].HeaderText = "Denumire";
-                    dataGridView.Columns["DENUMIRE"].Width = 200;
+                    dataGridView.Columns["DENUMIRE"].Width = widthDenumire;
                     dataGridView.Columns["An"].HeaderText = "An";
                     dataGridView.Columns["Semestru"].HeaderText = "Semestru";
-                    dataGridView.Columns["ProcentLaborator"].HeaderText = "Procent laborator (%)";
-                    dataGridView.Columns["ProcentCurs"].HeaderText = "Procent curs (%)";
+                    dataGridView.Columns["ProcentLaborator"].HeaderText = "Procent laborator";
+                    dataGridView.Columns["ProcentCurs"].HeaderText = "Procent curs";
                 }
             }
             catch (Exception ex)
@@ -150,8 +128,6 @@ namespace LibrarieModele
                     dataGridView.Columns["Student"].HeaderText = "Student";
                     dataGridView.Columns["EMAIL"].HeaderText = "Email";
 
-                    dataGridView.Columns["TELEFON"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                    dataGridView.Columns["TELEFON"].Width = 68;
                     dataGridView.Columns["TELEFON"].HeaderText = "Telefon";
 
                     dataGridView.Columns["FACULTATE"].HeaderText = "Facultate";
@@ -168,7 +144,7 @@ namespace LibrarieModele
             }
         }
 
-        public static void AfisareMaterii(DataGridView dataGridView, List<Materie> materii)
+        public static void AfisareMaterii(DataGridView dataGridView, List<Materie> materii, int widthNume)
         {
             try
             {
@@ -182,11 +158,11 @@ namespace LibrarieModele
                     dataGridView.Columns["IdMaterie"].Visible = false;
                     dataGridView.Columns["DENUMIRE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
                     dataGridView.Columns["DENUMIRE"].HeaderText = "Denumire";
-                    dataGridView.Columns["DENUMIRE"].Width = 200;
+                    dataGridView.Columns["DENUMIRE"].Width = widthNume;
                     dataGridView.Columns["An"].HeaderText = "An";
                     dataGridView.Columns["Semestru"].HeaderText = "Semestru";
-                    dataGridView.Columns["ProcentLaborator"].HeaderText = "Procent laborator (%)";
-                    dataGridView.Columns["ProcentCurs"].HeaderText = "Procent curs (%)";
+                    dataGridView.Columns["ProcentLaborator"].HeaderText = "Procent laborator";
+                    dataGridView.Columns["ProcentCurs"].HeaderText = "Procent curs";
                 }
             }
             catch (Exception ex)
@@ -195,10 +171,32 @@ namespace LibrarieModele
             }
         }
 
-        
+        public static void AfisareMateriiDataSet(DataGridView dataGridView, DataSet materii, int widthDenumire)
+        {
+            try
+            {
+                if (materii != null)
+                {
+                    dataGridView.DataSource = materii.Tables[0];
+
+                    dataGridView.Columns["IDMATERIE"].Visible = false;
+                    dataGridView.Columns["DENUMIRE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    dataGridView.Columns["DENUMIRE"].HeaderText = "Denumire";
+                    dataGridView.Columns["DENUMIRE"].Width = widthDenumire;
+                    dataGridView.Columns["AN"].HeaderText = "An";
+                    dataGridView.Columns["SEMESTRU"].HeaderText = "Semestru";
+                    dataGridView.Columns["PROCENTLABORATOR"].HeaderText = "Procent Laborator";
+                    dataGridView.Columns["PROCENTCURS"].HeaderText = "Procent curs";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
 
 
-        public static void AfisareDataSetMateriiNote(DataGridView dataGridView, DataSet materiiNote)
+        public static void AfisareDataSetMateriiNote(DataGridView dataGridView, DataSet materiiNote, int widthDenumire)
         {
             try
             {
@@ -210,7 +208,7 @@ namespace LibrarieModele
                     dataGridView.Columns["DENUMIRE"].ReadOnly = true;
                     dataGridView.Columns["DENUMIRE"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
                     dataGridView.Columns["DENUMIRE"].HeaderText = "Denumire";
-                    dataGridView.Columns["DENUMIRE"].Width = 200;
+                    dataGridView.Columns["DENUMIRE"].Width = widthDenumire;
                    
 
                     dataGridView.Columns["AN"].ReadOnly = true;

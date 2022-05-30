@@ -45,6 +45,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelMenu = new System.Windows.Forms.Label();
+            this.labelInfo = new System.Windows.Forms.Label();
             this.panelForm.SuspendLayout();
             this.panelBackground.SuspendLayout();
             this.panelCenter.SuspendLayout();
@@ -86,6 +87,7 @@
             this.panelCenter.Controls.Add(this.btnMenuMaterii);
             this.panelCenter.Controls.Add(this.btnMenuUniversity);
             this.panelCenter.Controls.Add(this.btnFake);
+            this.panelCenter.Controls.Add(this.labelInfo);
             this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCenter.Location = new System.Drawing.Point(300, 20);
             this.panelCenter.Name = "panelCenter";
@@ -94,12 +96,11 @@
             // 
             // pictureBoxUSVLogo
             // 
-            this.pictureBoxUSVLogo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pictureBoxUSVLogo.Image = global::Proiect_BD_SituatieScolara.Properties.Resources._640px_Ștefan_cel_Mare_University_of_Suceava_logo_svg;
             this.pictureBoxUSVLogo.InitialImage = global::Proiect_BD_SituatieScolara.Properties.Resources.universitatea_suceava_usv_968x460;
             this.pictureBoxUSVLogo.Location = new System.Drawing.Point(0, 439);
             this.pictureBoxUSVLogo.Name = "pictureBoxUSVLogo";
-            this.pictureBoxUSVLogo.Size = new System.Drawing.Size(500, 45);
+            this.pictureBoxUSVLogo.Size = new System.Drawing.Size(122, 45);
             this.pictureBoxUSVLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxUSVLogo.TabIndex = 0;
             this.pictureBoxUSVLogo.TabStop = false;
@@ -250,6 +251,16 @@
             this.labelMenu.Text = "University Manager";
             this.labelMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // labelInfo
+            // 
+            this.labelInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInfo.Location = new System.Drawing.Point(3, 439);
+            this.labelInfo.Name = "labelInfo";
+            this.labelInfo.Size = new System.Drawing.Size(497, 45);
+            this.labelInfo.TabIndex = 3;
+            this.labelInfo.Text = "Realizat de Brumă Sebastian Anul 3\r\n- Proiect Baze de Date 2022 -";
+            this.labelInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FormInitializare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -291,6 +302,7 @@
         private System.Windows.Forms.Button btnFake;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panelBottomMenu;
+        private System.Windows.Forms.Label labelInfo;
     }
 }
 

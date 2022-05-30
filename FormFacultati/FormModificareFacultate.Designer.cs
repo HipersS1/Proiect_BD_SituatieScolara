@@ -41,6 +41,7 @@
             this.comboBoxCiclu = new System.Windows.Forms.ComboBox();
             this.labelProgramStudiu = new System.Windows.Forms.Label();
             this.panelFacultate = new System.Windows.Forms.Panel();
+            this.richTextBoxDenumireFacultate = new System.Windows.Forms.RichTextBox();
             this.labelDenumire = new System.Windows.Forms.Label();
             this.btnAnuleaza = new System.Windows.Forms.Button();
             this.btnTrimite = new System.Windows.Forms.Button();
@@ -48,7 +49,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
             this.labelFormularAdaugare = new System.Windows.Forms.Label();
-            this.richTextBoxDenumireFacultate = new System.Windows.Forms.RichTextBox();
             this.panelForm.SuspendLayout();
             this.panelCenter.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -192,6 +192,15 @@
             this.panelFacultate.Size = new System.Drawing.Size(434, 101);
             this.panelFacultate.TabIndex = 17;
             // 
+            // richTextBoxDenumireFacultate
+            // 
+            this.richTextBoxDenumireFacultate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxDenumireFacultate.Location = new System.Drawing.Point(151, 13);
+            this.richTextBoxDenumireFacultate.Name = "richTextBoxDenumireFacultate";
+            this.richTextBoxDenumireFacultate.Size = new System.Drawing.Size(266, 82);
+            this.richTextBoxDenumireFacultate.TabIndex = 18;
+            this.richTextBoxDenumireFacultate.Text = "";
+            // 
             // labelDenumire
             // 
             this.labelDenumire.AutoSize = true;
@@ -209,7 +218,7 @@
             this.btnAnuleaza.Name = "btnAnuleaza";
             this.btnAnuleaza.Size = new System.Drawing.Size(144, 43);
             this.btnAnuleaza.TabIndex = 14;
-            this.btnAnuleaza.Text = "Anuleaza";
+            this.btnAnuleaza.Text = "Inchide";
             this.btnAnuleaza.UseVisualStyleBackColor = true;
             this.btnAnuleaza.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -264,15 +273,6 @@
             this.labelFormularAdaugare.TabIndex = 1;
             this.labelFormularAdaugare.Text = "Formular Modificare Facultate";
             this.labelFormularAdaugare.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // richTextBoxDenumireFacultate
-            // 
-            this.richTextBoxDenumireFacultate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxDenumireFacultate.Location = new System.Drawing.Point(151, 13);
-            this.richTextBoxDenumireFacultate.Name = "richTextBoxDenumireFacultate";
-            this.richTextBoxDenumireFacultate.Size = new System.Drawing.Size(266, 82);
-            this.richTextBoxDenumireFacultate.TabIndex = 18;
-            this.richTextBoxDenumireFacultate.Text = "";
             // 
             // FormModificareFacultate
             // 

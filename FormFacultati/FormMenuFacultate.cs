@@ -25,7 +25,11 @@ namespace Proiect_BD_SituatieScolara
         bool tabelActivFacultate = false;
         bool tabelActivPrograme = false;
         bool tabelActivMaterii = false;
-        
+
+        //
+        private const int WIDTHNUME = 400;
+
+
         public FormMenuFacultate(FormWindowState windowState)
         {
             InitializeComponent();
@@ -213,7 +217,6 @@ namespace Proiect_BD_SituatieScolara
             }
             
         }
-
         private void btnStergeFacultate_Click(object sender, EventArgs e)
         {
             if (tabelActivFacultate)
@@ -233,6 +236,10 @@ namespace Proiect_BD_SituatieScolara
                     IncarcaFacultati();
                     MessageBox.Show($"Facultatea: {facultate.Denumire} a fost stearsa cu succes");
                 }
+                else
+                {
+                    MessageBox.Show("Este necesar sa stergeti toate programele de studii");
+                }
                 
             }
 
@@ -244,12 +251,23 @@ namespace Proiect_BD_SituatieScolara
                 DialogResult dialogResult = MessageBox.Show("Esti sigur ca vrei sa elimini programul de studiu?", "Mesaj de confirmare", MessageBoxButtons.YesNo);
                 if (dialogResult != DialogResult.Yes)
                     return;
-                var result = stocareProgrameStudii.DeleteProgramStudiu(programStudiu.IdProgramStudiu);
 
+                var resultMaterii = stocareMateriiProgramStudiu.DeleteAllProgramMaterii(programStudiu.IdProgramStudiu);
+                if (resultMaterii == false)
+                {
+                    MessageBox.Show("A aparut o problema la eliminarea materiilor de la programul de studiu");
+                    return;
+                }
+
+                var result = stocareProgrameStudii.DeleteProgramStudiu(programStudiu.IdProgramStudiu);
                 if (result == true)
                 {
                     IncarcaProgrameStudii(programStudiu.IdFacultate);
                     MessageBox.Show($"Programul de studiu : {programStudiu.Ciclu} {programStudiu.Specializare} a fost sters cu succes");
+                }
+                else
+                {
+                    MessageBox.Show("Este necesar sa stergeti toti studentii de la programul de studiu ales");
                 }
             }
         }
@@ -381,7 +399,7 @@ namespace Proiect_BD_SituatieScolara
                 comboBoxDurata.Visible = false;
                 labelCampNume.Visible = false;
                 textBoxCampNume.Visible = false;
-                IncarcareDataGridView.AfisareMateriiProgramStudiu(dataGridView1, stocareMateriiProgramStudiu.GetDetaliiMateriiProgramStudiu(idProgramStudiu));
+                IncarcareDataGridView.AfisareMateriiProgramStudiu(dataGridView1, stocareMateriiProgramStudiu.GetDetaliiMateriiProgramStudiu(idProgramStudiu), WIDTHNUME);
 
             }
             catch (Exception ex)
@@ -439,6 +457,7 @@ namespace Proiect_BD_SituatieScolara
         {
             labelNumarElemente.Text = $"Nr.Elemente: {dataGridView1.RowCount}";
             dataGridView1.CurrentCell = null;
+            dataGridView1.Font = new Font("SEGOE UI", 13);
         }
     }
 }

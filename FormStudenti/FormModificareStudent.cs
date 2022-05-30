@@ -96,7 +96,8 @@ namespace Proiect_BD_SituatieScolara
                     MessageBox.Show("Studentul a fost modificat");
                     itemModificat = true;
                     comboBoxAn.Items.Clear();
-                    IncarcareComboBox.IncarcaValoriNumerice(comboBoxAn, studentToBeModified.An, programStudiu.Durata);
+                    IncarcareComboBox.IncarcaValoriNumerice(comboBoxAn, studentToBeModified.An, studentToBeModified.An + 1);
+                    comboBoxAn.SelectedIndex = 0;
 
                     List<ProgramStudiuMaterie> listaMateriiProgramStudiu = stocareMateriiProgramStudiu.GetMateriiProgramStudiu(student.IdProgramStudiu);
                     List<Materie> listaMaterii = stocareMaterii.GetMaterii();

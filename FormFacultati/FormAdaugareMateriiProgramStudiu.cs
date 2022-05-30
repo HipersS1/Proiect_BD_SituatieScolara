@@ -24,7 +24,8 @@ namespace Proiect_BD_SituatieScolara
         private bool itemAdaugat = false;
         private const int PRIMA_COLOANA = 0;
 
-
+        //
+        private const int WIDTHNUME = 190;
 
 
         public FormAdaugareMateriiProgramStudiu(ProgramStudiu programStudiu, Facultate facultate)
@@ -48,12 +49,12 @@ namespace Proiect_BD_SituatieScolara
             labelFacultateProgram.Text = $"{facultateCurenta.Denumire}\n{programStudiuCurent.Ciclu} {programStudiuCurent.Specializare}";
             if (materiiProgramStudiuCurent != null)
             {
-                IncarcareDataGridView.AfisareMateriiProgramStudiu(dataGridViewMateriiCurente, materiiProgramStudiuCurent);
+                IncarcareDataGridView.AfisareMateriiProgramStudiu(dataGridViewMateriiCurente, materiiProgramStudiuCurent, 200);
                 dataGridViewMateriiCurente.CurrentCell = null;
             }
             if (materiiBD != null)
             {
-                IncarcareDataGridView.AfisareMateriiDataSet(dataGridViewMaterii, materiiBD);
+                IncarcareDataGridView.AfisareMateriiDataSet(dataGridViewMaterii, materiiBD, WIDTHNUME);
                 dataGridViewMaterii.CurrentCell = null;
             }
         }
@@ -82,9 +83,9 @@ namespace Proiect_BD_SituatieScolara
             }
             materiiBD = stocareMateriiProgramStudiu.GetDetaliiMateriiProgramStudiuDiferite(programStudiuCurent.IdProgramStudiu);
             dataGridViewMaterii.DataSource = null;
-            IncarcareDataGridView.AfisareMateriiDataSet(dataGridViewMaterii, materiiBD);
+            IncarcareDataGridView.AfisareMateriiDataSet(dataGridViewMaterii, materiiBD,WIDTHNUME);
             materiiProgramStudiuCurent = stocareMateriiProgramStudiu.GetDetaliiMateriiProgramStudiu(programStudiuCurent.IdProgramStudiu);
-            IncarcareDataGridView.AfisareMateriiProgramStudiu(dataGridViewMateriiCurente, materiiProgramStudiuCurent);
+            IncarcareDataGridView.AfisareMateriiProgramStudiu(dataGridViewMateriiCurente, materiiProgramStudiuCurent, WIDTHNUME);
 
             dataGridViewMateriiCurente.CurrentCell = null;
             dataGridViewMaterii.CurrentCell = null;
@@ -105,9 +106,9 @@ namespace Proiect_BD_SituatieScolara
             materiiBD = stocareMateriiProgramStudiu.GetDetaliiMateriiProgramStudiuDiferite(programStudiuCurent.IdProgramStudiu);
             dataGridViewMaterii.DataSource = null;
             //IncarcareDataGridView.AfisareMateriiDataSet(dataGridViewMaterii, materiiBD);
-            IncarcareDataGridView.AfisareMateriiProgramStudiu(dataGridViewMaterii, materiiBD);
+            IncarcareDataGridView.AfisareMateriiProgramStudiu(dataGridViewMaterii, materiiBD, WIDTHNUME);
             materiiProgramStudiuCurent = stocareMateriiProgramStudiu.GetDetaliiMateriiProgramStudiu(programStudiuCurent.IdProgramStudiu);
-            IncarcareDataGridView.AfisareMateriiProgramStudiu(dataGridViewMateriiCurente, materiiProgramStudiuCurent);
+            IncarcareDataGridView.AfisareMateriiProgramStudiu(dataGridViewMateriiCurente, materiiProgramStudiuCurent, WIDTHNUME);
             dataGridViewMateriiCurente.CurrentCell = null;
             dataGridViewMaterii.CurrentCell = null;
         }
@@ -147,7 +148,7 @@ namespace Proiect_BD_SituatieScolara
             try
             {
                 dataGridViewMateriiCurente.DataSource = null;
-                IncarcareDataGridView.AfisareMateriiProgramStudiu(dataGridViewMateriiCurente, stocareMateriiProgramStudiu.GetDetaliiMateriiProgramStudiu(idProgramStudiu));
+                IncarcareDataGridView.AfisareMateriiProgramStudiu(dataGridViewMateriiCurente, stocareMateriiProgramStudiu.GetDetaliiMateriiProgramStudiu(idProgramStudiu), WIDTHNUME);
             }
             catch (Exception ex)
             {
@@ -193,13 +194,15 @@ namespace Proiect_BD_SituatieScolara
         {
             labelNrMateriiCurente.Text = $"Nr.Materii Curente:{dataGridViewMateriiCurente.RowCount}";
             dataGridViewMateriiCurente.CurrentCell = null;
+            dataGridViewMateriiCurente.Font = new Font("SEGOE UI", 13);
+
         }
 
         private void dataGridViewMaterii_DataSourceChanged(object sender, EventArgs e)
         {
             labelNrMateriiTotal.Text = $"Disponibile:{dataGridViewMaterii.RowCount}";
             dataGridViewMaterii.CurrentCell = null;
-
+            dataGridViewMaterii.Font = new Font("SEGOE UI", 12);
         }
     }
 }

@@ -365,6 +365,7 @@ namespace Proiect_BD_SituatieScolara
         {
             labelNumarElemente.Text = $"Nr.Elemente: {dataGridView1.RowCount}";
             dataGridView1.CurrentCell = null;
+            dataGridView1.Font = new Font("SEGOE UI", 12);
         }
     }
 }

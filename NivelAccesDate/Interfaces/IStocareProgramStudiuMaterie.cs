@@ -17,5 +17,6 @@ namespace NivelAccesDate
         bool AddProgramMaterie(ProgramStudiuMaterie programStudiu);
         bool UpdateProgramMaterie(ProgramStudiuMaterie programStudiu);
         bool DeleteProgramMaterie(ProgramStudiuMaterie programStudiu);
+        bool DeleteAllProgramMaterii(int idProgramStudiu);
     }
 }

@@ -133,6 +133,16 @@
             0,
             131072});
             this.numericUpCurs.Location = new System.Drawing.Point(153, 168);
+            this.numericUpCurs.Maximum = new decimal(new int[] {
+            90,
+            0,
+            0,
+            0});
+            this.numericUpCurs.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.numericUpCurs.Name = "numericUpCurs";
             this.numericUpCurs.Size = new System.Drawing.Size(188, 32);
             this.numericUpCurs.TabIndex = 5;
@@ -163,6 +173,16 @@
             0,
             131072});
             this.numericUpLaborator.Location = new System.Drawing.Point(153, 130);
+            this.numericUpLaborator.Maximum = new decimal(new int[] {
+            90,
+            0,
+            0,
+            0});
+            this.numericUpLaborator.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.numericUpLaborator.Name = "numericUpLaborator";
             this.numericUpLaborator.Size = new System.Drawing.Size(188, 32);
             this.numericUpLaborator.TabIndex = 4;
@@ -225,7 +245,7 @@
             this.btnAnuleaza.Name = "btnAnuleaza";
             this.btnAnuleaza.Size = new System.Drawing.Size(144, 43);
             this.btnAnuleaza.TabIndex = 7;
-            this.btnAnuleaza.Text = "Anuleaza";
+            this.btnAnuleaza.Text = "Inchide";
             this.btnAnuleaza.UseVisualStyleBackColor = true;
             this.btnAnuleaza.Click += new System.EventHandler(this.btnCancel_Click);
             // 
