@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibrarieModele
 {
@@ -17,6 +14,7 @@ namespace LibrarieModele
         public int IdStudent { get; set; }
         public int IdMaterie { get; set; }
 
+        #region Constructors
         public Note(int idStudent = 0, int idMaterie = 0)
         {
             IdStudent = idStudent;
@@ -60,7 +58,7 @@ namespace LibrarieModele
             IdStudent = Convert.ToInt32(linieDB["IdStudent"]);
             IdMaterie = Convert.ToInt32(linieDB["IdMaterie"]);
         }
-
+        #endregion
 
         #region Equals
         public override bool Equals(object obj)

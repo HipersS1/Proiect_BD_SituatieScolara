@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -164,8 +161,6 @@ namespace Proiect_BD_SituatieScolara
 
 
         #region Validari
-
-
         private ProgramStudiu ValideazaInformatiiProgramStudiu(int idFacultate)
         {
             try

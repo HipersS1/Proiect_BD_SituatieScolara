@@ -85,7 +85,7 @@ namespace NivelAccesDate
                     {
                         cmd.Connection.Open();
                         rezult = cmd.ExecuteNonQuery();
-                        WriteToFileSQL(cmd.CommandText);
+                        //WriteToFileSQL(cmd.CommandText);
                     }
                     catch (OracleException ex)
                     {

@@ -120,6 +120,7 @@
             // 
             this.panelDelimiterCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(155)))), ((int)(((byte)(125)))));
             this.panelDelimiterCenter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelDelimiterCenter.Controls.Add(this.btnSearch);
             this.panelDelimiterCenter.Controls.Add(this.dataGridView1);
             this.panelDelimiterCenter.Controls.Add(this.labelNumarElemente);
             this.panelDelimiterCenter.Controls.Add(this.panelMenuHeader);
@@ -128,7 +129,6 @@
             this.panelDelimiterCenter.Controls.Add(this.labelCicluStudiu);
             this.panelDelimiterCenter.Controls.Add(this.comboBoxDurata);
             this.panelDelimiterCenter.Controls.Add(this.labelDurata);
-            this.panelDelimiterCenter.Controls.Add(this.btnSearch);
             this.panelDelimiterCenter.Controls.Add(this.textBoxCampNume);
             this.panelDelimiterCenter.Controls.Add(this.labelCampNume);
             this.panelDelimiterCenter.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -166,7 +166,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -223,9 +223,9 @@
             // 
             this.buttonClearSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonClearSearch.Font = new System.Drawing.Font("Webdings", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
-            this.buttonClearSearch.Location = new System.Drawing.Point(729, 71);
+            this.buttonClearSearch.Location = new System.Drawing.Point(725, 66);
             this.buttonClearSearch.Name = "buttonClearSearch";
-            this.buttonClearSearch.Size = new System.Drawing.Size(33, 33);
+            this.buttonClearSearch.Size = new System.Drawing.Size(40, 33);
             this.buttonClearSearch.TabIndex = 15;
             this.buttonClearSearch.Text = "q";
             this.buttonClearSearch.UseVisualStyleBackColor = true;
@@ -237,7 +237,7 @@
             this.comboBoxCicluStudiu.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.comboBoxCicluStudiu.FormatString = "N0";
             this.comboBoxCicluStudiu.FormattingEnabled = true;
-            this.comboBoxCicluStudiu.Location = new System.Drawing.Point(426, 68);
+            this.comboBoxCicluStudiu.Location = new System.Drawing.Point(426, 60);
             this.comboBoxCicluStudiu.Name = "comboBoxCicluStudiu";
             this.comboBoxCicluStudiu.Size = new System.Drawing.Size(95, 36);
             this.comboBoxCicluStudiu.TabIndex = 6;
@@ -246,7 +246,7 @@
             // 
             this.labelCicluStudiu.AutoSize = true;
             this.labelCicluStudiu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCicluStudiu.Location = new System.Drawing.Point(316, 76);
+            this.labelCicluStudiu.Location = new System.Drawing.Point(316, 68);
             this.labelCicluStudiu.Name = "labelCicluStudiu";
             this.labelCicluStudiu.Size = new System.Drawing.Size(140, 28);
             this.labelCicluStudiu.TabIndex = 12;
@@ -258,7 +258,7 @@
             this.comboBoxDurata.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.comboBoxDurata.FormatString = "N0";
             this.comboBoxDurata.FormattingEnabled = true;
-            this.comboBoxDurata.Location = new System.Drawing.Point(583, 70);
+            this.comboBoxDurata.Location = new System.Drawing.Point(604, 60);
             this.comboBoxDurata.Name = "comboBoxDurata";
             this.comboBoxDurata.Size = new System.Drawing.Size(72, 36);
             this.comboBoxDurata.TabIndex = 7;
@@ -267,7 +267,7 @@
             // 
             this.labelDurata.AutoSize = true;
             this.labelDurata.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDurata.Location = new System.Drawing.Point(527, 76);
+            this.labelDurata.Location = new System.Drawing.Point(527, 71);
             this.labelDurata.Name = "labelDurata";
             this.labelDurata.Size = new System.Drawing.Size(71, 28);
             this.labelDurata.TabIndex = 10;
@@ -277,9 +277,9 @@
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnSearch.Location = new System.Drawing.Point(768, 71);
+            this.btnSearch.Location = new System.Drawing.Point(771, 66);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(88, 33);
+            this.btnSearch.Size = new System.Drawing.Size(85, 33);
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "Cauta";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -288,7 +288,7 @@
             // textBoxCampNume
             // 
             this.textBoxCampNume.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBoxCampNume.Location = new System.Drawing.Point(103, 71);
+            this.textBoxCampNume.Location = new System.Drawing.Point(103, 63);
             this.textBoxCampNume.Name = "textBoxCampNume";
             this.textBoxCampNume.Size = new System.Drawing.Size(207, 34);
             this.textBoxCampNume.TabIndex = 4;
@@ -297,7 +297,7 @@
             // 
             this.labelCampNume.AutoSize = true;
             this.labelCampNume.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCampNume.Location = new System.Drawing.Point(9, 76);
+            this.labelCampNume.Location = new System.Drawing.Point(9, 71);
             this.labelCampNume.Name = "labelCampNume";
             this.labelCampNume.Size = new System.Drawing.Size(97, 28);
             this.labelCampNume.TabIndex = 1;
@@ -362,12 +362,12 @@
             this.btnReturn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnReturn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
             this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReturn.Font = new System.Drawing.Font("Wingdings 3", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.btnReturn.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnReturn.Location = new System.Drawing.Point(3, 392);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(134, 73);
             this.btnReturn.TabIndex = 4;
-            this.btnReturn.Text = "O";
+            this.btnReturn.Text = "Meniu Principal";
             this.btnReturn.UseVisualStyleBackColor = false;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 

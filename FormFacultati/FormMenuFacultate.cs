@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using NivelAccesDate;
 using LibrarieModele;
@@ -26,9 +22,7 @@ namespace Proiect_BD_SituatieScolara
         bool tabelActivPrograme = false;
         bool tabelActivMaterii = false;
 
-        //
         private const int WIDTHNUME = 400;
-
 
         public FormMenuFacultate(FormWindowState windowState)
         {
@@ -43,13 +37,12 @@ namespace Proiect_BD_SituatieScolara
         private void FormMenuFacultate_Load(object sender, EventArgs e)
         {
             IncarcaFacultati();
-            tabelActivFacultate=true;
+            tabelActivFacultate = true;
             labelCampNume.Text = "Denumire";
             IncarcareComboBox.IncarcaValoriNumerice(comboBoxDurata, 6);
             IncarcareComboBox.IncarcaProgramStudiu(comboBoxCicluStudiu);
-            buttonVizualizeazaPrograme.Text = "Vizualizeaza programe";
+            buttonVizualizeazaPrograme.Text = "Vizualizeaza Programe";
             this.WindowState = windowState;
-
         }
         private void FormMenuFacultate_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -74,11 +67,10 @@ namespace Proiect_BD_SituatieScolara
                 tabelActivFacultate = false;
                 tabelActivPrograme = true;
                 labelCampNume.Text = "Specializare";
-                buttonVizualizeazaPrograme.Text = "Vizualizeaza facultati";
-                buttonVizualizeazaMaterii.Text = "Vizualizeaza materii";
+                buttonVizualizeazaPrograme.Text = "Vizualizeaza Facultati";
+                buttonVizualizeazaMaterii.Text = "Vizualizeaza Materii";
                 buttonVizualizeazaMaterii.Visible = true;
                 IncarcaProgrameStudii(facultateCurenta.IdFacultate);
-                
             }
             else if (tabelActivPrograme || tabelActivMaterii)
             {
@@ -88,7 +80,7 @@ namespace Proiect_BD_SituatieScolara
 
                 labelMenuHeader.Text = String.Empty;
                 labelCampNume.Text = "Denumire";
-                buttonVizualizeazaPrograme.Text = "Vizualizeaza programe";
+                buttonVizualizeazaPrograme.Text = "Vizualizeaza Programe";
                 // Show
                 buttonVizualizeazaMaterii.Visible = false;
                 if (tabelActivMaterii)
@@ -154,7 +146,6 @@ namespace Proiect_BD_SituatieScolara
                 IncarcaProgrameStudii(facultateCurenta.IdFacultate);
             }
             dataGridView1.CurrentCell = null;
-
         }
         private void btnAddFaculty_Click(object sender, EventArgs e)
         {
@@ -215,7 +206,11 @@ namespace Proiect_BD_SituatieScolara
                     }
                 }
             }
-            
+
+            if (tabelActivMaterii)
+            {
+                MessageBox.Show("Modificarea se poate face doar la o facultate sau un program de studiu");
+            }
         }
         private void btnStergeFacultate_Click(object sender, EventArgs e)
         {
@@ -240,7 +235,6 @@ namespace Proiect_BD_SituatieScolara
                 {
                     MessageBox.Show("Este necesar sa stergeti toate programele de studii");
                 }
-                
             }
 
             if (tabelActivPrograme)
@@ -253,11 +247,6 @@ namespace Proiect_BD_SituatieScolara
                     return;
 
                 var resultMaterii = stocareMateriiProgramStudiu.DeleteAllProgramMaterii(programStudiu.IdProgramStudiu);
-                if (resultMaterii == false)
-                {
-                    MessageBox.Show("A aparut o problema la eliminarea materiilor de la programul de studiu");
-                    return;
-                }
 
                 var result = stocareProgrameStudii.DeleteProgramStudiu(programStudiu.IdProgramStudiu);
                 if (result == true)
@@ -269,6 +258,11 @@ namespace Proiect_BD_SituatieScolara
                 {
                     MessageBox.Show("Este necesar sa stergeti toti studentii de la programul de studiu ales");
                 }
+            }
+
+            if (tabelActivMaterii)
+            {
+                MessageBox.Show("Eliminarea se poate face doar la o facultate sau un program studiu");
             }
         }
 
@@ -301,7 +295,6 @@ namespace Proiect_BD_SituatieScolara
                     else
                     {
                         IncarcareDataGridView.AfisareFacultati(dataGridView1, facultati);
-
                     }
                 }
 
@@ -336,7 +329,7 @@ namespace Proiect_BD_SituatieScolara
             }
             catch (Exception ex)
             {
-                throw;
+                Console.WriteLine(ex.Message.ToString());
             }
         }
 
@@ -362,9 +355,8 @@ namespace Proiect_BD_SituatieScolara
                 var facultati = stocareFacultati.GetFacultati();
                 IncarcareDataGridView.AfisareFacultati(dataGridView1, facultati);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
                 throw;
             }
         }
@@ -381,9 +373,8 @@ namespace Proiect_BD_SituatieScolara
                 var programeStudii = stocareProgrameStudii.GetProgrameStudii();
                 IncarcareDataGridView.AfisareProgrameStudii(dataGridView1, programeStudii, idFacultate);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
                 throw;
             }
         }
@@ -402,9 +393,8 @@ namespace Proiect_BD_SituatieScolara
                 IncarcareDataGridView.AfisareMateriiProgramStudiu(dataGridView1, stocareMateriiProgramStudiu.GetDetaliiMateriiProgramStudiu(idProgramStudiu), WIDTHNUME);
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
                 throw;
             }
         }

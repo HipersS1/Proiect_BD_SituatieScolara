@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibrarieModele;
 using NivelAccesDate;
@@ -15,7 +12,6 @@ namespace Proiect_BD_SituatieScolara
     public partial class FormAdaugareMaterie : Form
     {
         private readonly IStocareMaterii stocareMaterii = (IStocareMaterii)new StocareFactory().GetTipStocare(typeof(Materie));
-        private List<Facultate> listFacultati;
         private bool itemAdaugat = false;
         private const int MAXAN = 6;
 
@@ -72,7 +68,11 @@ namespace Proiect_BD_SituatieScolara
             }
         }
 
-
+        private void buttonClearSearch_Click(object sender, EventArgs e)
+        {
+            ClearResetFormComponents.ClearInputs(panelInputs.Controls.OfType<Control>());
+            ClearResetFormComponents.ResetColors(panelInputs.Controls.OfType<Label>());
+        }
 
         #region ComboBox Events
         private void comboBox_EnabledChanged(object sender, EventArgs e)
@@ -84,50 +84,6 @@ namespace Proiect_BD_SituatieScolara
                 comboBox.SelectedIndex = -1;
             }
         }
-
-        //private void comboBoxFacultate_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (comboBoxFacultate.SelectedIndex == -1)
-        //        return;
-
-        //    comboBoxProgramStudiu.Enabled = true;
-        //    comboBoxSpecializare.Enabled = false;
-        //    comboBoxAn.Enabled = false;
-
-        //    comboBoxProgramStudiu.Items.Clear();
-
-        //    IncarcareComboBox.IncarcaProgrameStudiiFacultate(comboBoxProgramStudiu, listFacultati,
-        //        comboBoxFacultate.SelectedItem.ToString());
-        //}
-
-        //private void comboBoxProgramStudiu_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (comboBoxProgramStudiu.SelectedIndex == -1)
-        //        return;
-        //    comboBoxSpecializare.Enabled = true;
-        //    comboBoxAn.Enabled = false;
-
-        //    comboBoxSpecializare.Items.Clear();
-
-        //    IncarcareComboBox.IncarcaSpecializariFacultate(comboBoxSpecializare, listFacultati,
-        //        comboBoxFacultate.SelectedItem.ToString(), comboBoxProgramStudiu.SelectedItem.ToString());
-        //}
-
-        //private void comboBoxSpecializare_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (comboBoxSpecializare.SelectedIndex == -1)
-        //        return;
-
-        //    comboBoxAn.Enabled = true;
-        //    comboBoxAn.Items.Clear();
-
-        //    IncarcareComboBox.IncarcaAniStudent(comboBoxAn, listFacultati,
-        //         comboBoxFacultate.SelectedItem.ToString(), comboBoxProgramStudiu.SelectedItem.ToString(),
-        //         comboBoxSpecializare.SelectedItem.ToString());
-        //}
-
-
-
 
         #endregion
 
@@ -199,10 +155,6 @@ namespace Proiect_BD_SituatieScolara
 
         #endregion
 
-        private void buttonClearSearch_Click(object sender, EventArgs e)
-        {
-            ClearResetFormComponents.ClearInputs(panelInputs.Controls.OfType<Control>());
-            ClearResetFormComponents.ResetColors(panelInputs.Controls.OfType<Label>());
-        }
+        
     }
 }

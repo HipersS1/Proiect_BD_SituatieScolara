@@ -126,36 +126,6 @@ select * from programmaterii_brumas;
 
 drop table programmaterii_brumas;
 
-CREATE TABLE programmaterii_brumas(
-    IdProgramStudiu NUMBER
-        CONSTRAINT nn_program_programstud_brumas not null
-        CONSTRAINT fk_program_programstud_brumas references programestudii_brumas (IdProgramStudiu),
-    IdMaterie
-        CONSTRAINT nn_programmat_materii_brumas not null
-        CONSTRAINT fk_programmat_materii_brumas references materii_brumas (IdMaterie)
-);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 DROP SEQUENCE seq_facultati_brumas;
@@ -170,19 +140,23 @@ DROP TABLE note_brumas cascade CONSTRAINTS;
 drop table programmaterii_brumas;
 
 
+delete from programmaterii_Brumas;
+delete from materii_brumas;
+delete from programestudii_brumas;
+delete from facultati_brumas;
 
-
-
-
-
-describe facultati_brumas;
-describe programestudii_brumas;
-describe materii_brumas;
-describe studenti_brumas;
 describe note_brumas;
 describe programmaterii_brumas;
+describe materii_brumas;
+describe studenti_brumas;
+describe programestudii_brumas;
+describe facultati_brumas;
 
-select * from facultati_brumas;
-select * from programestudii_brumas;
+
+
+select * from note_Brumas;
 select * from studenti_brumas;
-select * from materii_brumas;
+select * from facultati_Brumas;
+select * from programestudii_brumas;
+select * from programmaterii_Brumas;
+select * from materii_Brumas;

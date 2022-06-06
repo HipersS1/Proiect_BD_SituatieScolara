@@ -1,12 +1,8 @@
 ﻿using LibrarieModele;
 using Oracle.DataAccess.Client;
-using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NivelAccesDate
 {
@@ -77,9 +73,6 @@ namespace NivelAccesDate
         {
             return SqlDBHelper.ExecuteNonQuery($"DELETE FROM {_tableName} WHERE IdFacultate = {idFacultate}", CommandType.Text);
         }
-
-
-        //
 
         public bool ValideazaExistenta(ProgramStudiu programStudiu)
         {

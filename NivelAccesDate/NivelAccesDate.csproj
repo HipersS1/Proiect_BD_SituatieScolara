@@ -43,7 +43,6 @@
     <Compile Include="Administrare\AdministrareProgramStudiuMaterie.cs" />
     <Compile Include="Administrare\AdministrareStudenti.cs" />
     <Compile Include="Administrare\SearchDB.cs" />
-    <Compile Include="Administrare\SearchElements.cs" />
     <Compile Include="Interfaces\IStocareFactory.cs" />
     <Compile Include="Interfaces\IStocareFacultati.cs" />
     <Compile Include="Interfaces\IStocareMaterii.cs" />

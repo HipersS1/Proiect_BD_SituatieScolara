@@ -54,6 +54,7 @@ namespace LibrarieModele
             return new RezultatString(FormateazaString(str), "Succes");
         }
 
+
         public static RezultatString ValideazaEmail(string str)
         {
             if (string.IsNullOrEmpty(str))
@@ -85,8 +86,6 @@ namespace LibrarieModele
 
             return new RezultatString(str, "Succes");
         }
-
-
 
         /// <summary>
         /// Verifica daca stringul primit contine cifre
@@ -132,20 +131,26 @@ namespace LibrarieModele
         /// <returns></returns>
         public static string FormateazaString(string stringToFormat)
         {
+            string[] prepozitii = { "si", "și", "de", "in", "în"};
+
             string[] rebuildStr = stringToFormat.Split(' ');
             StringBuilder stringBuilder = new StringBuilder();
 
             foreach (string s in rebuildStr)
             {
-                stringBuilder.Append(char.ToUpper(s[0]) + s.Substring(1).ToLower() + " ");
+                if (prepozitii.Contains(s))
+                {
+                    stringBuilder.Append(s + " ");
+                }
+                else
+                {
+                    stringBuilder.Append(char.ToUpper(s[0]) + s.Substring(1).ToLower() + " ");
+                }
             }
 
             return stringBuilder.ToString().Trim();
         }
     }
-
-
-    
 
     /// <summary>
     /// Forma de raspuns dupa validare -> {Text, MesajEroare}

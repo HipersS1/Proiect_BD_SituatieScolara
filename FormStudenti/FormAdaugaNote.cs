@@ -2,20 +2,15 @@
 using NivelAccesDate;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect_BD_SituatieScolara
 {
     public partial class FormAdaugaNote : Form
     {
-        private readonly IStocareStudenti stocareStudenti = (IStocareStudenti)new StocareFactory().GetTipStocare(typeof(Student));
-        private readonly IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
         private readonly IStocareMaterii stocareMaterii = (IStocareMaterii)new StocareFactory().GetTipStocare(typeof(Materie));
         private readonly IStocareNote stocareNote = (IStocareNote)new StocareFactory().GetTipStocare(typeof(Note));
 
@@ -38,11 +33,6 @@ namespace Proiect_BD_SituatieScolara
             {
                 MessageBox.Show("Eroare la initializare");
             }
-            else
-            {
-                
-            }
-
         }
 
         private void FormAdaugaNote_Load(object sender, EventArgs e)

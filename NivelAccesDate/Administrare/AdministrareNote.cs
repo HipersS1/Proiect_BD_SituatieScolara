@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LibrarieModele;
-using NivelAccesDate;
 using Oracle.DataAccess.Client;
 
 namespace NivelAccesDate
@@ -18,9 +13,6 @@ namespace NivelAccesDate
         // tabele
         private readonly string _tableNameNote = ConfigurationManager.AppSettings.Get("TableNameNote");
         private readonly string _tableNameMaterii = ConfigurationManager.AppSettings.Get("TableNameMaterii");
-        private readonly string _tableNameStudenti = ConfigurationManager.AppSettings.Get("TableNameStudenti");
-        private readonly string _tableNameFacultati = ConfigurationManager.AppSettings.Get("TableNameFacultati");
-
 
         public bool AddNote(Note note)
         {

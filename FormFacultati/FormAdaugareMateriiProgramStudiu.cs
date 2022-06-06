@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using NivelAccesDate;
 using LibrarieModele;
@@ -40,7 +37,7 @@ namespace Proiect_BD_SituatieScolara
                 programStudiuCurent = programStudiu;
                 facultateCurenta = facultate;
                 materiiProgramStudiuCurent = stocareMateriiProgramStudiu.GetDetaliiMateriiProgramStudiu(programStudiuCurent.IdProgramStudiu);
-                materiiBD = stocareMateriiProgramStudiu.GetDetaliiMateriiProgramStudiuDiferite(programStudiuCurent.IdProgramStudiu);
+                materiiBD = stocareMateriiProgramStudiu.GetDetaliiMateriiProgramStudiuDiferite(programStudiuCurent);
             }
         }
 
@@ -81,7 +78,7 @@ namespace Proiect_BD_SituatieScolara
                 if (result == false) MessageBox.Show("A aparut o problema la adaugarea materiei");
                 itemAdaugat = true;
             }
-            materiiBD = stocareMateriiProgramStudiu.GetDetaliiMateriiProgramStudiuDiferite(programStudiuCurent.IdProgramStudiu);
+            materiiBD = stocareMateriiProgramStudiu.GetDetaliiMateriiProgramStudiuDiferite(programStudiuCurent);
             dataGridViewMaterii.DataSource = null;
             IncarcareDataGridView.AfisareMateriiDataSet(dataGridViewMaterii, materiiBD,WIDTHNUME);
             materiiProgramStudiuCurent = stocareMateriiProgramStudiu.GetDetaliiMateriiProgramStudiu(programStudiuCurent.IdProgramStudiu);
@@ -103,7 +100,7 @@ namespace Proiect_BD_SituatieScolara
                 if (result == false) MessageBox.Show("A aparut o problema la eliminarea materiei");
                 itemAdaugat = true; // itemEliminat
             }
-            materiiBD = stocareMateriiProgramStudiu.GetDetaliiMateriiProgramStudiuDiferite(programStudiuCurent.IdProgramStudiu);
+            materiiBD = stocareMateriiProgramStudiu.GetDetaliiMateriiProgramStudiuDiferite(programStudiuCurent);
             dataGridViewMaterii.DataSource = null;
             //IncarcareDataGridView.AfisareMateriiDataSet(dataGridViewMaterii, materiiBD);
             IncarcareDataGridView.AfisareMateriiProgramStudiu(dataGridViewMaterii, materiiBD, WIDTHNUME);

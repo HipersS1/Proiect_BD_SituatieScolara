@@ -4,9 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NivelAccesDate
 {
@@ -40,7 +37,6 @@ namespace NivelAccesDate
                 $"DELETE FROM {_tableName} where IdProgramStudiu = :IdProgramStudiu", CommandType.Text,
                 new OracleParameter(":IdProgramStudiu", OracleDbType.Int32, idProgramStudiu, ParameterDirection.Input));
         }
-
         public List<ProgramStudiuMaterie> GetMateriiProgramStudiu(int idProgramStudiu)
         {
             var result = new List<ProgramStudiuMaterie>();
@@ -58,13 +54,11 @@ namespace NivelAccesDate
             var dsPrograme = SqlDBHelper.ExecuteDataSet($"SELECT m.* FROM {_tableNameMaterii} m, {_tableName} pm WHERE pm.IdProgramStudiu = {idProgramStudiu} AND pm.IdMaterie = m.IdMaterie", CommandType.Text);
             return dsPrograme;
         }
-        public DataSet GetDetaliiMateriiProgramStudiuDiferite(int idProgramStudiu)
+        public DataSet GetDetaliiMateriiProgramStudiuDiferite(ProgramStudiu programStudiu)
         {
-            var dsPrograme = SqlDBHelper.ExecuteDataSet($"SELECT m.* FROM {_tableNameMaterii} m where m.idmaterie != ALL (select idmaterie from {_tableName} where IdProgramStudiu = {idProgramStudiu})", CommandType.Text);
+            var dsPrograme = SqlDBHelper.ExecuteDataSet($"SELECT m.* FROM {_tableNameMaterii} m where m.idmaterie != ALL (select idmaterie from {_tableName} where IdProgramStudiu = {programStudiu.IdProgramStudiu}) and m.an <= {programStudiu.Durata}", CommandType.Text);
             return dsPrograme;
         }
-
-
         public ProgramStudiuMaterie GetProgramStudiu(int idProgram, int idMaterie)
         {
             ProgramStudiuMaterie result = null;
@@ -86,7 +80,6 @@ namespace NivelAccesDate
         {
             throw new NotImplementedException();
         }
-
         
     }
 }

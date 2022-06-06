@@ -61,8 +61,6 @@ namespace LibrarieModele
             }
         }
 
-        
-
         public static void AfisareMateriiProgramStudiu(DataGridView dataGridView, DataSet materiiProgramStudiu, int widthDenumire)
         {
             try
@@ -79,32 +77,6 @@ namespace LibrarieModele
                     dataGridView.Columns["Semestru"].HeaderText = "Semestru";
                     dataGridView.Columns["ProcentLaborator"].HeaderText = "Procent laborator";
                     dataGridView.Columns["ProcentCurs"].HeaderText = "Procent curs";
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
-        }
-
-
-        public static void AfisareStudenti(DataGridView dataGridView, List<Student> studenti)
-        {
-            try
-            {
-                if (studenti != null && studenti.Any())
-                {
-                    dataGridView.DataSource = studenti.Select(f => new { f.IdStudent, f.Nume, f.Prenume, f.Email, f.Telefon, f.An, f.IdProgramStudiu})
-                                                       .OrderBy(s => s.Nume)
-                                                       .ToList();
-                    
-                    dataGridView.Columns["IdStudent"].Visible = false;
-                    dataGridView.Columns["Nume"].HeaderText = "Nume";
-                    dataGridView.Columns["Prenume"].HeaderText = "Prenume";
-                    dataGridView.Columns["Email"].HeaderText = "Email";
-                    dataGridView.Columns["Telefon"].HeaderText = "Telefon";
-                    dataGridView.Columns["An"].HeaderText = "An Studiu";
-                    dataGridView.Columns["IdProgramStudiu"].Visible = false;
                 }
             }
             catch (Exception ex)
@@ -194,7 +166,6 @@ namespace LibrarieModele
                 MessageBox.Show(ex.Message.ToString());
             }
         }
-
 
         public static void AfisareDataSetMateriiNote(DataGridView dataGridView, DataSet materiiNote, int widthDenumire)
         {

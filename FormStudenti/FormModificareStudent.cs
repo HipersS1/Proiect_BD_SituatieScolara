@@ -21,8 +21,6 @@ namespace Proiect_BD_SituatieScolara
         private readonly IStocareMaterii stocareMaterii = (IStocareMaterii)new StocareFactory().GetTipStocare(typeof(Materie));
         private readonly IStocareProgramStudiuMaterie stocareMateriiProgramStudiu = (IStocareProgramStudiuMaterie)new StocareFactory().GetTipStocare(typeof(ProgramStudiuMaterie));
 
-
-
         private Student studentToBeModified;
         private readonly Facultate facultateStudent;
         private readonly ProgramStudiu programStudiu;

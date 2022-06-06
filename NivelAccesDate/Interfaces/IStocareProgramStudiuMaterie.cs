@@ -1,10 +1,6 @@
 ﻿using LibrarieModele;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NivelAccesDate
 {
@@ -12,7 +8,7 @@ namespace NivelAccesDate
     {
         List<ProgramStudiuMaterie> GetMateriiProgramStudiu(int idProgramStudiu);
         DataSet GetDetaliiMateriiProgramStudiu(int idProgramStudiu);
-        DataSet GetDetaliiMateriiProgramStudiuDiferite(int idProgramStudiu);
+        DataSet GetDetaliiMateriiProgramStudiuDiferite(ProgramStudiu programStudiu);
         ProgramStudiuMaterie GetProgramStudiu(int idProgram, int idMaterie);
         bool AddProgramMaterie(ProgramStudiuMaterie programStudiu);
         bool UpdateProgramMaterie(ProgramStudiuMaterie programStudiu);

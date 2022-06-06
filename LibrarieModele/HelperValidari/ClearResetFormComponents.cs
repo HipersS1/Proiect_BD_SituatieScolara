@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 
@@ -41,6 +38,10 @@ namespace LibrarieModele
             }
         }
 
+        /// <summary>
+        /// Pentru a da enable/disable la elemente
+        /// </summary>
+        /// <param name="controls"></param>
         public static void TurnOnOffComponent(IEnumerable<Control> controls)
         {
             foreach (Control control in controls)
@@ -54,6 +55,10 @@ namespace LibrarieModele
             }
         }
 
+        /// <summary>
+        /// Pentru a da enable la elemente
+        /// </summary>
+        /// <param name="controls"></param>
         public static void TurnOnComponents(Control.ControlCollection controls)
         {
             foreach (Control control in controls)
@@ -66,7 +71,10 @@ namespace LibrarieModele
                     ((Label)control).Enabled = true;
             }
         }
-
+        /// <summary>
+        /// Pentru a da disable la elemente
+        /// </summary>
+        /// <param name="controls"></param>
         public static void TurnOffComponents(Control.ControlCollection controls)
         {
             foreach (Control control in controls)
