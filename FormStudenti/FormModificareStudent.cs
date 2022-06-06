@@ -21,8 +21,6 @@ namespace Proiect_BD_SituatieScolara
         private readonly IStocareMaterii stocareMaterii = (IStocareMaterii)new StocareFactory().GetTipStocare(typeof(Materie));
         private readonly IStocareProgramStudiuMaterie stocareMateriiProgramStudiu = (IStocareProgramStudiuMaterie)new StocareFactory().GetTipStocare(typeof(ProgramStudiuMaterie));
 
-
-
         private Student studentToBeModified;
         private readonly Facultate facultateStudent;
         private readonly ProgramStudiu programStudiu;
@@ -96,7 +94,8 @@ namespace Proiect_BD_SituatieScolara
                     MessageBox.Show("Studentul a fost modificat");
                     itemModificat = true;
                     comboBoxAn.Items.Clear();
-                    IncarcareComboBox.IncarcaValoriNumerice(comboBoxAn, studentToBeModified.An, programStudiu.Durata);
+                    IncarcareComboBox.IncarcaValoriNumerice(comboBoxAn, studentToBeModified.An, studentToBeModified.An + 1);
+                    comboBoxAn.SelectedIndex = 0;
 
                     List<ProgramStudiuMaterie> listaMateriiProgramStudiu = stocareMateriiProgramStudiu.GetMateriiProgramStudiu(student.IdProgramStudiu);
                     List<Materie> listaMaterii = stocareMaterii.GetMaterii();

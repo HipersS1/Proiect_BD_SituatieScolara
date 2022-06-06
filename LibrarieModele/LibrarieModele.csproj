@@ -65,12 +65,12 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="OracleScripts\Facultati.txt" />
-    <Content Include="OracleScripts\Materii.txt" />
-    <Content Include="OracleScripts\Note.txt" />
+    <Content Include="OracleScripts\Facultati Outdated.txt" />
+    <Content Include="OracleScripts\Materii Outdated.txt" />
+    <Content Include="OracleScripts\Note Outdated.txt" />
     <Content Include="OracleScripts\SciptInserare.txt" />
     <Content Include="OracleScripts\Scripts.txt" />
-    <Content Include="OracleScripts\Studenti.txt" />
+    <Content Include="OracleScripts\Studenti Outdated.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

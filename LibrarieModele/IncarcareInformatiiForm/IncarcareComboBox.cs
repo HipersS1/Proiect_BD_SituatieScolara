@@ -109,57 +109,6 @@ namespace LibrarieModele
             }
         }
 
-
-        /// <summary>
-        /// Incarca comboBox cu specializarile existente 
-        /// </summary>
-        /// <param name="comboBox"></param>
-        /// <param name="facultati"></param>
-        //public static void IncarcaSpecializari(ComboBox comboBox, List<Facultate> facultati)
-        //{
-        //    var specializari = facultati.Select(f => f.Specializare).Distinct().ToList();
-        //    foreach (var specializare in specializari)
-        //    {
-        //        comboBox.Items.Add(specializare);
-        //    }
-        //}
-
-
-        /// <summary>
-        /// Incarca combobox 'specializari' cu informatiile specifice facultatii cu denumirea aleasa
-        /// </summary>
-        /// <param name="comboBox"></param>
-        /// <param name="facultati"></param>
-        /// <param name="denumire"></param>
-        //public static void IncarcaSpecializariFacultate(ComboBox comboBox, List<Facultate> facultati, string denumire)
-        //{
-        //    var specializari = facultati.Where(f => f.Denumire == denumire).Select(f => f.Specializare).Distinct().ToList();
-        //    foreach (var item in specializari)
-        //    {
-        //        comboBox.Items.Add(item);
-        //    }
-        //}
-        /// <summary>
-        /// Incarca combobox 'specializari' cu informatiile specifice facultatii cu denumirea si programului de studiu ales
-        /// </summary>
-        /// <param name="comboBox"></param>
-        /// <param name="facultati"></param>
-        /// <param name="denumire"></param>
-        /// <param name="specializare"></param>
-        //public static void IncarcaSpecializariFacultate(ComboBox comboBox, List<Facultate> facultati, string denumire, string programStudiu)
-        //{
-            
-        //    var specializari = facultati.Where(f => f.Denumire == denumire && f.ProgramStudiu == programStudiu).Select(f => f.Specializare).ToList();
-        //    foreach (var item in specializari)
-        //    {
-        //        comboBox.Items.Add(item);
-        //    }
-        //    if (comboBox.Items.Count == 0)
-        //    {
-        //        comboBox.Items.Add("-Specializare inexistenta-");
-        //    }
-        //}
-
         /// <summary>
         /// Incarca cu valori numerice: ex pentru durata de 1-6 ani
         /// </summary>
@@ -188,8 +137,6 @@ namespace LibrarieModele
                 comboBox.Items.Add(i);
             }
         }
-
-
 
         #endregion
 

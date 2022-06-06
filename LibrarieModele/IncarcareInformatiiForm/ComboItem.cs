@@ -39,7 +39,6 @@ namespace LibrarieModele
             // returneaza 'true' daca atat textele cat si valorile celor 2 obiecte sunt identice intre ele
             return (this.Text.Equals(ci.Text) && this.Id == ci.Id);
         }
-
         public override int GetHashCode()
         {
             return this.Id;

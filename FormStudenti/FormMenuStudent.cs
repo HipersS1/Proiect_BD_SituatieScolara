@@ -2,12 +2,9 @@
 using NivelAccesDate;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect_BD_SituatieScolara
@@ -355,16 +352,11 @@ namespace Proiect_BD_SituatieScolara
 
         #endregion
 
-        private void dataGridView1_DataSourceChanged(object sender, EventArgs e)
-        {
-            DataGridView dataGrid = (DataGridView)sender;
-            dataGrid.CurrentCell = null;
-        }
-
         private void dataGridView1_DataSourceChanged_1(object sender, EventArgs e)
         {
             labelNumarElemente.Text = $"Nr.Elemente: {dataGridView1.RowCount}";
             dataGridView1.CurrentCell = null;
+            dataGridView1.Font = new Font("SEGOE UI", 12);
         }
     }
 }

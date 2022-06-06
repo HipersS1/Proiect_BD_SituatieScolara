@@ -2,12 +2,10 @@
 using NivelAccesDate;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect_BD_SituatieScolara
@@ -20,7 +18,6 @@ namespace Proiect_BD_SituatieScolara
         private readonly IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
         private readonly IStocareProgrameStudii stocareProgrameStudii = (IStocareProgrameStudii)new StocareFactory().GetTipStocare(typeof(ProgramStudiu));
         private readonly IStocareProgramStudiuMaterie stocareMateriiProgramStudiu = (IStocareProgramStudiuMaterie)new StocareFactory().GetTipStocare(typeof(ProgramStudiuMaterie));
-        private const int PRIMA_COLOANA = 0;
         private List<Facultate> listFacultati;
         private List<ProgramStudiu> listProgramStudiu;
         private bool itemAdaugat = false;
@@ -297,7 +294,6 @@ namespace Proiect_BD_SituatieScolara
                     MessageBox.Show($"{mesajEroare}");
                     return null;
                 }
-
 
                 var programStudiu = listProgramStudiu.Where(p => p.Ciclu == cicluStudiuSelected && p.Specializare == specializareSelected && p.IdFacultate == idFacultateSelected)
                                                      .Select(p => p.IdProgramStudiu)

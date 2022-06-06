@@ -2,12 +2,8 @@
 using NivelAccesDate;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect_BD_SituatieScolara
@@ -18,6 +14,9 @@ namespace Proiect_BD_SituatieScolara
         private const int PRIMA_COLOANA = 0;
         private const int MAXANI = 6;
         private readonly FormWindowState windowState;
+
+        //
+        private const int WIDTHNUME = 400;
 
         public FormMenuMaterii(FormWindowState windowState)
         {
@@ -156,7 +155,7 @@ namespace Proiect_BD_SituatieScolara
             try
             {
                 var materii = stocareMaterii.GetMaterii();
-                IncarcareDataGridView.AfisareMaterii(dataGridView1, materii);
+                IncarcareDataGridView.AfisareMaterii(dataGridView1, materii,WIDTHNUME);
             }
             catch (Exception)
             {
@@ -167,7 +166,7 @@ namespace Proiect_BD_SituatieScolara
         {
             try
             {
-                IncarcareDataGridView.AfisareMaterii(dataGridView1, listaAfisare);
+                IncarcareDataGridView.AfisareMaterii(dataGridView1, listaAfisare, WIDTHNUME);
             }
             catch (Exception)
             {
@@ -203,6 +202,7 @@ namespace Proiect_BD_SituatieScolara
         {
             labelNumarElemente.Text = $"Nr.Elemente: {dataGridView1.RowCount}";
             dataGridView1.CurrentCell = null;
+            dataGridView1.Font = new Font("SEGOE UI", 14);
         }
     }
 }

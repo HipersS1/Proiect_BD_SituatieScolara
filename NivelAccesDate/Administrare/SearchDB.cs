@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using LibrarieModele;
 
 namespace NivelAccesDate
@@ -32,7 +30,7 @@ namespace NivelAccesDate
             foreach (DataRow linieDB in ds.Tables[PRIMUL_TABEL].Rows)
             {
                 result.Add((T)Activator.CreateInstance(typeof(T), new object[] {linieDB}));
-            }
+            } 
             return result;
         }
 

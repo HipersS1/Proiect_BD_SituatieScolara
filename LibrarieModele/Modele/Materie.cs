@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibrarieModele
 {
     public class Materie
     {
-        private DataRow linieDB;
-
         public int IdMaterie { get; set; }
         public string Denumire { get; set; }
         public int An { get; set; }
@@ -18,6 +13,7 @@ namespace LibrarieModele
         public int ProcentLaborator { get; set; }
         public int ProcentCurs { get; set; }
 
+        #region Constructors
         public Materie(string denumire, int an, int semestru, int procentLaborator, int procentCurs, int idMaterie = 0)
         {
             IdMaterie = idMaterie;
@@ -37,6 +33,7 @@ namespace LibrarieModele
             ProcentLaborator = Convert.ToInt32(linieDB["ProcentLaborator"]);
             ProcentCurs = Convert.ToInt32(linieDB["ProcentCurs"]);
         }
+        #endregion
 
         #region Equals
         public override bool Equals(object obj)

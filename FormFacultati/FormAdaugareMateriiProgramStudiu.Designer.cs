@@ -75,7 +75,7 @@
             this.panelForm.Location = new System.Drawing.Point(0, 0);
             this.panelForm.Name = "panelForm";
             this.panelForm.Padding = new System.Windows.Forms.Padding(1);
-            this.panelForm.Size = new System.Drawing.Size(1063, 635);
+            this.panelForm.Size = new System.Drawing.Size(1124, 638);
             this.panelForm.TabIndex = 0;
             // 
             // panelCenter
@@ -85,7 +85,7 @@
             this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCenter.Location = new System.Drawing.Point(1, 77);
             this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(1061, 557);
+            this.panelCenter.Size = new System.Drawing.Size(1122, 560);
             this.panelCenter.TabIndex = 2;
             // 
             // panel1
@@ -97,7 +97,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1061, 557);
+            this.panel1.Size = new System.Drawing.Size(1122, 560);
             this.panel1.TabIndex = 1;
             // 
             // panelInputs
@@ -114,16 +114,16 @@
             this.panelInputs.Controls.Add(this.btnAnuleaza);
             this.panelInputs.Controls.Add(this.btnTrimite);
             this.panelInputs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelInputs.Location = new System.Drawing.Point(72, 0);
+            this.panelInputs.Location = new System.Drawing.Point(30, 0);
             this.panelInputs.Name = "panelInputs";
-            this.panelInputs.Size = new System.Drawing.Size(917, 557);
+            this.panelInputs.Size = new System.Drawing.Size(1062, 560);
             this.panelInputs.TabIndex = 17;
             // 
             // labelNrMateriiCurente
             // 
             this.labelNrMateriiCurente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelNrMateriiCurente.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNrMateriiCurente.Location = new System.Drawing.Point(6, 523);
+            this.labelNrMateriiCurente.Location = new System.Drawing.Point(70, 526);
             this.labelNrMateriiCurente.Name = "labelNrMateriiCurente";
             this.labelNrMateriiCurente.Size = new System.Drawing.Size(213, 25);
             this.labelNrMateriiCurente.TabIndex = 19;
@@ -134,7 +134,7 @@
             // 
             this.labelNrMateriiTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelNrMateriiTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNrMateriiTotal.Location = new System.Drawing.Point(234, 523);
+            this.labelNrMateriiTotal.Location = new System.Drawing.Point(295, 526);
             this.labelNrMateriiTotal.Name = "labelNrMateriiTotal";
             this.labelNrMateriiTotal.Size = new System.Drawing.Size(222, 25);
             this.labelNrMateriiTotal.TabIndex = 18;
@@ -144,7 +144,7 @@
             // buttonElimina
             // 
             this.buttonElimina.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonElimina.Location = new System.Drawing.Point(618, 516);
+            this.buttonElimina.Location = new System.Drawing.Point(762, 516);
             this.buttonElimina.Name = "buttonElimina";
             this.buttonElimina.Size = new System.Drawing.Size(144, 38);
             this.buttonElimina.TabIndex = 1;
@@ -158,16 +158,16 @@
             this.labelFacultateProgram.Font = new System.Drawing.Font("Segoe UI Semibold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFacultateProgram.Location = new System.Drawing.Point(6, 8);
             this.labelFacultateProgram.Name = "labelFacultateProgram";
-            this.labelFacultateProgram.Size = new System.Drawing.Size(906, 80);
+            this.labelFacultateProgram.Size = new System.Drawing.Size(1050, 80);
             this.labelFacultateProgram.TabIndex = 14;
             this.labelFacultateProgram.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.labelMaterii);
-            this.panel5.Location = new System.Drawing.Point(462, 91);
+            this.panel5.Location = new System.Drawing.Point(536, 91);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(450, 51);
+            this.panel5.Size = new System.Drawing.Size(520, 51);
             this.panel5.TabIndex = 13;
             // 
             // labelMaterii
@@ -176,7 +176,7 @@
             this.labelMaterii.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMaterii.Location = new System.Drawing.Point(0, 0);
             this.labelMaterii.Name = "labelMaterii";
-            this.labelMaterii.Size = new System.Drawing.Size(450, 51);
+            this.labelMaterii.Size = new System.Drawing.Size(520, 51);
             this.labelMaterii.TabIndex = 2;
             this.labelMaterii.Text = "Selecteaza materiile dorite";
             this.labelMaterii.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -186,7 +186,7 @@
             this.panel4.Controls.Add(this.labelMateriiCurente);
             this.panel4.Location = new System.Drawing.Point(6, 91);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(450, 51);
+            this.panel4.Size = new System.Drawing.Size(520, 51);
             this.panel4.TabIndex = 12;
             // 
             // labelMateriiCurente
@@ -195,7 +195,7 @@
             this.labelMateriiCurente.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMateriiCurente.Location = new System.Drawing.Point(0, 0);
             this.labelMateriiCurente.Name = "labelMateriiCurente";
-            this.labelMateriiCurente.Size = new System.Drawing.Size(450, 51);
+            this.labelMateriiCurente.Size = new System.Drawing.Size(520, 51);
             this.labelMateriiCurente.TabIndex = 2;
             this.labelMateriiCurente.Text = "Materii Curente";
             this.labelMateriiCurente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -225,19 +225,19 @@
             this.dataGridViewMaterii.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewMaterii.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewMaterii.Location = new System.Drawing.Point(462, 148);
+            this.dataGridViewMaterii.Location = new System.Drawing.Point(536, 149);
             this.dataGridViewMaterii.Name = "dataGridViewMaterii";
             this.dataGridViewMaterii.RowHeadersVisible = false;
             this.dataGridViewMaterii.RowHeadersWidth = 51;
             this.dataGridViewMaterii.RowTemplate.Height = 24;
             this.dataGridViewMaterii.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewMaterii.Size = new System.Drawing.Size(450, 361);
+            this.dataGridViewMaterii.Size = new System.Drawing.Size(520, 361);
             this.dataGridViewMaterii.TabIndex = 11;
             this.dataGridViewMaterii.TabStop = false;
             this.dataGridViewMaterii.DataSourceChanged += new System.EventHandler(this.dataGridViewMaterii_DataSourceChanged);
@@ -267,19 +267,19 @@
             this.dataGridViewMateriiCurente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewMateriiCurente.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewMateriiCurente.Location = new System.Drawing.Point(6, 148);
+            this.dataGridViewMateriiCurente.Location = new System.Drawing.Point(6, 149);
             this.dataGridViewMateriiCurente.Name = "dataGridViewMateriiCurente";
             this.dataGridViewMateriiCurente.RowHeadersVisible = false;
             this.dataGridViewMateriiCurente.RowHeadersWidth = 51;
             this.dataGridViewMateriiCurente.RowTemplate.Height = 24;
             this.dataGridViewMateriiCurente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewMateriiCurente.Size = new System.Drawing.Size(450, 361);
+            this.dataGridViewMateriiCurente.Size = new System.Drawing.Size(520, 361);
             this.dataGridViewMateriiCurente.TabIndex = 10;
             this.dataGridViewMateriiCurente.TabStop = false;
             this.dataGridViewMateriiCurente.DataSourceChanged += new System.EventHandler(this.dataGridViewMateriiCurente_DataSourceChanged);
@@ -287,18 +287,18 @@
             // btnAnuleaza
             // 
             this.btnAnuleaza.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnuleaza.Location = new System.Drawing.Point(768, 516);
+            this.btnAnuleaza.Location = new System.Drawing.Point(912, 516);
             this.btnAnuleaza.Name = "btnAnuleaza";
             this.btnAnuleaza.Size = new System.Drawing.Size(144, 38);
             this.btnAnuleaza.TabIndex = 2;
-            this.btnAnuleaza.Text = "Anuleaza";
+            this.btnAnuleaza.Text = "Inchide";
             this.btnAnuleaza.UseVisualStyleBackColor = true;
             this.btnAnuleaza.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnTrimite
             // 
             this.btnTrimite.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTrimite.Location = new System.Drawing.Point(462, 516);
+            this.btnTrimite.Location = new System.Drawing.Point(612, 516);
             this.btnTrimite.Name = "btnTrimite";
             this.btnTrimite.Size = new System.Drawing.Size(144, 38);
             this.btnTrimite.TabIndex = 0;
@@ -310,9 +310,9 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(190)))), ((int)(((byte)(160)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(989, 0);
+            this.panel3.Location = new System.Drawing.Point(1092, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(72, 557);
+            this.panel3.Size = new System.Drawing.Size(30, 560);
             this.panel3.TabIndex = 16;
             // 
             // panel2
@@ -321,7 +321,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(72, 557);
+            this.panel2.Size = new System.Drawing.Size(30, 560);
             this.panel2.TabIndex = 15;
             // 
             // panelTop
@@ -331,7 +331,7 @@
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(1, 1);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1061, 76);
+            this.panelTop.Size = new System.Drawing.Size(1122, 76);
             this.panelTop.TabIndex = 0;
             // 
             // labelFormularAdaugareMaterii
@@ -342,7 +342,7 @@
             this.labelFormularAdaugareMaterii.Font = new System.Drawing.Font("Segoe UI Black", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFormularAdaugareMaterii.Location = new System.Drawing.Point(0, 0);
             this.labelFormularAdaugareMaterii.Name = "labelFormularAdaugareMaterii";
-            this.labelFormularAdaugareMaterii.Size = new System.Drawing.Size(1061, 76);
+            this.labelFormularAdaugareMaterii.Size = new System.Drawing.Size(1122, 76);
             this.labelFormularAdaugareMaterii.TabIndex = 1;
             this.labelFormularAdaugareMaterii.Text = "Formular Adaugare Materii";
             this.labelFormularAdaugareMaterii.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -351,7 +351,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1063, 635);
+            this.ClientSize = new System.Drawing.Size(1124, 638);
             this.Controls.Add(this.panelForm);
             this.Font = new System.Drawing.Font("Calibri", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

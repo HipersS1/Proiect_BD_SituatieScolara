@@ -37,6 +37,7 @@
             this.panelDelimiterBottom = new System.Windows.Forms.Panel();
             this.panelDelimiterTop = new System.Windows.Forms.Panel();
             this.panelDelimiterCenter = new System.Windows.Forms.Panel();
+            this.labelNumarElemente = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonClearSearch = new System.Windows.Forms.Button();
             this.btnCauta = new System.Windows.Forms.Button();
@@ -62,7 +63,6 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.labelMenuStudents = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelNumarElemente = new System.Windows.Forms.Label();
             this.panelForm.SuspendLayout();
             this.panelCenter.SuspendLayout();
             this.panelDelimiterCenter.SuspendLayout();
@@ -140,6 +140,18 @@
             this.panelDelimiterCenter.Size = new System.Drawing.Size(881, 524);
             this.panelDelimiterCenter.TabIndex = 2;
             // 
+            // labelNumarElemente
+            // 
+            this.labelNumarElemente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelNumarElemente.AutoSize = true;
+            this.labelNumarElemente.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNumarElemente.Location = new System.Drawing.Point(744, 480);
+            this.labelNumarElemente.Name = "labelNumarElemente";
+            this.labelNumarElemente.Size = new System.Drawing.Size(112, 25);
+            this.labelNumarElemente.TabIndex = 20;
+            this.labelNumarElemente.Text = "nr.elemente";
+            this.labelNumarElemente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -177,6 +189,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(14, 116);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -472,18 +485,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // labelNumarElemente
-            // 
-            this.labelNumarElemente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelNumarElemente.AutoSize = true;
-            this.labelNumarElemente.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNumarElemente.Location = new System.Drawing.Point(744, 480);
-            this.labelNumarElemente.Name = "labelNumarElemente";
-            this.labelNumarElemente.Size = new System.Drawing.Size(112, 25);
-            this.labelNumarElemente.TabIndex = 20;
-            this.labelNumarElemente.Text = "nr.elemente";
-            this.labelNumarElemente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FormMenuStudent
             // 

@@ -2,20 +2,15 @@
 using NivelAccesDate;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proiect_BD_SituatieScolara
 {
     public partial class FormAdaugaNote : Form
     {
-        private readonly IStocareStudenti stocareStudenti = (IStocareStudenti)new StocareFactory().GetTipStocare(typeof(Student));
-        private readonly IStocareFacultati stocareFacultati = (IStocareFacultati)new StocareFactory().GetTipStocare(typeof(Facultate));
         private readonly IStocareMaterii stocareMaterii = (IStocareMaterii)new StocareFactory().GetTipStocare(typeof(Materie));
         private readonly IStocareNote stocareNote = (IStocareNote)new StocareFactory().GetTipStocare(typeof(Note));
 
@@ -24,6 +19,9 @@ namespace Proiect_BD_SituatieScolara
         private readonly ProgramStudiu programStudiuCurent;
         private List<int> idMateriiActualizate = new List<int>();
 
+        //
+        private const int WIDTHNUME = 230;
+
         public FormAdaugaNote(Student student, Facultate facultate, ProgramStudiu programStudiu)
         {
             InitializeComponent();
@@ -31,15 +29,10 @@ namespace Proiect_BD_SituatieScolara
             facultateCurenta = facultate;
             programStudiuCurent = programStudiu;
 
-            if(stocareMaterii == null)
+            if(stocareMaterii == null || stocareNote == null)
             {
                 MessageBox.Show("Eroare la initializare");
             }
-            else
-            {
-                
-            }
-
         }
 
         private void FormAdaugaNote_Load(object sender, EventArgs e)
@@ -63,6 +56,7 @@ namespace Proiect_BD_SituatieScolara
 
         private void btnTrimite_Click(object sender, EventArgs e)
         {
+            bool succes = false;
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 int idMaterie = Convert.ToInt32(row.Cells["IDMATERIE"].Value);
@@ -82,10 +76,13 @@ namespace Proiect_BD_SituatieScolara
                     else
                     {
                         idMateriiActualizate.Remove(idMaterie);
-                        MessageBox.Show("Actualizarea a avut succes");
+                        succes = true;
                     }
                 }
             }
+            if (succes == true)
+                MessageBox.Show("Actualizarea a avut succes");
+
         }
 
         private void dataGridView1_DataSourceChanged(object sender, EventArgs e)
@@ -102,7 +99,7 @@ namespace Proiect_BD_SituatieScolara
         {
             try
             {
-                IncarcareDataGridView.AfisareDataSetMateriiNote(dataGridView1, materii);
+                IncarcareDataGridView.AfisareDataSetMateriiNote(dataGridView1, materii, WIDTHNUME);
             }
             catch (Exception ex)
             {
@@ -120,20 +117,28 @@ namespace Proiect_BD_SituatieScolara
             int columnIndex = e.ColumnIndex;
             int rowIndex = e.RowIndex;
 
+            var cellNotaLab = dataGridView1.Rows[rowIndex].Cells["NOTALABORATOR"].Value;
+            var cellNotaCurs = dataGridView1.Rows[rowIndex].Cells["NOTACURS"].Value;
+
             int procentLab = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["PROCENTLABORATOR"].Value);
             int procentCurs = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["PROCENTCURS"].Value);
 
-            var cellNotaLab = dataGridView1.Rows[rowIndex].Cells["NOTALABORATOR"];
-            var cellNotaCurs = dataGridView1.Rows[rowIndex].Cells["NOTACURS"];
+            
             var idMaterie = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["IDMATERIE"].Value);
 
-            if (columnIndex == dataGridView1.Rows[0].Cells["NOTALABORATOR"].ColumnIndex)
-            {
 
-                if (cellNotaCurs.Value != DBNull.Value)
+            if (columnIndex == dataGridView1.Rows[0].Cells["NOTALABORATOR"].ColumnIndex && cellNotaLab != DBNull.Value)
+            {
+                decimal notaLab = Convert.ToDecimal(cellNotaLab);
+                if (!NotaValida(notaLab))
                 {
-                    decimal notaLab = Convert.ToDecimal(dataGridView1.Rows[rowIndex].Cells["NOTALABORATOR"].Value);
-                    decimal notaCurs = Convert.ToDecimal(dataGridView1.Rows[rowIndex].Cells["NOTACURS"].Value);
+                    dataGridView1.Rows[rowIndex].Cells["NOTALABORATOR"].Value = DBNull.Value;
+                    MessageBox.Show("Nota de la laborator trebuie sa fie in intervalul [1.00, 10.00]");
+                    return;
+                }
+                if (cellNotaCurs != DBNull.Value)
+                {
+                    decimal notaCurs = Convert.ToDecimal(cellNotaCurs);
 
                     dataGridView1.Rows[rowIndex].Cells["NOTAFINALA"].Value = CalculeazaNotaFinala(notaLab, notaCurs, procentLab, procentCurs);
 
@@ -144,12 +149,20 @@ namespace Proiect_BD_SituatieScolara
                 }
             }
 
-            if (columnIndex == dataGridView1.Rows[0].Cells["NOTACURS"].ColumnIndex)
+            if (columnIndex == dataGridView1.Rows[0].Cells["NOTACURS"].ColumnIndex && cellNotaCurs != DBNull.Value)
             {
-                if (cellNotaLab.Value != DBNull.Value)
+                decimal notaCurs = Convert.ToDecimal(cellNotaCurs);
+                if (!NotaValida(notaCurs))
                 {
-                    decimal notaLab = Convert.ToDecimal(dataGridView1.Rows[rowIndex].Cells["NOTALABORATOR"].Value);
-                    decimal notaCurs = Convert.ToDecimal(dataGridView1.Rows[rowIndex].Cells["NOTACURS"].Value);
+                    dataGridView1.Rows[rowIndex].Cells["NOTACURS"].Value = DBNull.Value;
+                    MessageBox.Show("Nota de la curs trebuie sa fie in intervalul [1.00, 10.00]");
+                    return;
+                }
+
+                if (cellNotaLab != DBNull.Value)
+                {
+                    decimal notaLab = Convert.ToDecimal(cellNotaLab);
+                    
 
                     dataGridView1.Rows[rowIndex].Cells["NOTAFINALA"].Value = CalculeazaNotaFinala(notaLab, notaCurs, procentLab, procentCurs);
                     if (!idMateriiActualizate.Contains(idMaterie))
@@ -169,8 +182,17 @@ namespace Proiect_BD_SituatieScolara
         private void dataGridView1_DataSourceChanged_1(object sender, EventArgs e)
         {
             labelNumarElemente.Text = $"Nr.Elemente: {dataGridView1.RowCount}";
+            dataGridView1.Font = new Font("SEGOE UI", 14);
             dataGridView1.CurrentCell = null;
+        }
 
+        private bool NotaValida(decimal numar)
+        {
+            if (numar >= 1.00m && numar <= 10.00m)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

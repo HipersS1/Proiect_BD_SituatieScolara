@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LibrarieModele;
-using NivelAccesDate;
 using Oracle.DataAccess.Client;
 
 namespace NivelAccesDate
@@ -16,11 +11,7 @@ namespace NivelAccesDate
         private const int PRIMUL_TABEL = 0;
         private const int PRIMA_LINIE = 0;
         private readonly string _tableName = ConfigurationManager.AppSettings.Get("TableNameMaterii");
-        private readonly string _tableNameFacultate = ConfigurationManager.AppSettings.Get("TableNameFacultati");
-        private readonly string _tableNameProgrameStudii = ConfigurationManager.AppSettings.Get("TableNameProgrameStudii");
-
         private readonly string _tableSequence = ConfigurationManager.AppSettings.Get("TableSequenceMaterii");
-
 
         public bool tobedeleted()
         {
